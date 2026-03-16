@@ -24,7 +24,7 @@ export function ContactSection() {
     const newErrors: Partial<FormData> = {};
     if (!form.name.trim()) newErrors.name = 'Vyplňte jméno';
     if (!form.phone.trim()) newErrors.phone = 'Vyplňte telefon';
-    if (!form.email.trim() || !form.email.includes('@')) newErrors.email = 'Vyplňte platný e-mail';
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = 'Vyplňte platný e-mail';
     return newErrors;
   };
 
