@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 interface BeforeAfterSliderProps {
   label?: string;
@@ -19,9 +19,9 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
   }, []);
 
   const onMouseDown = useCallback(() => { isDragging.current = true; }, []);
-  const onMouseMove = useCallback((e: MouseEvent) => { if (isDragging.current) updatePosition(e.clientX); }, [updatePosition]);
+  const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => { if (isDragging.current) updatePosition(e.clientX); }, [updatePosition]);
   const onMouseUp = useCallback(() => { isDragging.current = false; }, []);
-  const onTouchMove = useCallback((e: TouchEvent) => { updatePosition(e.touches[0].clientX); }, [updatePosition]);
+  const onTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => { updatePosition(e.touches[0].clientX); }, [updatePosition]);
 
   return (
     <div
