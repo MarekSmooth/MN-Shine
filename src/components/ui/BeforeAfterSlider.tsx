@@ -86,7 +86,7 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
           justifyContent: 'center',
           boxShadow: '0 0 10px rgba(0,0,0,0.5)',
         }}>
-          <span style={{ color: '#0a0a0a', fontSize: '0.7rem', fontWeight: 700 }}>◀▶</span>
+          <span aria-hidden="true" style={{ color: '#0a0a0a', fontSize: '0.7rem', fontWeight: 700 }}>◀▶</span>
         </div>
       </div>
 

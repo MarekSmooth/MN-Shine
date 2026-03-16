@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Heart, Shield, Star, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'O nás | MN Shine Detailing',
+  title: 'O nás',
   description: 'Seznamte se s MN Shine Detailing. Prémiové detailing studio ve Vojkovicích u Brna. Náš příběh, hodnoty a přístup ke každému vozidlu.',
 };
 

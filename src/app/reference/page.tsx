@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Reference | MN Shine Detailing',
+  title: 'Reference',
   description: 'Reference a hodnocení zákazníků MN Shine Detailing. Přečtěte si, co říkají spokojení zákazníci z Brna a okolí.',
 };
 
@@ -114,7 +114,7 @@ export default function ReferencePage() {
 
               {/* Review text */}
               <p style={{ color: '#9CA3AF', lineHeight: 1.7, margin: 0, flex: 1, fontStyle: 'italic' }}>
-                &ldquo;{review.text}&rdquo;
+                &#8220;{review.text}&#8221;
               </p>
 
               {/* Author */}

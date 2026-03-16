@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Galerie | MN Shine Detailing',
+  title: 'Galerie',
   description: 'Prohlédněte si galerii prací MN Shine Detailing. Výsledky čištění interiéru, renovace laku, keramické ochrany a kompletního detailingu.',
 };
 

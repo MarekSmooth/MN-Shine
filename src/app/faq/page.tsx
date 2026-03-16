@@ -4,7 +4,7 @@ import { faqs } from '@/data/faq';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Časté dotazy (FAQ) | MN Shine Detailing',
+  title: 'Časté dotazy (FAQ)',
   description: 'Odpovědi na nejčastější dotazy k auto detailingu, čištění interiéru, keramické ochraně a cenách. MN Shine Detailing Brno.',
 };
 
