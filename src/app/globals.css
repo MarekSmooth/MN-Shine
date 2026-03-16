@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C8A97E;
+  --color-gold-dark: #B8966A;
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1a1a1a;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Gold button utility */
+.btn-gold {
+  background-color: #C8A97E;
+  color: #0a0a0a;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.btn-gold:hover {
+  background-color: #B8966A;
+}
+
+/* Gold outline button */
+.btn-outline-gold {
+  border: 1px solid #C8A97E;
+  color: #C8A97E;
+  background: transparent;
+  transition: all 0.2s;
+}
+.btn-outline-gold:hover {
+  background-color: #C8A97E;
+  color: #0a0a0a;
+}
+
+/* Section backgrounds */
+.section-primary { background-color: #0a0a0a; }
+.section-secondary { background-color: #111111; }
+.section-tertiary { background-color: #1a1a1a; }
+
+/* Gold accent text */
+.text-gold { color: #C8A97E; }
+
+/* Gold border */
+.border-gold { border-color: #C8A97E; }
+
+/* Divider line */
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background-color: #C8A97E;
+  margin: 0 auto 1rem;
+}
