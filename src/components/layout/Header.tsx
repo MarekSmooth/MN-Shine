@@ -46,7 +46,7 @@ export function Header() {
         </Link>
 
         {/* CTA top right */}
-        <div style={{ position: 'absolute', right: '2rem', top: '50%', transform: 'translateY(-50%)', display: 'flex', gap: '0.75rem', alignItems: 'center' }} className="hidden md:flex">
+        <div style={{ position: 'absolute', right: '2rem', top: '50%', transform: 'translateY(-50%)', gap: '0.75rem', alignItems: 'center' }} className="hidden md:flex">
           <Link
             href="/kontakt"
             style={{ padding: '0.5rem 1.4rem', backgroundColor: '#111111', color: '#FFFFFF', textDecoration: 'none', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s' }}
