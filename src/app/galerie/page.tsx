@@ -21,7 +21,7 @@ const placeholderTiles = Array.from({ length: 12 }, (_, i) => ({
 
 export default function GaleriePage() {
   return (
-    <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingTop: '120px', paddingBottom: '5rem' }}>
+    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingBottom: '5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* Header */}

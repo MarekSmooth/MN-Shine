@@ -111,6 +111,7 @@ body {
   animation: expand-line 0.8s ease forwards;
 }
 .hero-badge {
+  display: inline-flex;
   animation: fade-in-badge 0.7s ease forwards;
 }
 
@@ -128,4 +129,69 @@ body {
   border-color: rgba(200,169,126,0.45);
   box-shadow: 0 8px 40px rgba(200,169,126,0.1);
   transform: translateY(-5px);
+}
+
+/* -------------------------------------------------------
+   Responsive utilities
+   ------------------------------------------------------- */
+
+/*
+ * Page top padding:
+ * Desktop — logo row (72px) + divider (1px) + nav row (44px) = 117px → use 120px
+ * Mobile  — nav row is hidden (md:block), only logo row (72px) + divider (1px) = 73px → use 74px
+ */
+.page-pt {
+  padding-top: 120px;
+}
+
+/* Hero inner content padding (controls vertical spacing inside the hero) */
+.hero-inner {
+  padding: 5rem 1.5rem;
+}
+
+/* Responsive 2-column form grid (contact form name + phone row) */
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ---- Mobile breakpoint ---- */
+@media (max-width: 767px) {
+  /* Reduce page top offset on mobile — only logo bar is visible */
+  .page-pt {
+    padding-top: 74px;
+  }
+
+  /* Hero: less vertical padding on small screens */
+  .hero-inner {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Hero badge: allow content to wrap, hide purely decorative lines */
+  .hero-badge {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .badge-line {
+    display: none;
+  }
+  /* Badge text: tighter letter-spacing so it fits on narrow screens */
+  .hero-badge > span:not(.badge-line) {
+    flex: 1 1 auto;
+    min-width: 0;
+    letter-spacing: 0.12em;
+  }
+
+  /* Form grid: single column on mobile */
+  .form-grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce large card inner padding on mobile */
+  .card-responsive-padding {
+    padding: 1.5rem !important;
+  }
 }

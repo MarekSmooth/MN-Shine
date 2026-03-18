@@ -40,7 +40,7 @@ export default function CisteniInterieru() {
     'https://mnshine.cz/sluzby/cisteni-interieru-brno'
   );  const faqSchema = getFAQSchema(faqItems);
   return (
-    <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingTop: '120px' }}>
+    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

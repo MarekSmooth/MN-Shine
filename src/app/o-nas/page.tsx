@@ -32,7 +32,7 @@ const values = [
 
 export default function ONasPage() {
   return (
-    <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingTop: '120px', paddingBottom: '5rem' }}>
+    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingBottom: '5rem' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* Hero */}
@@ -47,7 +47,7 @@ export default function ONasPage() {
         </div>
 
         {/* Story */}
-        <section style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(200,169,126,0.1)' }}>
+          <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(200,169,126,0.1)' }}>
           <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Náš příběh</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             MN Shine Detailing vzniklo z lásky k automobilům a touhy poskytnout zákazníkům v Jihomoravském kraji skutečně profesionální péči o jejich vozidla. Uvědomili jsme si, že na trhu chybí studio, které by kombinovalo prémiovost, individuální přístup a dostupnost pro zákazníky z Brna a okolí.
@@ -80,7 +80,7 @@ export default function ONasPage() {
         </section>
 
         {/* Stats */}
-        <section style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(200,169,126,0.1)' }}>
+        <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(200,169,126,0.1)' }}>
           <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem' }}>MN Shine v číslech</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '2rem', textAlign: 'center' }}>
             {[

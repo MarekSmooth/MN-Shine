@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <div style={{ paddingTop: '72px', backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
+    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <ContactSection />
     </div>
   );

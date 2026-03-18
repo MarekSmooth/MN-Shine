@@ -4,13 +4,13 @@ export function Hero() {
   return (
     <section
       aria-label="Úvodní sekce"
+      className="page-pt"
       style={{
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '120px',
         backgroundImage: 'url(/herobg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: '65% center',
@@ -25,10 +25,9 @@ export function Hero() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', padding: '5rem 1.5rem', width: '100%' }}>
+      <div className="hero-inner" style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         <div style={{ maxWidth: '700px' }}>
           <div className="hero-badge" style={{
-            display: 'inline-flex',
             alignItems: 'center',
             gap: '0.875rem',
             marginBottom: '2rem',
