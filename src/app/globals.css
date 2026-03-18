@@ -96,6 +96,22 @@ body {
   animation: bounce-arrow 1.6s ease-in-out infinite;
 }
 
+/* Hero slider — background image transitions */
+@keyframes hero-zoom-in {
+  from { opacity: 0; transform: scale(1.06); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes hero-zoom-out {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.97); }
+}
+
+/* Hero content text reveal */
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Badge line expand */
 @keyframes expand-line {
   from { width: 0; opacity: 0; }
@@ -137,11 +153,11 @@ body {
 
 /*
  * Page top padding:
- * Desktop — logo row (72px) + divider (1px) + nav row (44px) = 117px → use 120px
- * Mobile  — nav row is hidden (md:block), only logo row (72px) + divider (1px) = 73px → use 74px
+ * Desktop — single row split-nav header = 80px
+ * Mobile  — logo row only = 72px + 1px shadow = 74px
  */
 .page-pt {
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 /* Hero inner content padding (controls vertical spacing inside the hero) */
