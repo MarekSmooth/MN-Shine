@@ -157,7 +157,7 @@ export function Hero() {
               { value: '5+', label: 'Let zkušeností' },
             ].map(item => (
               <div key={item.value}>
-                <div style={{ color: '#C8A97E', fontSize: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-playfair, serif)' }}>{item.value}</div>
+                <div style={{ color: '#C8A97E', fontSize: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)' }}>{item.value}</div>
                 <div style={{ color: '#A09890', fontSize: '0.8rem' }}>{item.label}</div>
               </div>
             ))}
@@ -197,12 +197,6 @@ export function Hero() {
             />
           ))}
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div style={{ position: 'absolute', bottom: '1.75rem', right: '2rem', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', pointerEvents: 'none' }}>
-        <span style={{ color: 'rgba(200,169,126,0.55)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500 }}>Scroll</span>
-        <div className="bounce-arrow" style={{ width: '10px', height: '10px', borderRight: '1.5px solid rgba(200,169,126,0.65)', borderBottom: '1.5px solid rgba(200,169,126,0.65)' }} />
       </div>
     </section>
   );

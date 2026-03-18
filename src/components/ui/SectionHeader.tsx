@@ -17,7 +17,7 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = tru
         }} />
       )}
       <h2 style={{
-        fontFamily: 'var(--font-playfair, serif)',
+        fontFamily: 'var(--font-cinzel, serif)',
         fontSize: 'clamp(2rem, 3.5vw, 3rem)',
         fontWeight: 700,
         color: '#FFFFFF',

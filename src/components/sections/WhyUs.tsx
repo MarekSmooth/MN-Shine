@@ -54,7 +54,7 @@ export function WhyUs() {
               <span aria-hidden="true" style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#C8A97E', letterSpacing: '0.18em', marginBottom: '1.25rem' }}>
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-playfair, serif)' }}>{feature.title}</h3>
+              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-cinzel, serif)' }}>{feature.title}</h3>
               <p style={{ color: '#A09890', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
             </div>
           ))}

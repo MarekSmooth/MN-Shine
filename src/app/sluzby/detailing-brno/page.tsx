@@ -43,7 +43,7 @@ export default function DetailingBrnoPage() {
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Detailing Brno</div>
-          <h1 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1.5rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1.5rem' }}>
             Profesionální auto detailing<br /><span style={{ color: '#C8A97E' }}>Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
@@ -58,7 +58,7 @@ export default function DetailingBrnoPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co je auto detailing?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co je auto detailing?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             Auto detailing je profesionální péče o vozidlo, která jde daleko za rámec běžného mytí. Zahrnuje hloubkové čištění interiéru i exteriéru, korekci laku, ošetření povrchů a aplikaci ochranných produktů. Výsledkem je vozidlo v showroom kondici, které vypadá a voní jako nové.
           </p>
@@ -71,7 +71,7 @@ export default function DetailingBrnoPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Naše detailing služby v Brně</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Naše detailing služby v Brně</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
               { title: 'Kompletní detailing', desc: 'Mytí, dekontaminace, leštění laku, čištění interiéru, ošetření plastů a pneumatik, finální ochrana.' },
@@ -88,7 +88,7 @@ export default function DetailingBrnoPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proč zvolit MN Shine pro detailing v Brně?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proč zvolit MN Shine pro detailing v Brně?</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
               'Prémiové produkty – používáme profesionální přípravky od renomovaných značek',
@@ -107,7 +107,7 @@ export default function DetailingBrnoPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proces detailingu krok za krokem</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proces detailingu krok za krokem</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               { step: '01', title: 'Konzultace a prohlídka', desc: 'Provedeme prohlídku vozidla a prodiskutujeme vaše požadavky a očekávání.' },
@@ -118,7 +118,7 @@ export default function DetailingBrnoPage() {
               { step: '06', title: 'Finální kontrola', desc: 'Detailní prohlídka výsledku a předání vozidla zákazníkovi.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '8px' }}>
-                <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-playfair, serif)', minWidth: '32px' }}>{item.step}</span>
+                <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-cinzel, serif)', minWidth: '32px' }}>{item.step}</span>
                 <div>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{item.title}</h3>
                   <p style={{ color: '#9CA3AF', margin: 0, fontSize: '0.95rem' }}>{item.desc}</p>
@@ -129,12 +129,12 @@ export default function DetailingBrnoPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Časté dotazy k detailingu v Brně</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Časté dotazy k detailingu v Brně</h2>
           {faqItems.map(faq => <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />)}
         </section>
 
         <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(200,169,126,0.2)' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Připraveni objednat se?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Připraveni objednat se?</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Kontaktujte nás a domluvte si termín. Jsme tu pro zákazníky z Brna a celého Jihomoravského kraje.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>

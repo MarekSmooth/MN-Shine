@@ -18,7 +18,7 @@ export default function FAQPage() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Máte otázky?</div>
-          <h1 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
             Časté dotazy
           </h1>
           <p style={{ color: '#9CA3AF', lineHeight: 1.7 }}>
@@ -59,7 +59,7 @@ export default function FAQPage() {
           padding: '2.5rem',
           textAlign: 'center',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>
             Nenašli jste odpověď?
           </h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>

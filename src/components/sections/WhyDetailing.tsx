@@ -48,7 +48,7 @@ export function WhyDetailing() {
               borderRadius: '0 8px 8px 0',
             }}>
               <div style={{ color: '#C8A97E' }}>{benefit.icon}</div>
-              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', fontFamily: 'var(--font-playfair, serif)', margin: 0 }}>{benefit.title}</h3>
+              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', fontFamily: 'var(--font-cinzel, serif)', margin: 0 }}>{benefit.title}</h3>
               <p style={{ color: '#A09890', lineHeight: 1.6, margin: 0 }}>{benefit.description}</p>
             </div>
           ))}

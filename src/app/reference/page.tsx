@@ -59,7 +59,7 @@ export default function ReferencePage() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Spokojení zákazníci</div>
-          <h1 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
             Reference zákazníků
           </h1>
           <p style={{ color: '#9CA3AF', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
@@ -85,7 +85,7 @@ export default function ReferencePage() {
             { value: '100%', label: 'Doporučilo by nás', suffix: '' },
           ].map(stat => (
             <div key={stat.label}>
-              <div style={{ color: '#C8A97E', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-playfair, serif)', marginBottom: '0.5rem' }}>
+              <div style={{ color: '#C8A97E', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', marginBottom: '0.5rem' }}>
                 {stat.value}{stat.suffix}
               </div>
               <div style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>{stat.label}</div>
@@ -136,7 +136,7 @@ export default function ReferencePage() {
           textAlign: 'center',
           marginBottom: '3rem',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>
             Byli jste u nás?
           </h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>

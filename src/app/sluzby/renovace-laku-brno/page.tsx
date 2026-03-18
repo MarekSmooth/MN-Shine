@@ -48,7 +48,7 @@ export default function RenovaceLakuPage() {
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Renovace laku · Brno</div>
-          <h1 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1.5rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1.5rem' }}>
             Renovace a korekce laku<br /><span style={{ color: '#C8A97E' }}>Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
@@ -72,13 +72,13 @@ export default function RenovaceLakuPage() {
         <div style={{ backgroundColor: '#111111', border: '1px solid rgba(200,169,126,0.3)', borderRadius: '8px', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#C8A97E', fontSize: '1.75rem', fontWeight: 700, fontFamily: 'var(--font-playfair, serif)', margin: 0 }}>4 500 Kč</p>
+            <p style={{ color: '#C8A97E', fontSize: '1.75rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', margin: 0 }}>4 500 Kč</p>
           </div>
           <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a míře poškození laku. Po diagnostice připravíme přesnou kalkulaci.</p>
         </div>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co je korekce a renovace laku?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co je korekce a renovace laku?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             Renovace laku, neboli korekce laku, je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
           </p>
@@ -91,7 +91,7 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co odstraníme z vašeho laku?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Co odstraníme z vašeho laku?</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
             {[
               { icon: <Eye size={24} />, title: 'Víry (swirl marks)', desc: 'Drobné kruhové škrábance vzniklé nesprávným mytím nebo leštěním.' },
@@ -109,7 +109,7 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Typy korekce laku</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Typy korekce laku</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               {
@@ -135,7 +135,7 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proč zvolit profesionální leštění?</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Proč zvolit profesionální leštění?</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
               'Profesionální strojní leštění dosahuje výsledků, které ruční leštění neumožňuje',
@@ -153,7 +153,7 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Postup renovace laku</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Postup renovace laku</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               { step: '01', title: 'Diagnostika laku', desc: 'Měření tloušťky laku tloušťkoměrem a vizuální posouzení defektů při různém osvětlení.' },
@@ -164,7 +164,7 @@ export default function RenovaceLakuPage() {
               { step: '06', title: 'Ochrana', desc: 'Aplikace vosku, sealantu nebo keramického povlaku pro ochranu čerstvě vyleštěného laku.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '8px' }}>
-                <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-playfair, serif)', minWidth: '32px' }}>{item.step}</span>
+                <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-cinzel, serif)', minWidth: '32px' }}>{item.step}</span>
                 <div>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{item.title}</h3>
                   <p style={{ color: '#9CA3AF', margin: 0, fontSize: '0.95rem' }}>{item.desc}</p>
@@ -175,12 +175,12 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Časté dotazy k renovaci laku</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Časté dotazy k renovaci laku</h2>
           {faqItems.map(faq => <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />)}
         </section>
 
         <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(200,169,126,0.2)' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Objednejte renovaci laku</h2>
+          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Objednejte renovaci laku</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Kontaktujte nás pro nezávaznou konzultaci. Posoudíme stav vašeho laku a navrhneme optimální řešení.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>

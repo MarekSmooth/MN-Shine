@@ -65,7 +65,7 @@ export function ContactSection() {
         }}>
           {/* Contact Info */}
           <div>
-            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-playfair, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 777 123 456', href: 'tel:+420777123456' },
@@ -108,7 +108,7 @@ export function ContactSection() {
 
           {/* Form */}
           <div>
-            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-playfair, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
             {submitted ? (
               <div style={{
                 backgroundColor: 'rgba(200,169,126,0.1)',

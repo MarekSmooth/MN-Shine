@@ -38,7 +38,7 @@ export default function ServicesPage() {
               flexDirection: 'column',
               gap: '1rem',
             }}>
-              <h2 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', color: '#FFFFFF', margin: 0 }}>{service.title}</h2>
+              <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', margin: 0 }}>{service.title}</h2>
               <p style={{ color: '#9CA3AF', lineHeight: 1.7, flex: 1 }}>{service.fullDescription}</p>
               {service.price && (
                 <p style={{ color: '#C8A97E', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>{service.price}</p>
