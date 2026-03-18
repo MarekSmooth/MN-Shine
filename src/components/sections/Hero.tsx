@@ -8,63 +8,61 @@ export function Hero() {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%)',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '72px',
+        paddingTop: '120px',
+        backgroundImage: 'url(/herobg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: '65% center',
+        backgroundColor: '#0a0a0a',
       }}
     >
+      {/* Overlay — vlevo tma (text čitelný), vpravo průhledné (auto viditelné) */}
       <div style={{
         position: 'absolute',
-        top: '20%',
-        right: '-10%',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(200,169,126,0.08) 0%, transparent 70%)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '10%',
-        left: '-5%',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(200,169,126,0.05) 0%, transparent 70%)',
-        borderRadius: '50%',
+        inset: 0,
+        background: 'linear-gradient(105deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.60) 38%, rgba(5,5,5,0.18) 62%, rgba(5,5,5,0.0) 100%)',
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '5rem 1.5rem', width: '100%' }}>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', padding: '5rem 1.5rem', width: '100%' }}>
         <div style={{ maxWidth: '700px' }}>
-          <div style={{
+          <div className="hero-badge" style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.5rem',
-            backgroundColor: 'rgba(200,169,126,0.1)',
-            border: '1px solid rgba(200,169,126,0.3)',
-            borderRadius: '100px',
-            padding: '0.4rem 1rem',
+            gap: '0.875rem',
             marginBottom: '2rem',
           }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#C8A97E', display: 'inline-block' }} />
-            <span style={{ color: '#C8A97E', fontSize: '0.85rem', fontWeight: 500, letterSpacing: '0.05em' }}>Prémiové detailing studio · Vojkovice u Brna</span>
+            <span className="badge-line" style={{ width: '36px' }} />
+            <span style={{
+              color: '#FFFFFF',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              textShadow: '0 1px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)',
+            }}>
+              <span style={{ color: '#C8A97E' }}>MN Shine</span>
+              <span style={{ margin: '0 0.75em', color: 'rgba(200,169,126,0.5)', fontWeight: 300 }}>◆</span>
+              Detailingové studio pro Brno a okolí
+            </span>
+            <span className="badge-line" style={{ width: '36px' }} />
           </div>
 
           <h1 style={{
             fontFamily: 'var(--font-playfair, serif)',
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            fontSize: 'clamp(2.8rem, 5.5vw, 4.8rem)',
             fontWeight: 700,
             color: '#FFFFFF',
             lineHeight: 1.15,
             marginBottom: '1.5rem',
           }}>
-            Profesionální detailing<br />
-            <span style={{ color: '#C8A97E' }}>na úrovni prémiových studií</span>
+            Profesionální detailing a čištění vozů<br />
+            <span style={{ color: '#C8A97E' }}>Vojkovice u Brna</span>
           </h1>
 
           <p style={{
-            color: '#9CA3AF',
+            color: '#A09890',
             fontSize: 'clamp(1rem, 2vw, 1.2rem)',
             lineHeight: 1.7,
             marginBottom: '2.5rem',
@@ -116,11 +114,17 @@ export function Hero() {
             ].map(item => (
               <div key={item.value}>
                 <div style={{ color: '#C8A97E', fontSize: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-playfair, serif)' }}>{item.value}</div>
-                <div style={{ color: '#9CA3AF', fontSize: '0.8rem' }}>{item.label}</div>
+                <div style={{ color: '#A09890', fontSize: '0.8rem' }}>{item.label}</div>
               </div>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', pointerEvents: 'none' }}>
+        <span style={{ color: 'rgba(200,169,126,0.55)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 500 }}>Scroll</span>
+        <div className="bounce-arrow" style={{ width: '10px', height: '10px', borderRight: '1.5px solid rgba(200,169,126,0.65)', borderBottom: '1.5px solid rgba(200,169,126,0.65)' }} />
       </div>
     </section>
   );

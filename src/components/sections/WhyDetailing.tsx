@@ -49,7 +49,7 @@ export function WhyDetailing() {
             }}>
               <div style={{ color: '#C8A97E' }}>{benefit.icon}</div>
               <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', fontFamily: 'var(--font-playfair, serif)', margin: 0 }}>{benefit.title}</h3>
-              <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0 }}>{benefit.description}</p>
+              <p style={{ color: '#A09890', lineHeight: 1.6, margin: 0 }}>{benefit.description}</p>
             </div>
           ))}
         </div>

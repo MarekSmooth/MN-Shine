@@ -7,6 +7,16 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Naše služby',
   description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, renovace laku, keramická ochrana, detailing Brno.',
+  alternates: {
+    canonical: 'https://mnshine.cz/sluzby',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/sluzby',
+    title: 'Naše služby | MN Shine Detailing',
+    description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, renovace laku, keramická ochrana.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Služby MN Shine Detailing' }],
+  },
 };
 
 export default function ServicesPage() {

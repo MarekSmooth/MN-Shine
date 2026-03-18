@@ -14,28 +14,29 @@ interface ServiceCardProps {
 export function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
   return (
     <article style={{
-      backgroundColor: '#1a1a1a',
-      border: '1px solid rgba(200,169,126,0.15)',
-      borderRadius: '8px',
-      padding: '2rem',
+      backgroundColor: 'transparent',
+      borderTop: '1px solid rgba(255,255,255,0.1)',
+      padding: '2.5rem 0',
       display: 'flex',
       flexDirection: 'column',
       gap: '1rem',
-      transition: 'border-color 0.2s, transform 0.2s',
+      transition: 'border-color 0.3s',
+      position: 'relative',
+      cursor: 'default',
     }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(200,169,126,0.5)';
-        (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = '#C8A97E';
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(200,169,126,0.15)';
-        (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = 'rgba(255,255,255,0.1)';
       }}
     >
-      <div style={{ color: '#C8A97E', width: '48px', height: '48px' }}>{icon}</div>
-      <h3 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.25rem', fontWeight: 700, color: '#FFFFFF', margin: 0 }}>{title}</h3>
-      <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, flex: 1 }}>{description}</p>
-      <Link href={href} style={{ color: '#C8A97E', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 500 }}>
+      <div style={{ color: '#C8A97E', width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
+      <h3 style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF', margin: 0 }}>{title}</h3>
+      <p style={{ color: '#A09890', lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
+      <Link href={href} style={{ color: '#C8A97E', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
         Zjistit více <ArrowRight size={16} />
       </Link>
     </article>

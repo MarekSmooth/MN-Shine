@@ -41,7 +41,7 @@ export function ContactSection() {
   const inputStyle = {
     width: '100%',
     backgroundColor: '#1a1a1a',
-    border: '1px solid rgba(255,255,255,0.15)',
+    border: '1px solid rgba(200,169,126,0.2)',
     borderRadius: '4px',
     padding: '0.75rem 1rem',
     color: '#FFFFFF',

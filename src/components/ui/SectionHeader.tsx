@@ -18,11 +18,12 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = tru
       )}
       <h2 style={{
         fontFamily: 'var(--font-playfair, serif)',
-        fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+        fontSize: 'clamp(2rem, 3.5vw, 3rem)',
         fontWeight: 700,
         color: '#FFFFFF',
-        lineHeight: 1.2,
+        lineHeight: 1.15,
         marginBottom: subtitle ? '1rem' : 0,
+        letterSpacing: '-0.01em',
       }}>
         {title}
       </h2>

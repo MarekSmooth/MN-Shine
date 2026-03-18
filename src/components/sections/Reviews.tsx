@@ -41,7 +41,7 @@ export function Reviews() {
           borderRadius: '8px',
           padding: '2rem',
         }}>
-          <p style={{ color: '#9CA3AF', margin: 0 }}>
+          <p style={{ color: '#A09890', margin: 0 }}>
             <span style={{ color: '#C8A97E', fontWeight: 600 }}>Přidejte své hodnocení</span> – po realizaci vaší zakázky vás rádi požádáme o reference. Vaše zpětná vazba nám pomáhá růst.
           </p>
         </div>

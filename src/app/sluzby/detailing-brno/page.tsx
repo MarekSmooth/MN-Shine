@@ -1,13 +1,23 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema } from '@/lib/schema';
 import { CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Detailing Brno | Profesionální auto detailing',
   description: 'Profesionální auto detailing v Brně a okolí. Prémiová péče o vozidlo – čištění, leštění, ochrana laku. Studio ve Vojkovicích u Brna. Objednejte se ještě dnes.',
   keywords: ['detailing Brno', 'auto detailing Brno', 'detailing Brno-venkov', 'profesionální detailing Brno'],
+  alternates: {
+    canonical: 'https://mnshine.cz/sluzby/detailing-brno',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/sluzby/detailing-brno',
+    title: 'Detailing Brno | MN Shine Detailing',
+    description: 'Profesionální auto detailing v Brně a okolí. Studio ve Vojkovicích u Brna.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Detailing Brno – MN Shine' }],
+  },
 };
 
 const faqItems = [
@@ -22,10 +32,12 @@ export default function DetailingBrnoPage() {
     'Profesionální auto detailing studio v Brně. Čištění interiéru, renovace laku, keramická ochrana.',
     'https://mnshine.cz/sluzby/detailing-brno'
   );
+  const faqSchema = getFAQSchema(faqItems);
 
   return (
     <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingTop: '120px' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

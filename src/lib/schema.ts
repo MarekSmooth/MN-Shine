@@ -1,17 +1,23 @@
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'AutoRepair',
     name: 'MN Shine Detailing',
-    description: 'Profesionální auto detailing studio v Vojkovicích u Brna. Čištění interiéru, renovace laku, keramická ochrana.',
+    description: 'Profesionální auto detailing studio ve Vojkovicích u Brna. Čištění interiéru, renovace laku, keramická ochrana.',
     url: 'https://mnshine.cz',
     telephone: '+420777123456',
     email: 'info@mnshine.cz',
+    image: 'https://mnshine.cz/og-image.jpg',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Vojkovice',
       addressRegion: 'Jihomoravský kraj',
       addressCountry: 'CZ',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 49.083,
+      longitude: 16.617,
     },
     areaServed: ['Brno', 'Brno-venkov', 'Jihomoravský kraj'],
     priceRange: '$$',
@@ -40,11 +46,26 @@ export function getServiceSchema(name: string, description: string, url: string)
     name,
     description,
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'AutoRepair',
       name: 'MN Shine Detailing',
       url: 'https://mnshine.cz',
     },
     areaServed: 'Brno',
     url,
+  };
+}
+
+export function getFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
   };
 }

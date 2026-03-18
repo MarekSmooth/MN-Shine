@@ -1,3 +1,5 @@
+'use client';
+
 import { Shield, Star, Wrench, Eye, Award } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
@@ -40,22 +42,20 @@ export function WhyUs() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '1.5rem',
+          gap: '0 3rem',
         }}>
-          {features.map((feature) => (
+          {features.map((feature, i) => (
             <div
               key={feature.title}
-              style={{
-                backgroundColor: '#1a1a1a',
-                border: '1px solid rgba(200,169,126,0.12)',
-                borderRadius: '8px',
-                padding: '1.75rem',
-                transition: 'border-color 0.2s',
-              }}
+              style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '2rem 0', position: 'relative', transition: 'border-color 0.3s' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C8A97E'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'}
             >
-              <div style={{ color: '#C8A97E', marginBottom: '1rem' }}>{feature.icon}</div>
-              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.05rem', marginBottom: '0.75rem', fontFamily: 'var(--font-playfair, serif)' }}>{feature.title}</h3>
-              <p style={{ color: '#9CA3AF', lineHeight: 1.6, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
+              <span aria-hidden="true" style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: '#C8A97E', letterSpacing: '0.18em', marginBottom: '1.25rem' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-playfair, serif)' }}>{feature.title}</h3>
+              <p style={{ color: '#A09890', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
             </div>
           ))}
         </div>

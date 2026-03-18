@@ -7,7 +7,7 @@
   --color-bg-secondary: #111111;
   --color-bg-tertiary: #1a1a1a;
   --color-text-primary: #FFFFFF;
-  --color-text-secondary: #9CA3AF;
+  --color-text-secondary: #A09890;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Playfair Display', serif;
 }
@@ -19,18 +19,21 @@ html {
 body {
   background-color: #0a0a0a;
   color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter, sans-serif);
 }
 
 /* Gold button utility */
 .btn-gold {
   background-color: #C8A97E;
   color: #0a0a0a;
-  font-weight: 600;
-  transition: background-color 0.2s;
+  font-weight: 700;
+  transition: background-color 0.2s, color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 .btn-gold:hover {
-  background-color: #B8966A;
+  background-color: #FFFFFF;
+  color: #0a0a0a;
 }
 
 /* Gold outline button */
@@ -62,4 +65,67 @@ body {
   height: 2px;
   background-color: #C8A97E;
   margin: 0 auto 1rem;
+}
+
+/* Footer/nav link with gold hover */
+.link-gold-hover {
+  color: #A09890;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.link-gold-hover:hover {
+  color: #C8A97E;
+}
+
+/* Pulsing badge dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.7); }
+}
+.pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* Bouncing scroll arrow */
+@keyframes bounce-arrow {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.6; }
+  50% { transform: rotate(45deg) translate(4px, 4px); opacity: 1; }
+}
+.bounce-arrow {
+  animation: bounce-arrow 1.6s ease-in-out infinite;
+}
+
+/* Badge line expand */
+@keyframes expand-line {
+  from { width: 0; opacity: 0; }
+  to { width: 36px; opacity: 1; }
+}
+@keyframes fade-in-badge {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.badge-line {
+  height: 1px;
+  background-color: #C8A97E;
+  animation: expand-line 0.8s ease forwards;
+}
+.hero-badge {
+  animation: fade-in-badge 0.7s ease forwards;
+}
+
+/* Feature card with CSS hover (no JS needed) */
+.feature-card {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(200,169,126,0.12);
+  border-radius: 8px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.feature-card:hover {
+  border-color: rgba(200,169,126,0.45);
+  box-shadow: 0 8px 40px rgba(200,169,126,0.1);
+  transform: translateY(-5px);
 }

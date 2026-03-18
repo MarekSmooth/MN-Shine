@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -9,10 +8,16 @@ export function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
           {/* Brand */}
           <div>
-            <div style={{ fontFamily: 'var(--font-playfair, serif)', fontSize: '1.5rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '1rem' }}>
-              MN <span style={{ color: '#C8A97E' }}>Shine</span>
-            </div>
-            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '260px' }}>
+            <Link href="/" style={{ display: 'inline-block', marginBottom: '1rem' }}>
+              <Image
+                src="/mnlogo.png"
+                alt="MN Shine Detailing logo"
+                width={140}
+                height={44}
+                style={{ height: '44px', width: 'auto' }}
+              />
+            </Link>
+            <p style={{ color: '#A09890', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '260px' }}>
               Prémiové auto detailing studio v Vojkovicích u Brna. Pečujeme o vaše vozidlo s láskou a precizností.
             </p>
           </div>
@@ -30,10 +35,7 @@ export function Footer() {
                 { href: '/faq', label: 'FAQ' },
                 { href: '/kontakt', label: 'Kontakt' },
               ].map(link => (
-                <Link key={link.href} href={link.href} style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}
-                >{link.label}</Link>
+                <Link key={link.href} href={link.href} className="link-gold-hover">{link.label}</Link>
               ))}
             </nav>
           </div>
@@ -48,10 +50,7 @@ export function Footer() {
                 { href: '/sluzby/ochrana-laku-brno', label: 'Ochrana laku' },
                 { href: '/sluzby/detailing-brno', label: 'Detailing Brno' },
               ].map(link => (
-                <Link key={link.href} href={link.href} style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}
-                >{link.label}</Link>
+                <Link key={link.href} href={link.href} className="link-gold-hover">{link.label}</Link>
               ))}
             </nav>
           </div>

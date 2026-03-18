@@ -32,7 +32,7 @@ const services = [
 export function ServicesPreview() {
   return (
     <section style={{ backgroundColor: '#0a0a0a', padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', borderTop: '1px solid rgba(200,169,126,0.25)' }}>
         <SectionHeader
           title="Naše služby"
           subtitle="Kompletní péče o vaše vozidlo pod jednou střechou. Od čištění interiéru po keramickou ochranu."
@@ -40,7 +40,7 @@ export function ServicesPreview() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1.5rem',
+          gap: '0 3rem',
         }}>
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
