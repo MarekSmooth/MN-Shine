@@ -49,14 +49,13 @@ export function Header() {
     >
       {/* Desktop: split-nav — left links | logo center | right links + CTA */}
       <div
-        className="hidden md:grid"
+        className="hidden md:grid nav-desktop-inner"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 2rem',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
-          height: '130px',
         }}
       >
         {/* Left nav */}
