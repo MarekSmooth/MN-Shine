@@ -64,7 +64,7 @@ export function Hero() {
         <div
           key={`prev-${prev}`}
           style={{
-            position: 'absolute', top: '-5%', left: 0, right: 0, bottom: '-5%',
+            position: 'absolute', top: '-2%', left: 0, right: 0, bottom: '-2%',
             backgroundImage: `url(${prevSlide.image})`,
             backgroundSize: 'cover',
             backgroundPosition: prevSlide.position,
@@ -77,7 +77,7 @@ export function Hero() {
       <div
         key={`curr-${current}`}
         style={{
-          position: 'absolute', top: '-5%', left: 0, right: 0, bottom: '-5%',
+          position: 'absolute', top: '-2%', left: 0, right: 0, bottom: '-2%',
           backgroundImage: `url(${slide.image})`,
           backgroundSize: 'cover',
           backgroundPosition: slide.position,
