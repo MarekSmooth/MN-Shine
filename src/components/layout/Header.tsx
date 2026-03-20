@@ -56,7 +56,7 @@ export function Header() {
           padding: '0 2rem',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
-          height: '80px',
+          height: '130px',
         }}
       >
         {/* Left nav */}
@@ -113,7 +113,7 @@ export function Header() {
       {/* Mobile: logo centered + hamburger */}
       <div
         className="flex md:hidden"
-        style={{ alignItems: 'center', justifyContent: 'center', height: '72px', position: 'relative', padding: '0 1.5rem' }}
+        style={{ alignItems: 'center', justifyContent: 'center', height: '100px', position: 'relative', padding: '0 1.5rem' }}
       >
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           <Image

@@ -153,16 +153,24 @@ body {
 
 /*
  * Page top padding:
- * Desktop — single row split-nav header = 80px
- * Mobile  — logo row only = 72px + 1px shadow = 74px
+ * Desktop — taller split-nav header = 130px
+ * Mobile  — logo row = 100px
  */
 .page-pt {
-  padding-top: 80px;
+  padding-top: 130px;
 }
 
 /* Hero inner content padding (controls vertical spacing inside the hero) */
 .hero-inner {
   padding: 5rem 1.5rem;
+}
+
+/* Laptop / short-viewport: compact hero so second section is always visible */
+@media (min-width: 768px) and (max-height: 820px) {
+  .hero-inner {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 /* Responsive 2-column form grid (contact form name + phone row) */
@@ -176,7 +184,7 @@ body {
 @media (max-width: 767px) {
   /* Reduce page top offset on mobile — only logo bar is visible */
   .page-pt {
-    padding-top: 74px;
+    padding-top: 100px;
   }
 
   /* Hero: less vertical padding on small screens */

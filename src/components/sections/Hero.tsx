@@ -57,14 +57,14 @@ export function Hero() {
     <section
       aria-label="Úvodní sekce"
       className="page-pt"
-      style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
+      style={{ minHeight: 'min(63vh, calc(100svh - 220px))', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
     >
       {/* Outgoing slide (fades out + zooms) */}
       {prevSlide && (
         <div
           key={`prev-${prev}`}
           style={{
-            position: 'absolute', inset: 0,
+            position: 'absolute', top: '-5%', left: 0, right: 0, bottom: '-5%',
             backgroundImage: `url(${prevSlide.image})`,
             backgroundSize: 'cover',
             backgroundPosition: prevSlide.position,
@@ -77,7 +77,7 @@ export function Hero() {
       <div
         key={`curr-${current}`}
         style={{
-          position: 'absolute', inset: 0,
+          position: 'absolute', top: '-5%', left: 0, right: 0, bottom: '-5%',
           backgroundImage: `url(${slide.image})`,
           backgroundSize: 'cover',
           backgroundPosition: slide.position,
@@ -110,14 +110,14 @@ export function Hero() {
           {/* Heading */}
           <h1 style={{
             fontFamily: 'var(--font-cinzel, serif)',
-            fontSize: 'clamp(2rem, 4.5vw, 4rem)',
+            fontSize: 'clamp(1.5rem, min(4.5vw, 4.5vh), 4rem)',
             fontWeight: 600,
             fontStyle: 'normal',
             color: '#FFFFFF',
             lineHeight: 1.18,
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
-            marginBottom: '1.25rem',
+            marginBottom: '1rem',
             animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s',
           }}>
             {slide.heading}<br />
