@@ -22,7 +22,6 @@ const allLinks = [...leftLinks, ...rightLinks];
 const navLinkStyle = {
   color: '#555555',
   textDecoration: 'none',
-  fontSize: '0.68rem',
   fontWeight: 500,
   letterSpacing: '0.14em',
   textTransform: 'uppercase' as const,
@@ -64,6 +63,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              className="nav-link"
               style={navLinkStyle}
               onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
               onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
@@ -80,7 +80,8 @@ export function Header() {
             alt="MN Shine Detailing logo"
             width={350}
             height={109}
-            style={{ height: '64px', width: 'auto', display: 'block' }}
+            className="nav-logo"
+            style={{ width: 'auto', display: 'block' }}
             priority
           />
         </Link>
@@ -91,6 +92,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              className="nav-link"
               style={navLinkStyle}
               onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
               onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
@@ -100,7 +102,8 @@ export function Header() {
           ))}
           <Link
             href="/kontakt"
-            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#111111', color: '#FFFFFF', textDecoration: 'none', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s', whiteSpace: 'nowrap' }}
+            className="nav-cta"
+            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#111111', color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#C8A97E')}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#111111')}
           >
