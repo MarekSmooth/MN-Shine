@@ -57,7 +57,7 @@ export function Hero() {
     <section
       aria-label="Úvodní sekce"
       className="page-pt"
-      style={{ minHeight: 'min(63vh, calc(100svh - 220px))', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
+      style={{ minHeight: 'min(63vh, calc(100svh - 220px), 560px)', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
     >
       {/* Outgoing slide (fades out + zooms) */}
       {prevSlide && (
