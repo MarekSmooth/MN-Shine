@@ -59,10 +59,11 @@ export function Footer() {
           <div>
             <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '1rem', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Kontakt</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <a href="tel:+420777123456" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>+420 777 123 456</a>
-              <a href="mailto:info@mnshine.cz" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>info@mnshine.cz</a>
-              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Vojkovice u Brna</p>
-              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Jihomoravský kraj</p>
+              <a href="tel:+420702852852" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>+420 702 852 852</a>
+              <a href="mailto:Info@mnshine.cz" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Info@mnshine.cz</a>
+              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Hrušovanská 425</p>
+              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Vojkovice 667 01</p>
+              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Po-Pa: 8:00-17:00</p>
             </div>
           </div>
         </div>
@@ -72,7 +73,7 @@ export function Footer() {
             © {new Date().getFullYear()} MN Shine Detailing. Všechna práva vyhrazena.
           </p>
           <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: 0 }}>
-            Vojkovice u Brna · Jihomoravský kraj
+            Hrušovanská 425, Vojkovice 667 01
           </p>
         </div>
       </div>

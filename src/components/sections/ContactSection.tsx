@@ -68,10 +68,10 @@ export function ContactSection() {
             <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { icon: <Phone size={18} />, label: 'Telefon', value: '+420 777 123 456', href: 'tel:+420777123456' },
-                { icon: <Mail size={18} />, label: 'E-mail', value: 'info@mnshine.cz', href: 'mailto:info@mnshine.cz' },
-                { icon: <MapPin size={18} />, label: 'Adresa', value: 'Vojkovice u Brna, Jihomoravský kraj', href: undefined },
-                { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po–Pá: 8:00–18:00, So: 8:00–14:00', href: undefined },
+                { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
+                { icon: <Mail size={18} />, label: 'E-mail', value: 'Info@mnshine.cz', href: 'mailto:Info@mnshine.cz' },
+                { icon: <MapPin size={18} />, label: 'Adresa', value: 'Hrušovanská 425, Vojkovice 667 01', href: undefined },
+                { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00-17:00', href: undefined },
               ].map(item => (
                 <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: '#C8A97E', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
@@ -87,22 +87,25 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <div style={{
               marginTop: '2rem',
-              height: '200px',
+              height: '300px',
               backgroundColor: '#1a1a1a',
               border: '1px solid rgba(200,169,126,0.2)',
               borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              gap: '0.5rem',
+              overflow: 'hidden',
             }}>
-              <MapPin size={32} style={{ color: '#C8A97E' }} />
-              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', margin: 0 }}>Vojkovice u Brna</p>
-              <p style={{ color: '#9CA3AF', fontSize: '0.8rem', margin: 0 }}>Mapa bude brzy k dispozici</p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2610.0!2d16.6042113!3d49.0494319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712c701237f7dcd%3A0xe58689b8ae61987e!2sMNshine%20Detailing%20-%20%C4%8Di%C5%A1t%C4%9Bn%C3%AD%20interi%C3%A9ru%2Crenovace%20laku%2Copravy%20k%C5%AF%C5%BEe!5e0!3m2!1scs!2scz!4v1711267890123"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa MN Shine Detailing - Hrušovanská 425, Vojkovice 667 01"
+              />
             </div>
           </div>
 
@@ -141,7 +144,7 @@ export function ContactSection() {
                       value={form.phone}
                       onChange={e => setForm({ ...form, phone: e.target.value })}
                       style={{ ...inputStyle, borderColor: errors.phone ? '#ef4444' : 'rgba(255,255,255,0.15)' }}
-                      placeholder="+420 777 123 456"
+                      placeholder="+420 702 852 852"
                     />
                     {errors.phone && <p style={{ color: '#ef4444', fontSize: '0.8rem', margin: '0.25rem 0 0' }}>{errors.phone}</p>}
                   </div>

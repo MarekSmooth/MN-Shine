@@ -99,16 +99,15 @@ export default function ServicesPage() {
             key={cat.id}
             id={cat.id}
             style={{
-              marginBottom: '4rem',
+              marginBottom: '5rem',
               scrollMarginTop: '140px',
               borderLeft: '3px solid #C8A97E',
               paddingLeft: '2rem',
+              paddingBottom: '3rem',
+              borderBottom: idx < serviceCategories.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <span style={{ color: 'rgba(200,169,126,0.4)', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-                {String(idx + 1).padStart(2, '0')}
-              </span>
+            <div style={{ marginBottom: '1rem' }}>
               <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', color: '#FFFFFF', margin: 0 }}>
                 {cat.name}
               </h2>
@@ -130,11 +129,9 @@ export default function ServicesPage() {
                   {cat.price}
                 </p>
               )}
-              {cat.href && (
-                <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#C8A97E', textDecoration: 'none', fontWeight: 500 }}>
-                  Zjistit více <ArrowRight size={16} />
-                </Link>
-              )}
+              <Link href={cat.href || '/kontakt'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#C8A97E', textDecoration: 'none', fontWeight: 500 }}>
+                Zjistit více <ArrowRight size={16} />
+              </Link>
             </div>
           </section>
         ))}

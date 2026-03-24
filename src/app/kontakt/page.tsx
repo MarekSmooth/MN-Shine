@@ -3,7 +3,7 @@ import { ContactSection } from '@/components/sections/ContactSection';
 
 export const metadata: Metadata = {
   title: 'Kontakt',
-  description: 'Kontaktujte MN Shine Detailing. Objednejte se na detailing Brno, čištění interiéru nebo ochrana laku. Tel: +420 777 123 456',
+  description: 'Kontaktujte MN Shine Detailing. Objednejte se na detailing Brno, čištění interiéru nebo ochrana laku. Tel: +420 702 852 852',
   alternates: {
     canonical: 'https://mnshine.cz/kontakt',
   },
