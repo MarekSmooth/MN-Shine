@@ -8,15 +8,16 @@ export const metadata: Metadata = {
 
 const categories = [
   { name: 'Čištění interiéru', count: 12, gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' },
-  { name: 'Renovace laku', count: 8, gradient: 'linear-gradient(135deg, #1a1a1a 0%, #2d1b00 50%, #4a2c00 100%)' },
-  { name: 'Keramická ochrana', count: 6, gradient: 'linear-gradient(135deg, #0a1628 0%, #1a2d4a 50%, #0d3b5e 100%)' },
-  { name: 'Kompletní detailing', count: 15, gradient: 'linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 50%, #1a0a1a 100%)' },
+  { name: 'Čištění exteriéru', count: 9, gradient: 'linear-gradient(135deg, #0a1a10 0%, #0d2b18 50%, #0a3d20 100%)' },
+  { name: 'Renovace laku', count: 10, gradient: 'linear-gradient(135deg, #1a1a1a 0%, #2d1b00 50%, #4a2c00 100%)' },
+  { name: 'Renovace kůže', count: 7, gradient: 'linear-gradient(135deg, #1a0a0a 0%, #2d1010 50%, #3d1515 100%)' },
+  { name: 'Doplňkové služby', count: 15, gradient: 'linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 50%, #1a0a1a 100%)' },
 ];
 
-const placeholderTiles = Array.from({ length: 12 }, (_, i) => ({
+const placeholderTiles = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
-  gradient: `linear-gradient(${135 + i * 15}deg, rgba(200,169,126,0.${Math.floor(i / 4) + 1}) 0%, rgba(10,10,10,1) 70%)`,
-  category: categories[i % 4].name,
+  gradient: `linear-gradient(${135 + i * 15}deg, rgba(200,169,126,0.${Math.floor(i / 5) + 1}) 0%, rgba(10,10,10,1) 70%)`,
+  category: categories[i % 5].name,
 }));
 
 export default function GaleriePage() {
