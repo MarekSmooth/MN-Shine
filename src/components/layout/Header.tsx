@@ -26,7 +26,7 @@ const rightLinks = [
 ];
 
 const navLinkStyle = {
-  color: '#555555',
+  color: '#CCCCCC',
   textDecoration: 'none',
   fontWeight: 500,
   letterSpacing: '0.14em',
@@ -48,10 +48,8 @@ export function Header() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: 'rgba(255,255,255,0.97)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        boxShadow: '0 1px 0 rgba(0,0,0,0.08)',
+        backgroundColor: '#000000',
+        boxShadow: '0 1px 0 rgba(255,255,255,0.08)',
       }}
     >
       {/* Desktop: split-nav — left links | logo center | right links + CTA */}
@@ -80,7 +78,7 @@ export function Header() {
                   className="nav-link"
                   style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
                 >
                   Služby
                   <ChevronDown
@@ -152,7 +150,7 @@ export function Header() {
                 className="nav-link"
                 style={navLinkStyle}
                 onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
               >
                 {link.label}
               </Link>
@@ -182,7 +180,7 @@ export function Header() {
               className="nav-link"
               style={navLinkStyle}
               onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
             >
               {link.label}
             </Link>
@@ -190,9 +188,9 @@ export function Header() {
           <Link
             href="/kontakt"
             className="nav-cta"
-            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#111111', color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s', whiteSpace: 'nowrap' }}
+            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s, color 0.2s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#C8A97E')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#111111')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
           >
             Objednat termín
           </Link>
@@ -215,7 +213,7 @@ export function Header() {
           />
         </Link>
         <button
-          style={{ position: 'absolute', right: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', color: '#111111', padding: '0.5rem' }}
+          style={{ position: 'absolute', right: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', color: '#FFFFFF', padding: '0.5rem' }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Otevřít menu"
         >
@@ -225,11 +223,11 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.08)', padding: '1rem 1.5rem' }}>
+        <div style={{ backgroundColor: '#000000', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1rem 1.5rem' }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Link
               href="/"
-              style={{ color: '#333333', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Domů
@@ -243,7 +241,7 @@ export function Header() {
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
-                  color: '#333333',
+                  color: '#CCCCCC',
                   fontSize: '0.8rem',
                   fontWeight: 500,
                   letterSpacing: '0.1em',
@@ -276,7 +274,7 @@ export function Header() {
                     <Link
                       key={cat.href}
                       href={cat.href}
-                      style={{ color: '#666666', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}
+                      style={{ color: '#999999', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}
                       onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}
                     >
                       {cat.label}
@@ -288,7 +286,7 @@ export function Header() {
 
             <Link
               href="/galerie"
-              style={{ color: '#333333', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Galerie
@@ -298,7 +296,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{ color: '#333333', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+                style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -307,7 +305,7 @@ export function Header() {
 
             <Link
               href="/kontakt"
-              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#111111', color: '#FFFFFF', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center', marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center', marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Objednat termín
