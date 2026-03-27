@@ -31,11 +31,12 @@ const services = [
 
 export function ServicesPreview() {
   return (
-    <section style={{ backgroundColor: '#0a0a0a', padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.25)' }}>
+    <section style={{ backgroundColor: '#F4F4F4', padding: '5rem 1.5rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', borderTop: '1px solid rgba(0,0,0,0.12)' }}>
         <SectionHeader
           title="Naše služby"
           subtitle="Kompletní péče o vaše vozidlo pod jednou střechou. Od čištění interiéru po keramickou ochranu."
+          light
         />
         <div style={{
           display: 'grid',
@@ -43,7 +44,7 @@ export function ServicesPreview() {
           gap: '0 3rem',
         }}>
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <ServiceCard key={service.title} {...service} light />
           ))}
         </div>
       </div>

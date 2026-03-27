@@ -9,13 +9,18 @@ interface ServiceCardProps {
   title: string;
   description: string;
   href: string;
+  light?: boolean;
 }
 
-export function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, href, light = false }: ServiceCardProps) {
+  const textColor = light ? '#0a0a0a' : '#FFFFFF';
+  const secondaryColor = light ? '#555555' : '#9BA5AE';
+  const borderBase = light ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)';
+  const borderHover = light ? 'rgba(0,0,0,0.45)' : '#FFFFFF';
   return (
     <article style={{
       backgroundColor: 'transparent',
-      borderTop: '1px solid rgba(255,255,255,0.1)',
+      borderTop: `1px solid ${borderBase}`,
       padding: '2.5rem 0',
       display: 'flex',
       flexDirection: 'column',
@@ -26,17 +31,17 @@ export function ServiceCard({ icon, title, description, href }: ServiceCardProps
     }}
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = '#FFFFFF';
+        el.style.borderColor = borderHover;
       }}
       onMouseLeave={e => {
         const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = 'rgba(255,255,255,0.1)';
+        el.style.borderColor = borderBase;
       }}
     >
-      <div style={{ color: '#FFFFFF', width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
-      <h3 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF', margin: 0 }}>{title}</h3>
-      <p style={{ color: '#9BA5AE', lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
-      <Link href={href} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+      <div style={{ color: textColor, width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
+      <h3 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.4rem', fontWeight: 700, color: textColor, margin: 0 }}>{title}</h3>
+      <p style={{ color: secondaryColor, lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
+      <Link href={href} style={{ color: textColor, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
         Zjistit více <ArrowRight size={16} />
       </Link>
     </article>

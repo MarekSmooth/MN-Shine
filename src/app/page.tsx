@@ -37,19 +37,19 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Hero />
-      <Divider from="#0a0a0a" to="#111111" dir="ltr" />
-      <WhyUs />
-      <Divider from="#111111" to="#0a0a0a" dir="rtl" />
+      <Divider to="#F4F4F4" dir="ltr" />
       <ServicesPreview />
-      <Divider from="#0a0a0a" to="#111111" dir="ltr" />
+      <Divider to="#111111" dir="rtl" />
       <BeforeAfterSection />
-      <Divider from="#111111" to="#0a0a0a" dir="rtl" />
+      <Divider to="#F4F4F4" dir="ltr" />
+      <WhyUs />
+      <Divider to="#0a0a0a" dir="rtl" />
       <WhyDetailing />
-      <Divider from="#0a0a0a" to="#111111" dir="ltr" />
+      <Divider to="#F4F4F4" dir="ltr" />
       <Reviews />
-      <Divider from="#111111" to="#1a1a1a" dir="rtl" />
+      <Divider to="#1a1a1a" dir="rtl" />
       <FAQSection />
-      <Divider from="#1a1a1a" to="#0a0a0a" dir="ltr" />
+      <Divider to="#0a0a0a" dir="ltr" />
       <ContactSection />
     </>
   );

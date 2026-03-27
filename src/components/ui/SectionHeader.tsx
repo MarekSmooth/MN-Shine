@@ -3,16 +3,20 @@ interface SectionHeaderProps {
   subtitle?: string;
   centered?: boolean;
   goldLine?: boolean;
+  light?: boolean;
 }
 
-export function SectionHeader({ title, subtitle, centered = true, goldLine = true }: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, centered = true, goldLine = true, light = false }: SectionHeaderProps) {
+  const titleColor = light ? '#0a0a0a' : '#FFFFFF';
+  const subtitleColor = light ? '#555555' : '#9CA3AF';
+  const lineColor = light ? '#0a0a0a' : '#FFFFFF';
   return (
     <div style={{ textAlign: centered ? 'center' : 'left', marginBottom: '3rem' }}>
       {goldLine && (
         <div style={{
           width: '60px',
           height: '2px',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: lineColor,
           margin: centered ? '0 auto 1.5rem' : '0 0 1.5rem',
         }} />
       )}
@@ -20,7 +24,7 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = tru
         fontFamily: 'var(--font-cinzel, serif)',
         fontSize: 'clamp(2rem, 3.5vw, 3rem)',
         fontWeight: 700,
-        color: '#FFFFFF',
+        color: titleColor,
         lineHeight: 1.15,
         marginBottom: subtitle ? '1rem' : 0,
         letterSpacing: '-0.01em',
@@ -29,7 +33,7 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = tru
       </h2>
       {subtitle && (
         <p style={{
-          color: '#9CA3AF',
+          color: subtitleColor,
           fontSize: '1.05rem',
           lineHeight: 1.7,
           maxWidth: centered ? '600px' : 'none',
