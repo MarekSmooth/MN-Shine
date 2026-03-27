@@ -2,24 +2,24 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare, Phone } from 'lucide-react';
 
 const slides = [
   {
     image: '/bgorigo.png',
     position: 'center center',
     badge: 'Prémiová péče o váš vůz',
-    heading: <>Keramická ochrana<br />a renovace laku</>,
-    headingAccent: 'Jihomoravský kraj',
-    text: <>Korekce laku, keramické povlaky a dlouhodobá ochrana. Výsledky, které <strong style={{ color: '#FFFFFF' }}>mluví samy za sebe</strong>.</>,
+    heading: null,
+    headingAccent: null,
+    text: null,
   },
   {
     image: '/herobg.jpg',
     position: '65% center',
     badge: 'Detailingové studio Vojkovice u Brna',
-    heading: <>Profesionální detailing<br />a čištění vozů</>,
-    headingAccent: 'Vojkovice u Brna',
-    text: <>Kompletní péče o vaše vozidlo — detailing, čištění interiéru, renovace a ochrana laku.</>,
+    heading: null,
+    headingAccent: null,
+    text: null,
   },
 ];
 
@@ -57,7 +57,7 @@ export function Hero() {
     <section
       aria-label="Úvodní sekce"
       className="hero-section page-pt"
-      style={{ display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
+      style={{ display: 'flex', alignItems: 'flex-start', paddingTop: '18vh', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
     >
       {/* Outgoing slide (fades out + zooms) */}
       {prevSlide && (
@@ -108,44 +108,48 @@ export function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 style={{
-            fontFamily: 'var(--font-cinzel, serif)',
-            fontSize: 'clamp(1.5rem, min(4.5vw, 4.5vh), 4rem)',
-            fontWeight: 600,
-            fontStyle: 'normal',
-            color: '#FFFFFF',
-            lineHeight: 1.18,
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            marginBottom: '1rem',
-            animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s',
-          }}>
-            {slide.heading}<br />
-            <span style={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '0.08em' }}>{slide.headingAccent}</span>
-          </h1>
+          {slide.heading && (
+            <h1 style={{
+              fontFamily: 'var(--font-cinzel, serif)',
+              fontSize: 'clamp(1.5rem, min(4.5vw, 4.5vh), 4rem)',
+              fontWeight: 600,
+              fontStyle: 'normal',
+              color: '#FFFFFF',
+              lineHeight: 1.18,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              marginBottom: '1rem',
+              animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s',
+            }}>
+              {slide.heading}<br />
+              <span style={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '0.08em' }}>{slide.headingAccent}</span>
+            </h1>
+          )}
 
           {/* Paragraph */}
-          <p style={{
-            fontFamily: 'var(--font-inter, sans-serif)',
-            color: '#CCCCCC',
-            fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
-            fontWeight: 400,
-            lineHeight: 1.8,
-            letterSpacing: '0.03em',
-            marginBottom: '2.25rem',
-            maxWidth: '560px',
-            animation: 'hero-text-in 0.7s ease both', animationDelay: '0.34s',
-          }}>
-            {slide.text}
-          </p>
+          {slide.text && (
+            <p style={{
+              fontFamily: 'var(--font-inter, sans-serif)',
+              color: '#CCCCCC',
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+              fontWeight: 400,
+              lineHeight: 1.8,
+              letterSpacing: '0.03em',
+              marginBottom: '2.25rem',
+              maxWidth: '560px',
+              animation: 'hero-text-in 0.7s ease both', animationDelay: '0.34s',
+            }}>
+              {slide.text}
+            </p>
+          )}
 
-          {/* CTAs */}
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', letterSpacing: '0.02em', transition: 'background-color 0.2s' }}>
-              Objednat termín
+          {/* CTAs — sharp icon-only buttons */}
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
+            <Link href="/kontakt" className="hero-icon-btn" aria-label="Objednat termín">
+              <MessageSquare size={19} strokeWidth={1.5} />
             </Link>
-            <a href="tel:+420702852852" style={{ backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', border: '1px solid #FFFFFF', transition: 'all 0.2s' }}>
-              Zavolat: +420 702 852 852
+            <a href="tel:+420702852852" className="hero-icon-btn" aria-label="Zavolat">
+              <Phone size={20} strokeWidth={1.5} />
             </a>
           </div>
 

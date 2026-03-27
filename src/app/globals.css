@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #FFFFFF;
-  --color-gold-dark: #B8966A;
+  --color-accent: #FFFFFF;
+  --color-accent-dim: #888888;
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #111111;
   --color-bg-tertiary: #1a1a1a;
@@ -22,7 +22,7 @@ body {
   font-family: var(--font-inter, sans-serif);
 }
 
-/* Gold button utility */
+/* Primary button */
 .btn-gold {
   background-color: #FFFFFF;
   color: #0a0a0a;
@@ -36,7 +36,7 @@ body {
   color: #0a0a0a;
 }
 
-/* Gold outline button */
+/* Outline button */
 .btn-outline-gold {
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
@@ -53,13 +53,13 @@ body {
 .section-secondary { background-color: #111111; }
 .section-tertiary { background-color: #1a1a1a; }
 
-/* Gold accent text */
+/* Accent text */
 .text-gold { color: #FFFFFF; }
 
-/* Gold border */
+/* Accent border */
 .border-gold { border-color: #FFFFFF; }
 
-/* Divider line */
+/* Decorative line */
 .gold-line {
   width: 60px;
   height: 2px;
@@ -67,7 +67,7 @@ body {
   margin: 0 auto 1rem;
 }
 
-/* Footer/nav link with gold hover */
+/* Nav link hover */
 .link-gold-hover {
   color: #9BA5AE;
   text-decoration: none;
@@ -263,5 +263,113 @@ body {
   /* Reduce large card inner padding on mobile */
   .card-responsive-padding {
     padding: 1.5rem !important;
+  }
+}
+
+/* Hero frosted-glass icon buttons */
+.hero-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: #000000;
+  border: 1px solid #FFFFFF;
+  border-radius: 0;
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: skewX(-12deg);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+}
+.hero-icon-btn > * {
+  transform: skewX(12deg);
+}
+.hero-icon-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  transform: skewX(-12deg) translateY(-2px);
+}
+.hero-icon-btn:hover > * {
+  transform: skewX(12deg);
+}
+
+/* ---- Service flip cards ---- */
+.service-flip-card {
+  perspective: 1100px;
+  cursor: pointer;
+  /* NO transform/filter here — either kills preserve-3d in children */
+}
+
+.service-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  border-radius: 4px;
+  /* Raised glass effect — resting state */
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.10),
+    0 4px 10px rgba(0,0,0,0.13),
+    0 14px 32px rgba(0,0,0,0.17),
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -1px 0 rgba(0,0,0,0.12);
+}
+.service-flip-card:hover .service-flip-inner {
+  transform: rotateY(180deg) translateY(-5px);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.13),
+    0 10px 24px rgba(0,0,0,0.20),
+    0 28px 56px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -1px 0 rgba(0,0,0,0.12);
+}
+
+.service-flip-front,
+.service-flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.service-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Glass sheen overlay on front face */
+.service-flip-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* "Zjistit více" button under each tile */
+.service-btn {
+  display: inline-block;
+  padding: 0.55rem 1.75rem;
+  border: 1.5px solid rgba(0,0,0,0.55);
+  color: #0a0a0a;
+  background: transparent;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.service-btn:hover {
+  background-color: #0a0a0a;
+  color: #FFFFFF;
+  border-color: #0a0a0a;
+}
+
+@media (max-width: 560px) {
+  .service-flip-inner {
+    height: 280px;
   }
 }
