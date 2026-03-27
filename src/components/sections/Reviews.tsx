@@ -37,12 +37,12 @@ export function Reviews() {
         <div style={{
           textAlign: 'center',
           backgroundColor: '#1a1a1a',
-          border: '1px solid rgba(200,169,126,0.2)',
+          border: '1px solid rgba(255,255,255,0.2)',
           borderRadius: '8px',
           padding: '2rem',
         }}>
-          <p style={{ color: '#A09890', margin: 0 }}>
-            <span style={{ color: '#C8A97E', fontWeight: 600 }}>Přidejte své hodnocení</span> – po realizaci vaší zakázky vás rádi požádáme o reference. Vaše zpětná vazba nám pomáhá růst.
+          <p style={{ color: '#9BA5AE', margin: 0 }}>
+            <span style={{ color: '#FFFFFF', fontWeight: 600 }}>Přidejte své hodnocení</span> – po realizaci vaší zakázky vás rádi požádáme o reference. Vaše zpětná vazba nám pomáhá růst.
           </p>
         </div>
       </div>

@@ -45,18 +45,18 @@ export default function CisteniInterieru() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění interiéru · Brno</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění interiéru · Brno</div>
           <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1.5rem' }}>
-            Profesionální čištění interiéru<br /><span style={{ color: '#C8A97E' }}>Brno a okolí</span>
+            Profesionální čištění interiéru<br /><span style={{ color: '#FFFFFF' }}>Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             Zajistíme hloubkové čištění každého koutu vašeho vozidla. Sedadla, koberce, plasty, strop – vše bude čisté, svěží a dezinfikované. Obsluhujeme zákazníky z Brna a celého Jihomoravského kraje.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               Objednat čištění
             </Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #C8A97E', color: '#C8A97E', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               +420 777 123 456
             </a>
           </div>
@@ -67,10 +67,10 @@ export default function CisteniInterieru() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
         {/* Price highlight */}
-        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(200,169,126,0.3)', borderRadius: '8px', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '8px', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#C8A97E', fontSize: '1.75rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', margin: 0 }}>2 500 Kč</p>
+            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', margin: 0 }}>2 500 Kč</p>
           </div>
           <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Konečná cena závisí na velikosti vozidla a míře znečištění. Přesnou kalkulaci vám poskytneme po prohlídce.</p>
         </div>
@@ -87,8 +87,8 @@ export default function CisteniInterieru() {
               { icon: <Wind size={24} />, title: 'Plasty a palubní deska', desc: 'Čištění a ošetření všech plastových povrchů, vzduchových otvorů, kapes a úchytů.' },
               { icon: <Sparkles size={24} />, title: 'Strop a sloupky', desc: 'Šetrné čištění stropu a sloupků, které odstraní skvrny a šmouhy bez poškození materiálu.' },
             ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '1.5rem', border: '1px solid rgba(200,169,126,0.15)' }}>
-                <div style={{ color: '#C8A97E', marginBottom: '0.75rem' }}>{item.icon}</div>
+              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
                 <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1rem' }}>{item.title}</h3>
                 <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, fontSize: '0.9rem' }}>{item.desc}</p>
               </div>
@@ -113,7 +113,7 @@ export default function CisteniInterieru() {
               'Příjemnější a komfortnější jízdní zážitek',
             ].map(item => (
               <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <CheckCircle size={18} style={{ color: '#C8A97E', marginTop: '2px', flexShrink: 0 }} />
+                <CheckCircle size={18} style={{ color: '#FFFFFF', marginTop: '2px', flexShrink: 0 }} />
                 <span style={{ color: '#9CA3AF' }}>{item}</span>
               </div>
             ))}
@@ -132,7 +132,7 @@ export default function CisteniInterieru() {
               { step: '06', title: 'Ošetření a finalizace', desc: 'Ošetření plastů kondicionérem, finální prohlídka a předání.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '8px' }}>
-                <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-cinzel, serif)', minWidth: '32px' }}>{item.step}</span>
+                <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: 'var(--font-cinzel, serif)', minWidth: '32px' }}>{item.step}</span>
                 <div>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{item.title}</h3>
                   <p style={{ color: '#9CA3AF', margin: 0, fontSize: '0.95rem' }}>{item.desc}</p>
@@ -147,12 +147,12 @@ export default function CisteniInterieru() {
           {faqItems.map(faq => <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />)}
         </section>
 
-        <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(200,169,126,0.2)' }}>
+        <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
           <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Objednejte čištění interiéru</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Kontaktujte nás a domluvte si termín. Přijímáme zákazníky z Brna a celého Jihomoravského kraje.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #C8A97E', color: '#C8A97E', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>+420 777 123 456</a>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>+420 777 123 456</a>
           </div>
         </div>
       </div>

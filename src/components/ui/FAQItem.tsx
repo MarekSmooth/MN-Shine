@@ -33,7 +33,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
         aria-expanded={open}
       >
         <span style={{ color: '#FFFFFF', fontWeight: 500, fontSize: '1rem', lineHeight: 1.4 }}>{question}</span>
-        <span style={{ color: '#C8A97E', flexShrink: 0 }}>
+        <span style={{ color: '#FFFFFF', flexShrink: 0 }}>
           {open ? <Minus size={20} /> : <Plus size={20} />}
         </span>
       </button>

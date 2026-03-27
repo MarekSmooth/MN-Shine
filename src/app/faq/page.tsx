@@ -17,7 +17,7 @@ export default function FAQPage() {
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Máte otázky?</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Máte otázky?</div>
           <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
             Časté dotazy
           </h1>
@@ -33,13 +33,13 @@ export default function FAQPage() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              backgroundColor: 'rgba(200,169,126,0.1)',
-              border: '1px solid rgba(200,169,126,0.3)',
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.3)',
               borderRadius: '100px',
               padding: '0.35rem 1rem',
               marginBottom: '1.5rem',
             }}>
-              <span style={{ color: '#C8A97E', fontSize: '0.85rem', fontWeight: 500 }}>{category}</span>
+              <span style={{ color: '#FFFFFF', fontSize: '0.85rem', fontWeight: 500 }}>{category}</span>
             </div>
             <div>
               {faqs
@@ -54,7 +54,7 @@ export default function FAQPage() {
         {/* Still have questions */}
         <div style={{
           backgroundColor: '#111111',
-          border: '1px solid rgba(200,169,126,0.2)',
+          border: '1px solid rgba(255,255,255,0.2)',
           borderRadius: '8px',
           padding: '2.5rem',
           textAlign: 'center',
@@ -66,10 +66,10 @@ export default function FAQPage() {
             Kontaktujte nás přímo. Rádi zodpovíme jakékoliv dotazy k detailingu, cenám nebo objednávkám.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               Kontaktovat nás
             </Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #C8A97E', color: '#C8A97E', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               +420 777 123 456
             </a>
           </div>

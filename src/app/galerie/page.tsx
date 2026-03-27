@@ -16,7 +16,7 @@ const categories = [
 
 const placeholderTiles = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
-  gradient: `linear-gradient(${135 + i * 15}deg, rgba(200,169,126,0.${Math.floor(i / 5) + 1}) 0%, rgba(10,10,10,1) 70%)`,
+  gradient: `linear-gradient(${135 + i * 15}deg, rgba(255,255,255,0.${Math.floor(i / 5) + 1}) 0%, rgba(10,10,10,1) 70%)`,
   category: categories[i % 5].name,
 }));
 
@@ -27,7 +27,7 @@ export default function GaleriePage() {
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Naše práce</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Naše práce</div>
           <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>Galerie prací</h1>
           <p style={{ color: '#9CA3AF', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
             Prohlédněte si výsledky naší práce. Každá fotografie zachycuje skutečný výsledek profesionálního detailingu v MN Shine.
@@ -40,9 +40,9 @@ export default function GaleriePage() {
             <span key={cat} style={{
               padding: '0.5rem 1.25rem',
               borderRadius: '100px',
-              border: '1px solid rgba(200,169,126,0.3)',
-              color: cat === 'Vše' ? '#0a0a0a' : '#C8A97E',
-              backgroundColor: cat === 'Vše' ? '#C8A97E' : 'transparent',
+              border: '1px solid rgba(255,255,255,0.3)',
+              color: cat === 'Vše' ? '#0a0a0a' : '#FFFFFF',
+              backgroundColor: cat === 'Vše' ? '#FFFFFF' : 'transparent',
               fontSize: '0.9rem',
               cursor: 'pointer',
               fontWeight: cat === 'Vše' ? 600 : 400,
@@ -58,7 +58,7 @@ export default function GaleriePage() {
             <div key={cat.name} style={{
               borderRadius: '8px',
               overflow: 'hidden',
-              border: '1px solid rgba(200,169,126,0.15)',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}>
               <div style={{
                 height: '160px',
@@ -67,7 +67,7 @@ export default function GaleriePage() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-                <span style={{ color: 'rgba(200,169,126,0.4)', fontSize: '3rem', fontFamily: 'var(--font-cinzel, serif)', fontWeight: 700 }}>
+                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '3rem', fontFamily: 'var(--font-cinzel, serif)', fontWeight: 700 }}>
                   {cat.count}+
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function GaleriePage() {
               aspectRatio: '4/3',
               borderRadius: '8px',
               background: tile.gradient,
-              border: '1px solid rgba(200,169,126,0.1)',
+              border: '1px solid rgba(255,255,255,0.1)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -106,7 +106,7 @@ export default function GaleriePage() {
                 justifyContent: 'center',
                 gap: '0.5rem',
               }}>
-                <p style={{ color: 'rgba(200,169,126,0.6)', fontSize: '0.85rem', margin: 0, textAlign: 'center', padding: '0 1rem' }}>{tile.category}</p>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', margin: 0, textAlign: 'center', padding: '0 1rem' }}>{tile.category}</p>
                 <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', margin: 0 }}>Foto #{tile.id}</p>
               </div>
             </div>
@@ -116,13 +116,13 @@ export default function GaleriePage() {
         {/* Coming soon notice */}
         <div style={{
           backgroundColor: '#111111',
-          border: '1px solid rgba(200,169,126,0.2)',
+          border: '1px solid rgba(255,255,255,0.2)',
           borderRadius: '8px',
           padding: '2rem',
           textAlign: 'center',
           marginBottom: '3rem',
         }}>
-          <p style={{ color: '#C8A97E', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Galerie se rozrůstá</p>
+          <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Galerie se rozrůstá</p>
           <p style={{ color: '#9CA3AF', margin: 0 }}>
             Skutečné fotografie z našich zakázek budou průběžně přidávány. Sledujte nás pro nejnovější výsledky.
           </p>
@@ -132,7 +132,7 @@ export default function GaleriePage() {
         <div style={{ textAlign: 'center' }}>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Chcete podobné výsledky pro vaše vozidlo?</p>
           <Link href="/kontakt" style={{
-            backgroundColor: '#C8A97E',
+            backgroundColor: '#FFFFFF',
             color: '#0a0a0a',
             fontWeight: 700,
             padding: '0.875rem 2rem',

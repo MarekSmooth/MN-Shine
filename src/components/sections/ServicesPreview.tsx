@@ -32,7 +32,7 @@ const services = [
 export function ServicesPreview() {
   return (
     <section style={{ backgroundColor: '#0a0a0a', padding: '5rem 1.5rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', borderTop: '1px solid rgba(200,169,126,0.25)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.25)' }}>
         <SectionHeader
           title="Naše služby"
           subtitle="Kompletní péče o vaše vozidlo pod jednou střechou. Od čištění interiéru po keramickou ochranu."

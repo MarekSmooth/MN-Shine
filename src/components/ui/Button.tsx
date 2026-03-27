@@ -10,14 +10,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const styles = {
   primary: {
-    backgroundColor: '#C8A97E',
+    backgroundColor: '#FFFFFF',
     color: '#0a0a0a',
-    border: '1px solid #C8A97E',
+    border: '1px solid #FFFFFF',
   },
   secondary: {
     backgroundColor: 'transparent',
-    color: '#C8A97E',
-    border: '1px solid #C8A97E',
+    color: '#FFFFFF',
+    border: '1px solid #FFFFFF',
   },
   ghost: {
     backgroundColor: 'transparent',

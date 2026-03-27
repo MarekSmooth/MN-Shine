@@ -79,8 +79,8 @@ export default function ServicesPage() {
               style={{
                 padding: '0.5rem 1.25rem',
                 borderRadius: '100px',
-                border: '1px solid rgba(200,169,126,0.3)',
-                color: '#C8A97E',
+                border: '1px solid rgba(255,255,255,0.3)',
+                color: '#FFFFFF',
                 backgroundColor: 'transparent',
                 fontSize: '0.85rem',
                 textDecoration: 'none',
@@ -101,7 +101,7 @@ export default function ServicesPage() {
             style={{
               marginBottom: '5rem',
               scrollMarginTop: '140px',
-              borderLeft: '3px solid #C8A97E',
+              borderLeft: '3px solid #FFFFFF',
               paddingLeft: '2rem',
               paddingBottom: '3rem',
               borderBottom: idx < serviceCategories.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
@@ -118,18 +118,18 @@ export default function ServicesPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.6rem 2rem', marginBottom: '1.5rem' }}>
               {cat.features.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#D1D5DB' }}>
-                  <span style={{ color: '#C8A97E', fontWeight: 700, fontSize: '1rem', lineHeight: 1 }}>✓</span>
+                  <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', lineHeight: 1 }}>✓</span>
                   <span style={{ fontSize: '0.9rem' }}>{f}</span>
                 </div>
               ))}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
               {cat.price && (
-                <p style={{ color: '#C8A97E', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>
+                <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>
                   {cat.price}
                 </p>
               )}
-              <Link href={cat.href || '/kontakt'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#C8A97E', textDecoration: 'none', fontWeight: 500 }}>
+              <Link href={cat.href || '/kontakt'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#FFFFFF', textDecoration: 'none', fontWeight: 500 }}>
                 Zjistit více <ArrowRight size={16} />
               </Link>
             </div>
@@ -139,7 +139,7 @@ export default function ServicesPage() {
         {/* CTA */}
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
           <Link href="/kontakt" style={{
-            backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700,
+            backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700,
             padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none',
           }}>
             Nezávazná poptávka

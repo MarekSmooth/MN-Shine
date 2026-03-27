@@ -48,14 +48,36 @@ export function WhyUs() {
             <div
               key={feature.title}
               style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '2rem 0', position: 'relative', transition: 'border-color 0.3s' }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C8A97E'}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#FFFFFF'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'}
             >
-              <div style={{ color: '#C8A97E', marginBottom: '1rem' }}>
+              <div style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
                 {feature.icon}
               </div>
               <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-cinzel, serif)' }}>{feature.title}</h3>
-              <p style={{ color: '#A09890', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
+              <p style={{ color: '#9BA5AE', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats bar */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '4rem',
+          flexWrap: 'wrap',
+          marginTop: '3.5rem',
+          paddingTop: '2.5rem',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+        }}>
+          {[
+            { value: '5★', label: 'Hodnocení zákazníků' },
+            { value: '100+', label: 'Spokojených zákazníků' },
+            { value: '5+', label: 'Let zkušeností' },
+          ].map(item => (
+            <div key={item.value} style={{ textAlign: 'center' }}>
+              <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', letterSpacing: '0.04em' }}>{item.value}</div>
+              <div style={{ color: '#9BA5AE', fontSize: '0.85rem', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{item.label}</div>
             </div>
           ))}
         </div>

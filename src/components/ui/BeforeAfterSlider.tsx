@@ -39,7 +39,7 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
         overflow: 'hidden',
         cursor: 'ew-resize',
         userSelect: 'none',
-        border: '1px solid rgba(200,169,126,0.2)',
+        border: '1px solid rgba(255,255,255,0.2)',
       }}
       aria-label={`Porovnání před a po: ${label || 'detailing'}`}
     >
@@ -56,10 +56,10 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
       <div style={{
         position: 'absolute', inset: 0,
         clipPath: `inset(0 ${100 - position}% 0 0)`,
-        background: 'linear-gradient(135deg, #2a1f0e 0%, #C8A97E33 50%, #1a1200 100%)',
+        background: 'linear-gradient(135deg, #0e1524 0%, #FFFFFF33 50%, #00101a 100%)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
-        <span style={{ color: '#C8A97E', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '0.4rem 1rem', border: '1px solid rgba(200,169,126,0.5)', borderRadius: '4px', background: 'rgba(0,0,0,0.5)' }}>PO</span>
+        <span style={{ color: '#FFFFFF', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', padding: '0.4rem 1rem', border: '1px solid rgba(255,255,255,0.5)', borderRadius: '4px', background: 'rgba(0,0,0,0.5)' }}>PO</span>
       </div>
 
       {/* Divider handle */}
@@ -69,7 +69,7 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
         left: `${position}%`,
         transform: 'translateX(-50%)',
         width: '2px',
-        backgroundColor: '#C8A97E',
+        backgroundColor: '#FFFFFF',
         pointerEvents: 'none',
       }}>
         <div style={{
@@ -80,7 +80,7 @@ export function BeforeAfterSlider({ label }: BeforeAfterSliderProps) {
           width: '36px',
           height: '36px',
           borderRadius: '50%',
-          backgroundColor: '#C8A97E',
+          backgroundColor: '#FFFFFF',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

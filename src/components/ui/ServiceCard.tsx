@@ -26,17 +26,17 @@ export function ServiceCard({ icon, title, description, href }: ServiceCardProps
     }}
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = '#C8A97E';
+        el.style.borderColor = '#FFFFFF';
       }}
       onMouseLeave={e => {
         const el = e.currentTarget as HTMLElement;
         el.style.borderColor = 'rgba(255,255,255,0.1)';
       }}
     >
-      <div style={{ color: '#C8A97E', width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
+      <div style={{ color: '#FFFFFF', width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
       <h3 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.4rem', fontWeight: 700, color: '#FFFFFF', margin: 0 }}>{title}</h3>
-      <p style={{ color: '#A09890', lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
-      <Link href={href} style={{ color: '#C8A97E', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
+      <p style={{ color: '#9BA5AE', lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
+      <Link href={href} style={{ color: '#FFFFFF', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
         Zjistit více <ArrowRight size={16} />
       </Link>
     </article>

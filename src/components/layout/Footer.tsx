@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: '#0a0a0a', borderTop: '1px solid rgba(200,169,126,0.2)', padding: '4rem 1.5rem 2rem' }}>
+    <footer style={{ backgroundColor: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.2)', padding: '4rem 1.5rem 2rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
           {/* Brand */}
@@ -17,7 +17,7 @@ export function Footer() {
                 style={{ height: '44px', width: 'auto' }}
               />
             </Link>
-            <p style={{ color: '#A09890', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '260px' }}>
+            <p style={{ color: '#9BA5AE', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '260px' }}>
               Prémiové auto detailing studio v Vojkovicích u Brna. Pečujeme o vaše vozidlo s láskou a precizností.
             </p>
           </div>

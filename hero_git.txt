@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
@@ -8,18 +8,18 @@ const slides = [
   {
     image: '/bgorigo.png',
     position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: <>Keramická ochrana<br />a renovace laku</>,
-    headingAccent: 'Jihomoravský kraj',
-    text: <>Korekce laku, keramické povlaky a dlouhodobá ochrana. Výsledky, které <strong style={{ color: '#FFFFFF' }}>mluví samy za sebe</strong>.</>,
+    badge: 'Pr├ęmiov├í p├ę─Źe o v├í┼í v┼»z',
+    heading: <>Keramick├í ochrana<br />a renovace laku</>,
+    headingAccent: 'Jihomoravsk├Ż kraj',
+    text: <>Korekce laku, keramick├ę povlaky a dlouhodob├í ochrana. V├Żsledky, kter├ę <strong style={{ color: '#FFFFFF' }}>mluv├ş samy za sebe</strong>.</>,
   },
   {
     image: '/herobg.jpg',
     position: '65% center',
-    badge: 'Detailingové studio Vojkovice u Brna',
-    heading: <>Profesionální detailing<br />a čištění vozů</>,
+    badge: 'Detailingov├ę studio Vojkovice u Brna',
+    heading: <>Profesion├íln├ş detailing<br />a ─Źi┼ít─Ťn├ş voz┼»</>,
     headingAccent: 'Vojkovice u Brna',
-    text: <>Kompletní péče o vaše vozidlo — detailing, čištění interiéru, renovace a ochrana laku.</>,
+    text: <>Kompletn├ş p├ę─Źe o va┼íe vozidlo ÔÇö detailing, ─Źi┼ít─Ťn├ş interi├ęru, renovace a ochrana laku.</>,
   },
 ];
 
@@ -55,9 +55,9 @@ export function Hero() {
 
   return (
     <section
-      aria-label="Úvodní sekce"
-      className="hero-section page-pt"
-      style={{ display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
+      aria-label="├Üvodn├ş sekce"
+      className="page-pt"
+      style={{ minHeight: 'min(63vh, calc(100svh - 220px), 560px)', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
     >
       {/* Outgoing slide (fades out + zooms) */}
       {prevSlide && (
@@ -100,8 +100,8 @@ export function Hero() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.75rem', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.1s' }}>
             <span className="badge-line" style={{ width: '36px' }} />
             <span style={{ color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', textShadow: '0 1px 12px rgba(0,0,0,0.9)' }}>
-              <span style={{ color: '#FFFFFF' }}>MN Shine</span>
-              <span style={{ margin: '0 0.75em', color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}>◆</span>
+              <span style={{ color: '#C8A97E' }}>MN Shine</span>
+              <span style={{ margin: '0 0.75em', color: 'rgba(200,169,126,0.5)', fontWeight: 300 }}>ÔŚć</span>
               {slide.badge}
             </span>
             <span className="badge-line" style={{ width: '36px' }} />
@@ -121,13 +121,13 @@ export function Hero() {
             animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s',
           }}>
             {slide.heading}<br />
-            <span style={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '0.08em' }}>{slide.headingAccent}</span>
+            <span style={{ color: '#C8A97E', fontWeight: 700, letterSpacing: '0.08em' }}>{slide.headingAccent}</span>
           </h1>
 
           {/* Paragraph */}
           <p style={{
             fontFamily: 'var(--font-inter, sans-serif)',
-            color: '#CCCCCC',
+            color: '#B8AEA8',
             fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
             fontWeight: 400,
             lineHeight: 1.8,
@@ -141,34 +141,46 @@ export function Hero() {
 
           {/* CTAs */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', letterSpacing: '0.02em', transition: 'background-color 0.2s' }}>
-              Objednat termín
+            <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', letterSpacing: '0.02em', transition: 'background-color 0.2s' }}>
+              Objednat term├şn
             </Link>
-            <a href="tel:+420702852852" style={{ backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', border: '1px solid #FFFFFF', transition: 'all 0.2s' }}>
-              Zavolat: +420 702 852 852
+            <a href="tel:+420777123456" style={{ backgroundColor: 'transparent', color: '#C8A97E', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '1rem', border: '1px solid #C8A97E', transition: 'all 0.2s' }}>
+              Zavolat: +420 777 123 456
             </a>
           </div>
 
-
+          {/* Stats */}
+          <div style={{ display: 'flex', gap: '2rem', marginTop: '2.5rem', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.58s' }}>
+            {[
+              { value: '5Ôśů', label: 'Hodnocen├ş z├íkazn├şk┼»' },
+              { value: '100+', label: 'Spokojen├Żch z├íkazn├şk┼»' },
+              { value: '5+', label: 'Let zku┼íenost├ş' },
+            ].map(item => (
+              <div key={item.value}>
+                <div style={{ color: '#C8A97E', fontSize: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)' }}>{item.value}</div>
+                <div style={{ color: '#A09890', fontSize: '0.8rem' }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Arrow buttons */}
       <button
         onClick={back}
-        aria-label="Předchozí slide"
-        style={{ position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.3)', color: '#FFFFFF', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 0.2s, border-color 0.2s' }}
-        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.2)'; (e.currentTarget as HTMLElement).style.borderColor = '#FFFFFF'; }}
-        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.35)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.3)'; }}
+        aria-label="P┼Öedchoz├ş slide"
+        style={{ position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(200,169,126,0.3)', color: '#C8A97E', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 0.2s, border-color 0.2s' }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(200,169,126,0.2)'; (e.currentTarget as HTMLElement).style.borderColor = '#C8A97E'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.35)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(200,169,126,0.3)'; }}
       >
         <ChevronLeft size={22} />
       </button>
       <button
         onClick={next}
-        aria-label="Další slide"
-        style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.3)', color: '#FFFFFF', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 0.2s, border-color 0.2s' }}
-        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.2)'; (e.currentTarget as HTMLElement).style.borderColor = '#FFFFFF'; }}
-        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.35)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.3)'; }}
+        aria-label="Dal┼í├ş slide"
+        style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(200,169,126,0.3)', color: '#C8A97E', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 0.2s, border-color 0.2s' }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(200,169,126,0.2)'; (e.currentTarget as HTMLElement).style.borderColor = '#C8A97E'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.35)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(200,169,126,0.3)'; }}
       >
         <ChevronRight size={22} />
       </button>
@@ -181,7 +193,7 @@ export function Hero() {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1}`}
-              style={{ width: i === current ? '28px' : '8px', height: '8px', borderRadius: '4px', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#FFFFFF' : 'rgba(255,255,255,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
+              style={{ width: i === current ? '28px' : '8px', height: '8px', borderRadius: '4px', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#C8A97E' : 'rgba(200,169,126,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
             />
           ))}
         </div>

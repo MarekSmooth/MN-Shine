@@ -58,7 +58,7 @@ export default function ReferencePage() {
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ color: '#C8A97E', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Spokojení zákazníci</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Spokojení zákazníci</div>
           <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
             Reference zákazníků
           </h1>
@@ -76,7 +76,7 @@ export default function ReferencePage() {
           borderRadius: '12px',
           padding: '2rem',
           marginBottom: '3rem',
-          border: '1px solid rgba(200,169,126,0.1)',
+          border: '1px solid rgba(255,255,255,0.1)',
           textAlign: 'center',
         }}>
           {[
@@ -85,7 +85,7 @@ export default function ReferencePage() {
             { value: '100%', label: 'Doporučilo by nás', suffix: '' },
           ].map(stat => (
             <div key={stat.label}>
-              <div style={{ color: '#C8A97E', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', marginBottom: '0.5rem' }}>
+              <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', marginBottom: '0.5rem' }}>
                 {stat.value}{stat.suffix}
               </div>
               <div style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>{stat.label}</div>
@@ -98,7 +98,7 @@ export default function ReferencePage() {
           {reviews.map(review => (
             <article key={review.name} style={{
               backgroundColor: '#111111',
-              border: '1px solid rgba(200,169,126,0.15)',
+              border: '1px solid rgba(255,255,255,0.15)',
               borderRadius: '8px',
               padding: '1.75rem',
               display: 'flex',
@@ -108,7 +108,7 @@ export default function ReferencePage() {
               {/* Stars */}
               <div style={{ display: 'flex', gap: '0.25rem' }}>
                 {Array.from({ length: review.stars }).map((_, i) => (
-                  <span key={i} style={{ color: '#C8A97E', fontSize: '1rem' }}>★</span>
+                  <span key={i} style={{ color: '#FFFFFF', fontSize: '1rem' }}>★</span>
                 ))}
               </div>
 
@@ -120,7 +120,7 @@ export default function ReferencePage() {
               {/* Author */}
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
                 <p style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{review.name}</p>
-                <p style={{ color: '#C8A97E', fontSize: '0.85rem', margin: '0 0 0.15rem' }}>{review.vehicle}</p>
+                <p style={{ color: '#FFFFFF', fontSize: '0.85rem', margin: '0 0 0.15rem' }}>{review.vehicle}</p>
                 <p style={{ color: '#9CA3AF', fontSize: '0.8rem', margin: 0 }}>{review.service}</p>
               </div>
             </article>
@@ -130,7 +130,7 @@ export default function ReferencePage() {
         {/* Add review CTA */}
         <div style={{
           backgroundColor: '#111111',
-          border: '1px solid rgba(200,169,126,0.2)',
+          border: '1px solid rgba(255,255,255,0.2)',
           borderRadius: '8px',
           padding: '2.5rem',
           textAlign: 'center',
@@ -142,7 +142,7 @@ export default function ReferencePage() {
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>
             Vaše zpětná vazba je pro nás velmi cenná. Po realizaci zakázky nás prosím ohodnoťte – pomáhá nám to zlepšovat se a budovat důvěru u nových zákazníků.
           </p>
-          <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+          <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
             Zanechat hodnocení
           </Link>
         </div>
@@ -153,10 +153,10 @@ export default function ReferencePage() {
             Chcete být naším dalším spokojeným zákazníkem?
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#C8A97E', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               Objednat se
             </Link>
-            <Link href="/sluzby" style={{ border: '1px solid #C8A97E', color: '#C8A97E', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/sluzby" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
               Prohlédnout služby
             </Link>
           </div>

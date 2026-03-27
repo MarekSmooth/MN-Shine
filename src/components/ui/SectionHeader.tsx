@@ -12,7 +12,7 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = tru
         <div style={{
           width: '60px',
           height: '2px',
-          backgroundColor: '#C8A97E',
+          backgroundColor: '#FFFFFF',
           margin: centered ? '0 auto 1.5rem' : '0 0 1.5rem',
         }} />
       )}

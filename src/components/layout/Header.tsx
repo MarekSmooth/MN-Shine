@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -48,11 +48,13 @@ export function Header() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: '#000000',
-        boxShadow: '0 1px 0 rgba(255,255,255,0.08)',
+        backgroundColor: 'rgba(0,0,0,0.80)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        boxShadow: '0 1px 0 rgba(255,255,255,0.06)',
       }}
     >
-      {/* Desktop: split-nav — left links | logo center | right links + CTA */}
+      {/* Desktop */}
       <div
         className="hidden md:grid nav-desktop-inner"
         style={{
@@ -65,6 +67,15 @@ export function Header() {
       >
         {/* Left nav */}
         <nav aria-label="Levá navigace" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', justifyContent: 'flex-end' }}>
+          <a
+            href="tel:+420702852852"
+            className="nav-cta"
+            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' as const, transition: 'background 0.2s, color 0.2s', whiteSpace: 'nowrap' as const }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
+          >
+            +420 702 852 852
+          </a>
           {leftLinks.map(link =>
             link.href === '/sluzby' ? (
               <div
@@ -77,7 +88,7 @@ export function Header() {
                   href="/sluzby"
                   className="nav-link"
                   style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: '0.3rem' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')}
                   onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
                 >
                   Služby
@@ -101,45 +112,45 @@ export function Header() {
                       zIndex: 100,
                     }}
                   >
-                  <div
-                    style={{
-                      backgroundColor: '#111111',
-                      border: '1px solid rgba(200,169,126,0.25)',
-                      borderRadius: '6px',
-                      minWidth: '230px',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {serviceCategories.map((cat, idx) => (
-                      <Link
-                        key={cat.href}
-                        href={cat.href}
-                        style={{
-                          display: 'block',
-                          padding: '0.75rem 1.25rem',
-                          color: '#C8A97E',
-                          textDecoration: 'none',
-                          fontSize: '0.78rem',
-                          fontWeight: 500,
-                          letterSpacing: '0.1em',
-                          textTransform: 'uppercase' as const,
-                          borderBottom: idx < serviceCategories.length - 1 ? '1px solid rgba(200,169,126,0.1)' : 'none',
-                          transition: 'background 0.15s, color 0.15s',
-                        }}
-                        onMouseEnter={e => {
-                          e.currentTarget.style.backgroundColor = 'rgba(200,169,126,0.12)';
-                          e.currentTarget.style.color = '#FFFFFF';
-                        }}
-                        onMouseLeave={e => {
-                          e.currentTarget.style.backgroundColor = 'transparent';
-                          e.currentTarget.style.color = '#C8A97E';
-                        }}
-                      >
-                        {cat.label}
-                      </Link>
-                    ))}
-                  </div>
+                    <div
+                      style={{
+                        backgroundColor: '#111111',
+                        border: '1px solid rgba(255,255,255,0.25)',
+                        borderRadius: '6px',
+                        minWidth: '230px',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {serviceCategories.map((cat, idx) => (
+                        <Link
+                          key={cat.href}
+                          href={cat.href}
+                          style={{
+                            display: 'block',
+                            padding: '0.75rem 1.25rem',
+                            color: '#FFFFFF',
+                            textDecoration: 'none',
+                            fontSize: '0.78rem',
+                            fontWeight: 500,
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase' as const,
+                            borderBottom: idx < serviceCategories.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
+                            transition: 'background 0.15s, color 0.15s',
+                          }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)';
+                            e.currentTarget.style.color = '#FFFFFF';
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.backgroundColor = 'transparent';
+                            e.currentTarget.style.color = '#FFFFFF';
+                          }}
+                        >
+                          {cat.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -149,8 +160,8 @@ export function Header() {
                 href={link.href}
                 className="nav-link"
                 style={navLinkStyle}
-                onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
+                onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
               >
                 {link.label}
               </Link>
@@ -179,7 +190,7 @@ export function Header() {
               href={link.href}
               className="nav-link"
               style={navLinkStyle}
-              onMouseEnter={e => (e.currentTarget.style.color = '#C8A97E')}
+              onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')}
               onMouseLeave={e => (e.currentTarget.style.color = '#CCCCCC')}
             >
               {link.label}
@@ -189,7 +200,7 @@ export function Header() {
             href="/kontakt"
             className="nav-cta"
             style={{ padding: '0.5rem 1.4rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s, color 0.2s', whiteSpace: 'nowrap' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#C8A97E')}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
           >
             Objednat termín
@@ -232,8 +243,6 @@ export function Header() {
             >
               Domů
             </Link>
-
-            {/* Služby s podkategoriemi */}
             <div>
               <button
                 style={{
@@ -265,7 +274,7 @@ export function Header() {
                 <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '0.6rem' }}>
                   <Link
                     href="/sluzby"
-                    style={{ color: '#C8A97E', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}
+                    style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}
                     onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}
                   >
                     Všechny služby
@@ -283,7 +292,6 @@ export function Header() {
                 </div>
               )}
             </div>
-
             <Link
               href="/galerie"
               style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
@@ -291,7 +299,6 @@ export function Header() {
             >
               Galerie
             </Link>
-
             {rightLinks.map(link => (
               <Link
                 key={link.href}
@@ -302,7 +309,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-
+            <a
+              href="tel:+420702852852"
+              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center' as const, marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}
+              onClick={() => setMenuOpen(false)}
+            >
+              +420 702 852 852
+            </a>
             <Link
               href="/kontakt"
               style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center', marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}

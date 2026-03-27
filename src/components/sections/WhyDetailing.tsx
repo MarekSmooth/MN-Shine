@@ -43,13 +43,13 @@ export function WhyDetailing() {
               flexDirection: 'column',
               gap: '1rem',
               padding: '2rem',
-              borderLeft: '2px solid #C8A97E',
+              borderLeft: '2px solid #FFFFFF',
               backgroundColor: '#111111',
               borderRadius: '0 8px 8px 0',
             }}>
-              <div style={{ color: '#C8A97E' }}>{benefit.icon}</div>
+              <div style={{ color: '#FFFFFF' }}>{benefit.icon}</div>
               <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', fontFamily: 'var(--font-cinzel, serif)', margin: 0 }}>{benefit.title}</h3>
-              <p style={{ color: '#A09890', lineHeight: 1.6, margin: 0 }}>{benefit.description}</p>
+              <p style={{ color: '#9BA5AE', lineHeight: 1.6, margin: 0 }}>{benefit.description}</p>
             </div>
           ))}
         </div>

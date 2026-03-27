@@ -41,7 +41,7 @@ export function ContactSection() {
   const inputStyle = {
     width: '100%',
     backgroundColor: '#1a1a1a',
-    border: '1px solid rgba(200,169,126,0.2)',
+    border: '1px solid rgba(255,255,255,0.2)',
     borderRadius: '4px',
     padding: '0.75rem 1rem',
     color: '#FFFFFF',
@@ -74,7 +74,7 @@ export function ContactSection() {
                 { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00-17:00', href: undefined },
               ].map(item => (
                 <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: '#C8A97E', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ color: '#FFFFFF', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
                   <div>
                     <p style={{ color: '#9CA3AF', fontSize: '0.8rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.label}</p>
                     {item.href ? (
@@ -92,7 +92,7 @@ export function ContactSection() {
               marginTop: '2rem',
               height: '300px',
               backgroundColor: '#1a1a1a',
-              border: '1px solid rgba(200,169,126,0.2)',
+              border: '1px solid rgba(255,255,255,0.2)',
               borderRadius: '8px',
               overflow: 'hidden',
             }}>
@@ -114,13 +114,13 @@ export function ContactSection() {
             <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
             {submitted ? (
               <div style={{
-                backgroundColor: 'rgba(200,169,126,0.1)',
-                border: '1px solid rgba(200,169,126,0.3)',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.3)',
                 borderRadius: '8px',
                 padding: '2rem',
                 textAlign: 'center',
               }}>
-                <p style={{ color: '#C8A97E', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Zpráva odeslána! ✓</p>
+                <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Zpráva odeslána! ✓</p>
                 <p style={{ color: '#9CA3AF', margin: 0 }}>Děkujeme za váš zájem. Ozývíme se vám co nejdříve.</p>
               </div>
             ) : (
@@ -197,7 +197,7 @@ export function ContactSection() {
                 <button
                   type="submit"
                   style={{
-                    backgroundColor: '#C8A97E',
+                    backgroundColor: '#FFFFFF',
                     color: '#0a0a0a',
                     fontWeight: 700,
                     padding: '0.875rem',
