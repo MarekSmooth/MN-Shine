@@ -8,7 +8,7 @@
   --color-bg-tertiary: #1a1a1a;
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #9BA5AE;
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Rubik', sans-serif;
   --font-display: 'Playfair Display', serif;
 }
 
@@ -19,7 +19,7 @@ html {
 body {
   background-color: #0a0a0a;
   color: #FFFFFF;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-rubik, sans-serif);
 }
 
 /* Primary button */
@@ -157,11 +157,20 @@ body {
  * Mobile  — logo row = 100px
  */
 .nav-desktop-inner {
-  height: 130px;
+  height: 160px;
+}
+
+.nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  padding: 0 2.5rem;
+  text-decoration: none;
 }
 
 .nav-logo {
-  height: 100px; /* 64px + 30% + 20% — large monitor */
+  height: 100px;
 }
 
 .nav-link {
@@ -173,7 +182,7 @@ body {
 }
 
 .page-pt {
-  padding-top: 130px;
+  padding-top: 160px;
 }
 
 /* Hero inner content padding (controls vertical spacing inside the hero) */
@@ -190,11 +199,15 @@ body {
 /* Laptop / short-viewport: compact nav and hero so second section is always visible */
 @media (min-width: 768px) and (max-height: 820px) {
   .nav-desktop-inner {
-    height: 98px; /* 130px − 25% */
+    height: 120px;
+  }
+
+  .nav-logo-wrap {
+    height: 120px;
   }
 
   .nav-logo {
-    height: 74px; /* 64px + 15% — laptop */
+    height: 74px;
   }
 
   .nav-link {
@@ -206,7 +219,7 @@ body {
   }
 
   .page-pt {
-    padding-top: 98px;
+    padding-top: 120px;
   }
 
   .hero-section {
@@ -260,6 +273,14 @@ body {
     grid-template-columns: 1fr;
   }
 
+  /* WhyUs grid: single column on mobile, stats span full width */
+  .why-us-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .why-us-stats {
+    grid-column: span 1 !important;
+  }
+
   /* Reduce large card inner padding on mobile */
   .card-responsive-padding {
     padding: 1.5rem !important;
@@ -303,39 +324,55 @@ body {
 .service-flip-inner {
   position: relative;
   width: 100%;
-  height: 340px;
+  height: 215px;
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-  border-radius: 4px;
-  /* Raised glass effect — resting state */
+  border-radius: 6px;
+  /* Thick glass frame — 3D bevel effect:
+     inset top/left = bright edge (light source from top-left)
+     inset bottom/right = dark edge (shadow side)
+     multiple layers simulate glass thickness (~4px) */
   box-shadow:
-    0 1px 2px rgba(0,0,0,0.10),
-    0 4px 10px rgba(0,0,0,0.13),
-    0 14px 32px rgba(0,0,0,0.17),
-    inset 0 1px 0 rgba(255,255,255,0.55),
-    inset 0 -1px 0 rgba(0,0,0,0.12);
+    /* outer drop shadow */
+    0 2px 4px  rgba(0,0,0,0.18),
+    0 8px 20px rgba(0,0,0,0.22),
+    0 20px 48px rgba(0,0,0,0.20),
+    /* glass top edge — brightest specular */
+    inset 0  4px 0 rgba(255,255,255,0.72),
+    /* glass left edge */
+    inset  4px 0 0 rgba(255,255,255,0.32),
+    /* glass bottom edge — shadow */
+    inset 0 -4px 0 rgba(0,0,0,0.38),
+    /* glass right edge — shadow */
+    inset -4px 0 0 rgba(0,0,0,0.18),
+    /* inner depth — second glass layer */
+    inset 0  8px 6px -4px rgba(255,255,255,0.18),
+    inset 0 -8px 6px -4px rgba(0,0,0,0.22);
 }
-.service-flip-card:hover .service-flip-inner {
-  transform: rotateY(180deg) translateY(-5px);
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.13),
-    0 10px 24px rgba(0,0,0,0.20),
-    0 28px 56px rgba(0,0,0,0.24),
-    inset 0 1px 0 rgba(255,255,255,0.55),
-    inset 0 -1px 0 rgba(0,0,0,0.12);
+.service-flip-front {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 6px;
+  overflow: hidden;
 }
-
-.service-flip-front,
 .service-flip-back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-}
-.service-flip-back {
   transform: rotateY(180deg);
+}
+
+/* Clips bg image to rounded corners */
+.service-flip-front-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 /* Glass sheen overlay on front face */
@@ -348,28 +385,200 @@ body {
   z-index: 10;
 }
 
-/* "Zjistit více" button under each tile */
-.service-btn {
-  display: inline-block;
-  padding: 0.55rem 1.75rem;
-  border: 1.5px solid rgba(0,0,0,0.55);
-  color: #0a0a0a;
+/* Raised text — letters elevated above card surface
+   Light top-edge highlight (lit from above) + cast shadow below = 3D raise illusion */
+.service-text-raised {
+  text-shadow:
+    0 -1px 0 rgba(255,255,255,0.32),   /* top-edge specular — essential for raised look */
+    0  1px 1px rgba(0,0,0,1),           /* hard immediate shadow */
+    0  3px 6px rgba(0,0,0,0.85),        /* soft mid shadow */
+    0  8px 18px rgba(0,0,0,0.60),       /* far diffuse shadow */
+    0 15px 30px rgba(0,0,0,0.35);       /* ambient depth */
+}
+.service-desc-raised {
+  text-shadow:
+    0 -1px 0 rgba(255,255,255,0.14),
+    0  1px 1px rgba(0,0,0,0.95),
+    0  3px 7px rgba(0,0,0,0.70),
+    0  7px 16px rgba(0,0,0,0.42);
+}
+
+/* ---- Title overlay — separate DOM layer above all cards ---- */
+/* Children of stagger-item can never escape its stacking context,
+   so titles live in their own absolute layer at z:50 */
+.stagger-titles-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: flex-start;
+  z-index: 50;
+  pointer-events: none;
+}
+.stagger-title-item {
+  flex: 0 0 25%;
+  margin-right: -10%;
+  padding: 1.4rem 1.5rem;
+  transition: opacity 0.25s ease;
+}
+.stagger-title-item:last-child { margin-right: 0; }
+
+@media (min-width: 1024px) {
+  .stagger-title-item--0 { transform: translateY(0px); }
+  .stagger-title-item--1 { transform: translateY(35px); }
+  .stagger-title-item--2 { transform: translateY(70px); }
+  .stagger-title-item--3 { transform: translateY(105px); }
+  .stagger-title-item--4 { transform: translateY(140px); }
+  .stagger-title-item--5 { transform: translateY(175px); }
+}
+
+/* On tablet/mobile cards don't overlap so overlay not needed */
+@media (max-width: 1023px) {
+  .stagger-titles-layer { display: none; }
+}
+
+/* ---- Button inside flip-back face ---- */
+.service-btn-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #FFFFFF;
   background: transparent;
   font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
+  align-self: flex-start;
 }
-.service-btn:hover {
-  background-color: #0a0a0a;
-  color: #FFFFFF;
-  border-color: #0a0a0a;
+.service-btn-inner:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
+}
+
+/* ---- Card reveal animation on section enter ---- */
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+  }
+  to {
+    /* final transform set by stagger-item--N, handled via JS class */
+    opacity: 1;
+    transform: translateY(var(--card-y, 0px)) scale(1);
+  }
+}
+
+.stagger-item {
+  --card-y: 0px;
+  opacity: 0; /* hidden until JS triggers reveal */
+}
+.stagger-item.revealed {
+  animation: card-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- Staggered overlapping card rows ---- */
+.stagger-row {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+.stagger-row + .stagger-row {
+  margin-top: 2rem;
+}
+
+.stagger-item {
+  position: relative;
+  /* 6×25% − 5×10% negative margin = 100% total */
+  flex: 0 0 25%;
+  margin-right: -10%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.55s;
+}
+.stagger-item:last-child { margin-right: 0; }
+
+/* Desktop: all 6 in one cascading row.
+   Z-index: left card lowest (1), right card highest (6) — right cards visually overlap left. */
+@media (min-width: 1024px) {
+  .stagger-row { padding-bottom: 200px; flex-wrap: nowrap; }
+
+  .stagger-item--0 { z-index: 1; transform: translateY(0px);   --card-y: 0px;   }
+  .stagger-item--1 { z-index: 2; transform: translateY(35px);  --card-y: 35px;  }
+  .stagger-item--2 { z-index: 3; transform: translateY(70px);  --card-y: 70px;  }
+  .stagger-item--3 { z-index: 4; transform: translateY(105px); --card-y: 105px; }
+  .stagger-item--4 { z-index: 5; transform: translateY(140px); --card-y: 140px; }
+  .stagger-item--5 { z-index: 6; transform: translateY(175px); --card-y: 175px; }
+
+  .stagger-item:hover {
+    z-index: 100;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0s;
+  }
+  .stagger-item--0:hover { transform: translateY(-16px) scale(1.15); }
+  .stagger-item--1:hover { transform: translateY(19px)  scale(1.15); }
+  .stagger-item--2:hover { transform: translateY(54px)  scale(1.15); }
+  .stagger-item--3:hover { transform: translateY(89px)  scale(1.15); }
+  .stagger-item--4:hover { transform: translateY(124px) scale(1.15); }
+  .stagger-item--5:hover { transform: translateY(159px) scale(1.15); }
+
+  .stagger-item:hover .service-flip-inner {
+    transform: rotateY(180deg);
+    box-shadow:
+      0 6px 12px  rgba(0,0,0,0.18),
+      0 20px 44px rgba(0,0,0,0.26),
+      0 48px 96px rgba(0,0,0,0.30);
+  }
+}
+
+/* Tablet: 3-col grid, no stagger */
+@media (max-width: 1023px) {
+  .stagger-item:hover .service-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .stagger-row {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 0;
+  }
+  .stagger-item--0,
+  .stagger-item--1,
+  .stagger-item--2,
+  .stagger-item--3,
+  .stagger-item--4,
+  .stagger-item--5 {
+    flex: 0 0 calc(33.333% - 1rem);
+    margin-right: 0;
+    transform: none !important;
+  }
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 600px) {
+  .stagger-item--0,
+  .stagger-item--1,
+  .stagger-item--2,
+  .stagger-item--3,
+  .stagger-item--4,
+  .stagger-item--5 {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+/* Mobile XS: single column */
+@media (max-width: 400px) {
+  .stagger-item--0,
+  .stagger-item--1,
+  .stagger-item--2,
+  .stagger-item--3,
+  .stagger-item--4,
+  .stagger-item--5 {
+    flex: 0 0 100%;
+  }
 }
 
 @media (max-width: 560px) {
   .service-flip-inner {
-    height: 280px;
+    height: 190px;
   }
 }

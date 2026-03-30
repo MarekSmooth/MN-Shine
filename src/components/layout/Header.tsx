@@ -47,22 +47,32 @@ export function Header() {
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 50,
-        backgroundColor: 'rgba(0,0,0,0.80)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        boxShadow: '0 1px 0 rgba(255,255,255,0.06)',
+        zIndex: 200,
+        fontFamily: 'var(--font-inter, sans-serif)',
       }}
     >
+      {/* Diagonal background — separate from content so dropdowns are never clipped */}
+      <div aria-hidden="true" style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        backgroundColor: 'rgba(10,10,10,0.92)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 44px), 0 100%)',
+        filter: 'drop-shadow(0 2px 0 rgba(255,255,255,0.07))',
+      }} />
       {/* Desktop */}
       <div
         className="hidden md:grid nav-desktop-inner"
         style={{
+          position: 'relative',
+          zIndex: 1,
           maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 2rem',
           gridTemplateColumns: '1fr auto 1fr',
-          alignItems: 'center',
+          alignItems: 'stretch',
         }}
       >
         {/* Left nav */}
@@ -70,9 +80,9 @@ export function Header() {
           <a
             href="tel:+420702852852"
             className="nav-cta"
-            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' as const, transition: 'background 0.2s, color 0.2s', whiteSpace: 'nowrap' as const }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
+            style={{ color: '#CCCCCC', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' as const, transition: 'color 0.2s', whiteSpace: 'nowrap' as const, borderBottom: '1px solid rgba(255,255,255,0.25)', paddingBottom: '2px' }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.8)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = '#CCCCCC'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.25)'; }}
           >
             +420 702 852 852
           </a>
@@ -170,7 +180,7 @@ export function Header() {
         </nav>
 
         {/* Logo center */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', padding: '0 2.5rem' }}>
+        <Link href="/" className="nav-logo-wrap">
           <Image
             src="/mnlogo.png"
             alt="MN Shine Detailing logo"
@@ -199,9 +209,9 @@ export function Header() {
           <Link
             href="/kontakt"
             className="nav-cta"
-            style={{ padding: '0.5rem 1.4rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'background 0.2s, color 0.2s', whiteSpace: 'nowrap' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
+            style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'color 0.2s', whiteSpace: 'nowrap', borderBottom: '1px solid rgba(255,255,255,0.55)', paddingBottom: '2px' }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,1)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.55)'; }}
           >
             Objednat termín
           </Link>
@@ -211,7 +221,7 @@ export function Header() {
       {/* Mobile: logo centered + hamburger */}
       <div
         className="flex md:hidden"
-        style={{ alignItems: 'center', justifyContent: 'center', height: '100px', position: 'relative', padding: '0 1.5rem' }}
+        style={{ alignItems: 'center', justifyContent: 'center', height: '100px', position: 'relative', zIndex: 1, padding: '0 1.5rem' }}
       >
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           <Image

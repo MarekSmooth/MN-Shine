@@ -57,7 +57,7 @@ export function Hero() {
     <section
       aria-label="Úvodní sekce"
       className="hero-section page-pt"
-      style={{ display: 'flex', alignItems: 'flex-start', paddingTop: '18vh', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a' }}
+      style={{ display: 'flex', alignItems: 'flex-start', paddingTop: '18vh', position: 'relative', overflow: 'hidden', backgroundColor: '#0a0a0a', fontFamily: 'var(--font-inter, sans-serif)' }}
     >
       {/* Outgoing slide (fades out + zooms) */}
       {prevSlide && (

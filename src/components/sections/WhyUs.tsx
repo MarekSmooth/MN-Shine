@@ -33,16 +33,17 @@ const features = [
 
 export function WhyUs() {
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '5rem 1.5rem' }}>
+    <section style={{ backgroundColor: '#F4F4F4', padding: '5rem 1.5rem 3rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč si vybrat MN Shine?"
           subtitle="Jsme více než jen autoumývárna. Jsme partneři, kteří se starají o vaše vozidlo jako o vlastní."
           light
         />
-        <div style={{
+
+        <div className="why-us-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '0 3rem',
         }}>
           {features.map((feature) => (
@@ -59,28 +60,27 @@ export function WhyUs() {
               <p style={{ color: '#555555', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
             </div>
           ))}
-        </div>
 
-        {/* Stats bar */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '4rem',
-          flexWrap: 'wrap',
-          marginTop: '3.5rem',
-          paddingTop: '2.5rem',
-          borderTop: '1px solid rgba(0,0,0,0.12)',
-        }}>
-          {[
-            { value: '5★', label: 'Hodnocení zákazníků' },
-            { value: '100+', label: 'Spokojených zákazníků' },
-            { value: '5+', label: 'Let zkušeností' },
-          ].map(item => (
-            <div key={item.value} style={{ textAlign: 'center' }}>
-              <div style={{ color: '#0a0a0a', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', letterSpacing: '0.04em' }}>{item.value}</div>
-              <div style={{ color: '#555555', fontSize: '0.85rem', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{item.label}</div>
-            </div>
-          ))}
+          {/* Stats — fills the 3 remaining columns next to Kvalita nad kvantitu */}
+          <div className="why-us-stats" style={{
+            gridColumn: 'span 3',
+            borderTop: '1px solid rgba(0,0,0,0.12)',
+            padding: '2rem 0',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '3.5rem',
+          }}>
+            {[
+              { value: '5★', label: 'Hodnocení zákazníků' },
+              { value: '100+', label: 'Spokojených zákazníků' },
+              { value: '5+', label: 'Let zkušeností' },
+            ].map(item => (
+              <div key={item.value} style={{ textAlign: 'center' }}>
+                <div style={{ color: '#0a0a0a', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', letterSpacing: '0.04em' }}>{item.value}</div>
+                <div style={{ color: '#555555', fontSize: '0.85rem', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

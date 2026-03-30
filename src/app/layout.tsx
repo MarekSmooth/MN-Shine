@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cinzel } from "next/font/google";
+import { Inter, Playfair_Display, Cinzel, Rubik } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -22,6 +22,13 @@ const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
   weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
+});
+
+const rubik = Rubik({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-rubik",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -59,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable}`}>
+      <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${rubik.variable}`}>
       <body className="antialiased" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
