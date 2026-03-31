@@ -33,7 +33,7 @@ const features = [
 
 export function WhyUs() {
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '5rem 1.5rem 3rem' }}>
+    <section style={{ backgroundColor: '#F4F4F4', padding: '3rem 1.5rem 2rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč si vybrat MN Shine?"

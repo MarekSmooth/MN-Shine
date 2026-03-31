@@ -51,7 +51,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="kontakt" style={{ backgroundColor: '#0a0a0a', padding: '5rem 1.5rem' }}>
+    <section id="kontakt" style={{ backgroundColor: '#0a0a0a', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Kontaktujte nás"

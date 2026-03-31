@@ -2,14 +2,14 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 
 const examples = [
-  { label: 'Čištění interiéru – sedadla' },
-  { label: 'Renovace laku – karoserie' },
-  { label: 'Keramická ochrana – exteriér' },
+  { label: 'Čištění', beforeImage: '/beforeafter/cleaning/cleanbefore1.JPEG', afterImage: '/beforeafter/cleaning/cleanafter1.JPEG' },
+  { label: 'Renovace', beforeImage: '/beforeafter/renovace/before1.JPEG', afterImage: '/beforeafter/renovace/after1.JPEG' },
+  { label: 'Opravy škrábanců', beforeImage: '/beforeafter/opravy/opravybefore1.JPEG', afterImage: '/beforeafter/opravy/opravyafter1.JPEG' },
 ];
 
 export function BeforeAfterSection() {
   return (
-    <section style={{ backgroundColor: '#111111', padding: '5rem 1.5rem' }}>
+    <section style={{ backgroundColor: '#111111', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Výsledky, které mluví za vše"
@@ -22,13 +22,10 @@ export function BeforeAfterSection() {
         }}>
           {examples.map((ex) => (
             <div key={ex.label}>
-              <BeforeAfterSlider label={ex.label} />
+              <BeforeAfterSlider label={ex.label} beforeImage={ex.beforeImage} afterImage={ex.afterImage} />
             </div>
           ))}
         </div>
-        <p style={{ textAlign: 'center', color: '#9CA3AF', fontSize: '0.85rem', marginTop: '2rem' }}>
-          * Ukázkové vizualizace – skutečné fotografie budou přidány po zahájení provozu studia.
-        </p>
       </div>
     </section>
   );

@@ -6,12 +6,12 @@ interface SectionHeaderProps {
   light?: boolean;
 }
 
-export function SectionHeader({ title, subtitle, centered = true, goldLine = true, light = false }: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, centered = true, goldLine = false, light = false }: SectionHeaderProps) {
   const titleColor = light ? '#0a0a0a' : '#FFFFFF';
   const subtitleColor = light ? '#555555' : '#9CA3AF';
   const lineColor = light ? '#0a0a0a' : '#FFFFFF';
   return (
-    <div style={{ textAlign: centered ? 'center' : 'left', marginBottom: '3rem' }}>
+    <div style={{ textAlign: centered ? 'center' : 'left', marginBottom: '1.75rem' }}>
       {goldLine && (
         <div style={{
           width: '60px',

@@ -3,7 +3,7 @@ import { ReviewCard } from '@/components/ui/ReviewCard';
 
 export function Reviews() {
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '5rem 1.5rem' }}>
+    <section style={{ backgroundColor: '#F4F4F4', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Co říkají zákazníci"
@@ -37,17 +37,6 @@ export function Reviews() {
             vehicle="Mercedes C220"
             light
           />
-        </div>
-        <div style={{
-          textAlign: 'center',
-          backgroundColor: '#EBEBEB',
-          border: '1px solid rgba(0,0,0,0.10)',
-          borderRadius: '8px',
-          padding: '2rem',
-        }}>
-          <p style={{ color: '#555555', margin: 0 }}>
-            <span style={{ color: '#0a0a0a', fontWeight: 600 }}>Přidejte své hodnocení</span> – po realizaci vaší zakázky vás rádi požádáme o reference. Vaše zpětná vazba nám pomáhá růst.
-          </p>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ const benefits = [
 
 export function WhyDetailing() {
   return (
-    <section style={{ backgroundColor: '#0a0a0a', padding: '5rem 1.5rem' }}>
+    <section style={{ backgroundColor: '#0a0a0a', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč detailing dává smysl?"

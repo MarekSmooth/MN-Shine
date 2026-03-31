@@ -6,46 +6,53 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const services = [
   {
-    title: 'Čištění interiéru',
-    description: 'Hloubkové čištění celého interiéru – sedadla, koberce, plasty, strop. Vaše auto bude vonět a vypadat jako nové.',
-    image: '/herobg.jpg',
-    href: '/sluzby/cisteni-interieru-brno',
-  },
-  {
     title: 'Čištění exteriéru',
     description: 'Profesionální ruční mytí, dekontaminace a ošetření laku. Vozidlo dokonale čisté zvenku – základ pro každou další péči.',
-    image: '/bgorigo.png',
-    href: '/sluzby',
-  },
-  {
-    title: 'Renovace laku',
-    description: 'Strojní leštění a korekce laku. Odstraníme škrábance, víry a oxidaci – lak bude zářit jako z výroby.',
-    image: '/herobg.jpg',
-    href: '/sluzby/renovace-laku-brno',
+    image: '/icons/exterier.png',
+    href: '/sluzby#cisteni-exterieru',
   },
   {
     title: 'Ochrana laku',
     description: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu. Hydrofobní efekt, UV ochrana a snadná údržba na roky.',
-    image: '/bgorigo.png',
+    image: '/icons/ochrana.png',
     href: '/sluzby/ochrana-laku-brno',
+  },
+  {
+    title: 'Čištění interiéru',
+    description: 'Hloubkové čištění celého interiéru – sedadla, koberce, plasty, strop. Vaše auto bude vonět a vypadat jako nové.',
+    image: '/icons/interier.png',
+    href: '/sluzby/cisteni-interieru-brno',
+  },
+  {
+    title: 'Renovace laku',
+    description: 'Strojní leštění a korekce laku. Odstraníme škrábance, víry a oxidaci – lak bude zářit jako z výroby.',
+    image: '/icons/renovacelak.png',
+    href: '/sluzby/renovace-laku-brno',
+  },
+  {
+    title: 'Renovace světel',
+    description: 'Obnova zakalených světlometů. Obnovíme průhlednost a čistotu světel, zlepšíme osvětlení a vzhled vozidla.',
+    image: '/icons/svetla.png',
+    href: '/sluzby#renovace-svetel',
   },
   {
     title: 'Renovace kůže',
     description: 'Obnova a ošetření kožených sedadel. Odstraníme praskliny a škrábance, obnovíme původní pružnost a lesk kůže.',
-    image: '/herobg.jpg',
-    href: '/sluzby',
+    image: '/icons/kuze.png',
+    href: '/sluzby#renovace-kuze',
   },
   {
-    title: 'Detailing Brno',
-    description: 'Kompletní péče o vozidlo od A do Z. Mytí, dekontaminace, leštění, čištění interiéru – auto v showroom kondici.',
-    image: '/bgorigo.png',
-    href: '/sluzby/detailing-brno',
+    title: 'Oprava škrábanců',
+    description: 'Precizní oprava povrchových i hlubších škrábanců laku. Minimálně invazivní metody na místě bez nutnosti lakovny.',
+    image: '/icons/skrabance.png',
+    href: '/sluzby#oprava-skrabancu',
   },
 ];
 
 export function ServicesPreview() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [revealedCards, setRevealedCards] = useState<boolean[]>(() => new Array(services.length).fill(false));
   const rowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,16 +61,21 @@ export function ServicesPreview() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Stagger each card with a delay
-          const items = el.querySelectorAll<HTMLElement>('.stagger-item');
-          items.forEach((item, i) => {
-            setTimeout(() => item.classList.add('revealed'), i * 300);
+          services.forEach((_, i) => {
+            setTimeout(() => {
+              setRevealedCards(prev => {
+                if (prev[i]) return prev;
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              });
+            }, i * 300);
           });
           setRevealed(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -86,13 +98,17 @@ export function ServicesPreview() {
               <div
                 key={service.title}
                 className={`stagger-item stagger-item--${i}`}
+                style={{
+                  opacity: revealedCards[i] ? 1 : 0,
+                  transition: revealedCards[i] ? `opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${i * 0.05}s` : 'none',
+                }}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
               >
                 <Link href={service.href} className="service-flip-card" style={{ display: 'block', textDecoration: 'none' }}>
                   <div className="service-flip-inner">
 
-                    {/* Front face — background image only, no title here */}
+                    {/* Front face — background image + mobile title */}
                     <div className="service-flip-front">
                       <div className="service-flip-front-bg">
                         <div style={{
@@ -106,13 +122,30 @@ export function ServicesPreview() {
                           background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%)',
                         }} />
                       </div>
+                      {/* Title shown on mobile only — overlay layer is hidden on mobile */}
+                      <div className="service-front-title-mobile">
+                        <h3>{service.title}</h3>
+                      </div>
                     </div>
 
-                    {/* Back face — title + description + link */}
+                    {/* Back face — same bg image, darkened, with text on top */}
                     <div className="service-flip-back">
+                      {/* Background image — same as front */}
                       <div style={{
+                        position: 'absolute', inset: 0,
+                        backgroundImage: `url(${service.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }} />
+                      {/* Dark overlay — much heavier than front */}
+                      <div style={{
+                        position: 'absolute', inset: 0,
+                        background: 'rgba(0,0,0,0.78)',
+                      }} />
+                      <div className="service-flip-back-inner" style={{
+                        position: 'relative',
+                        zIndex: 1,
                         width: '100%', height: '100%',
-                        backgroundColor: '#111111',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
@@ -126,7 +159,7 @@ export function ServicesPreview() {
                           margin: '0 0 1rem',
                           letterSpacing: '0.05em',
                         }}>{service.title}</h3>
-                        <div style={{
+                        <div className="service-back-divider" style={{
                           width: '28px', height: '2px',
                           backgroundColor: '#FFFFFF',
                           opacity: 0.4,
@@ -138,7 +171,7 @@ export function ServicesPreview() {
                           margin: 0,
                           fontSize: '0.92rem',
                         }}>{service.description}</p>
-                        <p style={{
+                        <p className="service-back-more" style={{
                           marginTop: '1.25rem',
                           color: 'rgba(255,255,255,0.45)',
                           fontSize: '0.7rem',
@@ -157,12 +190,17 @@ export function ServicesPreview() {
           </div>
 
           {/* Title overlay — z:50, always above all cards regardless of stacking contexts */}
-          <div className="stagger-titles-layer" aria-hidden="true" style={{ opacity: revealed ? 1 : 0, transition: 'opacity 0.3s ease' }}>
+          <div className="stagger-titles-layer" aria-hidden="true">
             {services.map((service, i) => (
               <div
                 key={service.title}
                 className={`stagger-title-item stagger-title-item--${i}`}
-                style={{ opacity: hoveredIdx === i ? 0 : 1 }}
+                style={{
+                  opacity: !revealedCards[i] ? 0 : hoveredIdx === i ? 0 : 1,
+                  transition: revealedCards[i]
+                    ? `opacity ${hoveredIdx === i ? '0.25s' : '0.8s'} ease`
+                    : 'none',
+                }}
               >
                 <h3 className="service-text-raised" style={{
                   color: '#FFFFFF',

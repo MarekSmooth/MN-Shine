@@ -4,7 +4,7 @@ import { faqs } from '@/data/faq';
 
 export function FAQSection() {
   return (
-    <section style={{ backgroundColor: '#1a1a1a', padding: '5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ backgroundColor: '#1a1a1a', padding: '3rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
       {/* Watermark logo */}
       <div aria-hidden="true" style={{
         position: 'absolute',
