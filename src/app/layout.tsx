@@ -67,6 +67,11 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${rubik.variable}`}>
+      <head>
+        <link rel="preload" href="/icons/exterier.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/icons/ochrana.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/icons/interier.webp" as="image" type="image/webp" />
+      </head>
       <body className="antialiased" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
