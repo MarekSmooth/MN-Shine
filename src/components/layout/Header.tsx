@@ -58,11 +58,8 @@ export function Header() {
         position: 'absolute',
         inset: 0,
         zIndex: 0,
-        backgroundColor: 'rgba(10,10,10,0.92)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 44px), 0 100%)',
-        filter: 'drop-shadow(0 2px 0 rgba(255,255,255,0.07))',
+        backgroundColor: 'rgba(10,10,10,0.77)',
+        boxShadow: '0 2px 0 rgba(255,255,255,0.07)',
       }} />
       {/* Desktop */}
       <div
@@ -81,10 +78,7 @@ export function Header() {
         <nav aria-label="Levá navigace" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', justifyContent: 'flex-end' }}>
           <a
             href="tel:+420702852852"
-            className="nav-cta"
-            style={{ color: '#CCCCCC', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' as const, transition: 'color 0.2s', whiteSpace: 'nowrap' as const, borderBottom: '1px solid rgba(255,255,255,0.25)', paddingBottom: '2px' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.8)'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#CCCCCC'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.25)'; }}
+            className="grad-border-phone nav-cta"
           >
             +420 702 852 852
           </a>
@@ -210,10 +204,7 @@ export function Header() {
           ))}
           <Link
             href="/kontakt"
-            className="nav-cta"
-            style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', transition: 'color 0.2s', whiteSpace: 'nowrap', borderBottom: '1px solid rgba(255,255,255,0.55)', paddingBottom: '2px' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,1)'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.55)'; }}
+            className="grad-border-btn nav-cta"
           >
             Objednat termín
           </Link>

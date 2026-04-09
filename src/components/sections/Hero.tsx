@@ -6,6 +6,14 @@ import { ChevronLeft, ChevronRight, MessageSquare, Phone } from 'lucide-react';
 
 const slides = [
   {
+    image: '/bgarte.png',
+    position: 'center center',
+    badge: 'Prémiová péče o váš vůz',
+    heading: null,
+    headingAccent: null,
+    text: null,
+  },
+  {
     image: '/bgorigo.png',
     position: 'center center',
     badge: 'Prémiová péče o váš vůz',

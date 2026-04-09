@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
@@ -49,14 +49,19 @@ const services = [
   },
 ];
 
+// Masonry 3-2-2: col indices + heights (px)
+const COLUMNS: { indices: number[]; heights: number[] }[] = [
+  { indices: [0, 1, 2], heights: [220, 140, 220] },
+  { indices: [3, 4],    heights: [285, 310] },
+  { indices: [5, 6],    heights: [310, 285] },
+];
+
 export function ServicesPreview() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [revealed, setRevealed] = useState(false);
   const [revealedCards, setRevealedCards] = useState<boolean[]>(() => new Array(services.length).fill(false));
-  const rowRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = rowRef.current;
+    const el = gridRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -69,9 +74,8 @@ export function ServicesPreview() {
                 next[i] = true;
                 return next;
               });
-            }, i * 300);
+            }, i * 120);
           });
-          setRevealed(true);
           observer.disconnect();
         }
       },
@@ -91,135 +95,101 @@ export function ServicesPreview() {
           goldLine={false}
         />
 
-        <div style={{ position: 'relative' }}>
-          {/* Card row — cards contain only background image, back face has title+desc */}
-          <div className="stagger-row" ref={rowRef}>
-            {services.map((service, i) => (
-              <div
-                key={service.title}
-                className={`stagger-item stagger-item--${i}`}
-                style={{
-                  opacity: revealedCards[i] ? 1 : 0,
-                  transition: revealedCards[i] ? `opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${i * 0.05}s` : 'none',
-                }}
-                onMouseEnter={() => setHoveredIdx(i)}
-                onMouseLeave={() => setHoveredIdx(null)}
-              >
-                <Link href={service.href} className="service-flip-card" style={{ display: 'block', textDecoration: 'none' }}>
-                  <div className="service-flip-inner">
+        <div ref={gridRef} className="masonry-grid">
+          {COLUMNS.map((col, colIdx) => (
+            <div key={colIdx} className="masonry-col">
+              {col.indices.map((serviceIdx, cardIdx) => {
+                const service = services[serviceIdx];
+                return (
+                  <div
+                    key={service.title}
+                    className="masonry-card-wrap"
+                    style={{
+                      height: col.heights[cardIdx],
+                      opacity: revealedCards[serviceIdx] ? 1 : 0,
+                      transform: revealedCards[serviceIdx] ? 'translateY(0)' : 'translateY(28px)',
+                      transition: revealedCards[serviceIdx]
+                        ? `opacity 0.7s ease ${serviceIdx * 0.1}s, transform 0.7s ease ${serviceIdx * 0.1}s`
+                        : 'none',
+                    }}
+                  >
+                    <Link href={service.href} className="service-flip-card" style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+                      <div className="service-flip-inner" style={{ height: '100%' }}>
 
-                    {/* Front face — background image + mobile title */}
-                    <div className="service-flip-front">
-                      <div className="service-flip-front-bg">
-                        <div style={{
-                          position: 'absolute', inset: 0,
-                          backgroundImage: `url(${service.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }} />
-                        <div style={{
-                          position: 'absolute', inset: 0,
-                          background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%)',
-                        }} />
-                      </div>
-                      {/* Title shown on mobile only — overlay layer is hidden on mobile */}
-                      <div className="service-front-title-mobile">
-                        <h3>{service.title}</h3>
-                      </div>
-                    </div>
+                        {/* Front face */}
+                        <div className="service-flip-front">
+                          <div className="service-flip-front-bg">
+                            <div style={{
+                              position: 'absolute', inset: 0,
+                              backgroundImage: `url(${service.image})`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                            }} />
+                            <div style={{
+                              position: 'absolute', inset: 0,
+                              background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%)',
+                            }} />
+                          </div>
+                          {/* Title always visible on front */}
+                          <div style={{ position: 'absolute', top: '1.25rem', left: '1.25rem', right: '1.25rem', zIndex: 2 }}>
+                            <h3 className="service-text-raised" style={{
+                              color: '#FFFFFF',
+                              fontFamily: 'var(--font-cinzel, serif)',
+                              fontSize: '1rem',
+                              fontWeight: 700,
+                              margin: '0 0 0.5rem',
+                              letterSpacing: '0.05em',
+                            }}>{service.title}</h3>
+                            <div style={{ width: '28px', height: '2px', backgroundColor: '#FFFFFF', opacity: 0.55 }} />
+                          </div>
+                        </div>
 
-                    {/* Back face — same bg image, darkened, with text on top */}
-                    <div className="service-flip-back">
-                      {/* Background image — same as front */}
-                      <div style={{
-                        position: 'absolute', inset: 0,
-                        backgroundImage: `url(${service.image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }} />
-                      {/* Dark overlay — much heavier than front */}
-                      <div style={{
-                        position: 'absolute', inset: 0,
-                        background: 'rgba(0,0,0,0.78)',
-                      }} />
-                      <div className="service-flip-back-inner" style={{
-                        position: 'relative',
-                        zIndex: 1,
-                        width: '100%', height: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        padding: '2rem',
-                      }}>
-                        <h3 className="service-text-raised" style={{
-                          color: '#FFFFFF',
-                          fontFamily: 'var(--font-cinzel, serif)',
-                          fontSize: '1.05rem',
-                          fontWeight: 700,
-                          margin: '0 0 1rem',
-                          letterSpacing: '0.05em',
-                        }}>{service.title}</h3>
-                        <div className="service-back-divider" style={{
-                          width: '28px', height: '2px',
-                          backgroundColor: '#FFFFFF',
-                          opacity: 0.4,
-                          marginBottom: '1.25rem',
-                        }} />
-                        <p className="service-desc-raised" style={{
-                          color: '#CCCCCC',
-                          lineHeight: 1.8,
-                          margin: 0,
-                          fontSize: '0.92rem',
-                        }}>{service.description}</p>
-                        <p className="service-back-more" style={{
-                          marginTop: '1.25rem',
-                          color: 'rgba(255,255,255,0.45)',
-                          fontSize: '0.7rem',
-                          fontWeight: 600,
-                          letterSpacing: '0.14em',
-                          textTransform: 'uppercase',
-                          margin: '1.25rem 0 0',
-                        }}>Zjistěte více &rarr;</p>
-                      </div>
-                    </div>
+                        {/* Back face */}
+                        <div className="service-flip-back">
+                          <div style={{
+                            position: 'absolute', inset: 0,
+                            backgroundImage: `url(${service.image})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                          }} />
+                          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.78)' }} />
+                          <div className="service-flip-back-inner" style={{
+                            position: 'relative', zIndex: 1,
+                            width: '100%', height: '100%',
+                            display: 'flex', flexDirection: 'column',
+                            justifyContent: 'center',
+                            padding: '2rem',
+                          }}>
+                            <h3 className="service-text-raised" style={{
+                              color: '#FFFFFF',
+                              fontFamily: 'var(--font-cinzel, serif)',
+                              fontSize: '1.05rem',
+                              fontWeight: 700,
+                              margin: '0 0 1rem',
+                              letterSpacing: '0.05em',
+                            }}>{service.title}</h3>
+                            <div style={{ width: '28px', height: '2px', backgroundColor: '#FFFFFF', opacity: 0.4, marginBottom: '1.25rem' }} />
+                            <p className="service-desc-raised" style={{
+                              color: '#CCCCCC', lineHeight: 1.8, margin: 0, fontSize: '0.92rem',
+                            }}>{service.description}</p>
+                            <p className="service-back-more" style={{
+                              marginTop: '1.25rem',
+                              color: 'rgba(255,255,255,0.45)',
+                              fontSize: '0.7rem',
+                              fontWeight: 600,
+                              letterSpacing: '0.14em',
+                              textTransform: 'uppercase',
+                            }}>Zjistěte více &rarr;</p>
+                          </div>
+                        </div>
 
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Title overlay — z:50, always above all cards regardless of stacking contexts */}
-          <div className="stagger-titles-layer" aria-hidden="true">
-            {services.map((service, i) => (
-              <div
-                key={service.title}
-                className={`stagger-title-item stagger-title-item--${i}`}
-                style={{
-                  opacity: !revealedCards[i] ? 0 : hoveredIdx === i ? 0 : 1,
-                  transition: revealedCards[i]
-                    ? `opacity ${hoveredIdx === i ? '0.25s' : '0.8s'} ease`
-                    : 'none',
-                }}
-              >
-                <h3 className="service-text-raised" style={{
-                  color: '#FFFFFF',
-                  fontFamily: 'var(--font-cinzel, serif)',
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  margin: 0,
-                  letterSpacing: '0.05em',
-                }}>{service.title}</h3>
-                <div style={{
-                  marginTop: '0.5rem',
-                  width: '32px',
-                  height: '2px',
-                  backgroundColor: '#FFFFFF',
-                  opacity: 0.7,
-                }} />
-              </div>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

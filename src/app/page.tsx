@@ -41,6 +41,16 @@ export default function HomePage() {
       <ServicesPreview />
       <Divider to="#111111" dir="rtl" />
       <BeforeAfterSection />
+      <div
+        aria-hidden="true"
+        style={{
+          height: '420px',
+          backgroundImage: 'url(/Sectionbg/bg1.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
       <Divider to="#F4F4F4" dir="ltr" />
       <WhyUs />
       <Divider to="#0a0a0a" dir="rtl" />
