@@ -150,20 +150,7 @@ export function Hero() {
   const [prev, setPrev] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
   const [textKey, setTextKey] = useState(0);
-  const [allLoaded, setAllLoaded] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Preload all slide images before starting auto-advance
-  useEffect(() => {
-    let loaded = 0;
-    const total = slides.length;
-    slides.forEach(slide => {
-      const img = new window.Image();
-      img.onload = () => { loaded++; if (loaded === total) setAllLoaded(true); };
-      img.onerror = () => { loaded++; if (loaded === total) setAllLoaded(true); };
-      img.src = slide.image;
-    });
-  }, []);
 
   const goTo = useCallback((index: number) => {
     if (animating) return;
@@ -174,15 +161,33 @@ export function Hero() {
     setTimeout(() => { setPrev(null); setAnimating(false); }, 1000);
   }, [animating, current]);
 
-  const next = useCallback(() => goTo((current + 1) % slides.length), [goTo, current]);
+  const next = useCallback(() => {
+    const nextIdx = (current + 1) % slides.length;
+    // Přepni až když je další obrázek načtený
+    let done = false;
+    const doGo = () => { if (!done) { done = true; goTo(nextIdx); } };
+    const img = new window.Image();
+    img.onload = doGo;
+    img.onerror = doGo;
+    img.src = slides[nextIdx].image;
+    if (img.complete) doGo();
+  }, [goTo, current]);
+
   const back = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [goTo, current]);
 
-  // Auto-advance — only after all images are loaded
+  // Průběžný preload: vždy načti 2 slidy dopředu
   useEffect(() => {
-    if (!allLoaded) return;
+    [1, 2].forEach(offset => {
+      const img = new window.Image();
+      img.src = slides[(current + offset) % slides.length].image;
+    });
+  }, [current]);
+
+  // Auto-advance
+  useEffect(() => {
     timerRef.current = setTimeout(next, INTERVAL);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [next, current, allLoaded]);
+  }, [next, current]);
 
   const slide = slides[current];
   const prevSlide = prev !== null ? slides[prev] : null;
