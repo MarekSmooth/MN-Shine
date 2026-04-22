@@ -150,7 +150,20 @@ export function Hero() {
   const [prev, setPrev] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
   const [textKey, setTextKey] = useState(0);
+  const [allLoaded, setAllLoaded] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Preload all slide images before starting auto-advance
+  useEffect(() => {
+    let loaded = 0;
+    const total = slides.length;
+    slides.forEach(slide => {
+      const img = new window.Image();
+      img.onload = () => { loaded++; if (loaded === total) setAllLoaded(true); };
+      img.onerror = () => { loaded++; if (loaded === total) setAllLoaded(true); };
+      img.src = slide.image;
+    });
+  }, []);
 
   const goTo = useCallback((index: number) => {
     if (animating) return;
@@ -164,11 +177,12 @@ export function Hero() {
   const next = useCallback(() => goTo((current + 1) % slides.length), [goTo, current]);
   const back = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [goTo, current]);
 
-  // Auto-advance
+  // Auto-advance — only after all images are loaded
   useEffect(() => {
+    if (!allLoaded) return;
     timerRef.current = setTimeout(next, INTERVAL);
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [next, current]);
+  }, [next, current, allLoaded]);
 
   const slide = slides[current];
   const prevSlide = prev !== null ? slides[prev] : null;
