@@ -48,6 +48,227 @@ body {
   color: #0a0a0a;
 }
 
+/* ============================================
+   DARK LUXURY AUTOMOTIVE DETAILING
+   Section Transition - Car Paint Light Reflection
+   Technique: stacked radial-gradient layers, NO filter:blur on elements
+   ============================================ */
+
+.section-transition {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    /* Negative top margin pulls the wrapper to sit exactly on the section boundary */
+    margin-top: -45px;
+    margin-bottom: -45px;
+    background: transparent;
+    overflow: hidden;
+    /* Above section content, below nav */
+    z-index: 10;
+    pointer-events: none;
+}
+
+.section-transition::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background:
+        /* Layer 1 – core line */
+        radial-gradient(ellipse 46% 2px  at 50% 50%,
+            rgba(245, 248, 255, 1.00)  0%,
+            rgba(238, 244, 255, 0.60) 40%,
+            transparent               75%
+        ),
+        /* Layer 2 – inner glow */
+        radial-gradient(ellipse 68% 7px  at 50% 50%,
+            rgba(232, 240, 255, 0.55)  0%,
+            rgba(220, 233, 255, 0.12) 35%,
+            transparent               58%
+        ),
+        /* Layer 3 – mid glow */
+        radial-gradient(ellipse 82% 20px at 50% 50%,
+            rgba(220, 232, 255, 0.20)  0%,
+            rgba(210, 226, 255, 0.03) 38%,
+            transparent               60%
+        ),
+        /* Layer 4 – outer glow */
+        radial-gradient(ellipse 92% 40px at 50% 50%,
+            rgba(210, 225, 252, 0.06)  0%,
+            transparent                48%
+        );
+
+    transform: scaleY(1.18);
+    transform-origin: center;
+    animation: coreGlow 9s ease-in-out infinite;
+}
+
+.section-transition::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background:
+        /* Fog */
+        radial-gradient(ellipse 98% 55px at 50% 50%,
+            rgba(200, 218, 248, 0.038)  0%,
+            rgba(190, 210, 245, 0.010) 40%,
+            transparent                60%
+        );
+
+    transform: scaleY(1.22);
+    transform-origin: center;
+    animation: fogBreath 14s ease-in-out infinite;
+}
+
+/* Breathing animations — very subtle */
+@keyframes coreGlow {
+    0%, 100% { opacity: 1;    transform: scaleY(1.18) scaleX(1.00); }
+    50%       { opacity: 0.80; transform: scaleY(1.22) scaleX(1.04); }
+}
+
+@keyframes fogBreath {
+    0%, 100% { opacity: 1;    transform: scaleY(1.22) scaleX(1.00); }
+    50%       { opacity: 0.60; transform: scaleY(1.28) scaleX(1.06); }
+}
+
+/* --- Variant: subtle --- */
+.section-transition.subtle::before {
+    background:
+        radial-gradient(ellipse 26% 2px  at 50% 50%,
+            rgba(245, 248, 255, 0.55)  0%,
+            transparent               75%
+        ),
+        radial-gradient(ellipse 32% 7px  at 50% 50%,
+            rgba(232, 240, 255, 0.32)  0%,
+            transparent               75%
+        ),
+        radial-gradient(ellipse 38% 20px at 50% 50%,
+            rgba(220, 232, 255, 0.12)  0%,
+            transparent               72%
+        );
+}
+.section-transition.subtle::after { opacity: 0.5; }
+
+/* --- Variant: strong --- */
+.section-transition.strong::before {
+    background:
+        radial-gradient(ellipse 34% 2px  at 50% 50%,
+            rgba(248, 251, 255, 1.00)  0%,
+            rgba(240, 246, 255, 0.75) 40%,
+            transparent               80%
+        ),
+        radial-gradient(ellipse 40% 8px  at 50% 50%,
+            rgba(235, 243, 255, 0.82)  0%,
+            rgba(225, 237, 255, 0.32) 48%,
+            transparent               80%
+        ),
+        radial-gradient(ellipse 46% 24px at 50% 50%,
+            rgba(222, 234, 255, 0.38)  0%,
+            rgba(212, 228, 255, 0.08) 55%,
+            transparent               78%
+        ),
+        radial-gradient(ellipse 52% 48px at 50% 50%,
+            rgba(212, 226, 252, 0.12)  0%,
+            transparent                70%
+        );
+}
+.section-transition.strong::after {
+    background:
+        radial-gradient(ellipse 55% 60px at 50% 50%,
+            rgba(200, 218, 248, 0.07)  0%,
+            rgba(190, 210, 245, 0.03) 60%,
+            transparent               82%
+        );
+}
+/* --- Bez animace --- */
+.section-transition.static::before,
+.section-transition.static::after {
+    animation: none;
+}
+
+/* --- dark-to-light: centrum přesně na hranici (50% 50%), maska skryje světlou stranu ---- */
+.section-transition.dark-to-light::before {
+    background:
+        radial-gradient(ellipse 46% 2px  at 50% 50%,
+            rgba(245, 248, 255, 1.00)  0%,
+            rgba(238, 244, 255, 0.60) 40%,
+            transparent               75%
+        ),
+        radial-gradient(ellipse 68% 7px  at 50% 50%,
+            rgba(232, 240, 255, 0.55)  0%,
+            rgba(220, 233, 255, 0.12) 35%,
+            transparent               58%
+        ),
+        radial-gradient(ellipse 82% 20px at 50% 50%,
+            rgba(220, 232, 255, 0.20)  0%,
+            rgba(210, 226, 255, 0.03) 38%,
+            transparent               60%
+        ),
+        radial-gradient(ellipse 92% 40px at 50% 50%,
+            rgba(210, 225, 252, 0.06)  0%,
+            transparent                48%
+        );
+    /* Zobrazit pouze horní (tmavou) stranu – pod hranicí vše zmizí */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 82%);
+    mask-image:         linear-gradient(to bottom, black 0%, black 50%, transparent 82%);
+}
+.section-transition.dark-to-light::after {
+    background:
+        radial-gradient(ellipse 98% 55px at 50% 50%,
+            rgba(200, 218, 248, 0.038)  0%,
+            rgba(190, 210, 245, 0.010) 40%,
+            transparent                60%
+        );
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 75%);
+    mask-image:         linear-gradient(to bottom, black 0%, black 45%, transparent 75%);
+}
+
+/* --- light-to-dark: centrum přesně na hranici (50% 50%), maska skryje světlou stranu ---- */
+.section-transition.light-to-dark::before {
+    background:
+        radial-gradient(ellipse 46% 2px  at 50% 50%,
+            rgba(245, 248, 255, 1.00)  0%,
+            rgba(238, 244, 255, 0.60) 40%,
+            transparent               75%
+        ),
+        radial-gradient(ellipse 68% 7px  at 50% 50%,
+            rgba(232, 240, 255, 0.55)  0%,
+            rgba(220, 233, 255, 0.12) 35%,
+            transparent               58%
+        ),
+        radial-gradient(ellipse 82% 20px at 50% 50%,
+            rgba(220, 232, 255, 0.20)  0%,
+            rgba(210, 226, 255, 0.03) 38%,
+            transparent               60%
+        ),
+        radial-gradient(ellipse 92% 40px at 50% 50%,
+            rgba(210, 225, 252, 0.06)  0%,
+            transparent                48%
+        );
+    /* Zobrazit pouze spodní (tmavou) stranu – nad hranicí vše zmizí */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 18%, black 50%, black 100%);
+    mask-image:         linear-gradient(to bottom, transparent 18%, black 50%, black 100%);
+}
+.section-transition.light-to-dark::after {
+    background:
+        radial-gradient(ellipse 98% 55px at 50% 50%,
+            rgba(200, 218, 248, 0.038)  0%,
+            rgba(190, 210, 245, 0.010) 40%,
+            transparent                60%
+        );
+    -webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 55%, black 100%);
+    mask-image:         linear-gradient(to bottom, transparent 25%, black 55%, black 100%);
+}
+
+/* --- Responzivita --- */
+@media (max-width: 768px) {
+    .section-transition { height: 70px; }
+}
+@media (max-width: 480px) {
+    .section-transition { height: 56px; }
+}
+
 /* Section backgrounds */
 .section-primary { background-color: #0a0a0a; }
 .section-secondary { background-color: #111111; }
@@ -76,6 +297,25 @@ body {
 }
 .link-gold-hover:hover {
   color: #FFFFFF;
+}
+
+/* FAQ section "Všechny dotazy" button */
+.faq-all-link {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #CCCCCC;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.faq-all-link:hover {
+  color: #FFFFFF;
+  border-color: rgba(255,255,255,0.7);
 }
 
 /* Animated gradient border */

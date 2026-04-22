@@ -33,12 +33,11 @@ const features = [
 
 export function WhyUs() {
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '3rem 1.5rem 2rem' }}>
+    <section style={{ backgroundColor: '#111111', padding: '3rem 1.5rem 2rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč si vybrat MN Shine?"
           subtitle="Jsme více než jen autoumývárna. Jsme partneři, kteří se starají o vaše vozidlo jako o vlastní."
-          light
         />
 
         <div className="why-us-grid" style={{
@@ -49,22 +48,22 @@ export function WhyUs() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              style={{ borderTop: '1px solid rgba(0,0,0,0.12)', padding: '2rem 0', position: 'relative', transition: 'border-color 0.3s' }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,0,0,0.45)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,0,0,0.12)'}
+              style={{ borderTop: '1px solid rgba(255,255,255,0.12)', padding: '2rem 0', position: 'relative', transition: 'border-color 0.3s' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.45)'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.12)'}
             >
-              <div style={{ color: '#0a0a0a', marginBottom: '1rem' }}>
+              <div style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
                 {feature.icon}
               </div>
-              <h3 style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-cinzel, serif)' }}>{feature.title}</h3>
-              <p style={{ color: '#555555', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
+              <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem', fontFamily: 'var(--font-cinzel, serif)' }}>{feature.title}</h3>
+              <p style={{ color: '#9BA5AE', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{feature.description}</p>
             </div>
           ))}
 
           {/* Stats — fills the 3 remaining columns next to Kvalita nad kvantitu */}
           <div className="why-us-stats" style={{
             gridColumn: 'span 3',
-            borderTop: '1px solid rgba(0,0,0,0.12)',
+            borderTop: '1px solid rgba(255,255,255,0.12)',
             padding: '2rem 0',
             display: 'flex',
             alignItems: 'center',
@@ -76,8 +75,8 @@ export function WhyUs() {
               { value: '5+', label: 'Let zkušeností' },
             ].map(item => (
               <div key={item.value} style={{ textAlign: 'center' }}>
-                <div style={{ color: '#0a0a0a', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', letterSpacing: '0.04em' }}>{item.value}</div>
-                <div style={{ color: '#555555', fontSize: '0.85rem', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{item.label}</div>
+                <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', letterSpacing: '0.04em' }}>{item.value}</div>
+                <div style={{ color: '#9BA5AE', fontSize: '0.85rem', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{item.label}</div>
               </div>
             ))}
           </div>

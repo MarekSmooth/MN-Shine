@@ -1,0 +1,250 @@
+/* ============================================
+   DARK LUXURY AUTOMOTIVE DETAILING
+   Section Transition - Light Reflection Effect
+   ============================================ */
+
+:root {
+    /* Parametry světelného efektu - snadno upravitelné */
+    --glow-intensity: 0.4;              /* 0.2 = subtilní, 0.6 = výrazné */
+    --glow-width: 80%;                  /* šířka světelného pásu */
+    --glow-height: 120px;               /* výška efektu */
+    --glow-blur: 40px;                  /* míra rozmazání */
+    --glow-color: rgba(200, 220, 255, 0.15);  /* velmi jemná modrá */
+    --fog-intensity: 0.08;              /* intenzita mlhy */
+    --animation-duration: 8s;           /* rychlost "dýchání" */
+}
+
+/* Reset a základní styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Sekce */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.section-dark {
+    background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+}
+
+.content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.content h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   HLAVNÍ SVĚTELNÝ PŘECHOD
+   ============================================ */
+
+.section-transition {
+    position: relative;
+    width: 100%;
+    height: var(--glow-height);
+    overflow: hidden;
+    /* Debug - odkomentuj pro zobrazení hranic */
+    /* border: 1px solid rgba(255,0,0,0.2); */
+}
+
+/* Vrstva 1: Hlavní světelný odlesk (jako na laku) */
+.section-transition::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Šířka a výška světelného pásu */
+    width: var(--glow-width);
+    height: 3px;
+    
+    /* Elliptický gradient - simulace světelného odlesku */
+    background: radial-gradient(
+        ellipse 100% 600px at center,
+        var(--glow-color) 0%,
+        rgba(200, 220, 255, calc(var(--glow-intensity) * 0.3)) 20%,
+        rgba(150, 180, 230, calc(var(--glow-intensity) * 0.15)) 40%,
+        rgba(100, 140, 200, calc(var(--glow-intensity) * 0.05)) 60%,
+        transparent 100%
+    );
+    
+    /* Rozmazání pro měkký přechod */
+    filter: blur(var(--glow-blur));
+    
+    /* Jemné zakřivení */
+    transform: translate(-50%, -50%) scaleY(1.2);
+    
+    /* Animace "dýchání" světla */
+    animation: glowPulse var(--animation-duration) ease-in-out infinite;
+    
+    /* Blend mode pro realističtější efekt */
+    mix-blend-mode: screen;
+    opacity: var(--glow-intensity);
+}
+
+/* Vrstva 2: Fog efekt - jemná mlha pod světlem */
+.section-transition::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Širší než hlavní světlo */
+    width: 100%;
+    height: 200px;
+    
+    /* Velmi jemný gradientový fog */
+    background: radial-gradient(
+        ellipse 70% 200px at center,
+        rgba(180, 200, 240, var(--fog-intensity)) 0%,
+        rgba(140, 160, 200, calc(var(--fog-intensity) * 0.5)) 30%,
+        transparent 70%
+    );
+    
+    /* Silnější rozmazání pro fog efekt */
+    filter: blur(60px);
+    
+    /* Mírnější animace než hlavní světlo */
+    animation: fogPulse calc(var(--animation-duration) * 1.5) ease-in-out infinite;
+    
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+/* ============================================
+   ANIMACE
+   ============================================ */
+
+/* Jemné "dýchání" hlavního světla */
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: var(--glow-intensity);
+        transform: translate(-50%, -50%) scaleY(1.2) scaleX(1);
+    }
+    50% {
+        opacity: calc(var(--glow-intensity) * 1.3);
+        transform: translate(-50%, -50%) scaleY(1.3) scaleX(1.05);
+    }
+}
+
+/* Pomalejší pohyb mlhy */
+@keyframes fogPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ============================================
+   RESPONZIVITA
+   ============================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --glow-width: 90%;
+        --glow-height: 80px;
+        --glow-blur: 30px;
+    }
+    
+    .section-transition {
+        height: var(--glow-height);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --glow-width: 95%;
+        --glow-height: 60px;
+        --glow-blur: 25px;
+    }
+}
+
+/* ============================================
+   VARIANTY INTENZITY (přidej jako modifier class)
+   ============================================ */
+
+/* Subtilní verze */
+.section-transition.subtle {
+    --glow-intensity: 0.2;
+    --fog-intensity: 0.04;
+}
+
+/* Výraznější verze */
+.section-transition.strong {
+    --glow-intensity: 0.6;
+    --fog-intensity: 0.12;
+}
+
+/* Bez animace (pro redukci pohybu) */
+.section-transition.static::before,
+.section-transition.static::after {
+    animation: none;
+}
+
+/* ============================================
+   BAREVNÉ VARIANTY (volitelné)
+   ============================================ */
+
+/* Teplá zlatá varianta (pro premium efekt) */
+.section-transition.warm {
+    --glow-color: rgba(255, 230, 200, 0.15);
+}
+
+.section-transition.warm::after {
+    background: radial-gradient(
+        ellipse 70% 200px at center,
+        rgba(240, 220, 180, var(--fog-intensity)) 0%,
+        rgba(200, 180, 140, calc(var(--fog-intensity) * 0.5)) 30%,
+        transparent 70%
+    );
+}
+
+/* Studená stříbrná varianta */
+.section-transition.cool {
+    --glow-color: rgba(220, 235, 255, 0.15);
+}
+
+.section-transition.cool::after {
+    background: radial-gradient(
+        ellipse 70% 200px at center,
+        rgba(200, 220, 255, var(--fog-intensity)) 0%,
+        rgba(160, 180, 220, calc(var(--fog-intensity) * 0.5)) 30%,
+        transparent 70%
+    );
+}

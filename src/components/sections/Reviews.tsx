@@ -3,12 +3,11 @@ import { ReviewCard } from '@/components/ui/ReviewCard';
 
 export function Reviews() {
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '3rem 1.5rem' }}>
+    <section style={{ backgroundColor: '#111111', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Co říkají zákazníci"
           subtitle="Sbíráme reference – brzy zde uvidíte hodnocení od spokojených zákazníků."
-          light
         />
         <div style={{
           display: 'grid',
@@ -21,21 +20,18 @@ export function Reviews() {
             text="Skvělá práce! Interiér auta vypadá jako nový. Přesně to, co jsem čekal a o trošku víc. Rozhodně doporučuji."
             stars={5}
             vehicle="BMW 5 Series"
-            light
           />
           <ReviewCard
             name="Petra Marková"
             text="Profesionální přístup, výborné výsledky. Keramická ochrana na moje auto byla skvělou investicí."
             stars={5}
             vehicle="Audi A4"
-            light
           />
           <ReviewCard
             name="Tomáš Dvořák"
             text="Konečně detailing studio, které bere svou práci vážně. Přijdu znovu určitě."
             stars={5}
             vehicle="Mercedes C220"
-            light
           />
         </div>
       </div>

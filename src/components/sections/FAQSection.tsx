@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { faqs } from '@/data/faq';
@@ -38,6 +39,14 @@ export function FAQSection() {
           {faqs.map((faq) => (
             <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
           ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <Link
+            href="/faq"
+            className="faq-all-link"
+          >
+            Všechny dotazy
+          </Link>
         </div>
       </div>
     </section>

@@ -86,13 +86,13 @@ export function ServicesPreview() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: '#F4F4F4', padding: '3rem 1.5rem 6rem' }}>
+    <section style={{ backgroundColor: '#FAFAFA', padding: '3rem 1.5rem 6rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Naše služby"
           subtitle="Kompletní péče o vaše vozidlo pod jednou střechou. Od čištění interiéru po keramickou ochranu."
-          light
           goldLine={false}
+          light
         />
 
         <div ref={gridRef} className="masonry-grid">

@@ -18,12 +18,12 @@ const serviceCategories = [
 const leftLinks = [
   { href: '/', label: 'Domů' },
   { href: '/sluzby', label: 'Služby' },
-  { href: '/galerie', label: 'Galerie' },
+  { href: '/cenik', label: 'Ceník' },
 ];
 
 const rightLinks = [
+  { href: '/galerie', label: 'Galerie' },
   { href: '/o-nas', label: 'O nás' },
-  { href: '/faq', label: 'FAQ' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
 
@@ -296,11 +296,11 @@ export function Header() {
               )}
             </div>
             <Link
-              href="/galerie"
+              href="/cenik"
               style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
-              Galerie
+              Ceník
             </Link>
             {rightLinks.map(link => (
               <Link
