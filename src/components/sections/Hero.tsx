@@ -94,47 +94,6 @@ const slides = [
     text: null,
   },
 ];
-  {
-    image: '/3.png',
-    position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-  {
-    image: '/4.png',
-    position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-  {
-    image: '/6.png',
-    position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-  {
-    image: '/7.png',
-    position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-  {
-    image: '/12.png',
-    position: 'center center',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-];
 
 const INTERVAL = 15000;
 
