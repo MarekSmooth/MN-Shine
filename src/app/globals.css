@@ -733,12 +733,13 @@ body {
 .masonry-card-wrap {
   width: 100%;
 }
+/* Karta se mírně zdvihne při hoveru (před otočením) */
 .masonry-card-wrap:hover .service-flip-inner {
-  transform: rotateY(180deg);
+  transform: translateY(-8px) rotateY(180deg);
   box-shadow:
-    0 6px 12px  rgba(0,0,0,0.18),
-    0 20px 44px rgba(0,0,0,0.26),
-    0 48px 96px rgba(0,0,0,0.30);
+    0 12px 24px  rgba(0,0,0,0.28),
+    0 32px 64px  rgba(0,0,0,0.36),
+    0 64px 120px rgba(0,0,0,0.30);
 }
 /* Tablet: equal-height 3 cols */
 @media (max-width: 1023px) {
@@ -761,7 +762,7 @@ body {
 
 /* ---- Service flip cards ---- */
 .service-flip-card {
-  perspective: 1100px;
+  perspective: 550px;
   cursor: pointer;
   /* NO transform/filter here — either kills preserve-3d in children */
 }
@@ -771,26 +772,16 @@ body {
   width: 100%;
   height: 215px;
   transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
   border-radius: 6px;
-  /* Thick glass frame — 3D bevel effect:
-     inset top/left = bright edge (light source from top-left)
-     inset bottom/right = dark edge (shadow side)
-     multiple layers simulate glass thickness (~4px) */
   box-shadow:
-    /* outer drop shadow */
     0 2px 4px  rgba(0,0,0,0.18),
     0 8px 20px rgba(0,0,0,0.22),
     0 20px 48px rgba(0,0,0,0.20),
-    /* glass top edge — brightest specular */
     inset 0  4px 0 rgba(255,255,255,0.72),
-    /* glass left edge */
     inset  4px 0 0 rgba(255,255,255,0.32),
-    /* glass bottom edge — shadow */
     inset 0 -4px 0 rgba(0,0,0,0.38),
-    /* glass right edge — shadow */
     inset -4px 0 0 rgba(0,0,0,0.18),
-    /* inner depth — second glass layer */
     inset 0  8px 6px -4px rgba(255,255,255,0.18),
     inset 0 -8px 6px -4px rgba(0,0,0,0.22);
 }
@@ -800,7 +791,8 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 6px;
-  overflow: hidden;
+  /* overflow: hidden ZDE ZAKÁZÁN — zničil by transform-style: preserve-3d na potomcích */
+  transform-style: preserve-3d;
 }
 .service-flip-back {
   position: absolute;
@@ -808,8 +800,9 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 6px;
-  overflow: hidden;
+  /* overflow: hidden ZDE ZAKÁZÁN — zničil by transform-style: preserve-3d na potomcích */
   transform: rotateY(180deg);
+  transform-style: preserve-3d;
 }
 
 /* Clips bg image to rounded corners */
@@ -830,22 +823,22 @@ body {
   z-index: 10;
 }
 
-/* Raised text — letters elevated above card surface
-   Light top-edge highlight (lit from above) + cast shadow below = 3D raise illusion */
+/* Raised text — stacked extrusion: každý řádek je jedna "vrstva" tloušťky písmene */
 .service-text-raised {
   text-shadow:
-    0 -1px 0 rgba(255,255,255,0.32),   /* top-edge specular — essential for raised look */
-    0  1px 1px rgba(0,0,0,1),           /* hard immediate shadow */
-    0  3px 6px rgba(0,0,0,0.85),        /* soft mid shadow */
-    0  8px 18px rgba(0,0,0,0.60),       /* far diffuse shadow */
-    0 15px 30px rgba(0,0,0,0.35);       /* ambient depth */
+    0 1px 0 rgba(0,0,0,0.6),
+    0 2px 0 rgba(0,0,0,0.55),
+    0 3px 0 rgba(0,0,0,0.50),
+    0 4px 0 rgba(0,0,0,0.40),
+    0 6px 8px  rgba(0,0,0,0.35),
+    0 12px 18px rgba(0,0,0,0.20);
 }
 .service-desc-raised {
   text-shadow:
-    0 -1px 0 rgba(255,255,255,0.14),
-    0  1px 1px rgba(0,0,0,0.95),
-    0  3px 7px rgba(0,0,0,0.70),
-    0  7px 16px rgba(0,0,0,0.42);
+    0 1px 0 rgba(0,0,0,0.55),
+    0 2px 0 rgba(0,0,0,0.45),
+    0 3px 6px  rgba(0,0,0,0.30),
+    0 8px 14px rgba(0,0,0,0.18);
 }
 
 /* ---- Title overlay — separate DOM layer above all cards ---- */

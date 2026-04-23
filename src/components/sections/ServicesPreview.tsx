@@ -130,43 +130,51 @@ export function ServicesPreview() {
                               background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%)',
                             }} />
                           </div>
-                          {/* Title always visible on front */}
-                          <div style={{ position: 'absolute', top: '1.25rem', left: '1.25rem', right: '1.25rem', zIndex: 2 }}>
+                          {/* Title centered on front */}
+                          <div style={{ position: 'absolute', inset: 0, zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.25rem', transform: 'translateZ(60px)' }}>
                             <h3 className="service-text-raised" style={{
                               color: '#FFFFFF',
-                              fontFamily: 'var(--font-cinzel, serif)',
-                              fontSize: '1rem',
-                              fontWeight: 700,
-                              margin: '0 0 0.5rem',
+                              fontFamily: 'var(--font-inter, sans-serif)',
+                              fontSize: '1.2rem',
+                              fontWeight: 600,
+                              margin: 0,
                               letterSpacing: '0.05em',
+                              textAlign: 'center',
+                              textTransform: 'uppercase',
                             }}>{service.title}</h3>
-                            <div style={{ width: '28px', height: '2px', backgroundColor: '#FFFFFF', opacity: 0.55 }} />
                           </div>
                         </div>
 
                         {/* Back face */}
                         <div className="service-flip-back">
-                          <div style={{
-                            position: 'absolute', inset: 0,
-                            backgroundImage: `url(${service.image})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                          }} />
-                          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.78)' }} />
+                          {/* clip wrapper — overflow:hidden tady, ne na flip-back (zabilo by preserve-3d) */}
+                          <div style={{ position: 'absolute', inset: 0, borderRadius: '6px', overflow: 'hidden' }}>
+                            <div style={{
+                              position: 'absolute', inset: 0,
+                              backgroundImage: `url(${service.image})`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                            }} />
+                            <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.78)' }} />
+                          </div>
                           <div className="service-flip-back-inner" style={{
                             position: 'relative', zIndex: 1,
                             width: '100%', height: '100%',
                             display: 'flex', flexDirection: 'column',
+                            alignItems: 'center',
                             justifyContent: 'center',
                             padding: '2rem',
+                            textAlign: 'center',
+                            transform: 'translateZ(60px)',
                           }}>
                             <h3 className="service-text-raised" style={{
                               color: '#FFFFFF',
-                              fontFamily: 'var(--font-cinzel, serif)',
+                              fontFamily: 'var(--font-inter, sans-serif)',
                               fontSize: '1.05rem',
-                              fontWeight: 700,
+                              fontWeight: 600,
                               margin: '0 0 1rem',
                               letterSpacing: '0.05em',
+                              textTransform: 'uppercase',
                             }}>{service.title}</h3>
                             <div style={{ width: '28px', height: '2px', backgroundColor: '#FFFFFF', opacity: 0.4, marginBottom: '1.25rem' }} />
                             <p className="service-desc-raised" style={{
