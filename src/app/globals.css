@@ -506,10 +506,12 @@ body {
   padding: 5rem 1.5rem;
 }
 
-/* Hero section: extra 80px so the skew divider overlap falls below the fold */
+/* Hero section: fits exactly within the viewport */
 .hero-section {
-  height: calc(100svh + 80px);
+  box-sizing: border-box;
+  height: 100dvh;
   min-height: 480px;
+  max-height: 100dvh;
 }
 
 /* Laptop / short-viewport: compact nav and hero so second section is always visible */
@@ -539,7 +541,8 @@ body {
   }
 
   .hero-section {
-    height: calc(100svh + 80px);
+    height: 100dvh;
+    max-height: 100dvh;
   }
 
   .hero-inner {
