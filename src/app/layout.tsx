@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Cinzel, Rubik } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -73,9 +74,11 @@ export default function RootLayout({
         <link rel="preload" href="/icons/interier.webp" as="image" type="image/webp" />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LoadingScreen>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LoadingScreen>
       </body>
     </html>
   );
