@@ -5,27 +5,27 @@ const examples = [
   {
     label: 'Čištění',
     pairs: [
-      { before: '/beforeafter/cleaning/cleaningbefore1.JPEG', after: '/beforeafter/cleaning/cleaningafter1.JPEG' },
-      { before: '/beforeafter/cleaning/cleaningbefore2.JPEG', after: '/beforeafter/cleaning/cleaningafter2.JPEG' },
-      { before: '/beforeafter/cleaning/cleaningbefore3.JPEG', after: '/beforeafter/cleaning/cleaningafter3.JPEG' },
+      { before: '/beforeafter/cleaning/cleaningbefore1.webp', after: '/beforeafter/cleaning/cleaningafter1.webp' },
+      { before: '/beforeafter/cleaning/cleaningbefore2.webp', after: '/beforeafter/cleaning/cleaningafter2.webp' },
+      { before: '/beforeafter/cleaning/cleaningbefore3.webp', after: '/beforeafter/cleaning/cleaningafter3.webp' },
     ],
   },
   {
     label: 'Renovace',
     pairs: [
-      { before: '/beforeafter/renovace/before1.JPEG', after: '/beforeafter/renovace/after1.JPEG' },
-      { before: '/beforeafter/renovace/before2.JPEG', after: '/beforeafter/renovace/after2.JPEG' },
-      { before: '/beforeafter/renovace/before3.JPEG', after: '/beforeafter/renovace/after3.JPEG' },
-      { before: '/beforeafter/renovace/before4.JPEG', after: '/beforeafter/renovace/after4.JPEG' },
-      { before: '/beforeafter/renovace/before5.JPEG', after: '/beforeafter/renovace/after5.JPEG' },
+      { before: '/beforeafter/renovace/before1.webp', after: '/beforeafter/renovace/after1.webp' },
+      { before: '/beforeafter/renovace/before2.webp', after: '/beforeafter/renovace/after2.webp' },
+      { before: '/beforeafter/renovace/before3.webp', after: '/beforeafter/renovace/after3.webp' },
+      { before: '/beforeafter/renovace/before4.webp', after: '/beforeafter/renovace/after4.webp' },
+      { before: '/beforeafter/renovace/before5.webp', after: '/beforeafter/renovace/after5.webp' },
     ],
   },
   {
     label: 'Opravy škrábanců',
     pairs: [
-      { before: '/beforeafter/opravy/opravybefore1.JPEG', after: '/beforeafter/opravy/opravyafter1.JPEG' },
-      { before: '/beforeafter/opravy/opravybefore2.JPEG', after: '/beforeafter/opravy/opavyafter2.JPEG' },
-      { before: '/beforeafter/opravy/opravybefore3.JPEG', after: '/beforeafter/opravy/opravyafter3.JPEG' },
+      { before: '/beforeafter/opravy/opravybefore1.webp', after: '/beforeafter/opravy/opravyafter1.webp' },
+      { before: '/beforeafter/opravy/opravybefore2.webp', after: '/beforeafter/opravy/opavyafter2.webp' },
+      { before: '/beforeafter/opravy/opravybefore3.webp', after: '/beforeafter/opravy/opravyafter3.webp' },
     ],
   },
 ];
