@@ -172,11 +172,10 @@ export function ServicesPreview() {
                               fontFamily: 'var(--font-inter, sans-serif)',
                               fontSize: '1.05rem',
                               fontWeight: 600,
-                              margin: '0 0 1rem',
+                              margin: '0 0 0.75rem',
                               letterSpacing: '0.05em',
                               textTransform: 'uppercase',
                             }}>{service.title}</h3>
-                            <div style={{ width: '28px', height: '2px', backgroundColor: '#FFFFFF', opacity: 0.4, marginBottom: '1.25rem' }} />
                             <p className="service-desc-raised" style={{
                               color: '#CCCCCC', lineHeight: 1.8, margin: 0, fontSize: '0.92rem',
                             }}>{service.description}</p>
