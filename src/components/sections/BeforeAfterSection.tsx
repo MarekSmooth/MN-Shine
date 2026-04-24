@@ -2,9 +2,32 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 
 const examples = [
-  { label: 'Čištění', beforeImage: '/beforeafter/cleaning/cleanbefore1.JPEG', afterImage: '/beforeafter/cleaning/cleanafter1.JPEG' },
-  { label: 'Renovace', beforeImage: '/beforeafter/renovace/before1.JPEG', afterImage: '/beforeafter/renovace/after1.JPEG' },
-  { label: 'Opravy škrábanců', beforeImage: '/beforeafter/opravy/opravybefore1.JPEG', afterImage: '/beforeafter/opravy/opravyafter1.JPEG' },
+  {
+    label: 'Čištění',
+    pairs: [
+      { before: '/beforeafter/cleaning/cleaningbefore1.JPEG', after: '/beforeafter/cleaning/cleaningafter1.JPEG' },
+      { before: '/beforeafter/cleaning/cleaningbefore2.JPEG', after: '/beforeafter/cleaning/cleaningafter2.JPEG' },
+      { before: '/beforeafter/cleaning/cleaningbefore3.JPEG', after: '/beforeafter/cleaning/cleaningafter3.JPEG' },
+    ],
+  },
+  {
+    label: 'Renovace',
+    pairs: [
+      { before: '/beforeafter/renovace/before1.JPEG', after: '/beforeafter/renovace/after1.JPEG' },
+      { before: '/beforeafter/renovace/before2.JPEG', after: '/beforeafter/renovace/after2.JPEG' },
+      { before: '/beforeafter/renovace/before3.JPEG', after: '/beforeafter/renovace/after3.JPEG' },
+      { before: '/beforeafter/renovace/before4.JPEG', after: '/beforeafter/renovace/after4.JPEG' },
+      { before: '/beforeafter/renovace/before5.JPEG', after: '/beforeafter/renovace/after5.JPEG' },
+    ],
+  },
+  {
+    label: 'Opravy škrábanců',
+    pairs: [
+      { before: '/beforeafter/opravy/opravybefore1.JPEG', after: '/beforeafter/opravy/opravyafter1.JPEG' },
+      { before: '/beforeafter/opravy/opravybefore2.JPEG', after: '/beforeafter/opravy/opavyafter2.JPEG' },
+      { before: '/beforeafter/opravy/opravybefore3.JPEG', after: '/beforeafter/opravy/opravyafter3.JPEG' },
+    ],
+  },
 ];
 
 export function BeforeAfterSection() {
@@ -22,7 +45,7 @@ export function BeforeAfterSection() {
         }}>
           {examples.map((ex) => (
             <div key={ex.label}>
-              <BeforeAfterSlider label={ex.label} beforeImage={ex.beforeImage} afterImage={ex.afterImage} />
+              <BeforeAfterSlider label={ex.label} pairs={ex.pairs} />
             </div>
           ))}
         </div>

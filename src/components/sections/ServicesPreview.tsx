@@ -18,10 +18,10 @@ const services = [
     href: '/sluzby/ochrana-laku-brno',
   },
   {
-    title: 'Čištění interiéru',
-    description: 'Hloubkové čištění celého interiéru – sedadla, koberce, plasty, strop. Vaše auto bude vonět a vypadat jako nové.',
-    image: '/icons/interier.webp',
-    href: '/sluzby/cisteni-interieru-brno',
+    title: 'Renovace kůže',
+    description: 'Obnova a ošetření kožených sedadel. Odstraníme praskliny a škrábance, obnovíme původní pružnost a lesk kůže.',
+    image: '/icons/kuze.webp',
+    href: '/sluzby#renovace-kuze',
   },
   {
     title: 'Renovace laku',
@@ -36,10 +36,10 @@ const services = [
     href: '/sluzby#renovace-svetel',
   },
   {
-    title: 'Renovace kůže',
-    description: 'Obnova a ošetření kožených sedadel. Odstraníme praskliny a škrábance, obnovíme původní pružnost a lesk kůže.',
-    image: '/icons/kuze.webp',
-    href: '/sluzby#renovace-kuze',
+    title: 'Čištění interiéru',
+    description: 'Hloubkové čištění celého interiéru – sedadla, koberce, plasty, strop. Vaše auto bude vonět a vypadat jako nové.',
+    image: '/icons/interier.webp',
+    href: '/sluzby/cisteni-interieru-brno',
   },
   {
     title: 'Oprava škrábanců',
