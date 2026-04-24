@@ -72,7 +72,7 @@ export function WhyUs() {
           ref={gridRef}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(6, 1fr)',
             gridTemplateRows: 'auto auto',
             gap: '1px',
             background: 'rgba(255,255,255,0.07)',
@@ -82,12 +82,12 @@ export function WhyUs() {
           }}
         >
           {features.map((feature, i) => {
-            const isWide = i === 3; // card 4 spans 2 cols
+            const isWide = i >= 3; // bottom 2 cards span 3 cols each
             return (
               <div
                 key={feature.title}
                 style={{
-                  gridColumn: isWide ? 'span 2' : 'span 1',
+                  gridColumn: isWide ? 'span 3' : 'span 2',
                   position: 'relative',
                   padding: '2.5rem 2rem',
                   background: '#0f0f0f',
