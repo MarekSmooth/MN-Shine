@@ -15,7 +15,7 @@ interface BeforeAfterSliderProps {
 }
 
 const FADE_DURATION = 450;
-const CYCLE_INTERVAL = 7000;
+const CYCLE_INTERVAL = 15000;
 
 export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairsProp }: BeforeAfterSliderProps) {
   const pairs: ImagePair[] = pairsProp && pairsProp.length > 0

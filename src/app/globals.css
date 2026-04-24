@@ -733,9 +733,9 @@ body {
 .masonry-card-wrap {
   width: 100%;
 }
-/* Karta se mírně zdvihne při hoveru (před otočením) */
+/* Karta se otočí při hoveru */
 .masonry-card-wrap:hover .service-flip-inner {
-  transform: translateY(-8px) rotateY(180deg);
+  transform: rotateY(180deg);
   box-shadow:
     0 12px 24px  rgba(0,0,0,0.28),
     0 32px 64px  rgba(0,0,0,0.36),
@@ -773,7 +773,7 @@ body {
   height: 215px;
   transform-style: preserve-3d;
   transition: transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-  border-radius: 6px;
+  border-radius: 0;
   box-shadow:
     0 2px 4px  rgba(0,0,0,0.18),
     0 8px 20px rgba(0,0,0,0.22),
@@ -790,7 +790,7 @@ body {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 6px;
+  border-radius: 0;
   /* overflow: hidden ZDE ZAKÁZÁN — zničil by transform-style: preserve-3d na potomcích */
   transform-style: preserve-3d;
 }
@@ -799,7 +799,7 @@ body {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 6px;
+  border-radius: 0;
   /* overflow: hidden ZDE ZAKÁZÁN — zničil by transform-style: preserve-3d na potomcích */
   transform: rotateY(180deg);
   transform-style: preserve-3d;
@@ -809,7 +809,7 @@ body {
 .service-flip-front-bg {
   position: absolute;
   inset: 0;
-  border-radius: 6px;
+  border-radius: 0;
   overflow: hidden;
 }
 

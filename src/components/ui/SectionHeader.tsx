@@ -21,13 +21,14 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = fal
         }} />
       )}
       <h2 style={{
-        fontFamily: 'var(--font-rubik, sans-serif)',
-        fontSize: 'clamp(2rem, 3.5vw, 3rem)',
-        fontWeight: 700,
+        fontFamily: 'var(--font-inter, sans-serif)',
+        fontSize: 'clamp(1.5rem, 3vw, 2.4rem)',
+        fontWeight: 600,
         color: titleColor,
         lineHeight: 1.15,
         marginBottom: subtitle ? '1rem' : 0,
-        letterSpacing: '-0.01em',
+        letterSpacing: '0.12em',
+        textTransform: 'uppercase',
       }}>
         {title}
       </h2>

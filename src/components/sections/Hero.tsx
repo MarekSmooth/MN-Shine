@@ -45,22 +45,6 @@ const slides = [
     headingAccent: null,
     text: null,
   },
-  {
-    image: '/bg6.png',
-    position: 'center top',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
-  {
-    image: '/bg7.png',
-    position: 'center top',
-    badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
-    text: null,
-  },
 ];
 
 const INTERVAL = 15000;
@@ -109,8 +93,9 @@ export function Hero() {
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [next, current]);
 
-  const slide = slides[current];
-  const prevSlide = prev !== null ? slides[prev] : null;
+  const safeIndex = current % slides.length;
+  const slide = slides[safeIndex];
+  const prevSlide = prev !== null ? slides[prev % slides.length] : null;
 
   return (
     <section
