@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, MessageSquare, Phone } from 'lucide-react';
 
 const slides = [
   {
-    image: '/bg1.png',
+    image: '/bg1.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
     heading: null,
@@ -14,7 +14,7 @@ const slides = [
     text: null,
   },
   {
-    image: '/bg2.png',
+    image: '/bg2.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
     heading: null,
@@ -22,7 +22,7 @@ const slides = [
     text: null,
   },
   {
-    image: '/bg3.png',
+    image: '/bg3.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
     heading: null,
@@ -30,7 +30,7 @@ const slides = [
     text: null,
   },
   {
-    image: '/bg4.png',
+    image: '/bg4.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
     heading: null,
@@ -38,7 +38,7 @@ const slides = [
     text: null,
   },
   {
-    image: '/bg5.png',
+    image: '/bg5.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
     heading: null,

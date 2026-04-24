@@ -27,7 +27,7 @@ export default function HomePage() {
         aria-hidden="true"
         style={{
           height: '420px',
-          backgroundImage: 'url(/Sectionbg/bg1.png)',
+          backgroundImage: 'url(/Sectionbg/bg1.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
