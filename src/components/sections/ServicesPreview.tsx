@@ -89,10 +89,9 @@ export function ServicesPreview() {
     return (
       <div
         key={service.title}
-        className="masonry-card-wrap"
+        className="service-border-wrapper"
         style={{
           height: CARD_HEIGHT,
-          clipPath: 'polygon(11% 0%, 100% 0%, 89% 100%, 0% 100%)',
           opacity: revealed ? 1 : 0,
           transform: revealed ? 'translateY(0)' : 'translateY(28px)',
           transition: revealed
@@ -100,6 +99,7 @@ export function ServicesPreview() {
             : 'none',
         }}
       >
+        <div className="service-border-glow" aria-hidden="true" />
         <Link href={service.href} className="service-flip-card" style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
           <div className="service-flip-inner" style={{ height: '100%', borderRadius: 0 }}>
 

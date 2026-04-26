@@ -52,11 +52,12 @@ export function WhyDetailing() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: '#0a0a0a', padding: '4rem 1.5rem 5rem' }}>
+    <section style={{ backgroundColor: '#FAFAFA', padding: '4rem 1.5rem 5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč detailing dává smysl?"
           subtitle="Detailing není luxus – je to investice do vašeho vozidla, která se vyplatí."
+          light
         />
 
         <div
@@ -65,8 +66,8 @@ export function WhyDetailing() {
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1px',
-            background: 'rgba(255,255,255,0.07)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'rgba(0,0,0,0.08)',
+            border: '1px solid rgba(0,0,0,0.08)',
             borderRadius: '8px',
             overflow: 'hidden',
           }}
@@ -77,7 +78,7 @@ export function WhyDetailing() {
               style={{
                 position: 'relative',
                 padding: '2.5rem 2rem',
-                background: '#0f0f0f',
+                background: '#FFFFFF',
                 opacity: revealed[i] ? 1 : 0,
                 transform: revealed[i] ? 'translateY(0)' : 'translateY(24px)',
                 transition: revealed[i]
@@ -85,24 +86,23 @@ export function WhyDetailing() {
                   : 'none',
                 cursor: 'default',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#141414'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#0f0f0f'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#F0F0F0'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#FFFFFF'; }}
             >
               <h3 style={{
-                color: '#FFFFFF',
+                color: '#0a0a0a',
                 fontFamily: 'var(--font-inter, sans-serif)',
                 fontSize: '1.05rem',
                 fontWeight: 600,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
-                textShadow: '0 0 18px rgba(255,255,255,0.25), 0 1px 3px rgba(255,255,255,0.15)',
                 margin: '0 0 1rem',
               }}>
                 {benefit.title}
               </h3>
 
               <p style={{
-                color: '#7a8490',
+                color: '#555555',
                 fontFamily: 'var(--font-inter, sans-serif)',
                 fontSize: '0.9rem',
                 lineHeight: 1.8,
