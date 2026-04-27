@@ -730,46 +730,9 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
-/* ==== Service card animated shimmer border ==== */
-@property --sba {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes service-border-rot {
-  to { --sba: 360deg; }
-}
-
-.service-border-wrapper {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 2px;
-  background: #000;
-}
-
-/* Animated shimmer — separate element so it never touches the 3D flip context */
-.service-border-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: conic-gradient(
-    from var(--sba),
-    #000 0%,
-    #000 38%,
-    #444 44%,
-    #c8c8c8 50%,
-    #444 56%,
-    #000 62%,
-    #000 100%
-  );
-  animation: service-border-rot 5s linear infinite;
-}
-
+/* ==== Service cards — no border wrapper ==== */
 /* Karta se otočí při hoveru */
-.service-border-wrapper:hover .service-flip-inner {
+div:hover > .service-flip-card .service-flip-inner {
   transform: rotateY(180deg);
   box-shadow:
     0 12px 24px  rgba(0,0,0,0.28),
@@ -777,29 +740,8 @@ body {
     0 64px 120px rgba(0,0,0,0.30);
 }
 
-/* Tablet: equal-height 3 cols */
-@media (max-width: 1023px) {
-  .service-border-wrapper {
-    height: 200px !important;
-  }
-}
-/* Mobile: 2-col grid */
-@media (max-width: 600px) {
-  .masonry-grid {
-    flex-wrap: wrap;
-  }
-  .masonry-col {
-    flex: 0 0 calc(50% - 0.5rem);
-  }
-  .service-border-wrapper {
-    height: 170px !important;
-  }
-}
-
 /* ---- Service flip cards ---- */
 .service-flip-card {
-  position: relative;
-  z-index: 1;
   perspective: 550px;
   cursor: pointer;
   /* NO transform/filter here — either kills preserve-3d in children */

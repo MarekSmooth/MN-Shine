@@ -89,7 +89,6 @@ export function ServicesPreview() {
     return (
       <div
         key={service.title}
-        className="service-border-wrapper"
         style={{
           height: CARD_HEIGHT,
           opacity: revealed ? 1 : 0,
@@ -99,7 +98,6 @@ export function ServicesPreview() {
             : 'none',
         }}
       >
-        <div className="service-border-glow" aria-hidden="true" />
         <Link href={service.href} className="service-flip-card" style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
           <div className="service-flip-inner" style={{ height: '100%', borderRadius: 0 }}>
 
@@ -188,11 +186,11 @@ export function ServicesPreview() {
 
         <div ref={gridRef}>
           {/* Row 1 — 4 skewed parallelogram tiles */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginBottom: '8px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', marginBottom: '24px' }}>
             {ROW1.map((idx, pos) => renderCard(idx, true, pos))}
           </div>
           {/* Row 2 — 3 centered skewed tiles */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', maxWidth: '75%', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', maxWidth: '75%', margin: '0 auto' }}>
             {ROW2.map((idx, pos) => renderCard(idx, true, ROW1.length + pos))}
           </div>
         </div>
