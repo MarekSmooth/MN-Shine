@@ -9,40 +9,40 @@ const slides = [
     image: '/bg1.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
+    heading: 'Detailing Brno',
+    headingAccent: 'a okolí',
     text: null,
   },
   {
     image: '/bg2.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
+    heading: 'Detailing Brno',
+    headingAccent: 'a okolí',
     text: null,
   },
   {
     image: '/bg3.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
+    heading: 'Detailing Brno',
+    headingAccent: 'a okolí',
     text: null,
   },
   {
     image: '/bg4.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
+    heading: 'Detailing Brno',
+    headingAccent: 'a okolí',
     text: null,
   },
   {
     image: '/bg5.webp',
     position: 'center top',
     badge: 'Prémiová péče o váš vůz',
-    heading: null,
-    headingAccent: null,
+    heading: 'Detailing Brno',
+    headingAccent: 'a okolí',
     text: null,
   },
 ];
@@ -140,8 +140,27 @@ export function Hero() {
       <div className="hero-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         <div key={textKey} style={{ maxWidth: '700px' }}>
 
+          {/* Heading — desktop only, single line, above badge */}
+          {slide.heading && (
+            <h1 className="hero-headline" style={{
+              fontFamily: 'var(--font-inter, sans-serif)',
+              fontSize: 'clamp(1.5rem, min(4.5vw, 4.5vh), 4rem)',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              color: '#FFFFFF',
+              lineHeight: 1.18,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              marginBottom: '1.25rem',
+              whiteSpace: 'nowrap',
+              animation: 'hero-text-in 0.7s ease both', animationDelay: '0.1s',
+            }}>
+              {slide.heading} <span style={{ fontWeight: 400 }}>{slide.headingAccent}</span>
+            </h1>
+          )}
+
           {/* Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.75rem', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.1s' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.75rem', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s' }}>
             <span className="badge-line" style={{ width: '36px' }} />
             <span style={{ color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', textShadow: '0 1px 12px rgba(0,0,0,0.9)' }}>
               <span style={{ color: '#FFFFFF' }}>MN Shine</span>
@@ -150,25 +169,6 @@ export function Hero() {
             </span>
             <span className="badge-line" style={{ width: '36px' }} />
           </div>
-
-          {/* Heading */}
-          {slide.heading && (
-            <h1 style={{
-              fontFamily: 'var(--font-cinzel, serif)',
-              fontSize: 'clamp(1.5rem, min(4.5vw, 4.5vh), 4rem)',
-              fontWeight: 600,
-              fontStyle: 'normal',
-              color: '#FFFFFF',
-              lineHeight: 1.18,
-              letterSpacing: '0.04em',
-              textTransform: 'uppercase',
-              marginBottom: '1rem',
-              animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s',
-            }}>
-              {slide.heading}<br />
-              <span style={{ color: '#FFFFFF', fontWeight: 700, letterSpacing: '0.08em' }}>{slide.headingAccent}</span>
-            </h1>
-          )}
 
           {/* Paragraph */}
           {slide.text && (
@@ -187,13 +187,15 @@ export function Hero() {
             </p>
           )}
 
-          {/* CTAs — sharp icon-only buttons */}
+          {/* CTAs — sharp icon + label buttons */}
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
             <Link href="/kontakt" className="hero-icon-btn" aria-label="Objednat termín">
               <MessageSquare size={19} strokeWidth={1.5} />
+              <span className="hero-icon-btn__label">Napište nám</span>
             </Link>
             <a href="tel:+420702852852" className="hero-icon-btn" aria-label="Zavolat">
               <Phone size={20} strokeWidth={1.5} />
+              <span className="hero-icon-btn__label">Zavolejte</span>
             </a>
           </div>
 

@@ -40,23 +40,22 @@ export function ContactSection() {
 
   const inputStyle = {
     width: '100%',
-    backgroundColor: '#F5F5F5',
-    border: '1px solid rgba(0,0,0,0.15)',
+    backgroundColor: '#1a1a1a',
+    border: '1px solid rgba(255,255,255,0.15)',
     borderRadius: '4px',
     padding: '0.75rem 1rem',
-    color: '#0a0a0a',
+    color: '#FFFFFF',
     fontSize: '0.95rem',
     outline: 'none',
     boxSizing: 'border-box' as const,
   };
 
   return (
-    <section id="kontakt" style={{ backgroundColor: '#FAFAFA', padding: '3rem 1.5rem' }}>
+    <section id="kontakt" style={{ backgroundColor: '#0a0a0a', padding: '3rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Kontaktujte nás"
           subtitle="Máte zájem o naše služby? Napište nám nebo zavolejte. Rádi vám poradíme."
-          light
         />
         <div style={{
           display: 'grid',
@@ -66,7 +65,7 @@ export function ContactSection() {
         }}>
           {/* Contact Info */}
           <div>
-            <h3 style={{ color: '#0a0a0a', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.1rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
@@ -75,13 +74,13 @@ export function ContactSection() {
                 { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00-17:00', href: undefined },
               ].map(item => (
                 <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: '#0a0a0a', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ color: '#FFFFFF', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
                   <div>
                     <p style={{ color: '#666666', fontSize: '0.8rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.label}</p>
                     {item.href ? (
-                      <a href={item.href} style={{ color: '#0a0a0a', textDecoration: 'none', fontSize: '0.95rem' }}>{item.value}</a>
+                      <a href={item.href} style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.95rem' }}>{item.value}</a>
                     ) : (
-                      <p style={{ color: '#0a0a0a', margin: 0, fontSize: '0.95rem' }}>{item.value}</p>
+                      <p style={{ color: '#CCCCCC', margin: 0, fontSize: '0.95rem' }}>{item.value}</p>
                     )}
                   </div>
                 </div>
@@ -112,23 +111,23 @@ export function ContactSection() {
 
           {/* Form */}
           <div>
-            <h3 style={{ color: '#0a0a0a', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.25rem', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.1rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
             {submitted ? (
               <div style={{
-                backgroundColor: 'rgba(0,0,0,0.05)',
-                border: '1px solid rgba(0,0,0,0.12)',
+                backgroundColor: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: '8px',
                 padding: '2rem',
                 textAlign: 'center',
               }}>
-                <p style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Zpráva odeslána! ✓</p>
-                <p style={{ color: '#555555', margin: 0 }}>Děkujeme za váš zájem. Ozývíme se vám co nejdříve.</p>
+                <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Zpráva odeslána! ✓</p>
+                <p style={{ color: '#9CA3AF', margin: 0 }}>Děkujeme za váš zájem. Ozývíme se vám co nejdříve.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div className="form-grid-2col">
                   <div>
-                    <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Jméno a příjmení *</label>
+                    <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Jméno a příjmení *</label>
                     <input
                       type="text"
                       value={form.name}
@@ -139,19 +138,19 @@ export function ContactSection() {
                     {errors.name && <p style={{ color: '#ef4444', fontSize: '0.8rem', margin: '0.25rem 0 0' }}>{errors.name}</p>}
                   </div>
                   <div>
-                    <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Telefon *</label>
+                    <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Telefon *</label>
                     <input
                       type="tel"
                       value={form.phone}
                       onChange={e => setForm({ ...form, phone: e.target.value })}
                       style={{ ...inputStyle, borderColor: errors.phone ? '#ef4444' : 'rgba(0,0,0,0.15)' }}
-                      placeholder="+420 702 852 852"
+                      placeholder="např. +420 777 888 999"
                     />
                     {errors.phone && <p style={{ color: '#ef4444', fontSize: '0.8rem', margin: '0.25rem 0 0' }}>{errors.phone}</p>}
                   </div>
                 </div>
                 <div>
-                  <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>E-mail *</label>
+                  <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>E-mail *</label>
                   <input
                     type="email"
                     value={form.email}
@@ -162,7 +161,7 @@ export function ContactSection() {
                   {errors.email && <p style={{ color: '#ef4444', fontSize: '0.8rem', margin: '0.25rem 0 0' }}>{errors.email}</p>}
                 </div>
                 <div>
-                  <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Typ vozidla</label>
+                  <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Typ vozidla</label>
                   <input
                     type="text"
                     value={form.vehicle}
@@ -172,7 +171,7 @@ export function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Zájem o službu</label>
+                  <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Zájem o službu</label>
                   <select
                     value={form.service}
                     onChange={e => setForm({ ...form, service: e.target.value })}
@@ -187,7 +186,7 @@ export function ContactSection() {
                   </select>
                 </div>
                 <div>
-                  <label style={{ color: '#555555', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Zpráva</label>
+                  <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Zpráva</label>
                   <textarea
                     value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
@@ -198,8 +197,8 @@ export function ContactSection() {
                 <button
                   type="submit"
                   style={{
-                    backgroundColor: '#0a0a0a',
-                    color: '#FFFFFF',
+                    backgroundColor: '#FFFFFF',
+                    color: '#0a0a0a',
                     fontWeight: 700,
                     padding: '0.875rem',
                     border: 'none',
@@ -207,12 +206,14 @@ export function ContactSection() {
                     fontSize: '1rem',
                     cursor: 'pointer',
                     width: '100%',
-                    transition: 'background-color 0.2s',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    transition: 'opacity 0.2s',
                   }}
                 >
                   Odeslat poptávku
                 </button>
-                <p style={{ color: '#666666', fontSize: '0.8rem', textAlign: 'center', margin: 0 }}>
+                <p style={{ color: '#666666', fontSize: '0.75rem', textAlign: 'center', margin: 0 }}>
                   * Povinné pole. Vaše data zpracujeme pouze za účelem zodpovězení dotazu.
                 </p>
               </form>
