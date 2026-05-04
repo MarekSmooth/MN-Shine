@@ -57,6 +57,7 @@ export function ContactSection() {
           title="Kontaktujte nás"
           subtitle="Máte zájem o naše služby? Napište nám nebo zavolejte. Rádi vám poradíme."
         />
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -218,6 +219,40 @@ export function ContactSection() {
                 </p>
               </form>
             )}
+          </div>
+        </div>
+
+        {/* Studio building photo — full width */}
+        <div style={{
+          position: 'relative',
+          marginTop: '3rem',
+          height: 'clamp(160px, 22vw, 300px)',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}>
+          <img
+            src="/contact/studio-building.webp"
+            alt="MN Shine Detailing – studio Vojkovice u Brna"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }}
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 30%, rgba(10,10,10,0.85) 100%)',
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: '1.25rem',
+            left: '1.5rem',
+            color: '#FFFFFF',
+            fontFamily: 'var(--font-inter, sans-serif)',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            textShadow: '0 1px 6px rgba(0,0,0,0.8)',
+          }}>
+            Naše studio — Vojkovice u Brna
           </div>
         </div>
       </div>
