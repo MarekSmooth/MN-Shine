@@ -37,16 +37,13 @@ export function getLocalBusinessSchema() {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '08:00',
-        closes: '14:00',
+        closes: '17:00',
       },
     ],
-    sameAs: [],
+    sameAs: [
+      'https://www.instagram.com/mnshine_detailing/',
+      'https://www.facebook.com/profile.php?id=100093812870789',
+    ],
   };
 }
 

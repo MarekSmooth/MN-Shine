@@ -64,15 +64,16 @@ export function ServicesPreview() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          services.forEach((_, i) => {
+          const displayOrder = [...ROW1, ...ROW2];
+          displayOrder.forEach((serviceIdx, displayPos) => {
             setTimeout(() => {
               setRevealedCards(prev => {
-                if (prev[i]) return prev;
+                if (prev[serviceIdx]) return prev;
                 const next = [...prev];
-                next[i] = true;
+                next[serviceIdx] = true;
                 return next;
               });
-            }, i * 120);
+            }, displayPos * 120);
           });
           observer.disconnect();
         }
