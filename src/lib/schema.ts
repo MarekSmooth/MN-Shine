@@ -1,11 +1,11 @@
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'AutoRepair',
+    '@type': ['AutoRepair', 'AutoBodyShop', 'LocalBusiness'],
     name: 'MN Shine Detailing',
     description: 'Profesionální auto detailing studio ve Vojkovicích u Brna. Čištění interiéru, renovace laku, keramická ochrana.',
     url: 'https://mnshine.cz',
-    telephone: '+420777123456',
+    telephone: '+420702852852',
     email: 'info@mnshine.cz',
     image: 'https://mnshine.cz/og-image.jpg',
     address: {
@@ -19,8 +19,19 @@ export function getLocalBusinessSchema() {
       latitude: 49.083,
       longitude: 16.617,
     },
-    areaServed: ['Brno', 'Brno-venkov', 'Jihomoravský kraj'],
+    areaServed: [
+      'Brno', 'Brno-venkov', 'Jihomoravský kraj',
+      'Vojkovice', 'Šlapanice', 'Modřice', 'Rajhrad', 'Pohořelice',
+      'Husovice', 'Žabovřesky', 'Bystrc', 'Líšeň',
+    ],
     priceRange: '$$',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+420702852852',
+      contactType: 'customer service',
+      areaServed: 'CZ',
+      availableLanguage: 'Czech',
+    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

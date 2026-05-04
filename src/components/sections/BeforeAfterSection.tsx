@@ -36,7 +36,6 @@ export function BeforeAfterSection() {
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Výsledky, které mluví za vše"
-          subtitle="Posuňte posuvník a podívejte se na rozdíl před a po profesionálním detailingu."
         />
         <div style={{
           display: 'grid',

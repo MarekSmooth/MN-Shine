@@ -4,8 +4,18 @@ import { faqs } from '@/data/faq';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Časté dotazy (FAQ)',
-  description: 'Odpovědi na nejčastější dotazy k auto detailingu, čištění interiéru, keramické ochraně a cenách. MN Shine Detailing Brno.',
+  title: 'FAQ – Časté dotazy | Detailing Brno & Vojkovice',
+  description: 'Odpovědi na nejfrekventovanější dotazy k auto detailingu, čištění interiéru, keramické ochraně a cenách. MN Shine Detailing Brno.',
+  alternates: {
+    canonical: 'https://mnshine.cz/faq',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/faq',
+    title: 'FAQ – Časté dotazy | MN Shine Detailing',
+    description: 'Odpovědi na nejfrekventovanější dotazy k auto detailingu a čištění vozidel.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MN Shine Detailing – FAQ' }],
+  },
 };
 
 const categories = [...new Set(faqs.map(f => f.category))];

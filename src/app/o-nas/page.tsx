@@ -3,8 +3,18 @@ import Link from 'next/link';
 import { Heart, Shield, Star, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'O nás',
+  title: 'O nás – MN Shine Detailing Vojkovice u Brna',
   description: 'Seznamte se s MN Shine Detailing. Prémiové detailing studio ve Vojkovicích u Brna. Náš příběh, hodnoty a přístup ke každému vozidlu.',
+  alternates: {
+    canonical: 'https://mnshine.cz/o-nas',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/o-nas',
+    title: 'O nás | MN Shine Detailing',
+    description: 'Prémiové detailing studio ve Vojkovicích u Brna. Náš příběh a hodnoty.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MN Shine Detailing – O nás' }],
+  },
 };
 
 const values = [

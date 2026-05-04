@@ -36,11 +36,11 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mnshine.cz"),
   title: {
-    default: "MN Shine Detailing | Profesionální detailing Brno, Vojkovice",
+    default: "Detailing Vojkovice u Brna | MN Shine Detailing",
     template: "%s | MN Shine Detailing",
   },
-  description: "Profesionální auto detailing studio ve Vojkovicích u Brna. Čištění interiéru, renovace laku, keramická ochrana. Prémiová péče o vaše vozidlo.",
-  keywords: ["detailing Brno", "čištění interiéru Brno", "renovace laku Brno", "ochrana laku Brno", "auto detailing"],
+  description: "Profesionální auto detailing studio ve Vojkovicích u Brna – jih Moravy. Čištění interiéru, renovace laku, keramická ochrana. Obsluha Brna a okolí.",
+  keywords: ["detailing Brno", "detailing Vojkovice", "auto detailing Brno", "čištění interiéru Brno", "renovace laku Brno", "ochrana laku Brno", "detailing jih Moravy", "autodetailing jižní Morava", "MN Shine detailing", "keramická ochrana Brno"],
   alternates: {
     canonical: "https://mnshine.cz",
   },
@@ -49,14 +49,14 @@ export const metadata: Metadata = {
     locale: "cs_CZ",
     url: "https://mnshine.cz",
     siteName: "MN Shine Detailing",
-    title: "MN Shine Detailing | Profesionální detailing Brno",
-    description: "Profesionální auto detailing studio ve Vojkovicích u Brna.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MN Shine Detailing – Profesionální detailing Brno" }],
+    title: "MN Shine Detailing | Profesionální detailing Brno a okolí",
+    description: "Profesionální auto detailing studio ve Vojkovicích u Brna. Obsluha Brna a jihu Moravy.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "MN Shine Detailing – Profesionální detailing Brno, Vojkovice" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MN Shine Detailing | Profesionální detailing Brno",
-    description: "Profesionální auto detailing studio ve Vojkovicích u Brna.",
+    title: "MN Shine Detailing | Profesionální detailing Brno a okolí",
+    description: "Profesionální auto detailing studio ve Vojkovicích u Brna. Obsluha Brna a jihu Moravy.",
     images: ["/og-image.jpg"],
   },
 };
@@ -69,6 +69,9 @@ export default function RootLayout({
   return (
       <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${rubik.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link rel="preload" href="/icons/exterier.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/ochrana.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/interier.webp" as="image" type="image/webp" />

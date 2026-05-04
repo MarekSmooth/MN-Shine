@@ -2,8 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Galerie',
+  title: 'Galerie detailingu Brno | MN Shine Detailing',
   description: 'Prohlédněte si galerii prací MN Shine Detailing. Výsledky čištění interiéru, renovace laku, keramické ochrany a kompletního detailingu.',
+  alternates: {
+    canonical: 'https://mnshine.cz/galerie',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/galerie',
+    title: 'Galerie detailingu Brno | MN Shine Detailing',
+    description: 'Výsledky čištění interiéru, renovace laku a keramické ochrany.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MN Shine Detailing – Galerie' }],
+  },
 };
 
 const categories = [

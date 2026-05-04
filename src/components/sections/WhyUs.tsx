@@ -65,7 +65,7 @@ export function WhyUs() {
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Proč si vybrat MN Shine?"
-          subtitle="Jsme více než jen autoumývárna. Jsme partneři, kteří se starají o vaše vozidlo jako o vlastní."
+
         />
 
         <div
