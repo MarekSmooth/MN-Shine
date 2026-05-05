@@ -140,8 +140,8 @@ export function Hero() {
       <div className="hero-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         <div key={textKey} style={{ maxWidth: '700px' }}>
 
-          {/* Heading — desktop only, single line, above badge */}
-          {slide.heading && (
+          {/* H1 — only on first slide (SEO). Spacer div preserves layout on other slides. */}
+          {safeIndex === 0 && slide.heading ? (
             <h1 className="hero-headline" style={{
               fontFamily: "'Big Shoulders Display', sans-serif",
               fontSize: 'clamp(2.5rem, min(7vw, 7vh), 6.5rem)',
@@ -157,7 +157,16 @@ export function Hero() {
             }}>
               {slide.heading} <span style={{ fontWeight: 400 }}>{slide.headingAccent}</span>
             </h1>
-          )}
+          ) : slide.heading ? (
+            <div aria-hidden="true" style={{
+              fontFamily: "'Big Shoulders Display', sans-serif",
+              fontSize: 'clamp(2.5rem, min(7vw, 7vh), 6.5rem)',
+              lineHeight: 1.18,
+              marginBottom: '1.25rem',
+              whiteSpace: 'nowrap',
+              visibility: 'hidden',
+            }}>&nbsp;</div>
+          ) : null}
 
           {/* Badge */}
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.75rem', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.22s' }}>
