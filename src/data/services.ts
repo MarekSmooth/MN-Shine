@@ -10,24 +10,6 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: 'cisteni-exterieru',
-    title: 'Čištění exteriéru',
-    slug: 'cisteni-exterieru-brno',
-    shortDescription: 'Profesionální ruční mytí, dekontaminace a ošetření laku. Základ pro každou další péči o vozidlo.',
-    fullDescription: 'Profesionální čištění exteriéru zahrnuje ruční mytí, odmaštění, odstranění polétavé rzi (clay bar) a dekontaminaci. Výsledkem je čistý a ošetřený lak připravený na další péči.',
-    features: ['Ruční předmytí vysokým tlakem', 'Šamponování karoserie', 'Dekontaminace laku (clay bar)', 'Čištění kol a podběhů', 'Ošetření pneumatik', 'Finální oplach a sušení'],
-    price: 'od 800 Kč',
-  },
-  {
-    id: 'ochrana-laku',
-    title: 'Ochrana laku',
-    slug: 'ochrana-laku-brno',
-    shortDescription: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu laku vašeho vozidla.',
-    fullDescription: 'Keramická ochrana laku poskytuje dlouhodobou ochranu před povětrnostními vlivy, UV zářením, chemickými látkami a lehkými škrábanci. Aplikujeme prémiové keramické povlaky s garancí několika let.',
-    features: ['Keramický povlak (2–5 let ochrany)', 'Grafenový povlak', 'Ochranná fólie PPF', 'Hydrofobní efekt', 'UV ochrana', 'Snadná údržba'],
-    price: 'od 8 000 Kč',
-  },
-  {
     id: 'cisteni-interieru',
     title: 'Čištění interiéru',
     slug: 'cisteni-interieru-brno',
@@ -37,6 +19,15 @@ export const services: Service[] = [
     price: 'od 2 500 Kč',
   },
   {
+    id: 'cisteni-exterieru',
+    title: 'Čištění exteriéru',
+    slug: 'cisteni-exterieru-brno',
+    shortDescription: 'Profesionální ruční mytí, dekontaminace a ošetření laku. Základ pro každou další péči o vozidlo.',
+    fullDescription: 'Profesionální čištění exteriéru zahrnuje ruční mytí, odmaštění, odstranění polétavé rzi (clay bar) a dekontaminaci. Výsledkem je čistý a ošetřený lak připravený na další péči.',
+    features: ['Ruční předmytí vysokým tlakem', 'Šamponování karoserie', 'Dekontaminace laku (clay bar)', 'Čištění kol a podběhů', 'Ošetření pneumatik', 'Finální oplach a sušení'],
+    price: 'od 800 Kč',
+  },
+  {
     id: 'renovace-laku',
     title: 'Renovace laku',
     slug: 'renovace-laku-brno',
@@ -44,6 +35,15 @@ export const services: Service[] = [
     fullDescription: 'Renovace laku zahrnuje strojní leštění, které odstraní povrchové škrábance, víry, oxidaci a jiné defekty. Výsledkem je lak s dokonalým leskem jako z výroby.',
     features: ['Korekce laku (1-step/2-step)', 'Strojní leštění', 'Odstranění škrábanců', 'Finální polish', 'Ochranný vosk nebo sealant'],
     price: 'od 4 500 Kč',
+  },
+  {
+    id: 'ochrana-laku',
+    title: 'Ochrana laku',
+    slug: 'ochrana-laku-brno',
+    shortDescription: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu laku vašeho vozidla.',
+    fullDescription: 'Keramická ochrana laku poskytuje dlouhodobou ochranu před povětrnostními vlivy, UV zářením, chemickými látkami a lehkými škrábanci. Aplikujeme prémiové keramické povlaky s garancí několika let.',
+    features: ['Keramický povlak (2–5 let ochrany)', 'Grafenový povlak', 'Ochranná fólie PPF', 'Hydrofobní efekt', 'UV ochrana', 'Snadná údržba'],
+    price: 'od 8 000 Kč',
   },
   {
     id: 'renovace-svetel',

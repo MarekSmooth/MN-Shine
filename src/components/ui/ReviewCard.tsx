@@ -1,4 +1,4 @@
-interface ReviewCardProps {
+﻿interface ReviewCardProps {
   name: string;
   text: string;
   stars?: number;

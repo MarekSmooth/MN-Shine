@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -119,7 +119,7 @@ export function ServicesPreview() {
                   <div style={{ position: 'absolute', inset: 0, zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.25rem', transform: 'translateZ(60px)' }}>
                     <h3 className="service-text-raised" style={{
                       color: '#FFFFFF',
-                      fontFamily: 'var(--font-inter, sans-serif)',
+                      fontFamily: "'Big Shoulders Display', sans-serif",
                       fontSize: '1.2rem',
                       fontWeight: 600,
                       margin: 0,
@@ -153,7 +153,7 @@ export function ServicesPreview() {
                   }}>
                     <h3 className="service-text-raised" style={{
                       color: '#FFFFFF',
-                      fontFamily: 'var(--font-inter, sans-serif)',
+                      fontFamily: "'Big Shoulders Display', sans-serif",
                       fontSize: '1.05rem',
                       fontWeight: 600,
                       margin: '0 0 0.75rem',

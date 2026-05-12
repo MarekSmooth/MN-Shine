@@ -1,151 +1,239 @@
+﻿import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SectionHeader } from '@/components/ui/SectionHeader';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import SectionTransition from '@/components/ui/SectionTransition';
 
 export const metadata: Metadata = {
   title: 'Naše služby',
-  description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, čištění exteriéru, renovace laku, renovace kůže a doplňkové služby.',
-  alternates: {
-    canonical: 'https://mnshine.cz/sluzby',
-  },
+  description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, čištění exteriéru, renovace laku, ochrana laku, renovace světel, kůže a opravy škrábanců.',
+  alternates: { canonical: 'https://mnshine.cz/sluzby' },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby',
     title: 'Naše služby | MN Shine Detailing',
-    description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, exteriéru, renovace laku, renovace kůže a doplňkové služby.',
+    description: 'Přehled všech služeb MN Shine Detailing.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Služby MN Shine Detailing' }],
   },
 };
 
-const serviceCategories = [
+type Variant = { name: string; items: string[]; recommended?: boolean };
+
+type ServiceCategory = {
+  id: string;
+  name: string;
+  tagline: string;
+  href: string;
+  image: string;
+  forWho: string;
+  variants: Variant[];
+};
+
+const serviceCategories: ServiceCategory[] = [
   {
     id: 'cisteni-interieru',
     name: 'Čištění interiéru',
-    description: 'Komplexní čištění interiéru zahrnuje odstranění nečistot, skvrn, pachů a bakterií z každého koutu vašeho vozidla. Používáme profesionální parní čistič a prémiové přípravky bezpečné pro všechny materiály.',
-    features: ['Čištění sedadel (látka i kůže)', 'Hloubkové čištění koberců', 'Čištění plastů a palubní desky', 'Čištění stropu', 'Odstranění pachů', 'Dezinfekce'],
-    price: 'od 2 500 Kč',
+    tagline: 'Svěží a dezinfikovaný interiér',
     href: '/sluzby/cisteni-interieru-brno',
+    image: '/icons/interier.webp',
+    forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba před prodejem nebo po zimní sezóně.',
+    variants: [
+      { name: 'Varianta 1 – Základní', items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'] },
+      { name: 'Varianta 2 – Kompletní', items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'], recommended: true },
+      { name: 'Varianta 3 – Hloubkové', items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'] },
+    ],
   },
   {
     id: 'cisteni-exterieru',
     name: 'Čištění exteriéru',
-    description: 'Profesionální ruční mytí a dekontaminace exteriéru vozidla s použitím šetrných přípravků. Dokonalá čistota bez rizika poškození laku.',
-    features: ['Ruční mytí karoserie', 'Čištění ráfků a pneumatik', 'Mytí skel a zrcátek', 'Ošetření vnějších plastů', 'Čištění podběhů', 'Sušení mikrofibrovou utěrkou'],
-    price: 'od 1 500 Kč',
-    href: null,
+    tagline: 'Ruční mytí a dekontaminace laku',
+    href: '/sluzby/cisteni-exterieru-brno',
+    image: '/icons/exterier.webp',
+    forWho: 'Základ péče o každý vůz. Doporučujeme po zimní sezóně nebo před aplikací ochrany laku.',
+    variants: [
+      { name: 'Důkladné mytí s ochranou laku', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochranného vosku nebo keramické ochrany'] },
+    ],
   },
   {
     id: 'renovace-laku',
     name: 'Renovace laku',
-    description: 'Strojní leštění a korekce laku odstraní škrábance, víry a oxidaci. Vrátí vašemu vozidlu dokonalý lesk jako z výroby.',
-    features: ['Korekce laku (1-step / 2-step)', 'Strojní leštění', 'Odstranění škrábanců a vírů', 'Finální polish', 'Ochranný vosk nebo sealant'],
-    price: 'od 4 500 Kč',
+    tagline: 'Strojní leštění a korekce defektů',
     href: '/sluzby/renovace-laku-brno',
+    image: '/icons/renovacelak.webp',
+    forWho: 'Trápí vás swirlmarks nebo zakalený lak? Strojní leštění vrátí laku původní hloubku a lesk.',
+    variants: [
+      { name: 'Jednokroková renovace', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'] },
+      { name: 'Vícekroková renovace', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
+    ],
+  },
+  {
+    id: 'ochrana-laku',
+    name: 'Ochrana laku',
+    tagline: 'Vosk, keramika nebo PPF fólie',
+    href: '/sluzby/ochrana-laku-brno',
+    image: '/icons/ochrana.webp',
+    forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
+    variants: [
+      { name: 'Voskování', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt – voda se slévá', 'Cenově dostupná sezónní péče'] },
+      { name: 'Keramický povlak', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
+    ],
+  },
+  {
+    id: 'renovace-svetel',
+    name: 'Renovace světel',
+    tagline: 'Průhlednost a bezpečnost jízdy',
+    href: '/sluzby/renovace-svetel-brno',
+    image: '/icons/svetla.webp',
+    forWho: 'Zakalené světlomety kazí vzhled i bezpečnost. Renovací ušetříte oproti výměně.',
+    variants: [
+      { name: 'Renovace světlometů', items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'] },
+    ],
   },
   {
     id: 'renovace-kuze',
     name: 'Renovace kůže',
-    description: 'Obnovíme kožené čalounění vašeho vozidla – od hloubkového čištění přes výživu a regeneraci až po obnovu barvy a ochranný nátěr.',
-    features: ['Hloubkové čištění kůže', 'Odstraňování skvrn a nečistot', 'Regenerace a výživa kůže', 'Obnova barvy', 'Ochranný nátěr kůže'],
-    price: 'od 3 000 Kč',
-    href: null,
+    tagline: 'Obnova luxusního interiéru',
+    href: '/sluzby/renovace-kuze-brno',
+    image: '/icons/kuze.webp',
+    forWho: 'Kůže popraskala nebo vybledla? Renovace ji vrátí do původního stavu za zlomek ceny výměny.',
+    variants: [
+      { name: 'Renovace kožených sedadel', items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'] },
+    ],
   },
   {
-    id: 'doplnkove-sluzby',
-    name: 'Doplňkové služby',
-    description: 'Kompletní péče o vozidlo zahrnuje i řadu specializovaných doplňkových služeb – od keramické ochrany laku přes renovaci světlometů až po ošetření skel.',
-    features: ['Keramická ochrana laku', 'Ochranná fólie PPF', 'Renovace světlometů', 'Ošetření a hydrofobizace skel', 'Odorizace interiéru'],
-    price: null,
-    href: '/sluzby/ochrana-laku-brno',
+    id: 'oprava-skrabancu',
+    name: 'Oprava škrábanců',
+    tagline: 'Bez nutnosti lakovny',
+    href: '/sluzby/oprava-skrabancu-brno',
+    image: '/icons/skrabance.webp',
+    forWho: 'Škrábanec od klíče nebo parkovacího manévru? Minimálně invazivní metody zvládnou většinu povrchových poškození.',
+    variants: [
+      { name: 'Oprava škrábanců', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
+    ],
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', paddingBottom: '5rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <SectionHeader
-          title="Naše služby"
-          subtitle="Profesionální péče o vaše vozidlo. Vyberte si ze spektra prémiových detailing služeb."
-        />
+    <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
 
-        {/* Quick category nav */}
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '4rem', justifyContent: 'center' }}>
+      {/* Page header */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 0' }}>
+        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+          MN Shine Detailing
+        </p>
+        <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 1.25rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
+          Naše služby
+        </h1>
+        <p style={{ color: '#9CA3AF', fontSize: '1rem', lineHeight: 1.75, maxWidth: '560px', margin: '0 0 3rem' }}>
+          Každý vůz je jiný. Najděte péči, která mu skutečně sedí – nebo nás kontaktujte a poradíme.
+        </p>
+
+        {/* Quick nav */}
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingBottom: '3rem' }}>
           {serviceCategories.map(cat => (
-            <a
-              key={cat.id}
-              href={`#${cat.id}`}
-              style={{
-                padding: '0.5rem 1.25rem',
-                borderRadius: '100px',
-                border: '1px solid rgba(255,255,255,0.3)',
-                color: '#FFFFFF',
-                backgroundColor: 'transparent',
-                fontSize: '0.85rem',
-                textDecoration: 'none',
-                fontWeight: 500,
-                letterSpacing: '0.05em',
-              }}
-            >
+            <a key={cat.id} href={`#${cat.id}`} style={{ padding: '0.4rem 1rem', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.55)', backgroundColor: 'transparent', fontSize: '0.78rem', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
               {cat.name}
             </a>
           ))}
         </div>
+      </div>
 
-        {/* Category sections */}
+      {/* Service blocks */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 6rem' }}>
         {serviceCategories.map((cat, idx) => (
+          <React.Fragment key={cat.id}>
           <section
-            key={cat.id}
             id={cat.id}
-            style={{
-              marginBottom: '5rem',
-              scrollMarginTop: '140px',
-              borderLeft: '3px solid #FFFFFF',
-              paddingLeft: '2rem',
-              paddingBottom: '3rem',
-              borderBottom: idx < serviceCategories.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none',
-            }}
+            style={{ scrollMarginTop: '120px', paddingTop: '5rem', paddingBottom: '5rem' }}
           >
-            <div style={{ marginBottom: '1rem' }}>
-              <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', color: '#FFFFFF', margin: 0 }}>
-                {cat.name}
-              </h2>
-            </div>
-            <p style={{ color: '#9CA3AF', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '680px' }}>
-              {cat.description}
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.6rem 2rem', marginBottom: '1.5rem' }}>
-              {cat.features.map(f => (
-                <div key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#D1D5DB' }}>
-                  <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', lineHeight: 1 }}>✓</span>
-                  <span style={{ fontSize: '0.9rem' }}>{f}</span>
+            {/* Two-column layout: image left, content right (alternating) */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+
+              {/* Image panel */}
+              <div
+                style={{
+                  order: idx % 2 === 0 ? 0 : 1,
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  aspectRatio: '4/3',
+                  backgroundColor: '#111111',
+                }}
+              >
+                <Image
+                  src={cat.image}
+                  alt={cat.name}
+                  fill
+                  style={{ objectFit: 'cover', opacity: 0.75 }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Gradient overlay */}
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
+                {/* Tagline badge */}
+                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '100px', padding: '0.4rem 1rem' }}>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.tagline}</span>
                 </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-              {cat.price && (
-                <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>
-                  {cat.price}
+              </div>
+
+              {/* Content panel */}
+              <div style={{ order: idx % 2 === 0 ? 1 : 0 }}>
+                <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                  {cat.name}
+                </h2>
+                <p style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
+                  {cat.forWho}
                 </p>
-              )}
-              <Link href={cat.href || '/kontakt'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#FFFFFF', textDecoration: 'none', fontWeight: 500 }}>
-                Zjistit více <ArrowRight size={16} />
-              </Link>
+
+                {/* Variant cards */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+                  {cat.variants.map(variant => (
+                    <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '1.1rem 1.25rem' }}>
+                      {variant.recommended && (
+                        <span style={{ position: 'absolute', top: '-1px', right: '1rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.15rem 0.6rem', borderRadius: '0 0 5px 5px' }}>
+                          Doporučeno
+                        </span>
+                      )}
+                      <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: '0 0 0.65rem', textTransform: 'uppercase' }}>{variant.name}</p>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
+                        {variant.items.map(item => (
+                          <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                            <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '6px', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  Detail služby <ArrowRight size={13} />
+                </Link>
+              </div>
+
             </div>
           </section>
+          {idx < serviceCategories.length - 1 && <SectionTransition variant="subtle" />}
+          </React.Fragment>
         ))}
-
-        {/* CTA */}
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Link href="/kontakt" style={{
-            backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700,
-            padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none',
-          }}>
-            Nezávazná poptávka
-          </Link>
-        </div>
       </div>
+
+      {/* Bottom CTA */}
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '5rem 1.5rem', textAlign: 'center' }}>
+        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Nejste si jistí?</p>
+        <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 1rem', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+          Poradíme vám zdarma
+        </h2>
+        <p style={{ color: '#9CA3AF', maxWidth: '440px', margin: '0 auto 2.5rem', lineHeight: 1.75, fontSize: '0.9rem' }}>
+          Pošlete nám zprávu nebo zavolejte – připravíme nabídku na míru bez závazků.
+        </p>
+        <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.9rem 2.5rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          Nezávazná poptávka <ArrowRight size={14} />
+        </Link>
+      </div>
+
     </div>
   );
 }

@@ -1,4 +1,4 @@
-interface SectionHeaderProps {
+﻿interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   centered?: boolean;
@@ -21,9 +21,9 @@ export function SectionHeader({ title, subtitle, centered = true, goldLine = fal
         }} />
       )}
       <h2 style={{
-        fontFamily: 'var(--font-inter, sans-serif)',
+        fontFamily: "'Big Shoulders Display', sans-serif",
         fontSize: 'clamp(1.5rem, 3vw, 2.4rem)',
-        fontWeight: 600,
+        fontWeight: 800,
         color: titleColor,
         lineHeight: 1.15,
         marginBottom: subtitle ? '1rem' : 0,

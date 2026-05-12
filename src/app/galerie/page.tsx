@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function GaleriePage() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Naše práce</div>
-          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>Galerie prací</h1>
+          <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>Galerie prací</h1>
           <p style={{ color: '#9CA3AF', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
             Prohlédněte si výsledky naší práce. Každá fotografie zachycuje skutečný výsledek profesionálního detailingu v MN Shine.
           </p>
@@ -77,7 +77,7 @@ export default function GaleriePage() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '3rem', fontFamily: 'var(--font-cinzel, serif)', fontWeight: 700 }}>
+                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '3rem', fontFamily: "'Big Shoulders Display', sans-serif", fontWeight: 700 }}>
                   {cat.count}+
                 </span>
               </div>
@@ -90,7 +90,7 @@ export default function GaleriePage() {
         </div>
 
         {/* Photo grid placeholder */}
-        <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Všechny práce</h2>
+        <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Všechny práce</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
           {placeholderTiles.map(tile => (
             <div key={tile.id} style={{

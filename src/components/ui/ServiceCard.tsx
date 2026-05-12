@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -39,7 +39,7 @@ export function ServiceCard({ icon, title, description, href, light = false }: S
       }}
     >
       <div style={{ color: textColor, width: '40px', height: '40px', marginBottom: '0.5rem' }}>{icon}</div>
-      <h3 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.4rem', fontWeight: 700, color: textColor, margin: 0 }}>{title}</h3>
+      <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.4rem', fontWeight: 700, color: textColor, margin: 0 }}>{title}</h3>
       <p style={{ color: secondaryColor, lineHeight: 1.7, margin: 0, flex: 1, fontSize: '0.95rem' }}>{description}</p>
       <Link href={href} style={{ color: textColor, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.5rem' }}>
         Zjistit více <ArrowRight size={16} />

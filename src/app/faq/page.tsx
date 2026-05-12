@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { faqs } from '@/data/faq';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ export default function FAQPage() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Máte otázky?</div>
-          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
             Časté dotazy
           </h1>
           <p style={{ color: '#9CA3AF', lineHeight: 1.7 }}>
@@ -69,7 +69,7 @@ export default function FAQPage() {
           padding: '2.5rem',
           textAlign: 'center',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Nenašli jste odpověď?
           </h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>

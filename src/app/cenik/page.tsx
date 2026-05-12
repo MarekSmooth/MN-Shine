@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { services } from '@/data/services';
 
@@ -58,7 +58,7 @@ export default function CenikPage() {
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>
             Transparentní ceny
           </div>
-          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
             Ceník služeb
           </h1>
           <p style={{ color: '#9CA3AF', maxWidth: '600px', margin: '0 auto', lineHeight: 1.8 }}>
@@ -85,7 +85,7 @@ export default function CenikPage() {
                 <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: pkg.highlight ? '#0a0a0a' : '#9CA3AF', marginBottom: '0.5rem' }}>
                   {pkg.name}
                 </div>
-                <div style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.8rem', fontWeight: 700, color: pkg.highlight ? '#0a0a0a' : '#FFFFFF' }}>
+                <div style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.8rem', fontWeight: 700, color: pkg.highlight ? '#0a0a0a' : '#FFFFFF' }}>
                   {pkg.price}
                 </div>
                 <p style={{ color: pkg.highlight ? '#444444' : '#9CA3AF', fontSize: '0.9rem', marginTop: '0.5rem', lineHeight: 1.6 }}>
@@ -129,7 +129,7 @@ export default function CenikPage() {
 
         {/* Individual services */}
         <div style={{ marginBottom: '4rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#FFFFFF', marginBottom: '0.75rem', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#FFFFFF', marginBottom: '0.75rem', textAlign: 'center' }}>
             Jednotlivé služby
           </h2>
           <p style={{ color: '#9CA3AF', textAlign: 'center', marginBottom: '2.5rem', fontSize: '0.95rem' }}>
@@ -182,7 +182,7 @@ export default function CenikPage() {
           padding: '2.5rem',
           textAlign: 'center',
         }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.4rem', color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.4rem', color: '#FFFFFF', marginBottom: '1rem' }}>
             Nejste si jisti, co váš vůz potřebuje?
           </h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.75rem', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto 1.75rem' }}>

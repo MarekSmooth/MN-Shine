@@ -1,4 +1,4 @@
-import { SectionHeader } from '@/components/ui/SectionHeader';
+﻿import { SectionHeader } from '@/components/ui/SectionHeader';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 
 const examples = [

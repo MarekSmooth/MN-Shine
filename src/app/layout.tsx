@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cinzel, Rubik } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -82,6 +83,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </LoadingScreen>
+        <CookieConsent />
       </body>
     </html>
   );

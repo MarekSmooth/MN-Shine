@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SectionTransition Component
  * Dark Luxury Automotive Detailing - Light Reflection Effect
  * 

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { faqs } from '@/data/faq';

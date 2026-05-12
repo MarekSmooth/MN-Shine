@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Heart, Shield, Star, Users } from 'lucide-react';
 
@@ -48,7 +48,7 @@ export default function ONasPage() {
         {/* Hero */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Náš příběh</div>
-          <h1 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '1.5rem' }}>
+          <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
             O MN Shine Detailing
           </h1>
           <p style={{ color: '#9CA3AF', maxWidth: '700px', margin: '0 auto', lineHeight: 1.8, fontSize: '1.05rem' }}>
@@ -58,7 +58,7 @@ export default function ONasPage() {
 
         {/* Story */}
           <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1.5rem' }}>Náš příběh</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Náš příběh</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             MN Shine Detailing vzniklo z lásky k automobilům a touhy poskytnout zákazníkům v Jihomoravském kraji skutečně profesionální péči o jejich vozidla. Uvědomili jsme si, že na trhu chybí studio, které by kombinovalo prémiovost, individuální přístup a dostupnost pro zákazníky z Brna a okolí.
           </p>
@@ -72,7 +72,7 @@ export default function ONasPage() {
 
         {/* Values */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem' }}>Naše hodnoty</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Naše hodnoty</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
             {values.map(value => (
               <div key={value.title} style={{
@@ -82,7 +82,7 @@ export default function ONasPage() {
                 padding: '1.75rem',
               }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '1rem' }}>{value.icon}</div>
-                <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.05rem', marginBottom: '0.75rem', fontFamily: 'var(--font-cinzel, serif)' }}>{value.title}</h3>
+                <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.05rem', marginBottom: '0.75rem', fontFamily: "'Big Shoulders Display', sans-serif" }}>{value.title}</h3>
                 <p style={{ color: '#9CA3AF', lineHeight: 1.6, fontSize: '0.95rem', margin: 0 }}>{value.description}</p>
               </div>
             ))}
@@ -91,7 +91,7 @@ export default function ONasPage() {
 
         {/* Stats */}
         <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem' }}>MN Shine v číslech</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>MN Shine v číslech</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '2rem', textAlign: 'center' }}>
             {[
               { value: '100+', label: 'Spokojených zákazníků' },
@@ -100,7 +100,7 @@ export default function ONasPage() {
               { value: '4', label: 'Hlavní služby' },
             ].map(stat => (
               <div key={stat.label}>
-                <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: 'var(--font-cinzel, serif)', marginBottom: '0.5rem' }}>{stat.value}</div>
+                <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", marginBottom: '0.5rem' }}>{stat.value}</div>
                 <div style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>{stat.label}</div>
               </div>
             ))}
@@ -109,7 +109,7 @@ export default function ONasPage() {
 
         {/* Team placeholder */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.75rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem' }}>Náš tým</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Náš tým</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
             {[
               { name: 'Martin N.', role: 'Zakladatel & hlavní detailer', spec: 'Korekce laku, keramické povlaky' },
@@ -138,7 +138,7 @@ export default function ONasPage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                    <span style={{ color: '#FFFFFF', fontSize: '1.75rem', fontFamily: 'var(--font-cinzel, serif)', fontWeight: 700 }}>
+                    <span style={{ color: '#FFFFFF', fontSize: '1.75rem', fontFamily: "'Big Shoulders Display', sans-serif", fontWeight: 700 }}>
                       {member.name[0]}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export default function ONasPage() {
 
         {/* CTA */}
         <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
-          <h2 style={{ fontFamily: 'var(--font-cinzel, serif)', fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '1rem' }}>Chcete se s námi setkat?</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Chcete se s námi setkat?</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Navštivte naše studio ve Vojkovicích u Brna nebo nás kontaktujte pro nezávaznou konzultaci.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Kontaktovat nás</Link>

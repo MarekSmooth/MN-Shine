@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -106,7 +106,7 @@ export function WhyDetailing() {
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '60%' }}>
                 <h3 style={{
                   color: '#FFFFFF',
-                  fontFamily: 'var(--font-inter, sans-serif)',
+                  fontFamily: "'Big Shoulders Display', sans-serif",
                   fontSize: '1.05rem',
                   fontWeight: 600,
                   letterSpacing: '0.08em',

@@ -1,4 +1,4 @@
-import { SectionHeader } from '@/components/ui/SectionHeader';
+﻿import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ReviewCard } from '@/components/ui/ReviewCard';
 
 export function Reviews() {
