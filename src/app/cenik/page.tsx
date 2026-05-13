@@ -1,51 +1,122 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
-import { services } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'Ceník služeb | MN Shine Detailing Brno',
   description: 'Ceník auto detailingu MN Shine Brno. Čištění interiéru, exteriéru, keramická ochrana laku, renovace a leštění. Ceny od 500 Kč.',
 };
 
-const packages = [
+type Variant = { name: string; price: string; items: string[]; recommended?: boolean; note?: string };
+type ServiceGroup = { id: string; name: string; href: string; variants: Variant[] };
+
+const priceCategories: ServiceGroup[] = [
   {
-    name: 'Basic',
-    price: 'od 1 500 Kč',
-    description: 'Ideální pro pravidelnou údržbu vozidla.',
-    items: [
-      'Ruční předmytí a šamponování',
-      'Čištění kol a podběhů',
-      'Vyčištění interiéru',
-      'Ošetření plastů',
+    id: 'cisteni-interieru',
+    name: 'Čištění interiéru',
+    href: '/sluzby/cisteni-interieru-brno',
+    variants: [
+      {
+        name: 'Varianta 1 – Základní',
+        price: 'od 1 999 Kč',
+        items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'],
+      },
+      {
+        name: 'Varianta 2 – Kompletní',
+        price: 'od 2 999 Kč',
+        items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'],
+        recommended: true,
+      },
+      {
+        name: 'Varianta 3 – Hloubkové',
+        price: 'od 4 999 Kč',
+        items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'],
+        note: 'SUV, MPV, VAN příplatek 20 %',
+      },
     ],
-    highlight: false,
   },
   {
-    name: 'Premium',
-    price: 'od 4 500 Kč',
-    description: 'Komplexní péče pro náročné zákazníky.',
-    items: [
-      'Vše z balíčku Basic',
-      'Dekontaminace laku (clay bar)',
-      'Hloubkové čištění interiéru',
-      'Strojní leštění (1-step)',
-      'Vosk nebo sealant',
+    id: 'cisteni-exterieru',
+    name: 'Čištění exteriéru',
+    href: '/sluzby/cisteni-exterieru-brno',
+    variants: [
+      {
+        name: 'Důkladné mytí s ochranou laku',
+        price: 'od 3 999 Kč',
+        items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Čištění disků a kol', 'Chemická dekontaminace laku', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku (vosk nebo keramika)'],
+        note: 'Časová náročnost 1–2 dny',
+      },
     ],
-    highlight: true,
   },
   {
-    name: 'Full Detail',
-    price: 'od 9 000 Kč',
-    description: 'Maximální péče — výsledek jako z výroby.',
-    items: [
-      'Vše z balíčku Premium',
-      'Korekce laku (2-step)',
-      'Keramická ochrana',
-      'Renovace světel',
-      'Ošetření kůže',
+    id: 'renovace-laku',
+    name: 'Renovace laku',
+    href: '/sluzby/renovace-laku-brno',
+    variants: [
+      {
+        name: 'Jednokroková renovace',
+        price: 'od 6 999 Kč',
+        items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'],
+        note: 'Časová náročnost 2–3 dny',
+      },
+      {
+        name: 'Vícekroková renovace',
+        price: 'od 11 999 Kč',
+        items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'],
+        recommended: true,
+        note: 'Časová náročnost 3–5 dní',
+      },
     ],
-    highlight: false,
   },
+  {
+    id: 'ochrana-laku',
+    name: 'Ochrana laku',
+    href: '/sluzby/ochrana-laku-brno',
+    variants: [
+      {
+        name: 'Voskování',
+        price: 'od 2 500 Kč',
+        items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'],
+      },
+      {
+        name: 'Keramický povlak',
+        price: 'od 4 999 Kč',
+        items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'],
+        recommended: true,
+      },
+    ],
+  },
+  {
+    id: 'renovace-svetel',
+    name: 'Renovace světlometů',
+    href: '/sluzby/renovace-svetel-brno',
+    variants: [
+      {
+        name: 'Renovace světlometů',
+        price: '1 000 Kč / kus',
+        items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'],
+      },
+    ],
+  },
+  {
+    id: 'oprava-kuze',
+    name: 'Oprava kůže',
+    href: '/sluzby/renovace-kuze-brno',
+    variants: [
+      {
+        name: 'Oprava a renovace kůže',
+        price: 'od 2 500 Kč',
+        items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'],
+        note: 'Cena dle míry a druhu poškození',
+      },
+    ],
+  },
+];
+
+const additionalServices = [
+  { name: 'Drobné leštění', price: '1 100 Kč' },
+  { name: 'Dezinfekce ozonem', price: '500 Kč' },
+  { name: 'Tekuté stěrače', price: 'od 500 Kč' },
+  { name: 'Oprava škrábanců', price: '500 – 4 999 Kč', note: 'Dle velikosti a hloubky škrábance' },
 ];
 
 export default function CenikPage() {
@@ -66,109 +137,106 @@ export default function CenikPage() {
           </p>
         </div>
 
-        {/* Packages */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
-          {packages.map(pkg => (
-            <div
-              key={pkg.name}
-              style={{
-                backgroundColor: pkg.highlight ? '#FFFFFF' : '#111111',
-                border: pkg.highlight ? 'none' : '1px solid rgba(255,255,255,0.12)',
-                borderRadius: '10px',
-                padding: '2.5rem 2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-              }}
-            >
-              <div>
-                <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: pkg.highlight ? '#0a0a0a' : '#9CA3AF', marginBottom: '0.5rem' }}>
-                  {pkg.name}
-                </div>
-                <div style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.8rem', fontWeight: 700, color: pkg.highlight ? '#0a0a0a' : '#FFFFFF' }}>
-                  {pkg.price}
-                </div>
-                <p style={{ color: pkg.highlight ? '#444444' : '#9CA3AF', fontSize: '0.9rem', marginTop: '0.5rem', lineHeight: 1.6 }}>
-                  {pkg.description}
-                </p>
-              </div>
-              <div style={{ width: '100%', height: '1px', backgroundColor: pkg.highlight ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)' }} />
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                {pkg.items.map(item => (
-                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: pkg.highlight ? '#1a1a1a' : '#CCCCCC', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                    <span style={{ color: pkg.highlight ? '#0a0a0a' : '#FFFFFF', fontWeight: 700, flexShrink: 0 }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-                <Link
-                  href="/kontakt"
-                  style={{
-                    display: 'block',
-                    textAlign: 'center',
-                    padding: '0.875rem',
-                    borderRadius: '4px',
-                    textDecoration: 'none',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    backgroundColor: pkg.highlight ? '#0a0a0a' : 'transparent',
-                    color: pkg.highlight ? '#FFFFFF' : '#CCCCCC',
-                    border: pkg.highlight ? 'none' : '1px solid rgba(255,255,255,0.3)',
-                    transition: 'opacity 0.2s',
-                  }}
-                >
-                  Nezávazná poptávka
+        {/* Service categories with variants */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', marginBottom: '4rem' }}>
+          {priceCategories.map((cat) => (
+            <div key={cat.id}>
+              {/* Category heading */}
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.6rem', color: '#FFFFFF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', margin: 0 }}>
+                  {cat.name}
+                </h2>
+                <Link href={cat.href} style={{ color: '#9CA3AF', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.2)', paddingBottom: '1px' }}>
+                  Detail služby ›
                 </Link>
+              </div>
+
+              {/* Variants grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
+                {cat.variants.map((v) => (
+                  <div
+                    key={v.name}
+                    style={{
+                      backgroundColor: v.recommended ? '#FFFFFF' : '#111111',
+                      border: v.recommended ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                      borderRadius: '8px',
+                      padding: '1.75rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '1rem',
+                      position: 'relative',
+                    }}
+                  >
+                    {v.recommended && (
+                      <div style={{ position: 'absolute', top: '-1px', right: '1.25rem', backgroundColor: '#0a0a0a', color: '#FFFFFF', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '0 0 6px 6px' }}>
+                        Doporučeno
+                      </div>
+                    )}
+                    <div>
+                      <div style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: v.recommended ? '#555555' : '#9CA3AF', marginBottom: '0.4rem' }}>
+                        {v.name}
+                      </div>
+                      <div style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', fontWeight: 800, color: v.recommended ? '#0a0a0a' : '#FFFFFF', letterSpacing: '0.01em' }}>
+                        {v.price}
+                      </div>
+                      {v.note && (
+                        <div style={{ fontSize: '0.75rem', color: v.recommended ? '#777777' : 'rgba(255,255,255,0.4)', marginTop: '0.35rem' }}>
+                          {v.note}
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ width: '100%', height: '1px', backgroundColor: v.recommended ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.08)' }} />
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                      {v.items.map(item => (
+                        <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: v.recommended ? '#333333' : '#CCCCCC', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                          <span style={{ color: v.recommended ? '#0a0a0a' : '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.8', flexShrink: 0 }}>?</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div style={{ marginTop: 'auto', paddingTop: '0.5rem' }}>
+                      <Link
+                        href="/kontakt"
+                        style={{
+                          display: 'block',
+                          textAlign: 'center',
+                          padding: '0.75rem',
+                          borderRadius: '4px',
+                          textDecoration: 'none',
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          letterSpacing: '0.14em',
+                          textTransform: 'uppercase',
+                          backgroundColor: v.recommended ? '#0a0a0a' : 'transparent',
+                          color: v.recommended ? '#FFFFFF' : '#9CA3AF',
+                          border: v.recommended ? 'none' : '1px solid rgba(255,255,255,0.2)',
+                        }}
+                      >
+                        Mám zájem
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Individual services */}
+        {/* Additional services */}
         <div style={{ marginBottom: '4rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: '#FFFFFF', marginBottom: '0.75rem', textAlign: 'center' }}>
-            Jednotlivé služby
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.6rem', color: '#FFFFFF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '1.25rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            Doplňkové služby
           </h2>
-          <p style={{ color: '#9CA3AF', textAlign: 'center', marginBottom: '2.5rem', fontSize: '0.95rem' }}>
-            Vyberete si přesně to, co vaše vozidlo potřebuje.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {services.map((service, idx) => (
-              <div
-                key={service.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '1.25rem 1.5rem',
-                  borderBottom: idx < services.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                  backgroundColor: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)',
-                  gap: '1rem',
-                  flexWrap: 'wrap' as const,
-                }}
-              >
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {additionalServices.map((s, idx) => (
+              <div key={s.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 0', borderBottom: idx < additionalServices.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.2rem' }}>
-                    {service.title}
-                  </div>
-                  <div style={{ color: '#9CA3AF', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                    {service.shortDescription}
-                  </div>
+                  <span style={{ color: '#CCCCCC', fontSize: '0.95rem' }}>{s.name}</span>
+                  {'note' in s && s.note && (
+                    <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', marginTop: '0.2rem' }}>{s.note}</div>
+                  )}
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexShrink: 0 }}>
-                  <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap' as const }}>
-                    {service.price ?? 'na dotaz'}
-                  </span>
-                  <Link
-                    href={`/sluzby/${service.slug}`}
-                    style={{ color: '#9CA3AF', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.25)', paddingBottom: '1px', whiteSpace: 'nowrap' as const }}
-                  >
-                    Detail
-                  </Link>
-                </div>
+                <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.95rem', whiteSpace: 'nowrap' }}>{s.price}</span>
               </div>
             ))}
           </div>
