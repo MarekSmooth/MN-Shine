@@ -55,10 +55,10 @@ export default function RenovaceLakuPage() {
             Vrátíme vašemu autu původní lesk. Profesionálním strojním leštěním odstraníme škrábance, víry, matnou oxidaci a jiné povrchové defekty. Výsledkem je lak zářící jako z výroby. Studio MN Shine ve Vojkovicích u Brna.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
               Objednat renovaci laku
             </Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
               +420 777 123 456
             </a>
           </div>
@@ -69,7 +69,7 @@ export default function RenovaceLakuPage() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
         {/* Price highlight */}
-        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '8px', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
             <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>4 500 Kč</p>
@@ -99,7 +99,7 @@ export default function RenovaceLakuPage() {
               { icon: <Layers size={24} />, title: 'Oxidace a matnost', desc: 'Degradace způsobená UV zářením – matný a křídový povrch.' },
               { icon: <Eye size={24} />, title: 'Vodní kameny', desc: 'Minerální usazeniny zanechané po odpaření vody z povrchu laku.' },
             ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
                 <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1rem' }}>{item.title}</h3>
                 <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, fontSize: '0.9rem' }}>{item.desc}</p>
@@ -123,7 +123,7 @@ export default function RenovaceLakuPage() {
                 price: 'od 7 000 Kč',
               },
             ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '1.5rem 2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
+              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem 2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
                 <div style={{ flex: 1 }}>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1.1rem' }}>{item.title}</h3>
                   <p style={{ color: '#9CA3AF', margin: 0, lineHeight: 1.6, fontSize: '0.95rem' }}>{item.desc}</p>
@@ -163,7 +163,7 @@ export default function RenovaceLakuPage() {
               { step: '05', title: 'Finální polish', desc: 'Závěrečný polish pro maximální lesk a odstranění micro-scratch z předchozího kroku.' },
               { step: '06', title: 'Ochrana', desc: 'Aplikace vosku, sealantu nebo keramického povlaku pro ochranu čerstvě vyleštěného laku.' },
             ].map(item => (
-              <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '8px' }}>
+              <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>
                 <div>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{item.title}</h3>
@@ -179,12 +179,12 @@ export default function RenovaceLakuPage() {
           {faqItems.map(faq => <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />)}
         </section>
 
-        <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
+        <div style={{ backgroundColor: '#111111', borderRadius: '0', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Objednejte renovaci laku</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Kontaktujte nás pro nezávaznou konzultaci. Posoudíme stav vašeho laku a navrhneme optimální řešení.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>+420 777 123 456</a>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Objednat se</Link>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>+420 777 123 456</a>
           </div>
         </div>
       </div>

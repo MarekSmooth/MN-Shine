@@ -240,7 +240,7 @@ export function Hero() {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1}`}
-              style={{ width: i === current ? '28px' : '8px', height: '8px', borderRadius: '4px', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#FFFFFF' : 'rgba(255,255,255,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
+              style={{ width: i === current ? '28px' : '8px', height: '8px', borderRadius: '0', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#FFFFFF' : 'rgba(255,255,255,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
             />
           ))}
         </div>

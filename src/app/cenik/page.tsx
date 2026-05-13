@@ -159,7 +159,7 @@ export default function CenikPage() {
                     style={{
                       backgroundColor: v.recommended ? '#FFFFFF' : '#111111',
                       border: v.recommended ? 'none' : '1px solid rgba(255,255,255,0.1)',
-                      borderRadius: '8px',
+                      borderRadius: '0',
                       padding: '1.75rem',
                       display: 'flex',
                       flexDirection: 'column',
@@ -168,7 +168,7 @@ export default function CenikPage() {
                     }}
                   >
                     {v.recommended && (
-                      <div style={{ position: 'absolute', top: '-1px', right: '1.25rem', backgroundColor: '#0a0a0a', color: '#FFFFFF', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '0 0 6px 6px' }}>
+                      <div style={{ position: 'absolute', top: '-1px', right: '1.25rem', backgroundColor: '#0a0a0a', color: '#FFFFFF', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '0' }}>
                         Doporučeno
                       </div>
                     )}
@@ -201,7 +201,7 @@ export default function CenikPage() {
                           display: 'block',
                           textAlign: 'center',
                           padding: '0.75rem',
-                          borderRadius: '4px',
+                          borderRadius: '0',
                           textDecoration: 'none',
                           fontSize: '0.72rem',
                           fontWeight: 700,
@@ -246,7 +246,7 @@ export default function CenikPage() {
         <div style={{
           backgroundColor: '#111111',
           border: '1px solid rgba(255,255,255,0.15)',
-          borderRadius: '8px',
+          borderRadius: '0',
           padding: '2.5rem',
           textAlign: 'center',
         }}>
@@ -257,10 +257,10 @@ export default function CenikPage() {
             Napište nám nebo zavolejte. Provedeme bezplatnou diagnostiku stavu vozidla a navrhneme optimální řešení za férovou cenu.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
               Nezávazná poptávka
             </Link>
-            <a href="tel:+420702852852" style={{ border: '1px solid rgba(255,255,255,0.35)', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <a href="tel:+420702852852" style={{ border: '1px solid rgba(255,255,255,0.35)', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
               +420 702 852 852
             </a>
           </div>

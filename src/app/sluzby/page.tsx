@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-type Variant = { name: string; items: string[]; recommended?: boolean };
+type Variant = { name: string; price: string; items: string[]; recommended?: boolean };
 
 type ServiceCategory = {
   id: string;
@@ -39,9 +39,9 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/interier.webp',
     forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba před prodejem nebo po zimní sezóně.',
     variants: [
-      { name: 'Varianta 1 – Základní', items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'] },
-      { name: 'Varianta 2 – Kompletní', items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'], recommended: true },
-      { name: 'Varianta 3 – Hloubkové', items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'] },
+      { name: 'Varianta 1 – Základní', price: 'od 1 999 Kč', items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'] },
+      { name: 'Varianta 2 – Kompletní', price: 'od 2 999 Kč', items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'], recommended: true },
+      { name: 'Varianta 3 – Hloubkové', price: 'od 4 999 Kč', items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'] },
     ],
   },
   {
@@ -52,7 +52,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/exterier.webp',
     forWho: 'Základ péče o každý vůz. Doporučujeme po zimní sezóně nebo před aplikací ochrany laku.',
     variants: [
-      { name: 'Důkladné mytí s ochranou laku', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochranného vosku nebo keramické ochrany'] },
+      { name: 'Důkladné mytí s ochranou laku', price: 'od 3 999 Kč', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochranného vosku nebo keramické ochrany'] },
     ],
   },
   {
@@ -63,8 +63,8 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/renovacelak.webp',
     forWho: 'Trápí vás swirlmarks nebo zakalený lak? Strojní leštění vrátí laku původní hloubku a lesk.',
     variants: [
-      { name: 'Jednokroková renovace', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'] },
-      { name: 'Vícekroková renovace', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
+      { name: 'Jednokroková renovace', price: 'od 6 999 Kč', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'] },
+      { name: 'Vícekroková renovace', price: 'od 11 999 Kč', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
     ],
   },
   {
@@ -75,8 +75,8 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
     variants: [
-      { name: 'Voskování', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt – voda se slévá', 'Cenově dostupná sezónní péče'] },
-      { name: 'Keramický povlak', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
+      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt – voda se slévá', 'Cenově dostupná sezónní péče'] },
+      { name: 'Keramický povlak', price: 'od 4 999 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
     ],
   },
   {
@@ -87,7 +87,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/svetla.webp',
     forWho: 'Zakalené světlomety kazí vzhled i bezpečnost. Renovací ušetříte oproti výměně.',
     variants: [
-      { name: 'Renovace světlometů', items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'] },
+      { name: 'Renovace světlometů', price: '1 000 Kč / kus', items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'] },
     ],
   },
   {
@@ -98,7 +98,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/kuze.webp',
     forWho: 'Kůže popraskala nebo vybledla? Renovace ji vrátí do původního stavu za zlomek ceny výměny.',
     variants: [
-      { name: 'Renovace kožených sedadel', items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'] },
+      { name: 'Renovace kožených sedadel', price: 'od 2 500 Kč', items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'] },
     ],
   },
   {
@@ -109,7 +109,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/skrabance.webp',
     forWho: 'Škrábanec od klíče nebo parkovacího manévru? Minimálně invazivní metody zvládnou většinu povrchových poškození.',
     variants: [
-      { name: 'Oprava škrábanců', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
+      { name: 'Oprava škrábanců', price: '500 – 4 999 Kč', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
     ],
   },
 ];
@@ -133,7 +133,7 @@ export default function ServicesPage() {
         {/* Quick nav */}
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingBottom: '3rem' }}>
           {serviceCategories.map(cat => (
-            <a key={cat.id} href={`#${cat.id}`} style={{ padding: '0.4rem 1rem', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.55)', backgroundColor: 'transparent', fontSize: '0.78rem', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+            <a key={cat.id} href={`#${cat.id}`} style={{ padding: '0.4rem 1rem', borderRadius: '0', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.55)', backgroundColor: 'transparent', fontSize: '0.78rem', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
               {cat.name}
             </a>
           ))}
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                 style={{
                   order: idx % 2 === 0 ? 0 : 1,
                   position: 'relative',
-                  borderRadius: '16px',
+                  borderRadius: '0',
                   overflow: 'hidden',
                   aspectRatio: '4/3',
                   backgroundColor: '#111111',
@@ -172,7 +172,7 @@ export default function ServicesPage() {
                 {/* Gradient overlay */}
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
                 {/* Tagline badge */}
-                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '100px', padding: '0.4rem 1rem' }}>
+                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '0', padding: '0.4rem 1rem' }}>
                   <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.tagline}</span>
                 </div>
               </div>
@@ -189,13 +189,16 @@ export default function ServicesPage() {
                 {/* Variant cards */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
                   {cat.variants.map(variant => (
-                    <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '1.1rem 1.25rem' }}>
+                    <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
                       {variant.recommended && (
                         <span style={{ position: 'absolute', top: '-1px', right: '1rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.15rem 0.6rem', borderRadius: '0 0 5px 5px' }}>
                           Doporučeno
                         </span>
                       )}
-                      <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: '0 0 0.65rem', textTransform: 'uppercase' }}>{variant.name}</p>
+                      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
+                        <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
+                        <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
+                      </div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
                         {variant.items.map(item => (
                           <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
@@ -208,9 +211,14 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '6px', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                  Detail služby <ArrowRight size={13} />
-                </Link>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    Detail služby <ArrowRight size={13} />
+                  </Link>
+                  <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.25)' }}>
+                    Mám zájem
+                  </Link>
+                </div>
               </div>
 
             </div>
@@ -229,7 +237,7 @@ export default function ServicesPage() {
         <p style={{ color: '#9CA3AF', maxWidth: '440px', margin: '0 auto 2.5rem', lineHeight: 1.75, fontSize: '0.9rem' }}>
           Pošlete nám zprávu nebo zavolejte – připravíme nabídku na míru bez závazků.
         </p>
-        <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.9rem 2.5rem', borderRadius: '4px', textDecoration: 'none', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.9rem 2.5rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.82rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           Nezávazná poptávka <ArrowRight size={14} />
         </Link>
       </div>

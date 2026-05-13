@@ -36,7 +36,7 @@ export function Button({ variant = 'primary', size = 'md', href, children, ...pr
   const style = {
     ...styles[variant],
     ...sizes[size],
-    borderRadius: '4px',
+    borderRadius: '0',
     fontWeight: 600,
     cursor: 'pointer',
     textDecoration: 'none',

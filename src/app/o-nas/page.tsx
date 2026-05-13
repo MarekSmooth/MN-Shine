@@ -57,7 +57,7 @@ export default function ONasPage() {
         </div>
 
         {/* Story */}
-          <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '0', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Náš příběh</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             MN Shine Detailing vzniklo z lásky k automobilům a touhy poskytnout zákazníkům v Jihomoravském kraji skutečně profesionální péči o jejich vozidla. Uvědomili jsme si, že na trhu chybí studio, které by kombinovalo prémiovost, individuální přístup a dostupnost pro zákazníky z Brna a okolí.
@@ -78,7 +78,7 @@ export default function ONasPage() {
               <div key={value.title} style={{
                 backgroundColor: '#111111',
                 border: '1px solid rgba(255,255,255,0.12)',
-                borderRadius: '8px',
+                borderRadius: '0',
                 padding: '1.75rem',
               }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '1rem' }}>{value.icon}</div>
@@ -90,7 +90,7 @@ export default function ONasPage() {
         </section>
 
         {/* Stats */}
-        <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '12px', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+        <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '0', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>MN Shine v číslech</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '2rem', textAlign: 'center' }}>
             {[
@@ -118,7 +118,7 @@ export default function ONasPage() {
               <div key={member.name} style={{
                 backgroundColor: '#111111',
                 border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: '8px',
+                borderRadius: '0',
                 overflow: 'hidden',
               }}>
                 <div style={{
@@ -154,12 +154,12 @@ export default function ONasPage() {
         </section>
 
         {/* CTA */}
-        <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
+        <div style={{ backgroundColor: '#111111', borderRadius: '0', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Chcete se s námi setkat?</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Navštivte naše studio ve Vojkovicích u Brna nebo nás kontaktujte pro nezávaznou konzultaci.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Kontaktovat nás</Link>
-            <Link href="/sluzby" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Naše služby</Link>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Kontaktovat nás</Link>
+            <Link href="/sluzby" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Naše služby</Link>
           </div>
         </div>
       </div>

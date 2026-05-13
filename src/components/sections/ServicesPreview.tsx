@@ -15,7 +15,7 @@ const services = [
     title: 'Ochrana laku',
     description: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu. Hydrofobní efekt, UV ochrana a snadná údržba na roky.',
     image: '/icons/ochrana.webp',
-    href: '/sluzby/ochrana-laku-brno',
+    href: '/sluzby#ochrana-laku',
   },
   {
     title: 'Renovace kůže',
@@ -27,7 +27,7 @@ const services = [
     title: 'Renovace laku',
     description: 'Strojní leštění a korekce laku. Odstraníme škrábance, víry a oxidaci – lak bude zářit jako z výroby.',
     image: '/icons/renovacelak.webp',
-    href: '/sluzby/renovace-laku-brno',
+    href: '/sluzby#renovace-laku',
   },
   {
     title: 'Renovace světel',
@@ -39,7 +39,7 @@ const services = [
     title: 'Čištění interiéru',
     description: 'Hloubkové čištění celého interiéru – sedadla, koberce, plasty, strop. Vaše auto bude vonět a vypadat jako nové.',
     image: '/icons/interier.webp',
-    href: '/sluzby/cisteni-interieru-brno',
+    href: '/sluzby#cisteni-interieru',
   },
   {
     title: 'Oprava škrábanců',

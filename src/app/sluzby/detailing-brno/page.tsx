@@ -49,7 +49,7 @@ export default function DetailingBrnoPage() {
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             MN Shine Detailing je prémiové detailing studio ve Vojkovicích u Brna. Nabízíme komplexní péči o vaše vozidlo – od profesionálního mytí a dekontaminace, přes korekci laku, až po aplikaci keramické ochrany. Obsluhujeme zákazníky z celého Brna, Brno-venkova a Jihomoravského kraje.
           </p>
-          <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+          <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
             Objednat detailing
           </Link>
         </div>
@@ -79,7 +79,7 @@ export default function DetailingBrnoPage() {
               { title: 'Korekce laku', desc: 'Strojní leštění, odstranění škrábanců, víru a oxidace. Lak jako z výroby.' },
               { title: 'Keramická ochrana', desc: 'Aplikace keramického povlaku pro dlouhodobou ochranu na 2–5 let.' },
             ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
                 <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '0.75rem', fontSize: '1rem' }}>{item.title}</h3>
                 <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, fontSize: '0.95rem' }}>{item.desc}</p>
               </div>
@@ -117,7 +117,7 @@ export default function DetailingBrnoPage() {
               { step: '05', title: 'Čištění interiéru', desc: 'Hloubkové čištění interiéru, ošetření plastů a kůže.' },
               { step: '06', title: 'Finální kontrola', desc: 'Detailní prohlídka výsledku a předání vozidla zákazníkovi.' },
             ].map(item => (
-              <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '8px' }}>
+              <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>
                 <div>
                   <h3 style={{ color: '#FFFFFF', fontWeight: 600, margin: '0 0 0.25rem' }}>{item.title}</h3>
@@ -133,12 +133,12 @@ export default function DetailingBrnoPage() {
           {faqItems.map(faq => <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />)}
         </section>
 
-        <div style={{ backgroundColor: '#111111', borderRadius: '8px', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
+        <div style={{ backgroundColor: '#111111', borderRadius: '0', padding: '2.5rem', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Připraveni objednat se?</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Kontaktujte nás a domluvte si termín. Jsme tu pro zákazníky z Brna a celého Jihomoravského kraje.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>Objednat se</Link>
-            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>+420 777 123 456</a>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Objednat se</Link>
+            <a href="tel:+420777123456" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>+420 777 123 456</a>
           </div>
         </div>
       </div>

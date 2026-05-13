@@ -122,7 +122,7 @@ export function Header() {
                       style={{
                         backgroundColor: '#111111',
                         border: '1px solid rgba(255,255,255,0.25)',
-                        borderRadius: '6px',
+                        borderRadius: '0',
                         minWidth: '230px',
                         boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
                         overflow: 'hidden',

@@ -73,7 +73,7 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
         position: 'relative',
         width: '100%',
         height: '300px',
-        borderRadius: '6px',
+        borderRadius: '0',
         overflow: 'hidden',
         cursor: 'ew-resize',
         userSelect: 'none',

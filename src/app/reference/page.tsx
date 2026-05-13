@@ -73,7 +73,7 @@ export default function ReferencePage() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: '1.5rem',
           backgroundColor: '#111111',
-          borderRadius: '12px',
+          borderRadius: '0',
           padding: '2rem',
           marginBottom: '3rem',
           border: '1px solid rgba(255,255,255,0.1)',
@@ -99,7 +99,7 @@ export default function ReferencePage() {
             <article key={review.name} style={{
               backgroundColor: '#111111',
               border: '1px solid rgba(255,255,255,0.15)',
-              borderRadius: '8px',
+              borderRadius: '0',
               padding: '1.75rem',
               display: 'flex',
               flexDirection: 'column',
@@ -131,7 +131,7 @@ export default function ReferencePage() {
         <div style={{
           backgroundColor: '#111111',
           border: '1px solid rgba(255,255,255,0.2)',
-          borderRadius: '8px',
+          borderRadius: '0',
           padding: '2.5rem',
           textAlign: 'center',
           marginBottom: '3rem',
@@ -142,7 +142,7 @@ export default function ReferencePage() {
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>
             Vaše zpětná vazba je pro nás velmi cenná. Po realizaci zakázky nás prosím ohodnoťte – pomáhá nám to zlepšovat se a budovat důvěru u nových zákazníků.
           </p>
-          <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+          <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
             Zanechat hodnocení
           </Link>
         </div>
@@ -153,10 +153,10 @@ export default function ReferencePage() {
             Chcete být naším dalším spokojeným zákazníkem?
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
               Objednat se
             </Link>
-            <Link href="/sluzby" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '4px', textDecoration: 'none' }}>
+            <Link href="/sluzby" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
               Prohlédnout služby
             </Link>
           </div>

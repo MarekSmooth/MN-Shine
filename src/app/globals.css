@@ -310,7 +310,7 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 0.75rem 2rem;
-  border-radius: 4px;
+  border-radius: 0;
   transition: border-color 0.2s, color 0.2s;
 }
 .faq-all-link:hover {
@@ -331,7 +331,7 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 0;
   padding: 0.35rem 0.85rem;
   color: #CCCCCC;
   text-decoration: none;
@@ -347,7 +347,7 @@ body {
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 5px;
+  border-radius: 0;
   background: conic-gradient(from var(--grad-angle), #444 0%, #fff 25%, #888 50%, #fff 75%, #444 100%);
   animation: spin-border 3s linear infinite;
   z-index: -1;
@@ -356,7 +356,7 @@ body {
   content: '';
   position: absolute;
   inset: 1px;
-  border-radius: 3px;
+  border-radius: 0;
   background: #0a0a0a;
   z-index: -1;
 }
@@ -364,7 +364,7 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 0;
   padding: 0.35rem 0.85rem;
   color: #CCCCCC;
   text-decoration: none;
@@ -380,7 +380,7 @@ body {
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 5px;
+  border-radius: 0;
   background: conic-gradient(from var(--grad-angle), #444 0%, #fff 25%, #888 50%, #fff 75%, #444 100%);
   animation: spin-border 3s linear infinite;
   z-index: -1;
@@ -389,7 +389,7 @@ body {
   content: '';
   position: absolute;
   inset: 1px;
-  border-radius: 3px;
+  border-radius: 0;
   background: #0a0a0a;
   z-index: -1;
 }
@@ -514,11 +514,7 @@ body {
 .feature-card {
   background-color: #1a1a1a;
   border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px;
-  padding: 1.75rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  border-radius: 0;
 }
 .feature-card:hover {
   border-color: rgba(255,255,255,0.45);

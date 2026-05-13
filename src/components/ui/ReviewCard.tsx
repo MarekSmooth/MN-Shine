@@ -19,7 +19,7 @@ export function ReviewCard({ name, text, stars = 5, vehicle, light = false }: Re
     <article style={{
       backgroundColor: cardBg,
       border: cardBorder,
-      borderRadius: '8px',
+      borderRadius: '0',
       padding: '1.75rem',
       position: 'relative',
       overflow: 'hidden',

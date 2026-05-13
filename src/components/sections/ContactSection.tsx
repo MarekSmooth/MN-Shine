@@ -42,7 +42,7 @@ export function ContactSection() {
     width: '100%',
     backgroundColor: '#1a1a1a',
     border: '1px solid rgba(255,255,255,0.15)',
-    borderRadius: '4px',
+    borderRadius: '0',
     padding: '0.75rem 1rem',
     color: '#FFFFFF',
     fontSize: '0.95rem',
@@ -94,7 +94,7 @@ export function ContactSection() {
               height: '300px',
               backgroundColor: '#E8E8E8',
               border: '1px solid rgba(0,0,0,0.12)',
-              borderRadius: '8px',
+              borderRadius: '0',
               overflow: 'hidden',
             }}>
               <iframe
@@ -117,7 +117,7 @@ export function ContactSection() {
               <div style={{
                 backgroundColor: 'rgba(255,255,255,0.05)',
                 border: '1px solid rgba(255,255,255,0.12)',
-                borderRadius: '8px',
+                borderRadius: '0',
                 padding: '2rem',
                 textAlign: 'center',
               }}>
@@ -203,7 +203,7 @@ export function ContactSection() {
                     fontWeight: 700,
                     padding: '0.875rem',
                     border: 'none',
-                    borderRadius: '4px',
+                    borderRadius: '0',
                     fontSize: '1rem',
                     cursor: 'pointer',
                     width: '100%',
@@ -227,7 +227,7 @@ export function ContactSection() {
           position: 'relative',
           marginTop: '3rem',
           height: 'clamp(160px, 22vw, 300px)',
-          borderRadius: '8px',
+          borderRadius: '0',
           overflow: 'hidden',
         }}>
           <img

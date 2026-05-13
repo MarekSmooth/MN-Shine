@@ -49,7 +49,7 @@ export default function GaleriePage() {
           {['Vše', ...categories.map(c => c.name)].map(cat => (
             <span key={cat} style={{
               padding: '0.5rem 1.25rem',
-              borderRadius: '100px',
+              borderRadius: '0',
               border: '1px solid rgba(255,255,255,0.3)',
               color: cat === 'Vše' ? '#0a0a0a' : '#FFFFFF',
               backgroundColor: cat === 'Vše' ? '#FFFFFF' : 'transparent',
@@ -66,7 +66,7 @@ export default function GaleriePage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
           {categories.map(cat => (
             <div key={cat.name} style={{
-              borderRadius: '8px',
+              borderRadius: '0',
               overflow: 'hidden',
               border: '1px solid rgba(255,255,255,0.15)',
             }}>
@@ -95,7 +95,7 @@ export default function GaleriePage() {
           {placeholderTiles.map(tile => (
             <div key={tile.id} style={{
               aspectRatio: '4/3',
-              borderRadius: '8px',
+              borderRadius: '0',
               background: tile.gradient,
               border: '1px solid rgba(255,255,255,0.1)',
               display: 'flex',
@@ -127,7 +127,7 @@ export default function GaleriePage() {
         <div style={{
           backgroundColor: '#111111',
           border: '1px solid rgba(255,255,255,0.2)',
-          borderRadius: '8px',
+          borderRadius: '0',
           padding: '2rem',
           textAlign: 'center',
           marginBottom: '3rem',
@@ -146,7 +146,7 @@ export default function GaleriePage() {
             color: '#0a0a0a',
             fontWeight: 700,
             padding: '0.875rem 2rem',
-            borderRadius: '4px',
+            borderRadius: '0',
             textDecoration: 'none',
           }}>
             Objednat se

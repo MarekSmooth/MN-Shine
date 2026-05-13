@@ -43,10 +43,13 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* Backdrop for settings panel */}
+      {/* Soft backdrop — dims page while banner is visible, non-blocking */}
+      <div className="fixed inset-0 bg-black/40 z-[997] pointer-events-none transition-opacity duration-500" />
+
+      {/* Backdrop for settings panel (clickable to close) */}
       {settingsOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[998]"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[998]"
           onClick={() => setSettingsOpen(false)}
         />
       )}
@@ -55,7 +58,7 @@ export function CookieConsent() {
       {settingsOpen && (
         <div className="fixed inset-x-0 bottom-0 z-[999] flex justify-center pb-4 px-4">
           <div
-            className="w-full max-w-lg bg-[#111111] border border-white/10 rounded-2xl shadow-2xl p-6 animate-slide-up"
+            className="w-full max-w-lg bg-[#111111] border border-white/10 rounded-none shadow-2xl p-6 animate-slide-up"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-white font-semibold text-lg mb-1 tracking-wide">
@@ -75,7 +78,7 @@ export function CookieConsent() {
                   nefungovaly správně.
                 </p>
               </div>
-              <span className="shrink-0 text-xs text-[#9BA5AE] bg-white/8 rounded-full px-3 py-1 mt-0.5 whitespace-nowrap">
+              <span className="shrink-0 text-xs text-[#9BA5AE] bg-white/8 rounded-none px-3 py-1 mt-0.5 whitespace-nowrap">
                 Vždy aktivní
               </span>
             </div>
@@ -134,13 +137,13 @@ export function CookieConsent() {
             <div className="flex gap-3 mt-5">
               <button
                 onClick={saveSettings}
-                className="flex-1 py-2.5 rounded-xl bg-white text-[#0a0a0a] text-sm font-semibold tracking-wide hover:bg-white/90 transition-colors"
+                className="flex-1 py-2.5 rounded-none bg-white text-[#0a0a0a] text-sm font-semibold tracking-wide hover:bg-white/90 transition-colors"
               >
                 Uložit nastavení
               </button>
               <button
                 onClick={acceptAll}
-                className="flex-1 py-2.5 rounded-xl border border-white/20 text-white text-sm font-semibold tracking-wide hover:bg-white/8 transition-colors"
+                className="flex-1 py-2.5 rounded-none border border-white/20 text-white text-sm font-semibold tracking-wide hover:bg-white/8 transition-colors"
               >
                 Přijmout vše
               </button>
@@ -152,7 +155,7 @@ export function CookieConsent() {
       {/* Main banner */}
       {!settingsOpen && (
         <div className="fixed inset-x-0 bottom-0 z-[999] flex justify-center pb-4 px-4">
-          <div className="w-full max-w-2xl bg-[#111111] border border-white/10 rounded-2xl shadow-2xl px-5 py-4 animate-slide-up">
+          <div className="w-full max-w-2xl bg-[#111111] border border-white/10 rounded-none shadow-2xl px-5 py-4 animate-slide-up">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <p className="text-[#9BA5AE] text-sm leading-relaxed flex-1">
                 Na našich stránkách používáme cookies. Některé jsou nezbytné pro
@@ -165,13 +168,13 @@ export function CookieConsent() {
               <div className="flex gap-2 shrink-0">
                 <button
                   onClick={() => setSettingsOpen(true)}
-                  className="px-4 py-2 rounded-xl border border-white/15 text-white/70 text-sm font-medium hover:bg-white/6 hover:text-white transition-colors whitespace-nowrap"
+                  className="px-4 py-2 rounded-none border border-white/15 text-white/70 text-sm font-medium hover:bg-white/6 hover:text-white transition-colors whitespace-nowrap"
                 >
                   Nastavení
                 </button>
                 <button
                   onClick={acceptAll}
-                  className="px-5 py-2 rounded-xl bg-white text-[#0a0a0a] text-sm font-semibold hover:bg-white/90 transition-colors whitespace-nowrap"
+                  className="px-5 py-2 rounded-none bg-white text-[#0a0a0a] text-sm font-semibold hover:bg-white/90 transition-colors whitespace-nowrap"
                 >
                   Souhlasím
                 </button>
