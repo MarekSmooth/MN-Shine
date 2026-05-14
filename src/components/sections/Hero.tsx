@@ -206,14 +206,7 @@ export function Hero() {
               <Phone size={20} strokeWidth={1.5} />
               <span className="hero-icon-btn__label">Zavolejte</span>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" className="hero-icon-btn" aria-label="Facebook">
-              <Facebook size={19} strokeWidth={1.5} />
-              <span className="hero-icon-btn__label">Facebook</span>
-            </a>
-            <a href="https://www.instagram.com/mnshine_detailing/" target="_blank" rel="noopener noreferrer" className="hero-icon-btn" aria-label="Instagram">
-              <Instagram size={19} strokeWidth={1.5} />
-              <span className="hero-icon-btn__label">Instagram</span>
-            </a>
+
           </div>
 
 
@@ -239,6 +232,16 @@ export function Hero() {
       >
         <ChevronRight size={28} />
       </button>
+
+      {/* Social icons — bottom left */}
+      <div style={{ position: 'absolute', bottom: '1.75rem', left: '5.5rem', zIndex: 3, display: 'flex', flexDirection: 'row', gap: '0.75rem', alignItems: 'center' }}>
+        <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)', transition: 'background-color 0.2s, border-color 0.2s' }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.18)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.55)'; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'; }}>
+          <Facebook size={18} strokeWidth={1.5} />
+        </a>
+        <a href="https://www.instagram.com/mnshine_detailing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)', transition: 'background-color 0.2s, border-color 0.2s' }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.18)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.55)'; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'; }}>
+          <Instagram size={18} strokeWidth={1.5} />
+        </a>
+      </div>
 
       {/* Dot indicators + progress bar */}
       <div style={{ position: 'absolute', bottom: '1.75rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
