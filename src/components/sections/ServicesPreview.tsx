@@ -50,7 +50,7 @@ const services = [
 ];
 
 // Row 1: 4 skewed tiles | Row 2: 3 centered tiles
-const ROW1 = [0, 5, 3, 1]; // Čištění ext, Čištění interiéru, Renovace laku, Ochrana laku
+const ROW1 = [5, 0, 3, 1]; // Čištění interiéru, Čištění ext, Renovace laku, Ochrana laku
 const ROW2 = [4, 2, 6];    // Renovace světel, Renovace kůže, Oprava škrábanců
 const CARD_HEIGHT = 220;
 

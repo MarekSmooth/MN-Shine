@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, MessageSquare, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare, Phone, Facebook, Instagram } from 'lucide-react';
 
 const slides = [
   {
@@ -197,7 +197,7 @@ export function Hero() {
           )}
 
           {/* CTAs — sharp icon + label buttons */}
-          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
             <Link href="/kontakt" className="hero-icon-btn" aria-label="Objednat termín">
               <MessageSquare size={19} strokeWidth={1.5} />
               <span className="hero-icon-btn__label">Napište nám</span>
@@ -205,6 +205,14 @@ export function Hero() {
             <a href="tel:+420702852852" className="hero-icon-btn" aria-label="Zavolat">
               <Phone size={20} strokeWidth={1.5} />
               <span className="hero-icon-btn__label">Zavolejte</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" className="hero-icon-btn" aria-label="Facebook">
+              <Facebook size={19} strokeWidth={1.5} />
+              <span className="hero-icon-btn__label">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/mnshine_detailing/" target="_blank" rel="noopener noreferrer" className="hero-icon-btn" aria-label="Instagram">
+              <Instagram size={19} strokeWidth={1.5} />
+              <span className="hero-icon-btn__label">Instagram</span>
             </a>
           </div>
 

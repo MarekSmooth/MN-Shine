@@ -7,13 +7,20 @@ export const metadata: Metadata = {
 };
 
 type Variant = { name: string; price: string; items: string[]; recommended?: boolean; note?: string };
-type ServiceGroup = { id: string; name: string; href: string; variants: Variant[] };
+type ServiceGroup = { id: string; name: string; href: string; priceNote: string; miniVariant?: { name: string; price: string; items: string[]; note: string }; variants: Variant[] };
 
 const priceCategories: ServiceGroup[] = [
   {
     id: 'cisteni-interieru',
     name: 'Čištění interiéru',
     href: '/sluzby/cisteni-interieru-brno',
+    priceNote: 'Přesná cena závisí na velikosti vozu a míře znečištění interiéru.',
+    miniVariant: {
+      name: 'Rychlý refresh',
+      price: '800 Kč',
+      items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
+      note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
+    },
     variants: [
       {
         name: 'Varianta 1 – Základní',
@@ -38,6 +45,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'cisteni-exterieru',
     name: 'Čištění exteriéru',
     href: '/sluzby/cisteni-exterieru-brno',
+    priceNote: 'Přesná cena závisí na velikosti vozu a stupni znečištění a zanesení laku.',
     variants: [
       {
         name: 'Důkladné mytí s ochranou laku',
@@ -51,6 +59,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'renovace-laku',
     name: 'Renovace laku',
     href: '/sluzby/renovace-laku-brno',
+    priceNote: 'Přesná cena závisí na velikosti vozu a rozsahu defektů a poškození laku.',
     variants: [
       {
         name: 'Jednokroková renovace',
@@ -71,6 +80,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     href: '/sluzby/ochrana-laku-brno',
+    priceNote: 'Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku.',
     variants: [
       {
         name: 'Voskování',
@@ -89,6 +99,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'renovace-svetel',
     name: 'Renovace světlometů',
     href: '/sluzby/renovace-svetel-brno',
+    priceNote: 'Přesná cena závisí na míře zakalenosti a aktuálním stavu světlometů.',
     variants: [
       {
         name: 'Renovace světlometů',
@@ -101,6 +112,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'oprava-kuze',
     name: 'Oprava kůže',
     href: '/sluzby/renovace-kuze-brno',
+    priceNote: 'Přesná cena závisí na rozsahu poškození a celkové ploše kožených povrchů.',
     variants: [
       {
         name: 'Oprava a renovace kůže',
@@ -150,6 +162,20 @@ export default function CenikPage() {
                   Detail služby ›
                 </Link>
               </div>
+
+              {/* Mini variant strip */}
+              {cat.miniVariant && (
+                <div style={{ marginBottom: '1rem', padding: '0.5rem 1.25rem', border: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem 1.25rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem', flexShrink: 0 }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{cat.miniVariant.name}</span>
+                    <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.95rem', fontFamily: "'Big Shoulders Display', sans-serif", whiteSpace: 'nowrap' }}>{cat.miniVariant.price}</span>
+                  </div>
+                  {cat.miniVariant.items.map(item => (
+                    <span key={item} style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', whiteSpace: 'nowrap' }}>✓ {item}</span>
+                  ))}
+                  <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.7rem', fontStyle: 'italic', whiteSpace: 'nowrap', flexShrink: 0 }}>{cat.miniVariant.note}</span>
+                </div>
+              )}
 
               {/* Variants grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
@@ -218,6 +244,10 @@ export default function CenikPage() {
                   </div>
                 ))}
               </div>
+              {/* Price note */}
+              <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', letterSpacing: '0.05em', marginTop: '0.6rem', marginBottom: 0 }}>
+                * {cat.priceNote}
+              </p>
             </div>
           ))}
         </div>

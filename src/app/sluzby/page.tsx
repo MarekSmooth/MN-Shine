@@ -24,9 +24,11 @@ type ServiceCategory = {
   id: string;
   name: string;
   tagline: string;
+  priceNote: string;
   href: string;
   image: string;
   forWho: string;
+  miniVariant?: { name: string; price: string; items: string[]; note: string };
   variants: Variant[];
 };
 
@@ -35,9 +37,16 @@ const serviceCategories: ServiceCategory[] = [
     id: 'cisteni-interieru',
     name: 'Čištění interiéru',
     tagline: 'Svěží a dezinfikovaný interiér',
+    priceNote: 'Přesná cena závisí na velikosti vozu a míře znečištění interiéru',
     href: '/sluzby/cisteni-interieru-brno',
     image: '/icons/interier.webp',
     forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba před prodejem nebo po zimní sezóně.',
+    miniVariant: {
+      name: 'Rychlý refresh',
+      price: '800 Kč',
+      items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
+      note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
+    },
     variants: [
       { name: 'Varianta 1 – Základní', price: 'od 1 999 Kč', items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'] },
       { name: 'Varianta 2 – Kompletní', price: 'od 2 999 Kč', items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'], recommended: true },
@@ -48,6 +57,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'cisteni-exterieru',
     name: 'Čištění exteriéru',
     tagline: 'Ruční mytí a dekontaminace laku',
+    priceNote: 'Přesná cena závisí na velikosti vozu a stupni znečištění exteriéru',
     href: '/sluzby/cisteni-exterieru-brno',
     image: '/icons/exterier.webp',
     forWho: 'Základ péče o každý vůz. Doporučujeme po zimní sezóně nebo před aplikací ochrany laku.',
@@ -59,6 +69,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'renovace-laku',
     name: 'Renovace laku',
     tagline: 'Strojní leštění a korekce defektů',
+    priceNote: 'Přesná cena závisí na velikosti vozu a rozsahu defektů a poškození laku',
     href: '/sluzby/renovace-laku-brno',
     image: '/icons/renovacelak.webp',
     forWho: 'Trápí vás swirlmarks nebo zakalený lak? Strojní leštění vrátí laku původní hloubku a lesk.',
@@ -71,6 +82,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     tagline: 'Vosk, keramika nebo PPF fólie',
+    priceNote: 'Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku',
     href: '/sluzby/ochrana-laku-brno',
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
@@ -83,6 +95,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'renovace-svetel',
     name: 'Renovace světel',
     tagline: 'Průhlednost a bezpečnost jízdy',
+    priceNote: 'Přesná cena závisí na míře zakalenosti a aktuálním stavu světlometů',
     href: '/sluzby/renovace-svetel-brno',
     image: '/icons/svetla.webp',
     forWho: 'Zakalené světlomety kazí vzhled i bezpečnost. Renovací ušetříte oproti výměně.',
@@ -94,6 +107,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'renovace-kuze',
     name: 'Renovace kůže',
     tagline: 'Obnova luxusního interiéru',
+    priceNote: 'Přesná cena závisí na rozsahu poškození a celkové ploše kožených povrchů',
     href: '/sluzby/renovace-kuze-brno',
     image: '/icons/kuze.webp',
     forWho: 'Kůže popraskala nebo vybledla? Renovace ji vrátí do původního stavu za zlomek ceny výměny.',
@@ -105,6 +119,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'oprava-skrabancu',
     name: 'Oprava škrábanců',
     tagline: 'Bez nutnosti lakovny',
+    priceNote: 'Přesná cena závisí na počtu, hloubce a rozsahu poškozených míst',
     href: '/sluzby/oprava-skrabancu-brno',
     image: '/icons/skrabance.webp',
     forWho: 'Škrábanec od klíče nebo parkovacího manévru? Minimálně invazivní metody zvládnou většinu povrchových poškození.',
@@ -171,9 +186,9 @@ export default function ServicesPage() {
                 />
                 {/* Gradient overlay */}
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
-                {/* Tagline badge */}
-                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '0', padding: '0.4rem 1rem' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.tagline}</span>
+                {/* Price note — full-width bottom strip */}
+                <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
+                  <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
                 </div>
               </div>
 
@@ -185,6 +200,20 @@ export default function ServicesPage() {
                 <p style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
                   {cat.forWho}
                 </p>
+
+                {/* Mini variant strip */}
+                {cat.miniVariant && (
+                  <div style={{ marginBottom: '0.75rem', padding: '0.5rem 1rem', border: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem 1.25rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem', flexShrink: 0 }}>
+                      <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{cat.miniVariant.name}</span>
+                      <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.85rem', fontFamily: "'Big Shoulders Display', sans-serif", whiteSpace: 'nowrap' }}>{cat.miniVariant.price}</span>
+                    </div>
+                    {cat.miniVariant.items.map(item => (
+                      <span key={item} style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.72rem', whiteSpace: 'nowrap' }}>✓ {item}</span>
+                    ))}
+                    <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.68rem', fontStyle: 'italic', whiteSpace: 'nowrap', flexShrink: 0 }}>{cat.miniVariant.note}</span>
+                  </div>
+                )}
 
                 {/* Variant cards */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
