@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 interface FormData {
@@ -51,7 +51,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="kontakt" style={{ backgroundColor: '#0a0a0a', padding: '3rem 1.5rem' }}>
+    <section id="kontakt" style={{ backgroundColor: '#0a0a0a', padding: '2rem 1.5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <SectionHeader
           title="Kontaktujte nás"
@@ -61,13 +61,13 @@ export function ContactSection() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '3rem',
+          gap: '2rem',
           alignItems: 'start',
         }}>
           {/* Contact Info */}
           <div>
             <h3 style={{ color: '#FFFFFF', fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.1rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {[
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
                 { icon: <Mail size={18} />, label: 'E-mail', value: 'Info@mnshine.cz', href: 'mailto:Info@mnshine.cz' },
@@ -88,10 +88,20 @@ export function ContactSection() {
               ))}
             </div>
 
+            {/* Social links */}
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+              <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ color: '#9CA3AF', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')} onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}>
+                <Facebook size={22} strokeWidth={1.5} />
+              </a>
+              <a href="https://www.instagram.com/mnshine_detailing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: '#9CA3AF', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')} onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}>
+                <Instagram size={22} strokeWidth={1.5} />
+              </a>
+            </div>
+
             {/* Map */}
             <div style={{
-              marginTop: '2rem',
-              height: '300px',
+              marginTop: '1.25rem',
+              height: '220px',
               backgroundColor: '#E8E8E8',
               border: '1px solid rgba(0,0,0,0.12)',
               borderRadius: '0',
@@ -125,7 +135,7 @@ export function ContactSection() {
                 <p style={{ color: '#9CA3AF', margin: 0 }}>Děkujeme za váš zájem. Ozývíme se vám co nejdříve.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 <div className="form-grid-2col">
                   <div>
                     <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Jméno a příjmení *</label>

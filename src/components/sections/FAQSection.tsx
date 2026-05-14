@@ -5,7 +5,7 @@ import { faqs } from '@/data/faq';
 
 export function FAQSection() {
   return (
-    <section style={{ backgroundColor: '#1a1a1a', padding: '3rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ backgroundColor: '#1a1a1a', padding: '2rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
       {/* Watermark logo */}
       <div aria-hidden="true" style={{
         position: 'absolute',
@@ -21,7 +21,8 @@ export function FAQSection() {
           src="/mnlogo.png"
           alt=""
           style={{
-            width: '70%',
+            width: 'auto',
+            height: '85%',
             maxWidth: '700px',
             opacity: 0.04,
             filter: 'grayscale(1) brightness(2)',
@@ -40,7 +41,7 @@ export function FAQSection() {
             <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
           <Link
             href="/faq"
             className="faq-all-link"

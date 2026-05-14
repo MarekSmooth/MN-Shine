@@ -23,7 +23,7 @@ export function FAQItem({ question, answer }: FAQItemProps) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '1.25rem 0',
+          padding: '0.75rem 0',
           background: 'none',
           border: 'none',
           cursor: 'pointer',
