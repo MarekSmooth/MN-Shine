@@ -237,11 +237,11 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div style={{ backgroundColor: '#000000', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1rem 1.5rem' }}>
+        <div style={{ position: 'relative', zIndex: 1, backgroundColor: '#111111', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1rem 1.5rem' }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Link
               href="/"
-              style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Domů
@@ -253,9 +253,9 @@ export function Header() {
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
-                  color: '#CCCCCC',
-                  fontSize: '0.8rem',
-                  fontWeight: 500,
+                  color: '#FFFFFF',
+                  fontSize: '0.9rem',
+                  fontWeight: 700,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase' as const,
                   display: 'flex',
@@ -297,7 +297,7 @@ export function Header() {
             </div>
             <Link
               href="/cenik"
-              style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Ceník
@@ -306,7 +306,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{ color: '#CCCCCC', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+                style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -314,14 +314,14 @@ export function Header() {
             ))}
             <a
               href="tel:+420702852852"
-              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center' as const, marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}
+              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, textAlign: 'center' as const, marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}
               onClick={() => setMenuOpen(false)}
             >
               +420 702 852 852
             </a>
             <Link
               href="/kontakt"
-              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', textAlign: 'center', marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ padding: '0.75rem 1.25rem', backgroundColor: '#FFFFFF', color: '#000000', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 700, textAlign: 'center', marginTop: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
               onClick={() => setMenuOpen(false)}
             >
               Objednat termín

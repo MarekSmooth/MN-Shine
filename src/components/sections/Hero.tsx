@@ -107,6 +107,7 @@ export function Hero() {
       {prevSlide && (
         <div
           key={`prev-${prev}`}
+          className="hero-bg-slide"
           style={{
             position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
             backgroundImage: `url(${prevSlide.image})`,
@@ -120,6 +121,7 @@ export function Hero() {
       {/* Incoming slide (fades in + zooms) */}
       <div
         key={`curr-${current}`}
+        className="hero-bg-slide"
         style={{
           position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
           backgroundImage: `url(${slide.image})`,

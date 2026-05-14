@@ -187,11 +187,11 @@ export function ServicesPreview() {
 
         <div ref={gridRef}>
           {/* Row 1 — 4 skewed parallelogram tiles */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', marginBottom: '24px' }}>
+          <div className="services-row-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', marginBottom: '24px' }}>
             {ROW1.map((idx, pos) => renderCard(idx, true, pos))}
           </div>
           {/* Row 2 — 3 centered skewed tiles */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', maxWidth: '75%', margin: '0 auto' }}>
+          <div className="services-row-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', maxWidth: '75%', margin: '0 auto' }}>
             {ROW2.map((idx, pos) => renderCard(idx, true, ROW1.length + pos))}
           </div>
         </div>

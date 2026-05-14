@@ -25,6 +25,7 @@ export default function HomePage() {
       <SectionTransition />
       <div
         aria-hidden="true"
+        className="bg-parallax"
         style={{
           height: '420px',
           backgroundImage: 'url(/Sectionbg/bg1.webp)',

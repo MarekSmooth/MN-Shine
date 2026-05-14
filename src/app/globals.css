@@ -14,12 +14,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #0a0a0a;
   color: #FFFFFF;
   font-family: var(--font-rubik, sans-serif);
+  overflow-x: hidden;
 }
 
 /* Primary button */
@@ -663,6 +665,18 @@ body {
   .card-responsive-padding {
     padding: 1.5rem !important;
   }
+
+  /* Disable parallax on mobile — background-attachment: fixed causes
+     images to appear zoomed/cropped on iOS and most mobile browsers */
+  .bg-parallax {
+    background-attachment: scroll !important;
+  }
+
+  /* Hero background slides: center the image vertically on narrow screens
+     (center top crops too aggressively in portrait mode) */
+  .hero-bg-slide {
+    background-position: center center !important;
+  }
 }
 
 /* Hero main headline — desktop only */
@@ -1058,6 +1072,53 @@ div:hover > .service-flip-card .service-flip-inner {
   }
   .service-back-divider {
     display: none;
+  }
+}
+
+/* ---- ServicesPreview: mobile 2-column grid + static back face ---- */
+/* This block must come AFTER the 1023px and 600px blocks above so it wins */
+@media (max-width: 767px) {
+  /* 2-column grid (overrides inline repeat(4,1fr) / repeat(3,1fr)) */
+  .services-row-1,
+  .services-row-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 100% !important;
+    margin: 0 0 12px !important;
+    gap: 12px !important;
+  }
+
+  /* Disable 3D perspective — neutralises translateZ on children */
+  .service-flip-card {
+    perspective: none !important;
+  }
+
+  /* Show back face (title + description) by default — no hover/tap needed */
+  .service-flip-inner {
+    transform: rotateY(180deg) !important;
+    transition: none !important;
+  }
+  /* Keep back face on "hover" (desktop emulation / stylus) */
+  div:hover > .service-flip-card .service-flip-inner {
+    transform: rotateY(180deg) !important;
+  }
+
+  /* Back face content: compact, left-aligned */
+  .service-flip-back-inner {
+    padding: 0.85rem 1rem !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  .service-flip-back-inner h3 {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .service-flip-back-inner .service-desc-raised {
+    font-size: 0.72rem !important;
+    line-height: 1.45 !important;
+  }
+  .service-back-more {
+    display: none !important;
   }
 }
 
