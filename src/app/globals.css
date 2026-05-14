@@ -1061,6 +1061,17 @@ div:hover > .service-flip-card .service-flip-inner {
   }
 }
 
+/* ---- Čištění interiéru: 2-row special grid ---- */
+.svc-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+}
+@media (max-width: 767px) {
+  .svc-mini-grid { grid-template-columns: 1fr; }
+  .svc-mini-grid > * { grid-column: 1 !important; grid-row: auto !important; }
+}
+
 /* Mobile XS: single column */
 @media (max-width: 400px) {
   .stagger-item--0,
@@ -1076,5 +1087,6 @@ div:hover > .service-flip-card .service-flip-inner {
     height: 240px;
   }
 }
+
 
 

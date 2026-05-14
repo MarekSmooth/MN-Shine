@@ -163,47 +163,23 @@ export default function ServicesPage() {
             id={cat.id}
             style={{ scrollMarginTop: '120px', paddingTop: '5rem', paddingBottom: '5rem' }}
           >
-            {/* Two-column layout: image left, content right (alternating) */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+            {cat.miniVariant ? (
+              /* ── Čištění interiéru: 2×2 grid — nadpis vpravo nahoře, Rychlý refresh zarovnaný s Variantou 1 ── */
+              <div className="svc-mini-grid">
 
-              {/* Image panel */}
-              <div
-                style={{
-                  order: idx % 2 === 0 ? 0 : 1,
-                  position: 'relative',
-                  borderRadius: '0',
-                  overflow: 'hidden',
-                  aspectRatio: '4/3',
-                  backgroundColor: '#111111',
-                }}
-              >
-                <Image
-                  src={cat.image}
-                  alt={cat.name}
-                  fill
-                  style={{ objectFit: 'cover', opacity: 0.75 }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Gradient overlay */}
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
-                {/* Price note — full-width bottom strip */}
-                <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
+                {/* Row 1, Col 2 — heading + description (right, top) */}
+                <div style={{ gridColumn: 2, gridRow: 1, paddingBottom: '1.5rem' }}>
+                  <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                    {cat.name}
+                  </h2>
+                  <p style={{ color: '#9CA3AF', lineHeight: 1.75, margin: 0, fontSize: '0.9rem' }}>
+                    {cat.forWho}
+                  </p>
                 </div>
-              </div>
 
-              {/* Content panel */}
-              <div style={{ order: idx % 2 === 0 ? 1 : 0 }}>
-                <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
-                  {cat.name}
-                </h2>
-                <p style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
-                  {cat.forWho}
-                </p>
-
-                {/* Mini variant strip */}
-                {cat.miniVariant && (
-                  <div style={{ marginBottom: '0.75rem', padding: '1.1rem 1.25rem', border: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)' }}>
+                {/* Row 2, Col 1 — Rychlý refresh card + image */}
+                <div style={{ gridColumn: 1, gridRow: 2, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                  <div style={{ padding: '1.1rem 1.25rem', borderTop: '1px dashed rgba(255,255,255,0.15)', borderRight: '1px dashed rgba(255,255,255,0.15)', borderBottom: '1px dashed rgba(255,255,255,0.15)', borderLeft: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)' }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.65rem', flexWrap: 'wrap' }}>
                       <p style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{cat.miniVariant.name}</p>
                       <span style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{cat.miniVariant.price}</span>
@@ -218,44 +194,103 @@ export default function ServicesPage() {
                     </div>
                     <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.68rem', fontStyle: 'italic', margin: '0.5rem 0 0' }}>{cat.miniVariant.note}</p>
                   </div>
-                )}
-
-                {/* Variant cards */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
-                  {cat.variants.map(variant => (
-                    <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
-                      {variant.recommended && (
-                        <span style={{ position: 'absolute', top: '-1px', right: '1rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.15rem 0.6rem', borderRadius: '0 0 5px 5px' }}>
-                          Doporučeno
-                        </span>
-                      )}
-                      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
-                        <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
-                        <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
-                      </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
-                        {variant.items.map(item => (
-                          <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
-                            <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
-                            {item}
-                          </div>
-                        ))}
-                      </div>
+                  <div style={{ position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
+                    <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
+                    <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
                     </div>
-                  ))}
+                  </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                  <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                    Detail služby <ArrowRight size={13} />
-                  </Link>
-                  <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.25)' }}>
-                    Mám zájem
-                  </Link>
+                {/* Row 2, Col 2 — Variants + CTAs */}
+                <div style={{ gridColumn: 2, gridRow: 2 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+                    {cat.variants.map(variant => (
+                      <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
+                        {variant.recommended && (
+                          <span style={{ position: 'absolute', top: '-1px', right: '1rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.15rem 0.6rem', borderRadius: '0 0 5px 5px' }}>Doporučeno</span>
+                        )}
+                        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
+                          <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
+                          <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
+                          {variant.items.map(item => (
+                            <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
+                              {item}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      Detail služby <ArrowRight size={13} />
+                    </Link>
+                    <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.25)' }}>
+                      Mám zájem
+                    </Link>
+                  </div>
                 </div>
+
               </div>
+            ) : (
+              /* ── Původní layout pro všechny ostatní služby ── */
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
 
-            </div>
+                {/* Image panel */}
+                <div style={{ order: idx % 2 === 0 ? 0 : 1, position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
+                  <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
+                  <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
+                  </div>
+                </div>
+
+                {/* Content panel */}
+                <div style={{ order: idx % 2 === 0 ? 1 : 0 }}>
+                  <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                    {cat.name}
+                  </h2>
+                  <p style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
+                    {cat.forWho}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+                    {cat.variants.map(variant => (
+                      <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
+                        {variant.recommended && (
+                          <span style={{ position: 'absolute', top: '-1px', right: '1rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.15rem 0.6rem', borderRadius: '0 0 5px 5px' }}>Doporučeno</span>
+                        )}
+                        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
+                          <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
+                          <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
+                          {variant.items.map(item => (
+                            <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
+                              {item}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      Detail služby <ArrowRight size={13} />
+                    </Link>
+                    <Link href="/kontakt" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: 600, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.25)' }}>
+                      Mám zájem
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+            )}
           </section>
           {idx < serviceCategories.length - 1 && <SectionTransition variant="subtle" />}
           </React.Fragment>
