@@ -199,7 +199,7 @@ export function Hero() {
           )}
 
           {/* CTAs — sharp icon + label buttons */}
-          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
+          <div className="hero-cta-row" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', animation: 'hero-text-in 0.7s ease both', animationDelay: '0.46s' }}>
             <Link href="/kontakt" className="hero-icon-btn" aria-label="Objednat termín">
               <MessageSquare size={19} strokeWidth={1.5} />
               <span className="hero-icon-btn__label">Napište nám</span>
@@ -236,7 +236,7 @@ export function Hero() {
       </button>
 
       {/* Social icons — bottom left */}
-      <div style={{ position: 'absolute', bottom: '1.75rem', left: '5.5rem', zIndex: 3, display: 'flex', flexDirection: 'row', gap: '0.75rem', alignItems: 'center' }}>
+      <div className="hero-social-icons" style={{ position: 'absolute', bottom: '1.75rem', left: '5.5rem', zIndex: 3, display: 'flex', flexDirection: 'row', gap: '0.75rem', alignItems: 'center' }}>
         <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)', transition: 'background-color 0.2s, border-color 0.2s' }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.18)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.55)'; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.08)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'; }}>
           <Facebook size={18} strokeWidth={1.5} />
         </a>

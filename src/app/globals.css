@@ -677,6 +677,17 @@ body {
   .hero-bg-slide {
     background-position: center center !important;
   }
+
+  /* Hero CTAs: push down so they clear the slider arrow buttons (top: 50%) */
+  .hero-cta-row {
+    margin-top: 2.5rem !important;
+  }
+
+  /* Hero social icons: lift up so they clear the slide dot indicators */
+  .hero-social-icons {
+    bottom: 3.5rem !important;
+    left: 1.5rem !important;
+  }
 }
 
 /* Hero main headline — desktop only */
