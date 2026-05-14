@@ -43,7 +43,7 @@ const serviceCategories: ServiceCategory[] = [
     forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba před prodejem nebo po zimní sezóně.',
     miniVariant: {
       name: 'Rychlý refresh',
-      price: '800 Kč',
+      price: 'od 800 Kč',
       items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
       note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
     },
@@ -203,15 +203,20 @@ export default function ServicesPage() {
 
                 {/* Mini variant strip */}
                 {cat.miniVariant && (
-                  <div style={{ marginBottom: '0.75rem', padding: '0.5rem 1rem', border: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem 1.25rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem', flexShrink: 0 }}>
-                      <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>{cat.miniVariant.name}</span>
-                      <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.85rem', fontFamily: "'Big Shoulders Display', sans-serif", whiteSpace: 'nowrap' }}>{cat.miniVariant.price}</span>
+                  <div style={{ marginBottom: '0.75rem', padding: '1.1rem 1.25rem', border: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.65rem', flexWrap: 'wrap' }}>
+                      <p style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{cat.miniVariant.name}</p>
+                      <span style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{cat.miniVariant.price}</span>
                     </div>
-                    {cat.miniVariant.items.map(item => (
-                      <span key={item} style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.72rem', whiteSpace: 'nowrap' }}>✓ {item}</span>
-                    ))}
-                    <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.68rem', fontStyle: 'italic', whiteSpace: 'nowrap', flexShrink: 0 }}>{cat.miniVariant.note}</span>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem 1.5rem' }}>
+                      {cat.miniVariant.items.map(item => (
+                        <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(156,163,175,0.7)', fontSize: '0.82rem' }}>
+                          <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, fontSize: '0.7rem', flexShrink: 0 }}>✓</span>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                    <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.68rem', fontStyle: 'italic', margin: '0.5rem 0 0' }}>{cat.miniVariant.note}</p>
                   </div>
                 )}
 
