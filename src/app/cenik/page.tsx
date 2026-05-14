@@ -17,7 +17,7 @@ const priceCategories: ServiceGroup[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a míře znečištění interiéru.',
     miniVariant: {
       name: 'Rychlý refresh',
-      price: '800 Kč',
+      price: 'od 800 Kč',
       items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
       note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
     },
