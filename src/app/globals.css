@@ -626,6 +626,13 @@ body {
     padding-top: 100px;
   }
 
+  /* Hero: shorter on mobile so landscape images zoom in less on portrait screens */
+  .hero-section {
+    height: 75vh !important;
+    max-height: 75vh !important;
+    min-height: 420px;
+  }
+
   /* Hero: less vertical padding on small screens */
   .hero-inner {
     padding-top: 2.5rem;
@@ -672,10 +679,12 @@ body {
     background-attachment: scroll !important;
   }
 
-  /* Hero background slides: center the image vertically on narrow screens
-     (center top crops too aggressively in portrait mode) */
+  /* Hero background slides: on portrait mobile, 'cover' zooms landscape images
+     heavily. Shifting position to 40% shows more of the car body.
+     Also start the background below the fixed header (100px). */
   .hero-bg-slide {
-    background-position: center center !important;
+    background-position: center 40% !important;
+    top: 100px !important;
   }
 
   /* Hero CTAs: push down so they clear the slider arrow buttons (top: 50%) */
@@ -690,8 +699,14 @@ body {
   }
 }
 
-/* Hero main headline — desktop only */
-.hero-headline {
+/* Tablet: hero background starts below the fixed header (90px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-bg-slide {
+    top: 90px !important;
+  }
+}
+
+/* Hero main headline — desktop only */.hero-headline {
   display: block;
 }
 @media (max-width: 768px) {
