@@ -179,20 +179,20 @@ export default function ServicesPage() {
 
                 {/* Row 2, Col 1 — Rychlý refresh card + image */}
                 <div style={{ gridColumn: 1, gridRow: 2, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <div style={{ padding: '1.1rem 1.25rem', borderTop: '1px dashed rgba(255,255,255,0.15)', borderRight: '1px dashed rgba(255,255,255,0.15)', borderBottom: '1px dashed rgba(255,255,255,0.15)', borderLeft: '1px dashed rgba(255,255,255,0.15)', backgroundColor: 'rgba(255,255,255,0.03)' }}>
+                  <div style={{ position: 'relative', backgroundColor: '#0f0f0f', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.65rem', flexWrap: 'wrap' }}>
-                      <p style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{cat.miniVariant.name}</p>
-                      <span style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{cat.miniVariant.price}</span>
+                      <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{cat.miniVariant.name}</p>
+                      <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{cat.miniVariant.price}</span>
                     </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem 1.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
                       {cat.miniVariant.items.map(item => (
-                        <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(156,163,175,0.7)', fontSize: '0.82rem' }}>
-                          <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, fontSize: '0.7rem', flexShrink: 0 }}>✓</span>
+                        <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                          <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
                           {item}
                         </div>
                       ))}
                     </div>
-                    <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.68rem', fontStyle: 'italic', margin: '0.5rem 0 0' }}>{cat.miniVariant.note}</p>
+                    <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', fontStyle: 'italic', margin: '0.65rem 0 0' }}>{cat.miniVariant.note}</p>
                   </div>
                   <div style={{ position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
                     <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
@@ -213,7 +213,7 @@ export default function ServicesPage() {
                         )}
                         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
                           <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
-                          <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
+                          <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
                           {variant.items.map(item => (
@@ -266,7 +266,7 @@ export default function ServicesPage() {
                         )}
                         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', margin: '0 0 0.65rem', flexWrap: 'wrap' }}>
                           <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
-                          <span style={{ color: variant.recommended ? '#FFFFFF' : '#9CA3AF', fontWeight: 700, fontSize: '0.88rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
+                          <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
                           {variant.items.map(item => (
