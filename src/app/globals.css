@@ -619,6 +619,11 @@ body {
   gap: 1rem;
 }
 
+/* Hero mobile bottom bar — hidden by default, shown in mobile breakpoint */
+.hero-mobile-bottom {
+  display: none;
+}
+
 /* ---- Mobile breakpoint ---- */
 @media (max-width: 767px) {
   /* Reduce page top offset on mobile — only logo bar is visible */
@@ -626,11 +631,12 @@ body {
     padding-top: 100px;
   }
 
-  /* Hero: shorter on mobile so landscape images zoom in less on portrait screens */
+  /* Hero: full height on mobile, no top padding (content is absolutely positioned at bottom) */
   .hero-section {
-    height: 75vh !important;
-    max-height: 75vh !important;
-    min-height: 420px;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    min-height: 500px;
+    padding-top: 0 !important;
   }
 
   /* Hero: less vertical padding on small screens */
@@ -679,12 +685,10 @@ body {
     background-attachment: scroll !important;
   }
 
-  /* Hero background slides: on portrait mobile, 'cover' zooms landscape images
-     heavily. Shifting position to 40% shows more of the car body.
-     Also start the background below the fixed header (100px). */
+  /* Hero background slides: full bleed, shifted to show car body */
   .hero-bg-slide {
     background-position: center 40% !important;
-    top: 100px !important;
+    top: -5px !important;
   }
 
   /* Hero CTAs: push down so they clear the slider arrow buttons (top: 50%) */
@@ -692,10 +696,51 @@ body {
     margin-top: 2.5rem !important;
   }
 
-  /* Hero social icons: lift up so they clear the slide dot indicators */
+  /* Mobile overlay: transparent top → dark bottom (photo visible, text readable) */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.2) 0%,
+      rgba(0,0,0,0.05) 35%,
+      rgba(0,0,0,0.55) 65%,
+      rgba(0,0,0,0.88) 100%
+    ) !important;
+  }
+
+  /* Hero content: stick to bottom, above the bottom bar */
+  .hero-content {
+    position: absolute !important;
+    bottom: 65px !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1.25rem 1rem !important;
+  }
+
+  /* Desktop elements replaced by mobile bottom bar */
   .hero-social-icons {
-    bottom: 3.5rem !important;
-    left: 1.5rem !important;
+    display: none !important;
+  }
+  .hero-arrow {
+    display: none !important;
+  }
+  .hero-dots-desktop {
+    display: none !important;
+  }
+
+  /* Mobile bottom bar */
+  .hero-mobile-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 1.25rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
   }
 }
 

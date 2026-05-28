@@ -132,14 +132,14 @@ export function Hero() {
       />
 
       {/* Overlay */}
-      <div style={{
+      <div className="hero-overlay" style={{
         position: 'absolute', inset: 0,
         background: 'linear-gradient(105deg, rgba(5,5,5,0.90) 0%, rgba(5,5,5,0.62) 38%, rgba(5,5,5,0.20) 65%, rgba(5,5,5,0.0) 100%)',
         pointerEvents: 'none', zIndex: 1,
       }} />
 
       {/* Content */}
-      <div className="hero-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
+      <div className="hero-inner hero-content" style={{ position: 'relative', zIndex: 2, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         <div key={textKey} style={{ maxWidth: '700px' }}>
 
           {/* H1 — only on first slide (SEO). Spacer div preserves layout on other slides. */}
@@ -219,6 +219,7 @@ export function Hero() {
       <button
         onClick={back}
         aria-label="Předchozí slide"
+        className="hero-arrow"
         style={{ position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'none', border: 'none', color: '#FFFFFF', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', opacity: 0.75, transition: 'opacity 0.2s' }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '1'; }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '0.75'; }}
@@ -228,6 +229,7 @@ export function Hero() {
       <button
         onClick={next}
         aria-label="Další slide"
+        className="hero-arrow"
         style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', zIndex: 3, background: 'none', border: 'none', color: '#FFFFFF', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', opacity: 0.75, transition: 'opacity 0.2s' }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '1'; }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '0.75'; }}
@@ -246,7 +248,7 @@ export function Hero() {
       </div>
 
       {/* Dot indicators + progress bar */}
-      <div style={{ position: 'absolute', bottom: '1.75rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+      <div className="hero-dots-desktop" style={{ position: 'absolute', bottom: '1.75rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           {slides.map((_, i) => (
             <button
@@ -256,6 +258,35 @@ export function Hero() {
               style={{ width: i === current ? '28px' : '8px', height: '8px', borderRadius: '0', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#FFFFFF' : 'rgba(255,255,255,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
             />
           ))}
+        </div>
+      </div>
+      {/* Mobile bottom bar: [ Social ] [ Dots ] [ Arrows ] */}
+      <div className="hero-mobile-bottom">
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '34px', height: '34px', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)' }}>
+            <Facebook size={16} strokeWidth={1.5} />
+          </a>
+          <a href="https://www.instagram.com/mnshine_detailing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '34px', height: '34px', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)' }}>
+            <Instagram size={16} strokeWidth={1.5} />
+          </a>
+        </div>
+        <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+              style={{ width: i === current ? '28px' : '8px', height: '4px', borderRadius: '2px', border: 'none', cursor: 'pointer', backgroundColor: i === current ? '#FFFFFF' : 'rgba(255,255,255,0.35)', transition: 'width 0.3s, background-color 0.3s', padding: 0 }}
+            />
+          ))}
+        </div>
+        <div style={{ display: 'flex', gap: '0.25rem' }}>
+          <button onClick={back} aria-label="Předchozí slide" style={{ background: 'none', border: 'none', color: '#FFFFFF', width: '34px', height: '34px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <ChevronLeft size={22} />
+          </button>
+          <button onClick={next} aria-label="Další slide" style={{ background: 'none', border: 'none', color: '#FFFFFF', width: '34px', height: '34px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <ChevronRight size={22} />
+          </button>
         </div>
       </div>
     </section>
