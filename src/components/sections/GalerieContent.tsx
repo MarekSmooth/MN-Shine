@@ -119,7 +119,7 @@ export default function GalerieContent() {
             >
               <div className="gal-row">
                 <div className="gal-cover">
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', height: '200px' }}>
                     <h2 className="gal-cover-title">{svc.name}</h2>
                     <Link
                       href={`/galerie/${svc.id}`}
