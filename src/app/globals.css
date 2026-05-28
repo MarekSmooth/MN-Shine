@@ -631,12 +631,15 @@ body {
     padding-top: 100px;
   }
 
-  /* Hero: full height on mobile, no top padding (content is absolutely positioned at bottom) */
+  /* Hero: full height on mobile, no padding, force positioning context */
   .hero-section {
+    position: relative !important;
     height: 100svh !important;
     max-height: 100svh !important;
     min-height: 500px;
-    padding-top: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;           /* override inline paddingTop: 18vh */
+    display: block !important;       /* override inline display: flex */
   }
 
   /* Hero: less vertical padding on small screens */
@@ -685,10 +688,13 @@ body {
     background-attachment: scroll !important;
   }
 
-  /* Hero background slides: full bleed, shifted to show car body */
+  /* Hero background slides: fill container exactly (no -5px overflow that clips photo) */
   .hero-bg-slide {
     background-position: center 40% !important;
-    top: -5px !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
   }
 
   /* Hero CTAs: push down so they clear the slider arrow buttons (top: 50%) */
@@ -707,13 +713,14 @@ body {
     ) !important;
   }
 
-  /* Hero content: stick to bottom, above the bottom bar */
+  /* Hero content: absolute, sits directly above the ~55px bottom bar */
   .hero-content {
     position: absolute !important;
-    bottom: 65px !important;
+    bottom: 60px !important;         /* clear the bottom bar height */
     left: 0 !important;
     right: 0 !important;
     top: auto !important;
+    z-index: 3 !important;
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 1.25rem 1rem !important;
