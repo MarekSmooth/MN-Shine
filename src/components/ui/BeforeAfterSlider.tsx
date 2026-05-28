@@ -12,12 +12,13 @@ interface BeforeAfterSliderProps {
   beforeImage?: string;
   afterImage?: string;
   pairs?: ImagePair[];
+  height?: string;
 }
 
 const FADE_DURATION = 450;
 const CYCLE_INTERVAL = 15000;
 
-export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairsProp }: BeforeAfterSliderProps) {
+export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairsProp, height = '300px' }: BeforeAfterSliderProps) {
   const pairs: ImagePair[] = pairsProp && pairsProp.length > 0
     ? pairsProp
     : (beforeImage && afterImage ? [{ before: beforeImage, after: afterImage }] : []);
@@ -72,7 +73,7 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
       style={{
         position: 'relative',
         width: '100%',
-        height: '300px',
+        height: height,
         borderRadius: '0',
         overflow: 'hidden',
         cursor: 'ew-resize',
