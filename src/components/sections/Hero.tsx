@@ -8,6 +8,7 @@ const slides = [
   {
     image: '/bg1.webp',
     position: 'center top',
+    positionMobile: '93% 25%',   // přední část RAMu vpravo
     badge: 'Detailingové studio Vojkovice u Brna',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -16,6 +17,7 @@ const slides = [
   {
     image: '/bg2.webp',
     position: 'center top',
+    positionMobile: 'center 25%', // uprav dle potřeby
     badge: 'Čištění interiéru & exteriéru Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -24,6 +26,7 @@ const slides = [
   {
     image: '/bg3.webp',
     position: 'center top',
+    positionMobile: '80% 25%', // uprav dle potřeby
     badge: 'Renovace a leštění laku Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -32,6 +35,7 @@ const slides = [
   {
     image: '/bg4.webp',
     position: 'center top',
+    positionMobile: '80% 25%', // uprav dle potřeby
     badge: 'Keramická ochrana Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -40,6 +44,7 @@ const slides = [
   {
     image: '/bg5.webp',
     position: 'center top',
+    positionMobile: '75% 25%', // uprav dle potřeby
     badge: 'Detailing Brno-venkov a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -54,7 +59,17 @@ export function Hero() {
   const [prev, setPrev] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
   const [textKey, setTextKey] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Detekce mobilu (< 768px)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const goTo = useCallback((index: number) => {
     if (animating) return;
@@ -112,7 +127,7 @@ export function Hero() {
             position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
             backgroundImage: `url(${prevSlide.image})`,
             backgroundSize: 'cover',
-            backgroundPosition: prevSlide.position,
+            backgroundPosition: isMobile ? prevSlide.positionMobile : prevSlide.position,
             animation: 'hero-zoom-out 1s ease forwards',
           }}
         />
@@ -126,7 +141,7 @@ export function Hero() {
           position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
           backgroundImage: `url(${slide.image})`,
           backgroundSize: 'cover',
-          backgroundPosition: slide.position,
+          backgroundPosition: isMobile ? slide.positionMobile : slide.position,
           animation: prev !== null ? 'hero-zoom-in 1s ease forwards' : undefined,
         }}
       />

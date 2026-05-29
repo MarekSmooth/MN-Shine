@@ -688,10 +688,10 @@ body {
     background-attachment: scroll !important;
   }
 
-  /* Hero background slides: fill container exactly (no -5px overflow that clips photo) */
+  /* Hero background slides: start below the 100px mobile header.
+     background-position is now controlled per-slide via positionMobile in Hero.tsx */
   .hero-bg-slide {
-    background-position: center 40% !important;
-    top: 0 !important;
+    top: 100px !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
@@ -748,6 +748,20 @@ body {
     align-items: center;
     justify-content: space-between;
     z-index: 4;
+  }
+
+  /* SectionTransition hned po hero: na mobilu skrytá, černý pruh tam nechceme */
+  .section-transition.dark-to-light {
+    display: none !important;
+  }
+
+  /* Hero CTA tlačítka: tighter obrámování, text zůstává stejný */
+  .hero-icon-btn {
+    height: 34px !important;
+    padding: 0 0.85rem !important;
+  }
+  .hero-icon-btn__label {
+    font-size: 0.62rem !important;
   }
 }
 
