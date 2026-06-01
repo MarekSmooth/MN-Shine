@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { galleryServices } from '@/data/gallery';
+import GalleryLoadingOverlay from '@/components/ui/GalleryLoadingOverlay';
 
 interface Props {
   kategorie: string;
@@ -56,11 +57,13 @@ export default function KategorieGalerieContent({ kategorie }: Props) {
   return (
     <>
       {/* Thumbnail grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-        gap: '6px',
-      }}>
+      <div style={{ position: 'relative' }}>
+        <GalleryLoadingOverlay imageSrcs={images.slice(0, 9)} />
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+          gap: '6px',
+        }}>
         {images.map((src, idx) => (
           <div
             key={idx}
@@ -81,6 +84,7 @@ export default function KategorieGalerieContent({ kategorie }: Props) {
             </div>
           </div>
         ))}
+        </div>
       </div>
 
       {/* Lightbox */}

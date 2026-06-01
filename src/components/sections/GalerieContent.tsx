@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 import { galleryServices as services } from '@/data/gallery';
 import type { Pair } from '@/data/gallery';
+import GalleryLoadingOverlay from '@/components/ui/GalleryLoadingOverlay';
 
 export default function GalerieContent() {
   const [fullscreen, setFullscreen] = useState<Pair | null>(null);
@@ -30,8 +31,14 @@ export default function GalerieContent() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const sliderSrcs = services.flatMap(svc =>
+    svc.pairs.filter(p => p.before && p.after).slice(0, 3).flatMap(p => [p.before, p.after])
+  );
+
   return (
     <>
+      <div style={{ position: 'relative' }}>
+        <GalleryLoadingOverlay imageSrcs={sliderSrcs} />
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '4rem', justifyContent: 'center' }}>
         {services.map(svc => (
           <button
@@ -91,6 +98,7 @@ export default function GalerieContent() {
             {idx < services.length - 1 && <div className="gal-divider" aria-hidden="true" />}
           </React.Fragment>
         ))}
+      </div>
       </div>
       {/* Fullscreen overlay */}
       {fullscreen && (
