@@ -60,9 +60,9 @@ export default function GalleryLoadingOverlay({ imageSrcs }: Props) {
     <div
       aria-hidden="true"
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: 0,
-        zIndex: 50,
+        zIndex: 100,
         backgroundColor: '#0a0a0a',
         display: 'flex',
         flexDirection: 'column',
@@ -72,20 +72,16 @@ export default function GalleryLoadingOverlay({ imageSrcs }: Props) {
         opacity: fadeOut ? 0 : 1,
         transition: 'opacity 0.7s ease',
         pointerEvents: fadeOut ? 'none' : 'all',
-        minHeight: '400px',
       }}
     >
-      <div className="loading-logo-wrap">
-        <Image
-          src="/mnlogo.png"
-          alt="MN Shine"
-          width={160}
-          height={71}
-          priority
-          className="loading-logo-img"
-          style={{ width: '160px', height: 'auto', display: 'block' }}
-        />
-      </div>
+      <Image
+        src="/mnlogo.png"
+        alt="MN Shine"
+        width={160}
+        height={71}
+        priority
+        style={{ width: '160px', height: 'auto', display: 'block', animation: 'gallery-logo-in 0.4s ease forwards' }}
+      />
       <div className="loading-bar-wrap">
         <div className="loading-bar" />
       </div>

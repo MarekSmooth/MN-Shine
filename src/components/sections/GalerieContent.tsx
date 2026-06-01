@@ -37,8 +37,7 @@ export default function GalerieContent() {
 
   return (
     <>
-      <div style={{ position: 'relative' }}>
-        <GalleryLoadingOverlay imageSrcs={sliderSrcs} />
+      <GalleryLoadingOverlay imageSrcs={sliderSrcs} />
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '4rem', justifyContent: 'center' }}>
         {services.map(svc => (
           <button
@@ -99,8 +98,7 @@ export default function GalerieContent() {
           </React.Fragment>
         ))}
       </div>
-      </div>
-      {/* Fullscreen overlay */}
+      {/* Fullscreen overlay */}}
       {fullscreen && (
         <div
           onClick={closeFs}
