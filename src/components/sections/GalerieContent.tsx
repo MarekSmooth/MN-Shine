@@ -3,74 +3,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
-
-type Pair = { before: string; after: string };
-
-const services: { id: string; name: string; pairs: Pair[] }[] = [
-  {
-    id: 'cisteni-interieru',
-    name: 'Čištění interiéru',
-    pairs: [
-      { before: '/beforeafter/cleaning/cleaningbefore1.webp', after: '/beforeafter/cleaning/cleaningafter1.webp' },
-      { before: '/beforeafter/cleaning/cleaningbefore2.webp', after: '/beforeafter/cleaning/cleaningafter2.webp' },
-      { before: '/beforeafter/cleaning/cleaningbefore3.webp', after: '/beforeafter/cleaning/cleaningafter3.webp' },
-    ],
-  },
-  {
-    id: 'cisteni-exterieru',
-    name: 'Čištění exteriéru',
-    pairs: [
-      { before: '/beforeafter/cleaning/cleaningbefore1.webp', after: '/beforeafter/cleaning/cleaningafter1.webp' },
-      { before: '/beforeafter/cleaning/cleaningbefore2.webp', after: '/beforeafter/cleaning/cleaningafter2.webp' },
-      { before: '/beforeafter/cleaning/cleaningbefore3.webp', after: '/beforeafter/cleaning/cleaningafter3.webp' },
-    ],
-  },
-  {
-    id: 'renovace-laku',
-    name: 'Renovace laku',
-    pairs: [
-      { before: '/beforeafter/renovace/before1.webp', after: '/beforeafter/renovace/after1.webp' },
-      { before: '/beforeafter/renovace/before2.webp', after: '/beforeafter/renovace/after2.webp' },
-      { before: '/beforeafter/renovace/before3.webp', after: '/beforeafter/renovace/after3.webp' },
-      { before: '/beforeafter/renovace/before4.webp', after: '/beforeafter/renovace/after4.webp' },
-      { before: '/beforeafter/renovace/before5.webp', after: '/beforeafter/renovace/after5.webp' },
-    ],
-  },
-  {
-    id: 'ochrana-laku',
-    name: 'Ochrana laku',
-    pairs: [
-      { before: '/beforeafter/renovace/before3.webp', after: '/beforeafter/renovace/after3.webp' },
-      { before: '/beforeafter/renovace/before4.webp', after: '/beforeafter/renovace/after4.webp' },
-      { before: '/beforeafter/renovace/before5.webp', after: '/beforeafter/renovace/after5.webp' },
-    ],
-  },
-  {
-    id: 'renovace-svetel',
-    name: 'Renovace světel',
-    pairs: [
-      { before: '/bg1.webp', after: '/bg2.webp' },
-      { before: '/bg3.webp', after: '/bg4.webp' },
-    ],
-  },
-  {
-    id: 'renovace-kuze',
-    name: 'Renovace kůže',
-    pairs: [
-      { before: '/bg4.webp', after: '/bg5.webp' },
-      { before: '/bg2.webp', after: '/bg3.webp' },
-    ],
-  },
-  {
-    id: 'oprava-skrabancu',
-    name: 'Oprava škrábanců',
-    pairs: [
-      { before: '/beforeafter/opravy/opravybefore1.webp', after: '/beforeafter/opravy/opravyafter1.webp' },
-      { before: '/beforeafter/opravy/opravybefore2.webp', after: '/beforeafter/opravy/opavyafter2.webp' },
-      { before: '/beforeafter/opravy/opravybefore3.webp', after: '/beforeafter/opravy/opravyafter3.webp' },
-    ],
-  },
-];
+import { galleryServices as services } from '@/data/gallery';
+import type { Pair } from '@/data/gallery';
 
 export default function GalerieContent() {
   const [fullscreen, setFullscreen] = useState<Pair | null>(null);
@@ -131,7 +65,7 @@ export default function GalerieContent() {
                   </div>
                 </div>
                 <div style={{ flex: 1, display: 'flex', gap: '6px', minWidth: 0 }}>
-                  {svc.pairs.slice(0, 3).map((pair, i) => (
+                  {svc.pairs.filter(p => p.before && p.after).slice(0, 3).map((pair, i) => (
                     <div key={i} style={{ flex: 1, minWidth: 0, position: 'relative' }}>
                       <BeforeAfterSlider beforeImage={pair.before} afterImage={pair.after} />
                       <button

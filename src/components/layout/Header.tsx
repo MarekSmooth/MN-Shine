@@ -222,16 +222,41 @@ export function Header() {
             alt="MN Shine Detailing logo"
             width={350}
             height={109}
-            style={{ height: '52px', width: 'auto', display: 'block' }}
+            style={{ height: '72px', width: 'auto', display: 'block' }}
             priority
           />
         </Link>
         <button
-          style={{ position: 'absolute', right: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', color: '#FFFFFF', padding: '0.5rem' }}
+          style={{
+            position: 'absolute',
+            right: '1.5rem',
+            cursor: 'pointer',
+            color: '#FFFFFF',
+            width: '44px',
+            height: '44px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0,0,0,0.45)',
+            border: '1px solid rgba(255,255,255,0.28)',
+            backdropFilter: 'blur(8px)',
+            transform: 'skewX(-8deg)',
+            transition: 'border-color 0.2s, background 0.2s',
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.65)';
+            (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)';
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.28)';
+            (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.45)';
+          }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Otevřít menu"
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          <span style={{ transform: 'skewX(8deg)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {menuOpen ? <X size={20} strokeWidth={1.8} /> : <Menu size={20} strokeWidth={1.8} />}
+          </span>
         </button>
       </div>
 

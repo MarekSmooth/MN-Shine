@@ -6,7 +6,6 @@ const categoryNames: Record<string, string> = {
   'cisteni-interieru': 'Čištění interiéru',
   'cisteni-exterieru': 'Čištění exteriéru',
   'renovace-laku': 'Renovace laku',
-  'ochrana-laku': 'Ochrana laku',
   'renovace-svetel': 'Renovace světel',
   'renovace-kuze': 'Renovace kůže',
   'oprava-skrabancu': 'Oprava škrábanců',
@@ -59,7 +58,7 @@ export default async function KategorieGaleriePage(
           {name}
         </h1>
 
-        <KategorieGalerieContent />
+        <KategorieGalerieContent kategorie={kategorie} />
 
       </div>
     </main>
