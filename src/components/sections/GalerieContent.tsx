@@ -2,14 +2,16 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 import { galleryServices as services } from '@/data/gallery';
 import type { Pair } from '@/data/gallery';
-import GalleryLoadingOverlay from '@/components/ui/GalleryLoadingOverlay';
 
 export default function GalerieContent() {
   const [fullscreen, setFullscreen] = useState<Pair | null>(null);
   const [fsVisible, setFsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   const openFs = (pair: Pair) => {
     setFullscreen(pair);
@@ -35,9 +37,40 @@ export default function GalerieContent() {
     svc.pairs.filter(p => p.before && p.after).slice(0, 3).flatMap(p => [p.before, p.after])
   );
 
+  useEffect(() => {
+    let cancelled = false;
+    const done = () => {
+      if (cancelled) return;
+      setFadeOut(true);
+      setTimeout(() => { if (!cancelled) setIsLoading(false); }, 700);
+    };
+    const maxTimer = setTimeout(done, 3000);
+    if (sliderSrcs.length === 0) {
+      setTimeout(done, 400);
+      return () => { cancelled = true; clearTimeout(maxTimer); };
+    }
+    let loaded = 0;
+    const minUntil = Date.now() + 600;
+    const checkDone = () => {
+      loaded++;
+      if (loaded >= sliderSrcs.length) {
+        clearTimeout(maxTimer);
+        const wait = Math.max(0, minUntil - Date.now());
+        setTimeout(done, wait);
+      }
+    };
+    sliderSrcs.forEach(src => {
+      const img = new window.Image();
+      img.onload = checkDone;
+      img.onerror = checkDone;
+      img.src = src;
+    });
+    return () => { cancelled = true; clearTimeout(maxTimer); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
-      <GalleryLoadingOverlay imageSrcs={sliderSrcs} />
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '4rem', justifyContent: 'center' }}>
         {services.map(svc => (
           <button
@@ -50,6 +83,33 @@ export default function GalerieContent() {
         ))}
       </div>
 
+      {isLoading ? (
+        <div
+          aria-hidden="true"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1.5rem',
+            minHeight: '400px',
+            opacity: fadeOut ? 0 : 1,
+            transition: 'opacity 0.7s ease',
+          }}
+        >
+          <Image
+            src="/mnlogo.png"
+            alt="MN Shine"
+            width={160}
+            height={71}
+            priority
+            style={{ width: '160px', height: 'auto', display: 'block', animation: 'gallery-logo-in 0.4s ease forwards' }}
+          />
+          <div className="loading-bar-wrap">
+            <div className="loading-bar" />
+          </div>
+        </div>
+      ) : (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         {services.map((svc, idx) => (
           <React.Fragment key={svc.id}>
@@ -98,7 +158,8 @@ export default function GalerieContent() {
           </React.Fragment>
         ))}
       </div>
-      {/* Fullscreen overlay */}}
+      )}
+      {/* Fullscreen overlay */}
       {fullscreen && (
         <div
           onClick={closeFs}
