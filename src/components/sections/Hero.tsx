@@ -7,8 +7,9 @@ import { ChevronLeft, ChevronRight, MessageSquare, Phone, Facebook, Instagram } 
 const slides = [
   {
     image: '/bg1.webp',
+    imageMobile: '/bgmobile/1bgm.webp',
     position: 'center top',
-    positionMobile: '93% 25%',   // přední část RAMu vpravo
+    positionMobile: 'center top',
     badge: 'Detailingové studio Vojkovice u Brna',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -16,8 +17,9 @@ const slides = [
   },
   {
     image: '/bg2.webp',
+    imageMobile: '/bgmobile/2bgm.webp',
     position: 'center top',
-    positionMobile: 'center 25%', // uprav dle potřeby
+    positionMobile: 'center top',
     badge: 'Čištění interiéru & exteriéru Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -25,8 +27,9 @@ const slides = [
   },
   {
     image: '/bg3.webp',
+    imageMobile: '/bgmobile/3bgm.webp',
     position: 'center top',
-    positionMobile: '80% 25%', // uprav dle potřeby
+    positionMobile: 'center top',
     badge: 'Renovace a leštění laku Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -34,8 +37,9 @@ const slides = [
   },
   {
     image: '/bg4.webp',
+    imageMobile: '/bgmobile/4bgm.webp',
     position: 'center top',
-    positionMobile: '80% 25%', // uprav dle potřeby
+    positionMobile: 'center top',
     badge: 'Keramická ochrana Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -44,7 +48,7 @@ const slides = [
   {
     image: '/bg5.webp',
     position: 'center top',
-    positionMobile: '75% 25%', // uprav dle potřeby
+    positionMobile: '75% 25%',
     badge: 'Detailing Brno-venkov a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
@@ -97,10 +101,11 @@ export function Hero() {
   // Průběžný preload: vždy načti 2 slidy dopředu
   useEffect(() => {
     [1, 2].forEach(offset => {
+      const slide = slides[(current + offset) % slides.length];
       const img = new window.Image();
-      img.src = slides[(current + offset) % slides.length].image;
+      img.src = isMobile && slide.imageMobile ? slide.imageMobile : slide.image;
     });
-  }, [current]);
+  }, [current, isMobile]);
 
   // Auto-advance
   useEffect(() => {
@@ -125,7 +130,7 @@ export function Hero() {
           className="hero-bg-slide"
           style={{
             position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
-            backgroundImage: `url(${prevSlide.image})`,
+            backgroundImage: `url(${isMobile && prevSlide.imageMobile ? prevSlide.imageMobile : prevSlide.image})`,
             backgroundSize: 'cover',
             backgroundPosition: isMobile ? prevSlide.positionMobile : prevSlide.position,
             animation: 'hero-zoom-out 1s ease forwards',
@@ -139,7 +144,7 @@ export function Hero() {
         className="hero-bg-slide"
         style={{
           position: 'absolute', top: '-5px', left: '-5px', right: '-5px', bottom: '-5px',
-          backgroundImage: `url(${slide.image})`,
+          backgroundImage: `url(${isMobile && slide.imageMobile ? slide.imageMobile : slide.image})`,
           backgroundSize: 'cover',
           backgroundPosition: isMobile ? slide.positionMobile : slide.position,
           animation: prev !== null ? 'hero-zoom-in 1s ease forwards' : undefined,
