@@ -70,7 +70,7 @@ export function ContactSection() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {[
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
-                { icon: <Mail size={18} />, label: 'E-mail', value: 'Info@mnshine.cz', href: 'mailto:Info@mnshine.cz' },
+                { icon: <Mail size={18} />, label: 'E-mail', value: 'info@mnshine.cz', href: 'mailto:info@mnshine.cz' },
                 { icon: <MapPin size={18} />, label: 'Adresa', value: 'Hrušovanská 425, Vojkovice 667 01', href: undefined },
                 { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00–17:00', href: undefined },
               ].map(item => (

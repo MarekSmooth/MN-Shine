@@ -25,9 +25,9 @@ export function Footer() {
             <Phone size={14} color="#FFFFFF" strokeWidth={2} />
             +420 702 852 852
           </a>
-          <a href="mailto:Info@mnshine.cz" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <a href="mailto:info@mnshine.cz" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
             <Mail size={14} color="#FFFFFF" strokeWidth={2} />
-            Info@mnshine.cz
+            info@mnshine.cz
           </a>
           <span style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
             <MapPin size={14} color="#FFFFFF" strokeWidth={2} />

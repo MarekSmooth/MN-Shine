@@ -264,7 +264,7 @@ body {
 }
 
 /* --- Responzivita --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .section-transition { height: 70px; margin-top: -35px; margin-bottom: -35px; }
 }
 @media (max-width: 480px) {
@@ -631,7 +631,7 @@ body {
 }
 
 /* ---- Mobile breakpoint ---- */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   /* Reduce page top offset on mobile — only logo bar is visible */
   .page-pt {
     padding-top: 100px;
@@ -762,13 +762,13 @@ body {
     display: none !important;
   }
 
-  /* Hero CTA tlačítka: tighter obrámování, text zůstává stejný */
+  /* Hero CTA tlačítka: větší na mobilu/tabletu pro dotykové ovládání */
   .hero-icon-btn {
-    height: 34px !important;
-    padding: 0 0.85rem !important;
+    height: 48px !important;
+    padding: 0 1.25rem !important;
   }
   .hero-icon-btn__label {
-    font-size: 0.62rem !important;
+    font-size: 0.72rem !important;
   }
 }
 
@@ -782,7 +782,7 @@ body {
 /* Hero main headline — desktop only */.hero-headline {
   display: block;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-headline {
     display: none;
   }
@@ -1186,7 +1186,7 @@ div:hover > .service-flip-card .service-flip-inner {
 }
 
 /* ---- ServicesPreview: mobile full-width stacked tiles ---- */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   /* 1-column full-width stacked layout */
   .services-row-1,
   .services-row-2 {
@@ -1252,13 +1252,13 @@ div:hover > .service-flip-card .service-flip-inner {
   grid-template-columns: 1fr 1fr;
   column-gap: 3rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .svc-mini-grid { grid-template-columns: 1fr; }
   .svc-mini-grid > * { grid-column: 1 !important; grid-row: auto !important; }
 }
 
 /* ---- WhyDetailing & WhyUs: mobile full-width stack ---- */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .why-grid {
     grid-template-columns: 1fr !important;
     gap: 6px !important;

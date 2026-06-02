@@ -63,7 +63,7 @@ export function Header() {
       }} />
       {/* Desktop */}
       <div
-        className="hidden md:grid nav-desktop-inner"
+        className="hidden lg:grid nav-desktop-inner"
         style={{
           position: 'relative',
           zIndex: 1,
@@ -213,7 +213,7 @@ export function Header() {
 
       {/* Mobile: logo centered + hamburger */}
       <div
-        className="flex md:hidden"
+        className="flex lg:hidden"
         style={{ alignItems: 'center', justifyContent: 'center', height: '100px', position: 'relative', zIndex: 1, padding: '0 1.5rem' }}
       >
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>

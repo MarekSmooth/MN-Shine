@@ -33,7 +33,7 @@ export const faqs: FAQEntry[] = [
   {
     category: 'Objednávka',
     question: 'Jak mohu objednat službu?',
-    answer: 'Objednat se můžete telefonicky na čísle +420 777 123 456, e-mailem na info@mnshine.cz nebo přes kontaktní formulář na našem webu. Rádi s vámi probereme vaše potřeby a doporučíme nejvhodnější řešení.',
+    answer: 'Objednat se můžete telefonicky na čísle +420 702 852 852, e-mailem na info@mnshine.cz nebo přes kontaktní formulář na našem webu. Rádi s vámi probereme vaše potřeby a doporučíme nejvhodnější řešení.',
   },
   {
     category: 'Objednávka',
