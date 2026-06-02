@@ -90,6 +90,7 @@ export function ServicesPreview() {
     return (
       <div
         key={service.title}
+        className="svc-card-wrap"
         style={{
           height: CARD_HEIGHT,
           opacity: revealed ? 1 : 0,
@@ -111,12 +112,12 @@ export function ServicesPreview() {
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                     }} />
-                    <div style={{
+                    <div className="svc-front-overlay" style={{
                       position: 'absolute', inset: 0,
                       background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%)',
                     }} />
                   </div>
-                  <div style={{ position: 'absolute', inset: 0, zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.25rem', transform: 'translateZ(60px)' }}>
+                  <div className="service-flip-front-inner" style={{ position: 'absolute', inset: 0, zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.25rem', transform: 'translateZ(60px)' }}>
                     <h3 className="service-text-raised" style={{
                       color: '#FFFFFF',
                       fontFamily: "'Big Shoulders Display', sans-serif",
@@ -127,6 +128,7 @@ export function ServicesPreview() {
                       textAlign: 'center',
                       textTransform: 'uppercase',
                     }}>{service.title}</h3>
+                    <p className="svc-mobile-more">Zjistit více →</p>
                   </div>
                 </div>
 

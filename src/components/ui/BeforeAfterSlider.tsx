@@ -27,6 +27,7 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
   const [fadeOut, setFadeOut] = useState(false);
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const displayIdxRef = useRef(0);
 
@@ -58,7 +59,28 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
   const onMouseDown = useCallback(() => { isDragging.current = true; }, []);
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => { if (isDragging.current) updatePosition(e.clientX); }, [updatePosition]);
   const onMouseUp = useCallback(() => { isDragging.current = false; }, []);
-  const onTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => { updatePosition(e.touches[0].clientX); }, [updatePosition]);
+
+  // Touch: only the handle initiates drag — rest of slider scrolls the page normally
+  useEffect(() => {
+    const handle = handleRef.current;
+    if (!handle) return;
+    const onTouchStart = () => {
+      isDragging.current = true;
+      const onMove = (e: TouchEvent) => {
+        e.preventDefault();
+        updatePosition(e.touches[0].clientX);
+      };
+      const onEnd = () => {
+        isDragging.current = false;
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onEnd);
+      };
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onEnd, { passive: true });
+    };
+    handle.addEventListener('touchstart', onTouchStart, { passive: true });
+    return () => handle.removeEventListener('touchstart', onTouchStart);
+  }, [updatePosition]);
 
   const pair = pairs[displayIdx] ?? { before: '', after: '' };
 
@@ -69,7 +91,6 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
-      onTouchMove={onTouchMove}
       style={{
         position: 'relative',
         width: '100%',
@@ -130,28 +151,43 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
         </div>
       </div>
 
-      {/* Divider line */}
-      <div style={{
-        position: 'absolute',
-        top: 0, bottom: 0,
-        left: `${position}%`,
-        transform: 'translateX(-50%)',
-        width: '2px',
-        background: 'rgba(255,255,255,0.9)',
-        pointerEvents: 'none',
-        boxShadow: '0 0 8px rgba(255,255,255,0.4)',
-      }}>
+      {/* Divider — wide touch/click target */}
+      <div
+        ref={handleRef}
+        style={{
+          position: 'absolute',
+          top: 0, bottom: 0,
+          left: `${position}%`,
+          transform: 'translateX(-50%)',
+          width: '44px',
+          cursor: 'ew-resize',
+          touchAction: 'none',
+          zIndex: 5,
+        }}
+      >
+        {/* Visual line */}
         <div style={{
-          position: 'absolute', top: '50%', left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '38px', height: '38px', borderRadius: '50%',
-          backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 2px 12px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.8)',
+          position: 'absolute',
+          top: 0, bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '2px',
+          background: 'rgba(255,255,255,0.9)',
+          pointerEvents: 'none',
+          boxShadow: '0 0 8px rgba(255,255,255,0.4)',
         }}>
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
-            <path d="M5 1L1 5L5 9" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M11 1L15 5L11 9" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '38px', height: '38px', borderRadius: '50%',
+            backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.8)',
+          }}>
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
+              <path d="M5 1L1 5L5 9" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M11 1L15 5L11 9" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
         </div>
       </div>
 

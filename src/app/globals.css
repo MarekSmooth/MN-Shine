@@ -265,10 +265,10 @@ body {
 
 /* --- Responzivita --- */
 @media (max-width: 768px) {
-    .section-transition { height: 70px; }
+    .section-transition { height: 70px; margin-top: -35px; margin-bottom: -35px; }
 }
 @media (max-width: 480px) {
-    .section-transition { height: 56px; }
+    .section-transition { height: 56px; margin-top: -28px; margin-bottom: -28px; }
 }
 
 /* Section backgrounds */
@@ -947,6 +947,17 @@ div:hover > .service-flip-card .service-flip-inner {
     0 8px 14px rgba(0,0,0,0.18);
 }
 
+/* Mobile-only "Zjistit více" — hidden on desktop/tablet */
+.svc-mobile-more {
+  display: none;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 /* ---- Title overlay — separate DOM layer above all cards ---- */
 /* Children of stagger-item can never escape its stacking context,
    so titles live in their own absolute layer at z:50 */
@@ -1173,50 +1184,64 @@ div:hover > .service-flip-card .service-flip-inner {
   }
 }
 
-/* ---- ServicesPreview: mobile 2-column grid + static back face ---- */
-/* This block must come AFTER the 1023px and 600px blocks above so it wins */
+/* ---- ServicesPreview: mobile full-width stacked tiles ---- */
 @media (max-width: 767px) {
-  /* 2-column grid (overrides inline repeat(4,1fr) / repeat(3,1fr)) */
+  /* 1-column full-width stacked layout */
   .services-row-1,
   .services-row-2 {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
     max-width: 100% !important;
-    margin: 0 0 12px !important;
-    gap: 12px !important;
+    margin: 0 0 8px !important;
+    gap: 8px !important;
   }
 
-  /* Disable 3D perspective — neutralises translateZ on children */
+  /* Disable 3D perspective */
   .service-flip-card {
     perspective: none !important;
   }
 
-  /* Show back face (title + description) by default — no hover/tap needed */
+  /* Show front face — no flip, fixed height ~2 rows */
   .service-flip-inner {
-    transform: rotateY(180deg) !important;
+    transform: none !important;
     transition: none !important;
+    height: 110px !important;
   }
-  /* Keep back face on "hover" (desktop emulation / stylus) */
   div:hover > .service-flip-card .service-flip-inner {
-    transform: rotateY(180deg) !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
-  /* Back face content: compact, left-aligned */
-  .service-flip-back-inner {
-    padding: 0.85rem 1rem !important;
+  /* Front face inner: content at bottom-left */
+  .service-flip-front-inner {
     align-items: flex-start !important;
-    justify-content: flex-start !important;
+    justify-content: flex-end !important;
+    transform: none !important;
+    padding: 0.85rem 1.1rem !important;
+    gap: 0.2rem !important;
+  }
+  .service-flip-front-inner h3 {
     text-align: left !important;
+    font-size: 1.35rem !important;
   }
-  .service-flip-back-inner h3 {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.35rem !important;
+
+  /* Dark fade left → right for text readability */
+  .svc-front-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.52) 45%, rgba(0,0,0,0.08) 100%) !important;
   }
-  .service-flip-back-inner .service-desc-raised {
-    font-size: 0.72rem !important;
-    line-height: 1.45 !important;
+
+  /* Show "Zjistit více" on mobile front face */
+  .svc-mobile-more {
+    display: block !important;
   }
-  .service-back-more {
+
+  /* Hide back face entirely on mobile */
+  .service-flip-back {
     display: none !important;
+  }
+
+  /* Fix wrapper height to match tile */
+  .svc-card-wrap {
+    height: 110px !important;
   }
 }
 
