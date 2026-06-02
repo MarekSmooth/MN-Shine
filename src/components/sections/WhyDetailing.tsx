@@ -64,6 +64,7 @@ export function WhyDetailing() {
 
         <div
           ref={gridRef}
+          className="why-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
@@ -103,7 +104,7 @@ export function WhyDetailing() {
               }} />
 
               {/* Content */}
-              <div style={{ position: 'relative', zIndex: 1, maxWidth: '60%' }}>
+              <div className="why-content" style={{ position: 'relative', zIndex: 1, maxWidth: '60%' }}>
                 <h3 style={{
                   color: '#FFFFFF',
                   fontFamily: "'Big Shoulders Display', sans-serif",

@@ -692,6 +692,7 @@ body {
      images to appear zoomed/cropped on iOS and most mobile browsers */
   .bg-parallax {
     background-attachment: scroll !important;
+    height: 210px !important;
   }
 
   /* Hero background slides: start below the 100px mobile header.
@@ -1254,6 +1255,30 @@ div:hover > .service-flip-card .service-flip-inner {
 @media (max-width: 767px) {
   .svc-mini-grid { grid-template-columns: 1fr; }
   .svc-mini-grid > * { grid-column: 1 !important; grid-row: auto !important; }
+}
+
+/* ---- WhyDetailing & WhyUs: mobile full-width stack ---- */
+@media (max-width: 767px) {
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    background: rgba(255,255,255,0.18) !important;
+  }
+  .whyus-grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    background: rgba(255,255,255,0.18) !important;
+  }
+  .whyus-item {
+    grid-column: span 1 !important;
+    padding: 1.5rem 1.25rem !important;
+  }
+  .why-grid > div {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .why-content {
+    max-width: 100% !important;
+  }
 }
 
 /* Mobile XS: single column */

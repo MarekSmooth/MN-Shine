@@ -70,6 +70,7 @@ export function WhyUs() {
 
         <div
           ref={gridRef}
+          className="whyus-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(6, 1fr)',
@@ -86,6 +87,7 @@ export function WhyUs() {
             return (
               <div
                 key={feature.title}
+                className="whyus-item"
                 style={{
                   gridColumn: isWide ? 'span 3' : 'span 2',
                   position: 'relative',
@@ -117,7 +119,7 @@ export function WhyUs() {
                 }} />
 
                 {/* Content — left aligned, max half width */}
-                <div style={{ position: 'relative', zIndex: 1, maxWidth: '55%' }}>
+                <div className="why-content" style={{ position: 'relative', zIndex: 1, maxWidth: '55%' }}>
                   <h3 style={{
                     color: '#FFFFFF',
                     fontFamily: "'Big Shoulders Display', sans-serif",
