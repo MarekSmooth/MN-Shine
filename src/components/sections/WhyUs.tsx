@@ -1,6 +1,7 @@
 ﻿'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const features = [
@@ -31,12 +32,32 @@ const features = [
   },
 ];
 
+const PEEK_HEIGHT = '200px';
+const EXPANDED_HEIGHT = '2500px';
+
 export function WhyUs() {
   const [revealed, setRevealed] = useState<boolean[]>(() => new Array(features.length).fill(false));
-  const gridRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
+  useLayoutEffect(() => {
+    const mq = window.matchMedia('(max-width: 1024px)');
+    const mobile = mq.matches;
+    setIsMobile(mobile);
+    if (mobile) setRevealed(new Array(features.length).fill(true));
+    const handler = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+      if (e.matches) setRevealed(new Array(features.length).fill(true));
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  // Desktop only: stagger reveal on scroll
   useEffect(() => {
-    const el = gridRef.current;
+    if (isMobile) return;
+    const el = sectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -58,18 +79,23 @@ export function WhyUs() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   return (
-    <section style={{ backgroundColor: '#0a0a0a', padding: '4rem 1.5rem 5rem' }}>
+    <section ref={sectionRef} style={{ backgroundColor: '#0a0a0a', padding: '4rem 1.5rem 5rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        <SectionHeader
-          title="Proč si vybrat MN Shine?"
+        <SectionHeader title="Proč si vybrat MN Shine?" />
 
-        />
-
+        {/* Wrapper for peek clipping + gradient overlay */}
+        <div style={{ position: 'relative' }}>
+          <div
+            style={isMobile ? {
+              maxHeight: isExpanded ? EXPANDED_HEIGHT : PEEK_HEIGHT,
+              overflow: 'hidden',
+              transition: `max-height ${isExpanded ? '0.7s cubic-bezier(0.2, 0, 0, 1)' : '0.5s cubic-bezier(0.4, 0, 1, 1)'}`,
+            } : {}}
+          >
         <div
-          ref={gridRef}
           className="whyus-grid"
           style={{
             display: 'grid',
@@ -151,6 +177,65 @@ export function WhyUs() {
 
 
         </div>
+          </div>
+
+          {/* Gradient fade into background — visible only on mobile when collapsed */}
+          {isMobile && (
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '110px',
+                background: 'linear-gradient(to bottom, transparent, #0a0a0a)',
+                pointerEvents: 'none',
+                opacity: isExpanded ? 0 : 1,
+                transition: 'opacity 0.35s ease',
+              }}
+            />
+          )}
+        </div>
+
+        {/* Toggle button — mobile only */}
+        {isMobile && (
+          <button
+            onClick={() => setIsExpanded(v => !v)}
+            aria-expanded={isExpanded}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              width: '100%',
+              padding: '1.1rem 0',
+              marginTop: '0.5rem',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              color: 'rgba(255,255,255,0.55)',
+              fontFamily: "'Big Shoulders Display', sans-serif",
+              fontSize: '0.7rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase' as const,
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#ffffff'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.55)'; }}
+          >
+            <span style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.12)' }} />
+            {isExpanded ? 'Zobrazit méně' : 'Zobrazit více'}
+            <ChevronDown
+              size={14}
+              style={{
+                transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                flexShrink: 0,
+              }}
+            />
+            <span style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.12)' }} />
+          </button>
+        )}
       </div>
     </section>
   );
