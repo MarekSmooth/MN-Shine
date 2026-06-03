@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const HERO_IMAGES = [
-  '/bg1.png', '/bg2.png', '/bg3.png', '/bg4.png',
-  '/bg5.png', '/bg6.png', '/bg7.png',
+  '/bg1.webp', '/bg2.webp', '/bg3.webp', '/bg4.webp', '/bg5.webp',
 ];
 
 function preloadImages(srcs: string[]): Promise<void[]> {
