@@ -2,13 +2,18 @@
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
+const contactStyle: React.CSSProperties = {
+  color: '#9CA3AF', textDecoration: 'none', fontSize: '0.85rem',
+  display: 'flex', alignItems: 'center', gap: '0.45rem',
+};
+
 export function Footer() {
   return (
     <footer style={{ backgroundColor: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.2)', padding: '1.25rem 1.5rem' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+      <div className="footer-inner" style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
 
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+        <Link href="/" className="footer-logo-block" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
           <Image
             src="/mnlogo.png"
             alt="MN Shine Detailing logo"
@@ -19,24 +24,24 @@ export function Footer() {
           />
         </Link>
 
-        {/* Contact row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-          <a href="tel:+420702852852" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+        {/* Contact info */}
+        <div className="footer-contacts" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <a href="tel:+420702852852" className="footer-contact-item" style={contactStyle}>
             <Phone size={14} color="#FFFFFF" strokeWidth={2} />
             +420 702 852 852
           </a>
-          <a href="mailto:info@mnshine.cz" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <a href="mailto:info@mnshine.cz" className="footer-contact-item" style={contactStyle}>
             <Mail size={14} color="#FFFFFF" strokeWidth={2} />
             info@mnshine.cz
           </a>
-          <span style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <span className="footer-contact-item" style={{ ...contactStyle, flexShrink: 0 }}>
             <MapPin size={14} color="#FFFFFF" strokeWidth={2} />
             Hrušovanská 425, Vojkovice 667 01
           </span>
         </div>
 
         {/* Social + copyright */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="footer-social-block" style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <a href="https://www.facebook.com/profile.php?id=100093812870789" target="_blank" rel="noopener noreferrer" style={{ color: '#9CA3AF' }} aria-label="Facebook">
             <Facebook size={18} strokeWidth={1.5} />
           </a>

@@ -1491,3 +1491,39 @@ div:hover > .service-flip-card .service-flip-inner {
     flex: none;
   }
 }
+
+/* Footer — mobile compact layout */
+@media (max-width: 1024px) {
+  .footer-inner {
+    display: grid !important;
+    grid-template-areas:
+      "logo contacts"
+      "social social";
+    grid-template-columns: auto 1fr;
+    align-items: center !important;
+    gap: 0.6rem 1rem !important;
+  }
+
+  .footer-logo-block {
+    grid-area: logo;
+    align-self: center;
+  }
+
+  .footer-contacts {
+    grid-area: contacts;
+    justify-self: end;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.3rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .footer-contact-item {
+    white-space: nowrap !important;
+  }
+
+  .footer-social-block {
+    grid-area: social;
+  }
+}
