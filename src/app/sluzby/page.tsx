@@ -146,7 +146,7 @@ export default function ServicesPage() {
         </p>
 
         {/* Quick nav */}
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingBottom: '3rem' }}>
+        <div className="svc-quick-nav" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingBottom: '3rem' }}>
           {serviceCategories.map(cat => (
             <a key={cat.id} href={`#${cat.id}`} style={{ padding: '0.4rem 1rem', borderRadius: '0', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.55)', backgroundColor: 'transparent', fontSize: '0.78rem', textDecoration: 'none', fontWeight: 500, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
               {cat.name}
@@ -161,6 +161,7 @@ export default function ServicesPage() {
           <React.Fragment key={cat.id}>
           <section
             id={cat.id}
+            className="svc-section"
             style={{ scrollMarginTop: '120px', paddingTop: '5rem', paddingBottom: '5rem' }}
           >
             {cat.miniVariant ? (
@@ -172,13 +173,13 @@ export default function ServicesPage() {
                   <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                     {cat.name}
                   </h2>
-                  <p style={{ color: '#9CA3AF', lineHeight: 1.75, margin: 0, fontSize: '0.9rem' }}>
+                  <p className="svc-desc-desktop" style={{ color: '#9CA3AF', lineHeight: 1.75, margin: 0, fontSize: '0.9rem' }}>
                     {cat.forWho}
                   </p>
                 </div>
 
                 {/* Row 2, Col 1 — Rychlý refresh card + image */}
-                <div style={{ gridColumn: 1, gridRow: 2, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <div className="svc-mini-col" style={{ gridColumn: 1, gridRow: 2, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                   <div style={{ position: 'relative', backgroundColor: '#0f0f0f', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.65rem', flexWrap: 'wrap' }}>
                       <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{cat.miniVariant.name}</p>
@@ -194,11 +195,12 @@ export default function ServicesPage() {
                     </div>
                     <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', fontStyle: 'italic', margin: '0.65rem 0 0' }}>{cat.miniVariant.note}</p>
                   </div>
-                  <div style={{ position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
+                  <div className="svc-img-col" style={{ position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
                     <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
-                    <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
-                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
+                    <div className="svc-img-gradient" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
+                    <p className="svc-desc-mobile">{cat.forWho}</p>
+                    <div className="svc-price-bar" style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
+                      <span className="svc-price-text" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
                     </div>
                   </div>
                 </div>
@@ -226,7 +228,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <div className="svc-cta-row" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                     <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                       Detail služby <ArrowRight size={13} />
                     </Link>
@@ -239,25 +241,30 @@ export default function ServicesPage() {
               </div>
             ) : (
               /* ── Původní layout pro všechny ostatní služby ── */
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+              <div className={`svc-service-grid ${idx % 2 === 0 ? 'svc-even' : 'svc-odd'}`}>
 
-                {/* Image panel */}
-                <div style={{ order: idx % 2 === 0 ? 0 : 1, position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
-                  <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
-                  <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(6px)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
-                    <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
-                  </div>
-                </div>
-
-                {/* Content panel */}
-                <div style={{ order: idx % 2 === 0 ? 1 : 0 }}>
+                {/* 1. Heading + description */}
+                <div className="svc-content-top">
                   <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', color: '#FFFFFF', fontWeight: 800, margin: '0 0 0.75rem', lineHeight: 1.1, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                     {cat.name}
                   </h2>
-                  <p style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
+                  <p className="svc-desc-desktop" style={{ color: '#9CA3AF', lineHeight: 1.75, marginBottom: '2rem', fontSize: '0.9rem' }}>
                     {cat.forWho}
                   </p>
+                </div>
+
+                {/* 2. Image panel */}
+                <div className="svc-img-col" style={{ position: 'relative', borderRadius: '0', overflow: 'hidden', aspectRatio: '4/3', backgroundColor: '#111111' }}>
+                  <Image src={cat.image} alt={cat.name} fill style={{ objectFit: 'cover', opacity: 0.75 }} sizes="(max-width: 768px) 100vw, 50vw" />
+                  <div className="svc-img-gradient" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 100%)' }} />
+                  <p className="svc-desc-mobile">{cat.forWho}</p>
+                  <div className="svc-price-bar" style={{ position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: 'rgba(0,0,0,0.72)', borderTop: '1px solid rgba(255,255,255,0.10)', padding: '0.45rem 1rem' }}>
+                    <span className="svc-price-text" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.6rem', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 500 }}>{cat.priceNote}</span>
+                  </div>
+                </div>
+
+                {/* 3. Variants + CTAs */}
+                <div className="svc-content-bottom">
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
                     {cat.variants.map(variant => (
                       <div key={variant.name} style={{ position: 'relative', backgroundColor: variant.recommended ? '#161616' : '#0f0f0f', border: variant.recommended ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(255,255,255,0.06)', borderRadius: '0', padding: '1.1rem 1.25rem' }}>
@@ -279,7 +286,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <div className="svc-cta-row" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                     <Link href={cat.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.75rem 1.75rem', borderRadius: '0', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                       Detail služby <ArrowRight size={13} />
                     </Link>
