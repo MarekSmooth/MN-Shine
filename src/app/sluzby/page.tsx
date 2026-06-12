@@ -50,7 +50,7 @@ const serviceCategories: ServiceCategory[] = [
     variants: [
       { name: 'Varianta 1 – Základní', price: 'od 1 999 Kč', items: ['Detailní vysátí celého vozidla a zavazadlového prostoru', 'Výživa a impregnace plastů s UV blokátory', 'Hloubkové čištění plastových částí interiéru', 'Čištění vnitřní strany skel', 'Provonění interiéru'], colSplit: 2 },
       { name: 'Varianta 2 – Kompletní', price: 'od 2 999 Kč', items: ['Vše z Varianty 1', 'Hloubkové čištění koberečků','Hloubkové čištění sedadel mokrou cestou (tepování)', 'Hloubkové čištění kožených sedadel včetně následné výživy a impregnace'], recommended: true },
-      { name: 'Varianta 3 – Hloubkové', price: 'od 4 999 Kč', items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'] },
+      { name: 'Varianta 3 – Detailní', price: 'od 4 999 Kč', items: ['Vše z Varianty 1 a 2', 'Čištění mezidveřních prostorů včetně vnitřních rámů dveří', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Dezinfekce interiéru ozonem', 'Impregnace gumových těsnění dveří'] },
     ],
   },
   {
@@ -60,9 +60,9 @@ const serviceCategories: ServiceCategory[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a stupni znečištění exteriéru',
     href: '/sluzby/cisteni-exterieru-brno',
     image: '/icons/exterier.webp',
-    forWho: 'Základ péče o každý vůz. Doporučujeme po zimní sezóně nebo před aplikací ochrany laku.',
+    forWho: 'Základ péče o každý vůz. Provádí se před aplikací ochrany laku, nebo pro důkladné mytí s odstraněním polétavé rzi, asfaltu, pryskyřice a dalších těžce odstranitelných nečistot, které nelze odstranit běžným mytím.',
     variants: [
-      { name: 'Důkladné mytí s ochranou laku', price: 'od 3 999 Kč', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochranného vosku nebo keramické ochrany'] },
+      { name: 'Důkladné mytí s ochranou laku', price: 'od 3 999 Kč', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku v podobě tuhého vosku, případně keramické ochrany'] },
     ],
   },
   {
@@ -72,10 +72,10 @@ const serviceCategories: ServiceCategory[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a rozsahu defektů a poškození laku',
     href: '/sluzby/renovace-laku-brno',
     image: '/icons/renovacelak.webp',
-    forWho: 'Trápí vás swirlmarks nebo zakalený lak? Strojní leštění vrátí laku původní hloubku a lesk.',
+    forWho: 'Trápí vás hologramy, matný, nebo poškrábaný lak? Strojní leštění vrátí laku původní hloubku a lesk.',
     variants: [
-      { name: 'Jednokroková renovace', price: 'od 6 999 Kč', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'] },
-      { name: 'Vícekroková renovace', price: 'od 11 999 Kč', items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
+      { name: 'Jednokroková renovace', price: 'od 7 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a mikroškrábanců', 'Sjednocení lesku po celé karoserii'] },
+      { name: 'Vícekroková renovace', price: 'od 11 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Vícekrokové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
     ],
   },
   {
@@ -87,8 +87,8 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
     variants: [
-      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt – voda se slévá', 'Cenově dostupná sezónní péče'] },
-      { name: 'Keramický povlak', price: 'od 4 999 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
+      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu 6 až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'] },
+      { name: 'Keramický povlak', price: 'od 4 999 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
     ],
   },
   {

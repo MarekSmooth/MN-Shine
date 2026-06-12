@@ -34,7 +34,7 @@ export const services: Service[] = [
     shortDescription: 'Oprava, leštění a renovace laku vozidla. Odstraníme škrábance, víry a jiné povrchové defekty.',
     fullDescription: 'Renovace laku zahrnuje strojní leštění, které odstraní povrchové škrábance, víry, oxidaci a jiné defekty. Výsledkem je lak s dokonalým leskem jako z výroby.',
     features: ['Korekce laku (1-step/2-step)', 'Strojní leštění', 'Odstranění škrábanců', 'Finální polish', 'Ochranný vosk nebo sealant'],
-    price: 'od 4 500 Kč',
+    price: 'od 7 999 Kč',
   },
   {
     id: 'ochrana-laku',

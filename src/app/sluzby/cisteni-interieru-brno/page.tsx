@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Jak dlouho trvá čištění interiéru?',
-    answer: 'Hloubkové čištění interiéru obvykle trvá 3–5 hodin v závislosti na velikosti vozidla a míře znečištění. U silně znečištěných vozidel může proces trvat déle.',
+    answer: 'Hloubkové čištění interiéru obvykle trvá 6–8 hodin v závislosti na velikosti vozidla a míře znečištění. U silně znečištěných vozidel může proces trvat déle.',
   },
   {
     question: 'Dokážete odstranit staré skvrny z koberců a sedadel?',
@@ -29,7 +29,7 @@ const faqItems = [
   },
   {
     question: 'Je čištění bezpečné pro kožená sedadla?',
-    answer: 'Samozřejmě. Kožená sedadla čistíme speciálními přípravky určenými pro kůži, které ji nepoškodí ani nezbaví přirozených olejů. Po čištění aplikujeme kondicionér pro ochranu a výživu kůže.',
+    answer: 'Samozřejmě. Kožená sedadla čistíme speciálními přípravky určenými pro kůži, které ji nepoškodí ani nevysuší. Po čištění aplikujeme impregnaci pro ochranu a výživu kůže.',
   },
 ];
 
@@ -70,7 +70,7 @@ export default function CisteniInterieru() {
         <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>2 500 Kč</p>
+            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>1 999 Kč</p>
           </div>
           <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Konečná cena závisí na velikosti vozidla a míře znečištění. Přesnou kalkulaci vám poskytneme po prohlídce.</p>
         </div>
@@ -82,7 +82,7 @@ export default function CisteniInterieru() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Sparkles size={24} />, title: 'Sedadla a čalounění', desc: 'Čištění látkových i kožených sedadel extrakcí a parním čištěním. Odstranění skvrn a pachů.' },
+              { icon: <Sparkles size={24} />, title: 'Sedadla a čalounění', desc: 'Šetrný, ale učinný postup k čištění kožených i látkových povrchů. Odstranění skvrn a pachů.' },
               { icon: <Droplets size={24} />, title: 'Koberce a rohožky', desc: 'Hloubkové čištění koberců mokrou extrakcí. Odstraňujeme nečistoty, písek i zatvrdlé skvrny.' },
               { icon: <Wind size={24} />, title: 'Plasty a palubní deska', desc: 'Čištění a ošetření všech plastových povrchů, vzduchových otvorů, kapes a úchytů.' },
               { icon: <Sparkles size={24} />, title: 'Strop a sloupky', desc: 'Šetrné čištění stropu a sloupků, které odstraní skvrny a šmouhy bez poškození materiálu.' },
@@ -128,8 +128,8 @@ export default function CisteniInterieru() {
               { step: '02', title: 'Předúprava', desc: 'Aplikace přípravků na předúpravu skvrn a silně znečištěných míst.' },
               { step: '03', title: 'Extrakce a parní čištění', desc: 'Mokrá extrakce koberců a sedadel, parní čištění pro dezinfekci.' },
               { step: '04', title: 'Čištění plastů', desc: 'Šetrné čištění a ošetření palubní desky, dveřních panelů a plastů.' },
-              { step: '05', title: 'Čištění skel zevnitř', desc: 'Bezpruhové čištění všech skel pro dokonalý výhled.' },
-              { step: '06', title: 'Ošetření a finalizace', desc: 'Ošetření plastů kondicionérem, finální prohlídka a předání.' },
+              { step: '05', title: 'Čištění skel zevnitř', desc: 'Čištění všech skel pro dokonalý výhled beze šmouh.' },
+              { step: '06', title: 'Ošetření a finalizace', desc: 'Výživa plastů impregnací, finální prohlídka a předání.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

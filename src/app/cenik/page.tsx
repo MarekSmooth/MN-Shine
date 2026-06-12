@@ -34,9 +34,9 @@ const priceCategories: ServiceGroup[] = [
         recommended: true,
       },
       {
-        name: 'Varianta 3 – Hloubkové',
+        name: 'Varianta 3 – Detailní',
         price: 'od 4 999 Kč',
-        items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'],
+        items: ['Vše z Varianty 1 a 2', 'Čištění mezidveřních prostorů včetně vnitřních rámů dveří', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Dezinfekce interiéru ozonem', 'Impregnace gumových těsnění dveří'],
         note: 'SUV, MPV, VAN příplatek 20 %',
       },
     ],
@@ -50,7 +50,7 @@ const priceCategories: ServiceGroup[] = [
       {
         name: 'Důkladné mytí s ochranou laku',
         price: 'od 3 999 Kč',
-        items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Čištění disků a kol', 'Chemická dekontaminace laku', 'Sušení mikrofibrovou utěrkou', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku (vosk nebo keramika)'],
+        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku (vosk nebo keramika)'],
         note: 'Časová náročnost 1–2 dny',
       },
     ],
@@ -63,14 +63,14 @@ const priceCategories: ServiceGroup[] = [
     variants: [
       {
         name: 'Jednokroková renovace',
-        price: 'od 6 999 Kč',
-        items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a swirlmarks', 'Sjednocení lesku po celé karoserii'],
+        price: 'od 7 999 Kč',
+        items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a mikroškrábanců', 'Sjednocení lesku po celé karoserii'],
         note: 'Časová náročnost 2–3 dny',
       },
       {
         name: 'Vícekroková renovace',
         price: 'od 11 999 Kč',
-        items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekolové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'],
+        items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekrokové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'],
         recommended: true,
         note: 'Časová náročnost 3–5 dní',
       },
@@ -90,7 +90,7 @@ const priceCategories: ServiceGroup[] = [
       {
         name: 'Keramický povlak',
         price: 'od 4 999 Kč',
-        items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana na 2–5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'],
+        items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'],
         recommended: true,
       },
     ],

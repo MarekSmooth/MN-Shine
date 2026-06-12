@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Jak se liší vaše čištění od běžné myčky?',
-    answer: 'Automatické myčky používají tvrdé kartáče a agresivní chemii, která časem poškozuje lak a způsobuje jemné škrábance. Naše ruční mytí probíhá šetrnými přípravky a mikrofibrovou technikou, která lak nepoškodí. Navíc provádíme chemickou dekontaminaci a nanášíme ochranný povlak.',
+    answer: 'Automatické myčky používají tvrdé kartáče a agresivní chemii, která časem poškozuje lak a způsobuje jemné škrábance. Naše ruční mytí probíhá šetrnými přípravky a dvoukbelíkovou technikou, která lak nepoškodí. Navíc provádíme chemickou dekontaminaci a nanášíme ochranný povlak.',
   },
   {
     question: 'Co je chemická dekontaminace laku?',
@@ -79,8 +79,8 @@ export default function CisteniExterieru() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Droplets size={24} />, title: 'Šetrné ruční mytí', desc: 'Předmytí aktivní pěnou a ruční mytí mikrofibrovou technikou bez rizika poškrábání laku.' },
-              { icon: <Shield size={24} />, title: 'Dekontaminace laku', desc: 'Chemické odstranění polétavé rzi, asfaltu a zapekaných nečistot, které běžné mytí neodstraní.' },
+              { icon: <Droplets size={24} />, title: 'Šetrné ruční mytí', desc: 'Předmytí aktivní pěnou a ruční mytí dvoukbelíkovou technikou bez rizika poškrábání laku.' },
+              { icon: <Shield size={24} />, title: 'Dekontaminace laku', desc: 'Chemické odstranění polétavé rzi, asfaltu a zapečených nečistot, které běžné mytí neodstraní.' },
               { icon: <Sparkles size={24} />, title: 'Čištění kol a disků', desc: 'Specializovaná příprava na čištění ráfků a pneumatik včetně podběhů.' },
               { icon: <Shield size={24} />, title: 'Ochranný povlak', desc: 'Nanesení tuhého vosku nebo keramické ochrany pro hydrofobní efekt a zachování lesku.' },
             ].map(item => (
@@ -97,8 +97,8 @@ export default function CisteniExterieru() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Proč volit ruční mytí?</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
-              'Automatické myčky způsobují mikroškrábance – ruce a mikrofibra lak nepoškodí',
-              'Dekontaminace odstraní látky, které v laku způsobují korozi zevnitř',
+              'Automatické myčky způsobují mikroškrábance – ruční mytí a kombinace dvoukbelíkové techniky lak nepoškodí',
+              'Dekontaminace odstraní látky, které běžným mytím nelze odstranit',
               'Ochranný povlak prodlouží interval nutného mytí a usnadní každodenní péči',
               'Čistý a ošetřený lak zachovává tržní hodnotu vozidla',
               'Základ pro každou další prémiovou péči – renovaci nebo keramickou ochranu',
@@ -116,10 +116,10 @@ export default function CisteniExterieru() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               { step: '01', title: 'Předmytí aktivní pěnou', desc: 'Nanesení alkalické aktivní pěny, která uvolní a změkčí nečistoty na celé karoserii.' },
-              { step: '02', title: 'Ruční mytí', desc: 'Šetrné mytí karoserie, skel, zrcátek a lemů mikrofibrovou rukavicí a šetrným šamponem.' },
-              { step: '03', title: 'Čištění kol a podběhů', desc: 'Specializovaný přípravek na ráfky a pneumatiky, vyčištění podběhů od bláta a nečistot.' },
-              { step: '04', title: 'Chemická dekontaminace', desc: 'Aplikace iron removeru – odstraní polétavou rez a zapekaná kovová vlákna z povrchu laku.' },
-              { step: '05', title: 'Sušení a příprava', desc: 'Šetrné sušení mikrofibrovou utěrkou, zbavení laku zbytků mastnoty a příprava na ochranu.' },
+              { step: '02', title: 'Čištění kol a podběhů', desc: 'Aplikace přípravku na ráfky a pneumatiky, ruční čištění podběhů od bláta a nečistot.' },
+              { step: '03', title: 'Ruční mytí', desc: 'Šetrné mytí karoserie, skel, zrcátek a lemů.' },
+              { step: '04', title: 'Chemická dekontaminace', desc: 'Aplikace přípravků na odstranění polétavé rzi, asfaltu a pryskyřice z povrchu laku.' },
+              { step: '05', title: 'Sušení a příprava', desc: 'Šetrné sušení, zbavení laku zbytků mastnoty a příprava na nanesení ochrany laku.' },
               { step: '06', title: 'Nanesení ochranného povlaku', desc: 'Aplikace tuhého vosku nebo keramické ochrany pro hydrofobní efekt a dlouhodobou ochranu.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>

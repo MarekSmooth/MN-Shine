@@ -21,15 +21,15 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Lze odstranit hluboké škrábance leštěním?',
-    answer: 'Strojní leštění odstraňuje povrchové škrábance, které neprorůstají přes základní lak. Hlubší škrábance, které sahají až na plech, leštěním zcela neodstraníme – ty vyžadují lakýrnické opravy. Vždy provedeme diagnostiku a řekneme vám, co je možné.',
+    answer: 'Strojní leštění odstraňuje povrchové škrábance, které neprorůstají přes lak. Hlubší škrábance, které sahají až na plech, leštěním neodstraníme – provádíme retuše laku, v ostatních případech je potřeba lakýrnická oprava. Vždy provedeme diagnostiku a řekneme vám, co je možné opravit.',
   },
   {
     question: 'Kolik stojí renovace laku v Brně?',
-    answer: 'Cena závisí na velikosti vozidla, míře poškození a zvoleném postupu (1-step nebo 2-step korekce). Ceny začínají od 4 500 Kč. Přesnou kalkulaci připravíme po prohlídce a diagnostice laku.',
+    answer: 'Cena závisí na velikosti vozidla, míře poškození a zvoleném postupu (jednokroková nebo vícekroková korekce). Ceny začínají od 7 999 Kč. Přesnou kalkulaci připravíme po prohlídce a diagnostice laku. Například jednokroková renovace běžného vozidla Škoda Octavia kombi cena vychází 10 000 Kč bez finální ochrany laku.',
   },
   {
-    question: 'Jak dlouho vydrží efekt leštění?',
-    answer: 'Samotné leštění bez ochranné vrstvy vydrží typicky 1–3 měsíce při pravidelné péči. Proto doporučujeme po korekci laku aplikovat keramický povlak nebo kvalitní sealant, který chrání lak po dobu měsíců až let.',
+    question: 'Pozná se na autě, že bylo leštěno?',
+    answer: 'Rozdíl poznáte okamžitě – lak znovu září, barva je sytější a povrch působí jako nový. Výsledek mluví sám za sebe. Navíc správně provedená renovace laku nezanechává hologramy ani jiné stopy v laku. Lak je hladký, lesklý a bez viditelných defektů.',
   },
 ];
 
@@ -72,13 +72,13 @@ export default function RenovaceLakuPage() {
         <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>4 500 Kč</p>
+            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>7 999 Kč</p>
           </div>
           <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a míře poškození laku. Po diagnostice připravíme přesnou kalkulaci.</p>
         </div>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je korekce a renovace laku?</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je renovace laku?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             Renovace laku, neboli korekce laku, je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
           </p>
@@ -94,10 +94,10 @@ export default function RenovaceLakuPage() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co odstraníme z vašeho laku?</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Eye size={24} />, title: 'Víry (swirl marks)', desc: 'Drobné kruhové škrábance vzniklé nesprávným mytím nebo leštěním.' },
+              { icon: <Eye size={24} />, title: 'Víry (swirl marks)', desc: 'Drobné kruhové škrábance vzniklé nejčastěji nesprávným mytím.' },
               { icon: <Zap size={24} />, title: 'Povrchové škrábance', desc: 'Lehké škrábance neprorůstající přes čirý lak (clear coat).' },
               { icon: <Layers size={24} />, title: 'Oxidace a matnost', desc: 'Degradace způsobená UV zářením – matný a křídový povrch.' },
-              { icon: <Eye size={24} />, title: 'Vodní kameny', desc: 'Minerální usazeniny zanechané po odpaření vody z povrchu laku.' },
+              { icon: <Eye size={24} />, title: 'Vodní kámen', desc: 'Minerální usazeniny zanechané po odpaření vody z povrchu laku.' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
@@ -109,18 +109,18 @@ export default function RenovaceLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Typy korekce laku</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Typy renovace (korekce) laku</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               {
-                title: '1-Step korekce',
-                desc: 'Jednokroková korekce pro vozidla s mírnými defekty. Leštění kombinovaným polishem odstraní víry a lehké škrábance a obnoví lesk. Ideální pro pravidelnou údržbu.',
-                price: 'od 4 500 Kč',
+                title: 'Jednokroková korekce',
+                desc: 'Jednokroková korekce pro vozidla s mírnými defekty. Leštění jemnou pastou odstraní víry a lehké škrábance a obnoví lesk. Ideální pro oživení sytosti a lesku laku.',
+                price: 'od 7 999 Kč',
               },
               {
-                title: '2-Step korekce',
-                desc: 'Dvoukroková korekce pro vozidla s výraznějšími defekty. Nejprve hrubší compound pro odstranění škrábanců, poté finální polish pro maximální lesk. Doporučujeme pro starší nebo zanedbaná vozidla.',
-                price: 'od 7 000 Kč',
+                title: 'Vícekroková korekce',
+                desc: 'Vícekroková korekce pro vozidla s výraznějšími defekty. U nejhoších případů se začíná broušením laku, následuje leštění od nejhrubších past a kotoučů až po ty nejjemnější pro maximální lesk. Doporučujeme pro starší nebo zanedbaná vozidla.',
+                price: 'od 11 999 Kč',
               },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem 2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
@@ -139,9 +139,9 @@ export default function RenovaceLakuPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
               'Profesionální strojní leštění dosahuje výsledků, které ruční leštění neumožňuje',
-              'Správná volba polishu a lešticího kotouče chrání lak před přeleštěním',
+              'Výběr správných past a technik pro váš konkrétní lak zajistí optimální výsledek bez rizika poškození',
               'Zkušený detailer rozpozná hranici bezpečného leštění pro váš lak',
-              'Výsledek je rovnoměrný, bez hologramů a přeleštěných míst',
+              'Výsledek je rovnoměrný, bez hologramů a s hlubokým leskem',
               'Kombinace s ochranou laku prodlouží životnost výsledku na roky',
             ].map(item => (
               <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
@@ -156,12 +156,11 @@ export default function RenovaceLakuPage() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Postup renovace laku</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
-              { step: '01', title: 'Diagnostika laku', desc: 'Měření tloušťky laku tloušťkoměrem a vizuální posouzení defektů při různém osvětlení.' },
-              { step: '02', title: 'Přípravné mytí', desc: 'Důkladné ruční mytí a odmašťování povrchu před leštěním.' },
-              { step: '03', title: 'Dekontaminace', desc: 'Clay bar pro odstranění vzdušného znečištění a kovových úlomků z povrchu laku.' },
-              { step: '04', title: 'Strojní leštění', desc: 'Korekce laku orbitální nebo rotační leštičkou s příslušným polishem.' },
-              { step: '05', title: 'Finální polish', desc: 'Závěrečný polish pro maximální lesk a odstranění micro-scratch z předchozího kroku.' },
-              { step: '06', title: 'Ochrana', desc: 'Aplikace vosku, sealantu nebo keramického povlaku pro ochranu čerstvě vyleštěného laku.' },
+              { step: '01', title: 'Přípravné mytí', desc: 'Důkladné ruční mytí a odmašťování povrchu před leštěním.' },
+              { step: '02', title: 'Dekontaminace', desc: 'Clay bar pro odstranění vzdušného znečištění a kovových úlomků z povrchu laku.' },
+              { step: '03', title: 'Diagnostika laku', desc: 'Měření tloušťky laku a vizuální posouzení defektů při různém osvětlení.' },
+              { step: '04', title: 'Strojní leštění', desc: 'Korekce laku orbitální nebo rotační leštičkou s příslušnou kombinací leštící pasty a kotouče.' },
+              { step: '05', title: 'Ochrana', desc: 'V případě výběru ochrany laku se aplikuje tuhý vosk, nebo keramický povlak pro ochranu čerstvě vyleštěného laku.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

@@ -13,7 +13,7 @@ const services = [
   },
   {
     title: 'Ochrana laku',
-    description: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu. Hydrofobní efekt, UV ochrana a snadná údržba na roky.',
+    description: 'Vosky a keramické povlaky pro dlouhodobou ochranu. Hydrofobní efekt, UV ochrana a snadná údržba na roky.',
     image: '/icons/ochrana.webp',
     href: '/sluzby#ochrana-laku',
   },
