@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-type Variant = { name: string; price: string; items: string[]; recommended?: boolean };
+type Variant = { name: string; price: string; items: string[]; recommended?: boolean; colSplit?: number };
 
 type ServiceCategory = {
   id: string;
@@ -40,16 +40,16 @@ const serviceCategories: ServiceCategory[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a míře znečištění interiéru',
     href: '/sluzby/cisteni-interieru-brno',
     image: '/icons/interier.webp',
-    forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba před prodejem nebo po zimní sezóně.',
+    forWho: 'Chcete osvěžit interiér vozu, zbavit se pachů, skvrn nebo bakterií? Ideální volba pro pravidelné čištění i silně znečištěné vozy.',
     miniVariant: {
       name: 'Rychlý refresh',
-      price: 'od 800 Kč',
-      items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
-      note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
+      price: 'od 799 Kč',
+      items: ['Setření prachu v interiéru', 'Základní vysátí interiéru', 'Čištění vnitřní strany skel', 'Provonění interiéru'],
+      note: 'Do 1 hodiny — určené pouze pro pravidelně udržované vozy',
     },
     variants: [
-      { name: 'Varianta 1 – Základní', price: 'od 1 999 Kč', items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'] },
-      { name: 'Varianta 2 – Kompletní', price: 'od 2 999 Kč', items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'], recommended: true },
+      { name: 'Varianta 1 – Základní', price: 'od 1 999 Kč', items: ['Detailní vysátí celého vozidla a zavazadlového prostoru', 'Výživa a impregnace plastů s UV blokátory', 'Hloubkové čištění plastových částí interiéru', 'Čištění vnitřní strany skel', 'Provonění interiéru'], colSplit: 2 },
+      { name: 'Varianta 2 – Kompletní', price: 'od 2 999 Kč', items: ['Vše z Varianty 1', 'Hloubkové čištění koberečků','Hloubkové čištění sedadel mokrou cestou (tepování)', 'Hloubkové čištění kožených sedadel včetně následné výživy a impregnace'], recommended: true },
       { name: 'Varianta 3 – Hloubkové', price: 'od 4 999 Kč', items: ['Vše z Varianty 2', 'Čištění mezidveřních prostorů a rámů', 'Hloubkové čištění všech koberců mokrou cestou', 'Čištění kolejnic sedadel', 'Čištění vnější strany skel', 'Dezinfekce ozonem'] },
     ],
   },
@@ -217,14 +217,29 @@ export default function ServicesPage() {
                           <p style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.04em', margin: 0, textTransform: 'uppercase' }}>{variant.name}</p>
                           <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display', sans-serif", letterSpacing: '0.02em' }}>{variant.price}</span>
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
-                          {variant.items.map(item => (
-                            <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
-                              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
-                              {item}
-                            </div>
-                          ))}
-                        </div>
+                        {variant.colSplit ? (
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
+                            {[variant.items.slice(0, variant.colSplit), variant.items.slice(variant.colSplit)].map((col, colIdx) => (
+                              <div key={colIdx} style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                                {col.map(item => (
+                                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                                    <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
+                                    {item}
+                                  </div>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.3rem 1.5rem' }}>
+                            {variant.items.map(item => (
+                              <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', color: '#9CA3AF', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                                <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.7', flexShrink: 0 }}>✓</span>
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

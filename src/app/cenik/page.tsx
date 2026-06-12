@@ -17,20 +17,20 @@ const priceCategories: ServiceGroup[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a míře znečištění interiéru.',
     miniVariant: {
       name: 'Rychlý refresh',
-      price: 'od 800 Kč',
-      items: ['Setření prachu z plastů a povrchů', 'Kompletní vysátí interiéru', 'Umýtí oken zevnitř'],
-      note: 'Do 1 hodiny — ideální pro pravidelně udržované vozy',
+      price: 'od 799 Kč',
+      items: ['Setření prachu v interiéru', 'Základní vysátí interiéru', 'Čištění vnitřní strany skel', 'Provonění interiéru'],
+      note: 'Do 1 hodiny — určené pouze pro pravidelně udržované vozy',
     },
     variants: [
       {
         name: 'Varianta 1 – Základní',
         price: 'od 1 999 Kč',
-        items: ['Kompletní vysátí celého interiéru', 'Hloubkové čištění plastů a palubní desky', 'Výživa a impregnace plastů s UV blokátory', 'Čištění vnitřní strany skel'],
+        items: ['Detailní vysátí celého vozidla a zavazadlového prostoru', 'Výživa a impregnace plastů s UV blokátory', 'Hloubkové čištění plastových částí interiéru', 'Čištění vnitřní strany skel', 'Provonění interiéru'],
       },
       {
         name: 'Varianta 2 – Kompletní',
         price: 'od 2 999 Kč',
-        items: ['Vše z Varianty 1', 'Tepování sedadel (látka i kůže)', 'Výživa a impregnace kožených sedadel', 'Hloubkové čištění koberečků', 'Impregnace gumových těsnění dveří'],
+        items: ['Vše z Varianty 1', 'Hloubkové čištění koberečků','Hloubkové čištění sedadel mokrou cestou (tepování)', 'Hloubkové čištění kožených sedadel včetně následné výživy a impregnace'],
         recommended: true,
       },
       {
