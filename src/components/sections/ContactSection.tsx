@@ -72,7 +72,7 @@ export function ContactSection() {
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
                 { icon: <Mail size={18} />, label: 'E-mail', value: 'info@mnshine.cz', href: 'mailto:info@mnshine.cz' },
                 { icon: <MapPin size={18} />, label: 'Adresa', value: 'Hrušovanská 425, Vojkovice 667 01', href: undefined },
-                { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00–17:00', href: undefined },
+                { icon: <Clock size={18} />, label: 'Provozní doba', value: 'Po-Pa: 8:00–17:00', href: undefined, note: 'Vzhledem k mobilním výjezdům je nutné osobní návštěvu na provozovně domluvit předem po telefonu.' },
               ].map(item => (
                 <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: '#FFFFFF', marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
@@ -82,6 +82,9 @@ export function ContactSection() {
                       <a href={item.href} style={{ color: '#FFFFFF', textDecoration: 'none', fontSize: '0.95rem' }}>{item.value}</a>
                     ) : (
                       <p style={{ color: '#CCCCCC', margin: 0, fontSize: '0.95rem' }}>{item.value}</p>
+                    )}
+                    {item.note && (
+                      <p style={{ color: '#666666', fontSize: '0.75rem', margin: '0.35rem 0 0', lineHeight: 1.4 }}>{item.note}</p>
                     )}
                   </div>
                 </div>
