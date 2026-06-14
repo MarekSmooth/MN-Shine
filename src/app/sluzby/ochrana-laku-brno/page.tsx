@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { getServiceSchema, getFAQSchema } from '@/lib/schema';
-import { CheckCircle, Shield, Droplets, Sun } from 'lucide-react';
+import { CheckCircle, Shield, Droplets, Sun, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Ochrana laku Brno | Keramický povlak a PPF fólie',
