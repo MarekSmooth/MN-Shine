@@ -87,7 +87,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
     variants: [
-      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu 6 až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'] },
+      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu 6 až 12 měsíců', 'Maximální lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'] },
       { name: 'Keramický povlak', price: 'od 4 999 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
     ],
   },

@@ -85,7 +85,7 @@ const priceCategories: ServiceGroup[] = [
       {
         name: 'Voskování',
         price: 'od 2 500 Kč',
-        items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Přirozený lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'],
+        items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Maximální lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'],
       },
       {
         name: 'Keramický povlak',

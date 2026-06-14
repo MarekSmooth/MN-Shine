@@ -43,7 +43,7 @@ export const services: Service[] = [
     shortDescription: 'Keramické povlaky a ochranné fólie pro dlouhodobou ochranu laku vašeho vozidla.',
     fullDescription: 'Keramická ochrana laku poskytuje dlouhodobou ochranu před povětrnostními vlivy, UV zářením, chemickými látkami a lehkými škrábanci. Aplikujeme prémiové keramické povlaky s garancí několika let.',
     features: ['Keramický povlak (2–5 let ochrany)', 'Grafenový povlak', 'Ochranná fólie PPF', 'Hydrofobní efekt', 'UV ochrana', 'Snadná údržba'],
-    price: 'od 8 000 Kč',
+    price: 'od 4 999 Kč',
   },
   {
     id: 'renovace-svetel',

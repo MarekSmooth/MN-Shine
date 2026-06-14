@@ -66,19 +66,28 @@ export default function OchranaLakuPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
-        {/* Price highlight */}
-        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <div>
-            <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Keramická ochrana od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>8 000 Kč</p>
+        {/* Price highlights */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+          <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div>
+              <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ochrana voskem od</p>
+              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>2 500 Kč</p>
+            </div>
+            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců.</p>
           </div>
-          <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a zvoleném produktu. Zahrnuje přípravu laku a aplikaci povlaku.</p>
+          <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div>
+              <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Keramická ochrana od</p>
+              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>4 999 Kč</p>
+            </div>
+            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Cena závisí na velikosti vozidla a zvoleném produktu. Zahrnuje přípravu laku a aplikaci povlaku.</p>
+          </div>
         </div>
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je keramická ochrana laku?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Keramický povlak (ceramic coating) je tekutý polymer na bázi oxidu křemičitého (SiO2) nebo oxidu titaničitého (TiO2), který se chemicky váže na povrch laku a vytváří tvrdou, ochrannou vrstvu. Na rozdíl od vosku nebo sealantu, keramika nevymývá a vydrží roky.
+            Keramický povlak (ceramic coating) je tekutý polymer na bázi oxidu křemičitého (SiO2), který se chemicky váže na povrch laku a vytváří tvrdou, ochrannou vrstvu. Na rozdíl od vosku nebo sealantu, keramika nevymývá a vydrží roky.
           </p>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             Výsledkem je extrémní hydrofobní efekt – voda, bahno a nečistoty se odvalují z povrchu. Lak je chráněn před UV zářením, chemickými látkami (průmyslový spad, ptačí trus, hmyz) a lehkými škrábanci.
@@ -86,47 +95,6 @@ export default function OchranaLakuPage() {
           <p style={{ color: '#9CA3AF', lineHeight: 1.8 }}>
             Vozidlo s keramickou ochranou je výrazně snazší udržovat – nečistoty se nepřilepují a mytí trvá méně času. Lesk laku zůstává zachován na roky.
           </p>
-        </section>
-
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Typy ochrany laku</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {[
-              {
-                icon: <Shield size={28} />,
-                title: 'Keramický povlak (SiO2)',
-                desc: 'Prémiová keramická ochrana pro osobní vozidla. Tvrdost 9H, hydrofobní efekt, UV ochrana. Výdrž 2–5 let dle produktu. Vhodný pro každodenní vozidla.',
-                duration: '2–5 let',
-                price: 'od 8 000 Kč',
-              },
-              {
-                icon: <Droplets size={28} />,
-                title: 'Grafenový povlak',
-                desc: 'Nejnovější generace ochranných povlaků s grafenovými nanočásticemi. Vyšší tvrdost, lepší teplotní odolnost a delší výdrž než standardní keramika. Vhodný pro luxusní a sportovní vozidla.',
-                duration: '3–7 let',
-                price: 'od 12 000 Kč',
-              },
-              {
-                icon: <Sun size={28} />,
-                title: 'Ochranná fólie PPF',
-                desc: 'Transparentní samoléčící fólie na fyzické poškrábání. Chrání lak před kamínky, hmyzem a drobnými nárazy. Lze aplikovat na celé vozidlo nebo jen na exponovaná místa (kapota, nárazníky).',
-                duration: '5–10 let',
-                price: 'individuální kalkulace',
-              },
-            ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                <div style={{ color: '#FFFFFF', flexShrink: 0 }}>{item.icon}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <h3 style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>{item.title}</h3>
-                    <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.9rem' }}>{item.price}</span>
-                  </div>
-                  <p style={{ color: '#9CA3AF', margin: '0 0 0.5rem', lineHeight: 1.6, fontSize: '0.95rem' }}>{item.desc}</p>
-                  <span style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>Výdrž: <span style={{ color: '#FFFFFF' }}>{item.duration}</span></span>
-                </div>
-              </div>
-            ))}
-          </div>
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
@@ -152,12 +120,11 @@ export default function OchranaLakuPage() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Postup aplikace keramické ochrany</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
-              { step: '01', title: 'Diagnostika', desc: 'Měření tloušťky laku a posouzení stavu povrchu.' },
-              { step: '02', title: 'Přípravné mytí a dekontaminace', desc: 'Důkladné ruční mytí, odmaštění a clay bar pro odstranění kontaminace.' },
-              { step: '03', title: 'Korekce laku (volitelná)', desc: 'Strojní leštění pro odstranění defektů před zapečetěním keramikou.' },
-              { step: '04', title: 'Odmašťování povrchu', desc: 'Důkladné odmašťování isopropylalkoholem pro maximální přilnavost keramiky.' },
-              { step: '05', title: 'Aplikace keramického povlaku', desc: 'Ruční aplikace keramiky panel po panelu s dodržením předepsaných podmínek.' },
-              { step: '06', title: 'Vytvrzení a předání', desc: 'Keramika potřebuje čas na vytvrzení. Předáme vozidlo s instrukcemi pro první dny po aplikaci.' },
+              { step: '01', title: 'Přípravné mytí a dekontaminace', desc: 'Důkladné ruční mytí, odmaštění a clay bar pro odstranění kontaminace.' },
+              { step: '02', title: 'Korekce laku (volitelná)', desc: 'Strojní leštění pro odstranění defektů před zapečetěním keramikou.' },
+              { step: '03', title: 'Odmašťování povrchu', desc: 'Důkladné odmašťování isopropylalkoholem pro maximální přilnavost keramiky.' },
+              { step: '04', title: 'Aplikace keramického povlaku', desc: 'Ruční aplikace keramiky panel po panelu s dodržením předepsaných podmínek.' },
+              { step: '05', title: 'Vytvrzení a předání', desc: 'Keramika potřebuje čas na vytvrzení. Předáme vozidlo s instrukcemi pro první dny po aplikaci.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

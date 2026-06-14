@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { question: 'Kolik stojí detailing v Brně?', answer: 'Cena detailingu závisí na velikosti vozu, jeho stavu a zvolených službách. Kompletní detailing začíná od 6 000 Kč. Keramická ochrana od 8 000 Kč. Přesnou kalkulaci připravíme po prohlídce vozu.' },
+  { question: 'Kolik stojí detailing v Brně?', answer: 'Cena detailingu závisí na velikosti vozu, jeho stavu a zvolených službách. Kompletní detailing začíná od 6 000 Kč. Keramická ochrana od 4 999 Kč. Přesnou kalkulaci připravíme po prohlídce vozu.' },
   { question: 'Jak daleko od Brna jedete?', answer: 'Naše studio se nachází ve Vojkovicích u Brna, což je pouhých několik kilometrů od centra Brna. Přijímáme zákazníky z celého Jihomoravského kraje.' },
   { question: 'Jak dlouho trvá kompletní detailing?', answer: 'Kompletní detailing trvá obvykle celý pracovní den, tj. 6–10 hodin. Záleží na velikosti vozidla a rozsahu prací.' },
 ];
