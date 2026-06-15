@@ -13,11 +13,16 @@ interface FormData {
   message: string;
 }
 
+// Klíč z https://web3forms.com – formulář s ním odešle poptávku e-mailem na info@mnshine.cz.
+const WEB3FORMS_ACCESS_KEY = '649214cd-a20c-4d16-a1ca-ccafe6cc5c09';
+
 export function ContactSection() {
   const [form, setForm] = useState<FormData>({
     name: '', phone: '', email: '', vehicle: '', service: '', message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const validate = () => {
@@ -28,14 +33,44 @@ export function ContactSection() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    setSubmitted(true);
+
+    setSubmitting(true);
+    setSubmitError(false);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'Nová poptávka z webu MN Shine',
+          from_name: 'MN Shine Detailing – web',
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          vehicle: form.vehicle,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -210,6 +245,7 @@ export function ContactSection() {
                 </div>
                 <button
                   type="submit"
+                  disabled={submitting}
                   style={{
                     backgroundColor: '#FFFFFF',
                     color: '#0a0a0a',
@@ -218,15 +254,21 @@ export function ContactSection() {
                     border: 'none',
                     borderRadius: '0',
                     fontSize: '1rem',
-                    cursor: 'pointer',
+                    cursor: submitting ? 'default' : 'pointer',
+                    opacity: submitting ? 0.6 : 1,
                     width: '100%',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                     transition: 'opacity 0.2s',
                   }}
                 >
-                  Odeslat poptávku
+                  {submitting ? 'Odesílám…' : 'Odeslat poptávku'}
                 </button>
+                {submitError && (
+                  <p style={{ color: '#ef4444', fontSize: '0.85rem', textAlign: 'center', margin: 0 }}>
+                    Odeslání se nezdařilo. Zkuste to znovu nebo nám zavolejte na +420 702 852 852.
+                  </p>
+                )}
                 <p style={{ color: '#666666', fontSize: '0.75rem', textAlign: 'center', margin: 0 }}>
                   * Povinné pole. Vaše data zpracujeme pouze za účelem zodpovězení dotazu.
                 </p>
