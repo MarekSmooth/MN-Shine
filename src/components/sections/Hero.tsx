@@ -167,17 +167,17 @@ export function Hero() {
             <h1 className="hero-headline" style={{
               fontFamily: "'Big Shoulders Display', sans-serif",
               fontSize: 'clamp(2.5rem, min(7vw, 7vh), 6.5rem)',
-              fontWeight: 400,
+              fontWeight: 800,
               fontStyle: 'normal',
               color: '#FFFFFF',
               lineHeight: 1.18,
-              letterSpacing: '0.22em',
+              letterSpacing: '0.02em',
               textTransform: 'uppercase',
               marginBottom: '1.25rem',
               whiteSpace: 'nowrap',
               animation: 'hero-text-in 0.7s ease both', animationDelay: '0.1s',
             }}>
-              {slide.heading} <span style={{ fontWeight: 400 }}>{slide.headingAccent}</span>
+              {slide.heading} <span style={{ fontWeight: 800 }}>{slide.headingAccent}</span>
             </h1>
           ) : slide.heading ? (
             <div aria-hidden="true" style={{

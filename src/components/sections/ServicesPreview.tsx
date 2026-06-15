@@ -185,7 +185,7 @@ export function ServicesPreview() {
   return (
     <section style={{ backgroundColor: '#FAFAFA', padding: '3rem 1.5rem 6rem' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        <SectionHeader title="MN Shine služby" goldLine={false} light />
+        <SectionHeader title="Služby" goldLine={false} light />
 
         <div ref={gridRef}>
           {/* Row 1 — 4 skewed parallelogram tiles */}
