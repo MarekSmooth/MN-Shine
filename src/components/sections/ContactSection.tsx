@@ -66,7 +66,7 @@ export function ContactSection() {
         }}>
           {/* Contact Info */}
           <div>
-            <h3 style={{ color: '#FFFFFF', fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.1rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Kontaktní informace</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {[
                 { icon: <Phone size={18} />, label: 'Telefon', value: '+420 702 852 852', href: 'tel:+420702852852' },
@@ -125,7 +125,7 @@ export function ContactSection() {
 
           {/* Form */}
           <div>
-            <h3 style={{ color: '#FFFFFF', fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.1rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
+            <h3 style={{ color: '#FFFFFF', fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Poptávkový formulář</h3>
             {submitted ? (
               <div style={{
                 backgroundColor: 'rgba(255,255,255,0.05)',

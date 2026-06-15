@@ -53,7 +53,7 @@ export default function CisteniExterieru() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění exteriéru · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Profesionální čištění exteriéru<br />Brno a okolí
+            Profesionální čištění exteriéru<br />Vojkovice, Brno a okolí
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             Ruční mytí, hloubková dekontaminace laku a nanesení ochranného povlaku – základ péče o každé vozidlo. Výsledek, který běžná myčka nikdy neposkytne.

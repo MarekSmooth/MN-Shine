@@ -47,7 +47,7 @@ export default function OchranaLakuPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Ochrana laku · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Ochrana laku<br /><span style={{ color: '#FFFFFF' }}>Brno a okolí</span>
+            Ochrana laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             Chraňte svůj vůz na roky dopředu. Aplikujeme vosky a keramické povlaky. Studio MN Shine ve Vojkovicích u Brna.

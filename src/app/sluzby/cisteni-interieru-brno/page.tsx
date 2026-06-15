@@ -47,7 +47,7 @@ export default function CisteniInterieru() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění interiéru · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Profesionální čištění interiéru<br /><span style={{ color: '#FFFFFF' }}>Brno a okolí</span>
+            Profesionální čištění interiéru<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             Zajistíme hloubkové čištění každého koutu vašeho vozidla. Sedadla, koberce, plasty, strop – vše bude čisté, svěží a dezinfikované. Obsluhujeme zákazníky z Brna a celého Jihomoravského kraje.

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const serviceCategories = [
@@ -41,6 +42,14 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <header
@@ -176,7 +185,7 @@ export function Header() {
         </nav>
 
         {/* Logo center */}
-        <Link href="/" className="nav-logo-wrap">
+        <Link href="/" className="nav-logo-wrap" onClick={handleLogoClick}>
           <Image
             src="/mnlogo.png"
             alt="MN Shine Detailing logo"
@@ -216,7 +225,7 @@ export function Header() {
         className="flex lg:hidden"
         style={{ alignItems: 'center', justifyContent: 'center', height: '100px', position: 'relative', zIndex: 1, padding: '0 1.5rem' }}
       >
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }} onClick={handleLogoClick}>
           <Image
             src="/mnlogo.png"
             alt="MN Shine Detailing logo"
