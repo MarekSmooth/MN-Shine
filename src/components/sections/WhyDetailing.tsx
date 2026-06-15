@@ -7,7 +7,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 const benefits = [
   {
     title: 'Ochrana hodnoty vozu',
-    description: 'Pravidelný detailing chrání lak a interiér před opotřebením. Dobře udržované vozidlo si zachovává vyšší tržní hodnotu při prodeji.',
+    description: 'Pravidelná péče o lak a interiér výrazně snižuje opotřebení. Dobře udržované vozidlo si zachovává vyšší tržní hodnotu při prodeji.',
     image: '/whydetailing/hodnota.webp',
   },
   {
@@ -22,7 +22,7 @@ const benefits = [
   },
   {
     title: 'Komfort interiéru',
-    description: 'Čistý, vonící interiér bez alergenů a bakterií zajišťuje příjemnější a zdravější prostředí pro cestující.',
+    description: 'Čistý, voňavý interiér bez alergenů a bakterií zajišťuje příjemnější a zdravější prostředí pro cestující.',
     image: '/whydetailing/komfort.webp',
   },
 ];

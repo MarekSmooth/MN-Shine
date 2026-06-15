@@ -18,7 +18,7 @@ export const faqs: FAQEntry[] = [
   {
     category: 'Obecné',
     question: 'Jak dlouho trvá detailing?',
-    answer: 'Délka závisí na typu zvolené služby. Čištění interiéru trvá obvykle 3–5 hodin, renovace laku 4–8 hodin, keramická ochrana i déle. Přesný čas vám sdělíme při objednání.',
+    answer: 'Délka závisí na typu zvolené služby. Čištění interiéru trvá obvykle 5–8 hodin, renovace laku 2-3 dny, keramická ochrana i déle. Přesný čas vám sdělíme při objednání.',
   },
   {
     category: 'Služby',

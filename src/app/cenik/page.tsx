@@ -125,10 +125,9 @@ const priceCategories: ServiceGroup[] = [
 ];
 
 const additionalServices = [
-  { name: 'Drobné leštění', price: '1 100 Kč' },
+  { name: 'Drobné leštění', price: 'od 1 000 Kč' },
   { name: 'Dezinfekce ozonem', price: '500 Kč' },
   { name: 'Tekuté stěrače', price: 'od 500 Kč' },
-  { name: 'Oprava škrábanců', price: 'od 999 Kč', note: 'Dle velikosti a hloubky škrábance' },
 ];
 
 export default function CenikPage() {
@@ -262,9 +261,6 @@ export default function CenikPage() {
               <div key={s.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 0', borderBottom: idx < additionalServices.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div>
                   <span style={{ color: '#CCCCCC', fontSize: '0.95rem' }}>{s.name}</span>
-                  {'note' in s && s.note && (
-                    <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', marginTop: '0.2rem' }}>{s.note}</div>
-                  )}
                 </div>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '0.95rem', whiteSpace: 'nowrap' }}>{s.price}</span>
               </div>
