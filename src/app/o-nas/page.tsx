@@ -21,22 +21,22 @@ const values = [
   {
     icon: <Star size={28} />,
     title: 'Preciznost',
-    description: 'Každá zakázka je pro nás výzvou k dokonalosti. Věnujeme pozornost každému detailu, který ostatní přehlíží.',
+    description: 'Každá zakázka je pro nmě výzvou k dokonalosti. Věnuji pozornost každému detailu, který ostatní přehlíží.',
   },
   {
     icon: <Heart size={28} />,
     title: 'Vášeň pro automobily',
-    description: 'Automobily milujeme. Tato vášeň se odráží v každé práci, kterou odvádíme. Váš vůz je v rukou nadšenců.',
+    description: 'Automobily miluji. Tato vášeň se odráží v každé práci, kterou odvádím. Váš vůz je v rukou nadšenců.',
   },
   {
     icon: <Shield size={28} />,
     title: 'Poctivost a transparentnost',
-    description: 'Vždy vám řekneme pravdu o stavu vašeho vozidla a navrhneme řešení, které skutečně dává smysl.',
+    description: 'Vždy vám řeknu pravdu o stavu vašeho vozidla a navrhnu řešení, které skutečně dává smysl.',
   },
   {
     icon: <Users size={28} />,
     title: 'Zákazník na prvním místě',
-    description: 'Vaše spokojenost je naším hlavním cílem. Pracujeme tak, abychom předčili vaše očekávání.',
+    description: 'Vaše spokojenost je mým hlavním cílem. Pracuji tak, abych předčil vaše očekávání.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function ONasPage() {
 
         {/* Hero */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Náš příběh</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Můj příběh</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
             O MN Shine Detailing
           </h1>
@@ -58,15 +58,21 @@ export default function ONasPage() {
 
         {/* Story */}
           <section className="card-responsive-padding" style={{ backgroundColor: '#111111', borderRadius: '0', padding: '3rem', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Náš příběh</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Můj příběh</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            MN Shine Detailing vzniklo z lásky k automobilům a touhy poskytnout zákazníkům v Jihomoravském kraji skutečně profesionální péči o jejich vozidla. Uvědomili jsme si, že na trhu chybí studio, které by kombinovalo prémiovost, individuální přístup a dostupnost pro zákazníky z Brna a okolí.
+            Dobrý den, rád bych se vám krátce představil – a hlavně poděkoval, že zvažujete svěřit péči o vaše auto právě mně.
           </p>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Začínali jsme s hlubokým přesvědčením, že detailing není jen o čistém autě – je to o péči, respektu a odvedení precizní práce. Každé vozidlo, které k nám přijede, tratujeme jako by bylo naše vlastní.
+            Čistota a lesk auta se pro mě staly skutečnou vášní už před mnoha lety. Začínalo to jednoduše – chtěl jsem, aby moje auto vypadalo lépe než ostatní, s minimem vybavení v domácí garáži. Postupem času jsem investoval do lepšího vybavení, zlepšoval techniky a brousil výsledky do detailu. Jako u většiny detailerů to začalo u aut kamarádů a rodiny.
+          </p>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
+            Jednoho dne jsem si uvědomil, že tahle vášeň by mohla být i živobytím. <strong style={{ color: '#FFFFFF' }}>A tak jsem se do toho pustil.</strong>
+          </p>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
+            Dodnes se neustále zdokonaluji a sleduji nové technologie a postupy – péče o lak a interiér je obor, který vás dokáže překvapit i po letech praxe. A to je přesně to, co mě posouvá dál.
           </p>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8 }}>
-            Dnes nabízíme komplexní spektrum detailing služeb – od hloubkového čištění interiéru přes renovaci laku až po aplikaci prémiových keramických povlaků. Každou zakázku realizujeme s maximálním nasazením a moderním vybavením.
+            <strong style={{ color: '#FFFFFF' }}>Máte nestandardní požadavek?</strong> Neváhejte se ozvat – snažím se každou zakázku přizpůsobit individuálně potřebám zákazníka.
           </p>
         </section>
 
@@ -96,58 +102,11 @@ export default function ONasPage() {
             {[
               { value: '100+', label: 'Spokojených zákazníků' },
               { value: '5+', label: 'Let zkušeností' },
-              { value: '5★', label: 'Průměrné hodnocení' },
-              { value: '4', label: 'Hlavní služby' },
+              { value: '5★', label: 'Průměrné hodnocení' }
             ].map(stat => (
               <div key={stat.label}>
                 <div style={{ color: '#FFFFFF', fontSize: '2rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", marginBottom: '0.5rem' }}>{stat.value}</div>
                 <div style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Team placeholder */}
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', textAlign: 'center', marginBottom: '2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Náš tým</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
-            {[
-              { name: 'Martin N.', role: 'Zakladatel & hlavní detailer', spec: 'Korekce laku, keramické povlaky' },
-              { name: 'Detailer', role: 'Specialista na interiér', spec: 'Čištění interiéru, dekontaminace' },
-            ].map(member => (
-              <div key={member.name} style={{
-                backgroundColor: '#111111',
-                border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: '0',
-                overflow: 'hidden',
-              }}>
-                <div style={{
-                  height: '200px',
-                  background: 'linear-gradient(135deg, #1a1a1a 0%, #2a1a00 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                  <div style={{
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(255,255,255,0.2)',
-                    border: '2px solid rgba(255,255,255,0.4)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}>
-                    <span style={{ color: '#FFFFFF', fontSize: '1.75rem', fontFamily: "'Big Shoulders Display', sans-serif", fontWeight: 700 }}>
-                      {member.name[0]}
-                    </span>
-                  </div>
-                </div>
-                <div style={{ padding: '1.5rem' }}>
-                  <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", color: '#FFFFFF', fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.1rem' }}>{member.name}</h3>
-                  <p style={{ color: '#FFFFFF', fontSize: '0.9rem', margin: '0 0 0.5rem' }}>{member.role}</p>
-                  <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: 0 }}>{member.spec}</p>
-                </div>
               </div>
             ))}
           </div>

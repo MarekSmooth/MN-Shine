@@ -135,7 +135,7 @@ export function WhyDetailing() {
                     <h3 style={{
                       color: '#FFFFFF',
                       fontFamily: "'Big Shoulders Display', sans-serif",
-                      fontSize: '1.05rem',
+                      fontSize: '1.4rem',
                       fontWeight: 600,
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
