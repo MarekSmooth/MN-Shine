@@ -61,7 +61,7 @@ export function CookieConsent() {
             className="w-full max-w-lg bg-[#111111] border border-white/10 rounded-none shadow-2xl p-6 animate-slide-up"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-white font-semibold text-lg mb-1 tracking-wide">
+            <h2 className="text-white font-semibold text-lg mb-1 tracking-wide" style={{ fontFamily: "'Big Shoulders Display', sans-serif" }}>
               Nastavení cookies
             </h2>
             <p className="text-[#9BA5AE] text-sm mb-5 leading-relaxed">

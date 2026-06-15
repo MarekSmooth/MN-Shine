@@ -119,7 +119,7 @@ export default function GalerieContent() {
             >
               <div className="gal-row">
                 <div className="gal-cover">
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', height: '200px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', height: '100%' }}>
                     <h2 className="gal-cover-title">{svc.name}</h2>
                     <Link
                       href={`/galerie/${svc.id}`}
@@ -130,10 +130,10 @@ export default function GalerieContent() {
                     </Link>
                   </div>
                 </div>
-                <div style={{ flex: 1, display: 'flex', gap: '6px', minWidth: 0 }}>
+                <div className="gal-sliders">
                   {svc.pairs.filter(p => p.before && p.after).slice(0, 3).map((pair, i) => (
-                    <div key={i} style={{ flex: 1, minWidth: 0, position: 'relative' }}>
-                      <BeforeAfterSlider beforeImage={pair.before} afterImage={pair.after} />
+                    <div key={i} className="gal-slider-item">
+                      <BeforeAfterSlider beforeImage={pair.before} afterImage={pair.after} height="100%" />
                       <button
                         onClick={() => openFs(pair)}
                         aria-label="Zvětšit"

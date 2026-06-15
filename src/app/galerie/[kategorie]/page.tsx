@@ -48,8 +48,9 @@ export default async function KategorieGaleriePage(
         </Link>
 
         <h1 style={{
-          fontFamily: 'var(--font-big-shoulders, sans-serif)',
+          fontFamily: "'Big Shoulders Display', sans-serif",
           fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+          fontWeight: 800,
           textTransform: 'uppercase',
           color: 'white',
           marginBottom: '3rem',

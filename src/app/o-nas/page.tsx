@@ -144,7 +144,7 @@ export default function ONasPage() {
                   </div>
                 </div>
                 <div style={{ padding: '1.5rem' }}>
-                  <h3 style={{ color: '#FFFFFF', fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.1rem' }}>{member.name}</h3>
+                  <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", color: '#FFFFFF', fontWeight: 600, marginBottom: '0.25rem', fontSize: '1.1rem' }}>{member.name}</h3>
                   <p style={{ color: '#FFFFFF', fontSize: '0.9rem', margin: '0 0 0.5rem' }}>{member.role}</p>
                   <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: 0 }}>{member.spec}</p>
                 </div>

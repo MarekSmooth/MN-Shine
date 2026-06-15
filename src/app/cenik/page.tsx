@@ -214,7 +214,7 @@ export default function CenikPage() {
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                       {v.items.map(item => (
                         <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: v.recommended ? '#333333' : '#CCCCCC', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                          <span style={{ color: v.recommended ? '#0a0a0a' : '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.8', flexShrink: 0 }}>?</span>
+                          <span style={{ color: v.recommended ? '#0a0a0a' : '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.8', flexShrink: 0 }}>✓</span>
                           {item}
                         </li>
                       ))}

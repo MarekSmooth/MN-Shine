@@ -1443,6 +1443,19 @@ div:hover > .service-flip-card .service-flip-inner {
   justify-content: flex-start;
   background: transparent;
 }
+
+/* Before/after slider thumbnails */
+.gal-sliders {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+.gal-slider-item {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
 .gal-cover-title {
   font-family: 'Big Shoulders Display', sans-serif;
   font-size: clamp(1.1rem, 1.8vw, 1.55rem);
@@ -1585,6 +1598,16 @@ div:hover > .service-flip-card .service-flip-inner {
   .gal-thumb {
     height: 160px;
     flex: none;
+  }
+  .gal-sliders {
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gal-slider-item {
+    flex: none;
+    width: 100%;
+    height: 220px;
   }
 }
 
