@@ -60,8 +60,8 @@ export const services: Service[] = [
     slug: 'renovace-kuze-brno',
     shortDescription: 'Obnova a ošetření kožených sedadel. Obnovíme pružnost, lesk a barvu kůže.',
     fullDescription: 'Renovace kožených sedadel zahrnuje hloubkové čištění, ošetření kondicionérem, opravu drobných trhlin a případné přebarvení. Výsledkem je kůže jako nová s obnovenou pružností a leskem.',
-    features: ['Hloubkové čištění kůže', 'Ošetření kondicionérem', 'Oprava prasklin a škrábanců', 'Přebarvení (dle potřeby)', 'Ochranný vosk na kůži'],
-    price: 'od 2 000 Kč',
+    features: ['Hloubkové čištění kůže', 'Oprava poškozených míst', 'Proces barvení', 'Následná aplikace impregnace po renovaci'],
+    price: 'od 2 500 Kč',
   },
   {
     id: 'oprava-skrabancu',

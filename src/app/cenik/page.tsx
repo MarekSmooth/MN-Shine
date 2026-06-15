@@ -99,12 +99,12 @@ const priceCategories: ServiceGroup[] = [
     id: 'renovace-svetel',
     name: 'Renovace světlometů',
     href: '/sluzby/renovace-svetel-brno',
-    priceNote: 'Přesná cena závisí na míře zakalenosti a aktuálním stavu světlometů.',
+    priceNote: 'Přesná cena se odvíjí podle konkrétního stavu světlometů.',
     variants: [
       {
         name: 'Renovace světlometů',
-        price: '1 000 Kč / kus',
-        items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'],
+        price: 'od 799 Kč / kus',
+        items: ['Broušení plexiskel', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'],
       },
     ],
   },
@@ -117,7 +117,7 @@ const priceCategories: ServiceGroup[] = [
       {
         name: 'Oprava a renovace kůže',
         price: 'od 2 500 Kč',
-        items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'],
+        items: ['Hloubkové čištění kůže', 'Oprava poškozených míst', 'Proces barvení', 'Následná aplikace impregnace po renovaci'],
         note: 'Cena dle míry a druhu poškození',
       },
     ],
@@ -128,7 +128,7 @@ const additionalServices = [
   { name: 'Drobné leštění', price: '1 100 Kč' },
   { name: 'Dezinfekce ozonem', price: '500 Kč' },
   { name: 'Tekuté stěrače', price: 'od 500 Kč' },
-  { name: 'Oprava škrábanců', price: '500 – 4 999 Kč', note: 'Dle velikosti a hloubky škrábance' },
+  { name: 'Oprava škrábanců', price: 'od 999 Kč', note: 'Dle velikosti a hloubky škrábance' },
 ];
 
 export default function CenikPage() {

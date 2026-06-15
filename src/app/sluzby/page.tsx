@@ -98,9 +98,9 @@ const serviceCategories: ServiceCategory[] = [
     priceNote: 'Přesná cena závisí na míře zakalenosti a aktuálním stavu světlometů',
     href: '/sluzby/renovace-svetel-brno',
     image: '/icons/svetla.webp',
-    forWho: 'Zakalené světlomety kazí vzhled i bezpečnost. Renovací ušetříte oproti výměně.',
+    forWho: 'Zašlá plexiskla světlometů kazí vzhled i bezpečnost. Renovací se vyhnete nákladné výměně.',
     variants: [
-      { name: 'Renovace světlometů', price: '1 000 Kč / kus', items: ['Odstranění zakalenosti a žloutnutí krytu', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'] },
+      { name: 'Renovace světlometů', price: 'od 799 Kč / kus', items: ['Broušení plexiskel', 'Strojní leštění plastového krytu', 'Aplikace ochranného povlaku', 'Výrazné zlepšení prostupnosti světla', 'Prodloužení životnosti světlometů'] },
     ],
   },
   {
@@ -110,9 +110,9 @@ const serviceCategories: ServiceCategory[] = [
     priceNote: 'Přesná cena závisí na rozsahu poškození a celkové ploše kožených povrchů',
     href: '/sluzby/renovace-kuze-brno',
     image: '/icons/kuze.webp',
-    forWho: 'Kůže popraskala nebo vybledla? Renovace ji vrátí do původního stavu za zlomek ceny výměny.',
+    forWho: 'Máte na sedaddlech sedřenou kůži, nebo jiné poškození? Renovace může vyřešit váš problém.',
     variants: [
-      { name: 'Renovace kožených sedadel', price: 'od 2 500 Kč', items: ['Hloubkové čištění kůže', 'Odstraňování skvrn a zašlých nečistot', 'Ošetření regeneračním kondicionérem', 'Obnova barvy dle potřeby', 'Ochranný nátěr kůže'] },
+      { name: 'Renovace kožených sedadel', price: 'od 2 500 Kč', items: ['Hloubkové čištění kůže', 'Oprava poškozených míst', 'Proces barvení', 'Následná aplikace impregnace po renovaci'] },
     ],
   },
   {
@@ -124,7 +124,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/skrabance.webp',
     forWho: 'Škrábanec od klíče nebo parkovacího manévru? Minimálně invazivní metody zvládnou většinu povrchových poškození.',
     variants: [
-      { name: 'Oprava škrábanců', price: '500 – 4 999 Kč', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
+      { name: 'Oprava škrábanců', price: 'od 999 Kč', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
     ],
   },
 ];

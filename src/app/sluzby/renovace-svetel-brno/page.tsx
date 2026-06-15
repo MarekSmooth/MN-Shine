@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Proč světlomety žloutnou a kalí se?',
-    answer: 'Plastové kryty světlometů jsou chráněny tenkou vrstvou UV laku, která se postupem času degraduje vlivem slunečního záření, tepla a chemikálií. Výsledkem je zakalení, žloutnutí a ztráta průhlednosti. Renovací tuto vrstvu obnovíme a znovu ošetříme ochranným povlakem.',
+    answer: 'Plastové kryty světlometů jsou chráněny tenkou UV vrstvou, která postupem času degraduje vlivem slunečního záření, tepla a chemikálií. Výsledkem je zakalení, žloutnutí a ztráta průhlednosti. Renovací tuto vrstvu obnovíme a znovu ošetříme ochranným povlakem.',
   },
   {
     question: 'Jak dlouho renovace světlometů vydrží?',
@@ -56,7 +56,7 @@ export default function RenovaceSvetelPage() {
             Renovace světlometů<br />Brno a okolí
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Zakalené světlomety kazí vzhled vozu a snižují bezpečnost jízdy. Strojním leštěním a ochranným povlakem je vrátíme do stavu jako nové – bez nutnosti výměny.
+            Zašlé světlomety kazí vzhled vozu a snižují bezpečnost jízdy. Broušením a strojním leštěním a je vrátíme do stavu jako nové – bez nutnosti výměny.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -79,8 +79,8 @@ export default function RenovaceSvetelPage() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Sparkles size={24} />, title: 'Odmaštění a příprava', desc: 'Důkladné čištění povrchu světlometu od nečistot a mastnoty před leštěním.' },
-              { icon: <Eye size={24} />, title: 'Strojní leštění', desc: 'Postupné vícekrokové leštění odstraní zakalenost, žloutnutí a povrchové poškrábání krytu.' },
+              { icon: <Sparkles size={24} />, title: 'Odmaštění a příprava', desc: 'Důkladné čištění povrchu světlometu od nečistot a mastnoty před broušením.' },
+              { icon: <Eye size={24} />, title: 'Strojní leštění', desc: 'Broušení a vícekrokové leštění odstraní degradovanou vrstvu a povrchové poškrábání světlometů.' },
               { icon: <Shield size={24} />, title: 'Ochranný povlak', desc: 'Aplikace UV odolného ochranného povlaku, který zabrání opětovné degradaci plastu.' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)' }}>

@@ -27,11 +27,11 @@ const faqItems = [
   },
   {
     question: 'Jak se o kůži starat po renovaci?',
-    answer: 'Doporučujeme pravidelně (každé 3–6 měsíců) nanášet kvalitní kondicionér na kůži. Ten doplňuje přirozené oleje, zabraňuje vysušení a praskání. Vyhněte se přímému slunečnímu záření po delší dobu a agresivním čisticím prostředkům.',
+    answer: 'Doporučujeme pravidelně (každé 3–6 měsíců) nanášet kvalitní kondicionér na kůži. Ten zabraňuje vysušení a praskání. Vyhněte se přímému slunečnímu záření po delší dobu a agresivním čisticím prostředkům.',
   },
   {
     question: 'Jak dlouho renovace kůže trvá?',
-    answer: 'Standardní renovace kožených sedadel trvá 4–8 hodin v závislosti na rozsahu poškození a počtu sedadel. U kompletního přebarvení interiéru může proces trvat déle.',
+    answer: 'Délka procesu závisí na rozsahu renovace. Například oprava bočníce sedadla dobarvením může trvat cca 6 hodin.',
   },
 ];
 
@@ -56,7 +56,7 @@ export default function RenovaceKuzePage() {
             Renovace kožených sedadel<br />Brno a okolí
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Kožená sedadla si zaslouží péči. Hloubkové čištění, regenerace kondicionérem a obnova barvy vrátí interiéru původní luxusní vzhled – za zlomek ceny výměny čalounění.
+            Kožená sedadla si zaslouží péči. Hloubkové čištění a případná renovace vrátí interiéru původní luxusní vzhled – za zlomek ceny výměny čalounění.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -79,9 +79,9 @@ export default function RenovaceKuzePage() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Droplets size={24} />, title: 'Hloubkové čištění', desc: 'Odstranění zašlých nečistot, skvrn a mastnotna povrchu kůže speciálními pH neutrálními přípravky.' },
-              { icon: <Sparkles size={24} />, title: 'Regenerace a kondicionér', desc: 'Ošetření regeneračním kondicionérem doplní přirozené oleje a obnoví pružnost kůže.' },
-              { icon: <Shield size={24} />, title: 'Obnova barvy a ochrana', desc: 'Přebarvení vybledlých nebo odřených míst a nanesení ochranného nátěru pro dlouhodobou ochranu.' },
+              { icon: <Droplets size={24} />, title: 'Hloubkové čištění', desc: 'Za použití silných čističů se kůže vyčistí a zbaví zbytků mastnot a olejů' },
+              { icon: <Sparkles size={24} />, title: 'Oprava kůže', desc: 'K opravě prasklin a jiných defektů se používají tmely a další přípravky speciélně určené pro tyto opravy' },
+              { icon: <Shield size={24} />, title: 'Barvení a ochrana', desc: 'Přebarvení odřených, nebo opravovaných míst a následná aplikace Topcoat vrstvy důležíté pro výdrž opravy barvení' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>

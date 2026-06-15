@@ -19,7 +19,7 @@ const services = [
   },
   {
     title: 'Renovace kůže',
-    description: 'Obnova a ošetření kožených sedadel. Odstraníme praskliny a škrábance, obnovíme původní pružnost a lesk kůže.',
+    description: 'Obnova a ošetření kožených sedadel. Odstraníme praskliny, škrábance a dobarvíme poškozená místa.',
     image: '/icons/kuze.webp',
     href: '/sluzby#renovace-kuze',
   },

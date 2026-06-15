@@ -21,15 +21,15 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Jak dlouho vydrží keramický povlak?',
-    answer: 'Délka trvání závisí na kvalitě použitého produktu a péči o vozidlo. Profesionální keramické povlaky vydrží 2–5 let při správné údržbě. Grafenové povlaky mohou vydržet ještě déle. Jednou ročně doporučujeme aplikaci boost sealantu.',
+    answer: 'Délka trvání závisí na kvalitě použitého produktu a péči o vozidlo. Profesionální keramické povlaky vydrží 1–5 let při správné údržbě. Jednou ročně doporučujeme aplikaci boost sealantu.',
   },
   {
     question: 'Je nutné lak vyleštit před aplikací keramiky?',
     answer: 'Ano, před aplikací keramického povlaku doporučujeme provést korekci laku. Keramika "zapečetí" stav laku v momentě aplikace. Pokud jsou v laku defekty, budou pod keramikou nadále viditelné. Proto je vhodné nejprve vyleštit a poté chránit.',
   },
   {
-    question: 'Jaký je rozdíl mezi keramikou a PPF fólií?',
-    answer: 'Keramický povlak je chemická vrstva nanášená na lak, která poskytuje hydrofobní efekt, UV ochranu a snadnou údržbu. PPF (Paint Protection Film) je fyzická transparentní fólie, která chrání lak před kamínky, škrábanci a mechanickým poškozením. Obě ochrany se doplňují a lze je kombinovat.',
+    question: 'Jak keramický povlak chrání lak?',
+    answer: 'Keramický povlak vytvoří na laku tvrdou, hydrofobní vrstvu, která odpuzuje vodu, nečistoty a ptačí trus, chrání před UV zářením a drobnými chemickými vlivy. Lak navíc získá hlubší lesk a auto se snáze udržuje čisté.',
   },
 ];
 
@@ -117,14 +117,14 @@ export default function OchranaLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Postup aplikace keramické ochrany</h2>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Postup aplikace ochrany laku</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {[
               { step: '01', title: 'Přípravné mytí a dekontaminace', desc: 'Důkladné ruční mytí, odmaštění a clay bar pro odstranění kontaminace.' },
-              { step: '02', title: 'Korekce laku (volitelná)', desc: 'Strojní leštění pro odstranění defektů před zapečetěním keramikou.' },
-              { step: '03', title: 'Odmašťování povrchu', desc: 'Důkladné odmašťování isopropylalkoholem pro maximální přilnavost keramiky.' },
-              { step: '04', title: 'Aplikace keramického povlaku', desc: 'Ruční aplikace keramiky panel po panelu s dodržením předepsaných podmínek.' },
-              { step: '05', title: 'Vytvrzení a předání', desc: 'Keramika potřebuje čas na vytvrzení. Předáme vozidlo s instrukcemi pro první dny po aplikaci.' },
+              { step: '02', title: 'Korekce laku (volitelná)', desc: 'Strojní leštění pro odstranění defektů před zapečetěním ochranným povlakem.' },
+              { step: '03', title: 'Odmašťování povrchu', desc: 'Důkladné odmaštění pro maximální přilnavost ochranného povlaku.' },
+              { step: '04', title: 'Aplikace ochrany laku', desc: 'Ruční aplikace ochranného povlaku panel po panelu s dodržením předepsaných podmínek.' },
+              { step: '05', title: 'Vytvrzení a předání', desc: 'Ochranný povlak potřebuje čas na vytvrzení. Předáme vozidlo s instrukcemi pro první dny po aplikaci.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

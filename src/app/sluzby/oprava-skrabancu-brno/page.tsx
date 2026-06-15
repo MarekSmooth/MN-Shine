@@ -23,15 +23,15 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Jak poznám, jestli lze škrábanec opravit bez lakovny?',
-    answer: 'Klíčová je hloubka poškození. Povrchové škrábance, které nepronikají do základového laku nebo kovu, lze obvykle odstranit leštěním nebo touch-up opravou. Pravidlo palce: pokud nehtem škrábanec nezachytíte, jde pravděpodobně o povrchový škrábanec, který zvládneme opravit.',
+    answer: 'Klíčová je hloubka a rozsah poškození. Povrchové škrábance, které nepronikají až do základového laku nebo kovu, lze obvykle odstranit broušením a leštěním. Na hlubší poškození je potřeba retuše. Pokud je poškození velkého rozsahu, v těchto případech je potřeba individuální posouzení. Opravovaný díl nemůže být zdeformovaný.',
   },
   {
-    question: 'Co je touch-up oprava?',
-    answer: 'Touch-up je metoda lokálního přetmelení a zaretušování hlubšího škrábance. Pracujeme s přesnými barevnými kódy vozu – výsledek je po zaschnutí a vyleštění neznatelný. Tato metoda je vhodná pro škrábance, které pronikají do základového laku.',
+    question: 'Co je oprava retuší?',
+    answer: 'Retušování laku je metoda lokální opravy při které se opravované místo připraví a následně se škrábance vyplní přesně namíchaným odstínem barvy. Po vytvrzení se místo vybrousí a následně vyleští, tato metoda je vhodná pro hluboké škrábance.',
   },
   {
     question: 'Jak dlouho oprava trvá?',
-    answer: 'Leštění povrchových škrábanců trvá obvykle 1–3 hodiny v závislosti na počtu a rozsahu poškození. Touch-up opravy jsou o něco časově náročnější, protože je nutné počkat na zaschnutí přípravku.',
+    answer: 'Leštění povrchových škrábanců trvá obvykle 1–3 hodiny v závislosti na počtu a rozsahu poškození. Opravy retuší jsou o něco časově náročnější, protože je nutné počkat na vytvrzení barvy.',
   },
 ];
 
@@ -75,13 +75,13 @@ export default function OpravaSkrabancuPage() {
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Jak oprava škrábanců probíhá?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            Ne každý škrábanec je stejný. Nejprve provedeme diagnostiku hloubky poškození a teprve pak zvolíme správný postup. Povrchové rýhy řešíme leštěním, hlubší škrábance metodou touch-up.
+            Ne každý škrábanec je stejný. Nejprve provedeme diagnostiku hloubky poškození a teprve pak zvolíme správný postup. Povrchové rýhy řešíme leštěním, hlubší škrábance retuší laku.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
               { icon: <Search size={24} />, title: 'Diagnostika', desc: 'Posoudíme hloubku škrábance a zvolíme nejvhodnější metodu opravy pro co nejlepší výsledek.' },
               { icon: <Sparkles size={24} />, title: 'Leštění povrchových rýh', desc: 'Strojním leštěním odstraníme povrchové škrábance, které ještě nepronikají do základového laku.' },
-              { icon: <Wrench size={24} />, title: 'Touch-up oprava', desc: 'Lokální přetmelení a zaretušování hlubšího škrábance s přesným barevným kódem vozu.' },
+              { icon: <Wrench size={24} />, title: 'Lokální oprava retuší', desc: 'Po namíchání přesného odstínu barvy vozidla se místo vyplní a po vytvrzení barvy se brousí a leští.' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
