@@ -10,6 +10,8 @@ export function getLocalBusinessSchema() {
     image: 'https://mnshine.cz/og-image.jpg',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Hrušovanská 425',
+      postalCode: '667 01',
       addressLocality: 'Vojkovice',
       addressRegion: 'Jihomoravský kraj',
       addressCountry: 'CZ',

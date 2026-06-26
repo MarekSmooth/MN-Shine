@@ -228,9 +228,12 @@ export function ContactSection() {
                   >
                     <option value="">Vyberte službu</option>
                     <option value="cisteni-interieru">Čištění interiéru</option>
+                    <option value="cisteni-exterieru">Čištění exteriéru</option>
                     <option value="renovace-laku">Renovace laku</option>
-                    <option value="ochrana-laku">Ochrana laku (keramika)</option>
-                    <option value="detailing">Kompletní detailing</option>
+                    <option value="ochrana-laku">Ochrana laku</option>
+                    <option value="renovace-svetel">Renovace světel</option>
+                    <option value="renovace-kuze">Renovace kůže</option>
+                    <option value="oprava-skrabancu">Oprava škrábanců</option>
                     <option value="jine">Jiné</option>
                   </select>
                 </div>
