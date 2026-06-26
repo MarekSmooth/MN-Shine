@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: baseUrl, lastModified: new Date('2026-05-04'), changeFrequency: 'weekly', priority: 1 },
     { url: `${baseUrl}/sluzby`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/sluzby/detailing-brno`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/sluzby/cisteni-interieru-brno`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/sluzby/cisteni-exterieru-brno`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/sluzby/renovace-laku-brno`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
