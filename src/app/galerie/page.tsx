@@ -2,7 +2,7 @@
 import GalerieContent from '@/components/sections/GalerieContent';
 
 export const metadata: Metadata = {
-  title: 'Galerie detailingu Brno | MN Shine Detailing',
+  title: 'Galerie detailingu Brno',
   description: 'Prohlédněte si galerii prací MN Shine Detailing. Výsledky čištění interiéru, renovace laku, keramické ochrany a kompletního detailingu.',
   alternates: {
     canonical: 'https://mnshine.cz/galerie',

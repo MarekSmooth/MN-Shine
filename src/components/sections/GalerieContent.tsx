@@ -8,13 +8,13 @@ import { galleryServices as services } from '@/data/gallery';
 import type { Pair } from '@/data/gallery';
 
 export default function GalerieContent() {
-  const [fullscreen, setFullscreen] = useState<Pair | null>(null);
+  const [fullscreen, setFullscreen] = useState<{ pair: Pair; label: string } | null>(null);
   const [fsVisible, setFsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const openFs = (pair: Pair) => {
-    setFullscreen(pair);
+  const openFs = (pair: Pair, label: string) => {
+    setFullscreen({ pair, label });
     requestAnimationFrame(() => requestAnimationFrame(() => setFsVisible(true)));
   };
 
@@ -133,9 +133,9 @@ export default function GalerieContent() {
                 <div className="gal-sliders">
                   {svc.pairs.filter(p => p.before && p.after).slice(0, 3).map((pair, i) => (
                     <div key={i} className="gal-slider-item">
-                      <BeforeAfterSlider beforeImage={pair.before} afterImage={pair.after} height="100%" />
+                      <BeforeAfterSlider label={svc.name} beforeImage={pair.before} afterImage={pair.after} height="100%" />
                       <button
-                        onClick={() => openFs(pair)}
+                        onClick={() => openFs(pair, svc.name)}
                         aria-label="Zvětšit"
                         style={{
                           position: 'absolute', bottom: '0.5rem', right: '0.5rem',
@@ -181,8 +181,9 @@ export default function GalerieContent() {
             }}
           >
             <BeforeAfterSlider
-              beforeImage={fullscreen.before}
-              afterImage={fullscreen.after}
+              label={fullscreen.label}
+              beforeImage={fullscreen.pair.before}
+              afterImage={fullscreen.pair.after}
               height="min(85vh, 720px)"
             />
           </div>

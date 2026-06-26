@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 
 interface ImagePair {
   before: string;
@@ -83,6 +84,7 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
   }, [updatePosition]);
 
   const pair = pairs[displayIdx] ?? { before: '', after: '' };
+  const altSubject = label || 'MN Shine Detailing';
 
   return (
     <div
@@ -120,10 +122,17 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
         {/* PŘED */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: pair.before
-            ? `url(${pair.before}) center/cover no-repeat`
-            : 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0a0a0a 100%)',
+          background: pair.before ? undefined : 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0a0a0a 100%)',
         }}>
+          {pair.before && (
+            <Image
+              src={pair.before}
+              alt={`${altSubject} – před`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          )}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 40%)' }} />
           <span style={{
             position: 'absolute', top: '1rem', left: '1rem',
@@ -137,10 +146,17 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
         <div style={{
           position: 'absolute', inset: 0,
           clipPath: `inset(0 0 0 ${position}%)`,
-          background: pair.after
-            ? `url(${pair.after}) center/cover no-repeat`
-            : 'linear-gradient(135deg, #0f1520 0%, #1e2a38 50%, #0a0f17 100%)',
+          background: pair.after ? undefined : 'linear-gradient(135deg, #0f1520 0%, #1e2a38 50%, #0a0f17 100%)',
         }}>
+          {pair.after && (
+            <Image
+              src={pair.after}
+              alt={`${altSubject} – po`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
+          )}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 40%)' }} />
           <span style={{
             position: 'absolute', top: '1rem', right: '1rem',

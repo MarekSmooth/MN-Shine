@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Zap, Eye, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Renovace laku Brno | Leštění a korekce laku automobilu',
-  description: 'Profesionální renovace a korekce laku vozidla v Brně. Odstraníme škrábance, víry, oxidaci a jiné defekty. Strojní leštění. Studio ve Vojkovicích u Brna.',
-  keywords: ['renovace laku Brno', 'leštění laku Brno', 'korekce laku Brno', 'odstranění škrábanců Brno', 'polish auto Brno'],  alternates: {
+  title: 'Renovace a leštění laku Brno',
+  description: 'Profesionální renovace a korekce laku vozidla v Brně. Odstraníme škrábance, víry i oxidaci strojním leštěním. Studio ve Vojkovicích u Brna.',
+  keywords: ['renovace laku Brno', 'leštění laku Brno', 'korekce laku Brno', 'odstranění škrábanců Brno', 'polish auto Brno'],
+  alternates: {
     canonical: 'https://mnshine.cz/sluzby/renovace-laku-brno',
   },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/renovace-laku-brno',
-    title: 'Renovace laku Brno | MN Shine Detailing',
+    title: 'Renovace a leštění laku Brno | MN Shine Detailing',
     description: 'Profesionální renovace a korekce laku vozidla v Brně. Strojní leštění, odstranění škrábanců.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Renovace laku Brno – MN Shine' }],
   },};
@@ -40,11 +41,17 @@ export default function RenovaceLakuPage() {
     'https://mnshine.cz/sluzby/renovace-laku-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Renovace laku Brno', url: 'https://mnshine.cz/sluzby/renovace-laku-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Renovace laku · Brno</div>

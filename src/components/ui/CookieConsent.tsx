@@ -43,9 +43,6 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* Soft backdrop — dims page while banner is visible, non-blocking */}
-      <div className="fixed inset-0 bg-black/40 z-[997] pointer-events-none transition-opacity duration-500" />
-
       {/* Backdrop for settings panel (clickable to close) */}
       {settingsOpen && (
         <div

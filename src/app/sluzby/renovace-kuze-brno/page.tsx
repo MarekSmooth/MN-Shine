@@ -1,11 +1,11 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Shield, Droplets } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Renovace kůže Brno | Obnova kožených sedadel',
+  title: 'Renovace kožených sedadel Brno',
   description: 'Profesionální renovace kožených sedadel v Brně. Hloubkové čištění, kondicionér, obnova barvy a ochranný nátěr. Studio ve Vojkovicích u Brna.',
   keywords: ['renovace kůže Brno', 'čištění kožených sedadel Brno', 'oprava kůže auto Brno', 'ošetření kůže Brno', 'detailing kůže Brno'],
   alternates: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/renovace-kuze-brno',
-    title: 'Renovace kůže Brno | MN Shine Detailing',
+    title: 'Renovace kožených sedadel Brno | MN Shine Detailing',
     description: 'Profesionální renovace kožených sedadel. Čištění, kondicionér, obnova barvy.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Renovace kůže Brno – MN Shine' }],
   },
@@ -42,11 +42,17 @@ export default function RenovaceKuzePage() {
     'https://mnshine.cz/sluzby/renovace-kuze-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Renovace kůže Brno', url: 'https://mnshine.cz/sluzby/renovace-kuze-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

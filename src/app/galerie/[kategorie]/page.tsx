@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import KategorieGalerieContent from '@/components/sections/KategorieGalerieContent';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 const categoryNames: Record<string, string> = {
   'cisteni-interieru': 'Čištění interiéru',
@@ -21,8 +22,18 @@ export async function generateMetadata(
   const { kategorie } = await params;
   const name = categoryNames[kategorie] ?? 'Galerie';
   return {
-    title: `${name} | Galerie | MN Shine`,
-    description: `Ukázky naší práce – ${name}. Prohlédněte si fotografie před a po.`,
+    title: `${name} – Galerie`,
+    description: `Ukázky naší práce – ${name} v Brně a okolí. Prohlédněte si fotografie před a po. Studio ve Vojkovicích u Brna.`,
+    alternates: {
+      canonical: `https://mnshine.cz/galerie/${kategorie}`,
+    },
+    openGraph: {
+      type: 'website',
+      url: `https://mnshine.cz/galerie/${kategorie}`,
+      title: `${name} – Galerie | MN Shine Detailing`,
+      description: `Ukázky naší práce – ${name} v Brně a okolí.`,
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: `${name} – MN Shine Detailing` }],
+    },
   };
 }
 
@@ -31,9 +42,15 @@ export default async function KategorieGaleriePage(
 ) {
   const { kategorie } = await params;
   const name = categoryNames[kategorie] ?? 'Galerie';
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Galerie', url: 'https://mnshine.cz/galerie' },
+    { name, url: `https://mnshine.cz/galerie/${kategorie}` },
+  ]);
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', paddingTop: '8rem', paddingBottom: '6rem' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
 
         <Link

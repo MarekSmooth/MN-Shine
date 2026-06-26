@@ -1,12 +1,12 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Search, Wrench } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Oprava škrábanců Brno | Bez lakovny',
-  description: 'Profesionální oprava povrchových škrábanců laku v Brně bez nutnosti lakovny. Leštění, touch-up opravy a sjednocení barvy. Studio ve Vojkovicích u Brna.',
+  title: 'Oprava škrábanců Brno bez lakovny',
+  description: 'Profesionální oprava povrchových škrábanců laku v Brně bez nutnosti lakovny. Leštění, touch-up opravy a sjednocení barvy. Vojkovice u Brna.',
   keywords: ['oprava škrábanců Brno', 'škrábance na autě Brno', 'leštění škrábanců Brno', 'touch up oprava laku Brno', 'oprava laku bez lakovny Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/oprava-skrabancu-brno',
@@ -42,11 +42,17 @@ export default function OpravaSkrabancuPage() {
     'https://mnshine.cz/sluzby/oprava-skrabancu-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Oprava škrábanců Brno', url: 'https://mnshine.cz/sluzby/oprava-skrabancu-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

@@ -2,8 +2,18 @@
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Ceník služeb | MN Shine Detailing Brno',
+  title: 'Ceník služeb Brno',
   description: 'Ceník auto detailingu MN Shine Brno. Čištění interiéru, exteriéru, keramická ochrana laku, renovace a leštění. Ceny od 500 Kč.',
+  alternates: {
+    canonical: 'https://mnshine.cz/cenik',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/cenik',
+    title: 'Ceník služeb | MN Shine Detailing',
+    description: 'Ceník auto detailingu MN Shine Brno. Ceny od 500 Kč.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MN Shine Detailing – Ceník' }],
+  },
 };
 
 type Variant = { name: string; price: string; items: string[]; recommended?: boolean; note?: string };

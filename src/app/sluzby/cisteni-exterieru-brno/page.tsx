@@ -1,12 +1,12 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Droplets, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Čištění exteriéru Brno | Ruční mytí a dekontaminace auta',
-  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, chemická dekontaminace laku, čištění kol a nanesení ochranného vosku. Studio ve Vojkovicích u Brna.',
+  title: 'Čištění exteriéru auta Brno',
+  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, dekontaminace laku, čištění kol a nanesení ochranného vosku. Vojkovice u Brna.',
   keywords: ['čištění exteriéru Brno', 'ruční mytí auta Brno', 'dekontaminace laku Brno', 'mytí auta Brno', 'detailing exteriér Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/cisteni-exterieru-brno',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/cisteni-exterieru-brno',
-    title: 'Čištění exteriéru Brno | MN Shine Detailing',
+    title: 'Čištění exteriéru auta Brno | MN Shine Detailing',
     description: 'Profesionální ruční mytí a dekontaminace laku vozidla v Brně. Studio ve Vojkovicích u Brna.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Čištění exteriéru Brno – MN Shine' }],
   },
@@ -42,11 +42,17 @@ export default function CisteniExterieru() {
     'https://mnshine.cz/sluzby/cisteni-exterieru-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Čištění exteriéru Brno', url: 'https://mnshine.cz/sluzby/cisteni-exterieru-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

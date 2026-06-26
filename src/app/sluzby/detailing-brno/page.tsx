@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Detailing Brno | Profesionální auto detailing',
-  description: 'Profesionální auto detailing v Brně a okolí. Prémiová péče o vozidlo – čištění, leštění, ochrana laku. Studio ve Vojkovicích u Brna. Objednejte se ještě dnes.',
-  keywords: ['detailing Brno', 'auto detailing Brno', 'detailing Brno-venkov', 'profesionální detailing Brno'],
+  title: 'Detailing Brno a Vojkovice',
+  description: 'Profesionální auto detailing v Brně, Vojkovicích a okolí. Čištění, leštění, ochrana laku. Studio ve Vojkovicích u Brna. Objednejte se ještě dnes.',
+  keywords: ['detailing Brno', 'detailing Vojkovice', 'auto detailing Brno', 'detailing Brno-venkov', 'profesionální detailing Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/detailing-brno',
   },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/detailing-brno',
-    title: 'Detailing Brno | MN Shine Detailing',
+    title: 'Detailing Brno a Vojkovice | MN Shine Detailing',
     description: 'Profesionální auto detailing v Brně a okolí. Studio ve Vojkovicích u Brna.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Detailing Brno – MN Shine' }],
   },
@@ -33,18 +33,24 @@ export default function DetailingBrnoPage() {
     'https://mnshine.cz/sluzby/detailing-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Detailing Brno', url: 'https://mnshine.cz/sluzby/detailing-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Detailing Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Profesionální auto detailing<br /><span style={{ color: '#FFFFFF' }}>Vojkovice,Brno a okolí</span>
+            Profesionální auto detailing<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             MN Shine Detailing je prémiové detailing studio ve Vojkovicích u Brna. Nabízíme komplexní péči o vaše vozidlo – od profesionálního mytí a dekontaminace, přes korekci laku, až po aplikaci keramické ochrany. Obsluhujeme zákazníky z celého Brna, Brno-venkova a Jihomoravského kraje.

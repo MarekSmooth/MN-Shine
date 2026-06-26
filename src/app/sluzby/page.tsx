@@ -6,8 +6,8 @@ import { ArrowRight } from 'lucide-react';
 import SectionTransition from '@/components/ui/SectionTransition';
 
 export const metadata: Metadata = {
-  title: 'Naše služby',
-  description: 'Přehled všech služeb MN Shine Detailing – čištění interiéru, čištění exteriéru, renovace laku, ochrana laku, renovace světel, kůže a opravy škrábanců.',
+  title: 'Naše služby – Detailing Brno',
+  description: 'Přehled služeb MN Shine Detailing – čištění interiéru a exteriéru, renovace a ochrana laku, renovace světel, kůže a oprava škrábanců v Brně.',
   alternates: { canonical: 'https://mnshine.cz/sluzby' },
   openGraph: {
     type: 'website',

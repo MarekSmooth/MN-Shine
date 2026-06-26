@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/galerie/oprava-skrabancu`, lastModified: new Date('2026-05-04'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/o-nas`, lastModified: new Date('2026-01-01'), changeFrequency: 'yearly', priority: 0.6 },
     { url: `${baseUrl}/faq`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/reference`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/kontakt`, lastModified: new Date('2026-01-01'), changeFrequency: 'yearly', priority: 0.8 },
   ];
 }

@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Droplets, Wind, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Čištění interiéru Brno | Profesionální hloubkové čištění auta',
-  description: 'Profesionální čištění interiéru vozu v Brně a okolí. Hloubkové čištění sedadel, koberců, plastů a stropu. Odstranění skvrn, pachů a bakterií. Studio ve Vojkovicích u Brna.',
-  keywords: ['čištění interiéru Brno', 'hloubkové čištění auta Brno', 'čištění sedadel Brno', 'dezinfekce auta Brno'],  alternates: {
+  title: 'Čištění interiéru auta Brno',
+  description: 'Profesionální čištění interiéru vozu v Brně a okolí – sedadla, koberce, plasty. Odstranění skvrn, pachů a bakterií. Studio ve Vojkovicích u Brna.',
+  keywords: ['čištění interiéru Brno', 'hloubkové čištění auta Brno', 'čištění sedadel Brno', 'dezinfekce auta Brno'],
+  alternates: {
     canonical: 'https://mnshine.cz/sluzby/cisteni-interieru-brno',
   },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/cisteni-interieru-brno',
-    title: 'Čištění interiéru Brno | MN Shine Detailing',
+    title: 'Čištění interiéru auta Brno | MN Shine Detailing',
     description: 'Profesionální hloubkové čištění interiéru vozidla v Brně. Studio ve Vojkovicích u Brna.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Čištění interiéru Brno – MN Shine' }],
   },};
@@ -38,11 +39,18 @@ export default function CisteniInterieru() {
     'Čištění interiéru Brno',
     'Profesionální hloubkové čištění interiéru vozidla. Sedadla, koberce, plasty, strop. Odstranění skvrn, pachů a bakterií.',
     'https://mnshine.cz/sluzby/cisteni-interieru-brno'
-  );  const faqSchema = getFAQSchema(faqItems);
+  );
+  const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Čištění interiéru Brno', url: 'https://mnshine.cz/sluzby/cisteni-interieru-brno' },
+  ]);
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění interiéru · Brno</div>

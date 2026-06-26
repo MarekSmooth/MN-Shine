@@ -4,7 +4,7 @@ import { faqs } from '@/data/faq';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'FAQ – Časté dotazy | Detailing Brno & Vojkovice',
+  title: 'FAQ – Detailing Brno a Vojkovice',
   description: 'Odpovědi na nejfrekventovanější dotazy k auto detailingu, čištění interiéru, keramické ochraně a cenách. MN Shine Detailing Brno.',
   alternates: {
     canonical: 'https://mnshine.cz/faq',

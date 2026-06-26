@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Shield, Droplets, Sun, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Ochrana laku Brno | Keramický povlak a PPF fólie',
-  description: 'Profesionální ochrana laku vozidla v Brně. Keramické povlaky, grafenové povlaky a ochranná fólie PPF. Hydrofobní efekt, UV ochrana, 2–5 let záruky. Studio ve Vojkovicích u Brna.',
-  keywords: ['ochrana laku Brno', 'keramický povlak Brno', 'keramika auto Brno', 'PPF fólie Brno', 'nano keramika Brno'],  alternates: {
+  title: 'Keramická ochrana laku Brno',
+  description: 'Profesionální ochrana laku vozidla v Brně. Keramické a grafenové povlaky, PPF fólie. Hydrofobní efekt, UV ochrana, 2–5 let záruky. Vojkovice u Brna.',
+  keywords: ['ochrana laku Brno', 'keramický povlak Brno', 'keramika auto Brno', 'PPF fólie Brno', 'nano keramika Brno'],
+  alternates: {
     canonical: 'https://mnshine.cz/sluzby/ochrana-laku-brno',
   },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/ochrana-laku-brno',
-    title: 'Ochrana laku Brno | MN Shine Detailing',
+    title: 'Keramická ochrana laku Brno | MN Shine Detailing',
     description: 'Keramické povlaky a PPF fólie pro ochranu laku vozidla v Brně.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Ochrana laku Brno – MN Shine' }],
   },};
@@ -38,11 +39,18 @@ export default function OchranaLakuPage() {
     'Ochrana laku Brno',
     'Profesionální ochrana laku vozidla keramickými povlaky a PPF fólií v Brně. Hydrofobní efekt, UV ochrana, dlouhodobá ochrana laku.',
     'https://mnshine.cz/sluzby/ochrana-laku-brno'
-  );  const faqSchema = getFAQSchema(faqItems);
+  );
+  const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Ochrana laku Brno', url: 'https://mnshine.cz/sluzby/ochrana-laku-brno' },
+  ]);
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Ochrana laku · Brno</div>

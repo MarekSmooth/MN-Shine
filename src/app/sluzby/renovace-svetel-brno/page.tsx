@@ -1,12 +1,12 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
-import { getServiceSchema, getFAQSchema } from '@/lib/schema';
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Eye, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Renovace světel Brno | Odstranění zakalenosti světlometů',
-  description: 'Profesionální renovace zakalených světlometů v Brně. Strojní leštění a ochranný povlak – světla jako nová bez výměny. Studio ve Vojkovicích u Brna.',
+  title: 'Renovace světlometů Brno',
+  description: 'Profesionální renovace zakalených světlometů v Brně. Strojní leštění a ochranný povlak – světla jako nová bez výměny. Vojkovice u Brna.',
   keywords: ['renovace světel Brno', 'čištění světlometů Brno', 'zakalené světlomety Brno', 'leštění světel auto Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/renovace-svetel-brno',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/renovace-svetel-brno',
-    title: 'Renovace světel Brno | MN Shine Detailing',
+    title: 'Renovace světlometů Brno | MN Shine Detailing',
     description: 'Renovace zakalených světlometů v Brně. Strojní leštění a ochranný povlak.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Renovace světel Brno – MN Shine' }],
   },
@@ -42,11 +42,17 @@ export default function RenovaceSvetelPage() {
     'https://mnshine.cz/sluzby/renovace-svetel-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Domů', url: 'https://mnshine.cz' },
+    { name: 'Služby', url: 'https://mnshine.cz/sluzby' },
+    { name: 'Renovace světel Brno', url: 'https://mnshine.cz/sluzby/renovace-svetel-brno' },
+  ]);
 
   return (
     <div className="page-pt" style={{ backgroundColor: '#0a0a0a', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>

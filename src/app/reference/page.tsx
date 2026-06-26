@@ -4,6 +4,20 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Reference',
   description: 'Reference a hodnocení zákazníků MN Shine Detailing. Přečtěte si, co říkají spokojení zákazníci z Brna a okolí.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://mnshine.cz/reference',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mnshine.cz/reference',
+    title: 'Reference | MN Shine Detailing',
+    description: 'Reference a hodnocení zákazníků z Brna a okolí.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MN Shine Detailing – Reference' }],
+  },
 };
 
 const reviews = [

@@ -20,7 +20,7 @@ const slides = [
     imageMobile: '/bgmobile/2bgm.webp',
     position: 'center top',
     positionMobile: 'center top',
-    badge: 'Čištění interiéru & exteriéru Vojkovice,Brno a okolí',
+    badge: 'Čištění interiéru & exteriéru Vojkovice, Brno a okolí',
     heading: 'Detailing Vojkovice',
     headingAccent: 'u Brna',
     text: null,
