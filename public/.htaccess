@@ -12,7 +12,13 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # /cesta/ -> /cesta (pokud existuje /cesta.html), aby se predeslo prazdnym slozkam
+  # /cesta -> /cesta.html JAKO PRVNI — predejde situaci, kdy mod_dir prida lomitko
+  # drive nez mod_rewrite stihne reagovat (redirect smycka na Wedosu)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.+[^/])$ $1.html [L]
+
+  # /cesta/ -> /cesta (pokud existuje /cesta.html)
   RewriteCond %{REQUEST_URI} ^/(.+)/$
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(.+)/$ /$1 [R=301,L]
@@ -20,10 +26,6 @@ DirectoryIndex index.html
   # Existujici soubory (obrazky, _next/static, .txt apod.) servuj primo
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
-
-  # /cesta -> /cesta.html
-  RewriteCond %{REQUEST_FILENAME}\.html -f
-  RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
 
 ErrorDocument 404 /404.html
