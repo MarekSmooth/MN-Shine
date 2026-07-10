@@ -70,6 +70,18 @@ export default function RootLayout({
   return (
       <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${rubik.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16647918075"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16647918075');
+            `,
+          }}
+        />
         <link rel="preload" href="/icons/exterier.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/ochrana.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/interier.webp" as="image" type="image/webp" />
