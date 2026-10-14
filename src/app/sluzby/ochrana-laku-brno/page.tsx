@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
+import { RelatedServices } from '@/components/ui/RelatedServices';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Shield, Droplets, Sun, Sparkles } from 'lucide-react';
 
@@ -29,6 +30,10 @@ const faqItems = [
     answer: 'Ano, před aplikací keramického povlaku doporučujeme provést korekci laku. Keramika "zapečetí" stav laku v momentě aplikace. Pokud jsou v laku defekty, budou pod keramikou nadále viditelné. Proto je vhodné nejprve vyleštit a poté chránit.',
   },
   {
+    question: 'Kolik stojí keramická ochrana laku?',
+    answer: 'Keramická ochrana laku začíná od 4 999 Kč, ochrana voskem od 2 500 Kč. Výsledná cena závisí na velikosti vozidla, stavu laku a zvoleném produktu. Pokud lak potřebuje před aplikací rozleštit, připravíme vám nabídku včetně korekce.',
+  },
+  {
     question: 'Jak keramický povlak chrání lak?',
     answer: 'Keramický povlak vytvoří na laku tvrdou, hydrofobní vrstvu, která odpuzuje vodu, nečistoty a ptačí trus, chrání před UV zářením a drobnými chemickými vlivy. Lak navíc získá hlubší lesk a auto se snáze udržuje čisté.',
   },
@@ -53,12 +58,12 @@ export default function OchranaLakuPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div style={{ backgroundColor: '#111111', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Ochrana laku · Brno</div>
+          <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Keramická ochrana laku · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Ochrana laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
+            Keramická ochrana laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Chraňte svůj vůz na roky dopředu. Aplikujeme vosky a keramické povlaky. Studio MN Shine ve Vojkovicích u Brna.
+            Chraňte svůj vůz na roky dopředu. Keramická ochrana laku i klasický vosk pro zákazníky z Brna a okolí. Studio MN Shine ve Vojkovicích u Brna.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -106,6 +111,29 @@ export default function OchranaLakuPage() {
         </section>
 
         <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Keramika vs. vosk</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+            {[
+              { name: 'Vosk', items: ['Výdrž až 12 měsíců', 'Hluboký lesk a hydrofobní efekt', 'Vhodný jako pravidelná sezónní péče', 'Cena od 2 500 Kč'] },
+              { name: 'Keramická ochrana', items: ['Výdrž v řádu let, ne měsíců', 'Chemicky se váže na lak – nevymývá se', 'Odolnost vůči UV, chemii a lehkým škrábancům', 'Cena od 4 999 Kč'] },
+            ].map(col => (
+              <div key={col.name} style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.2)', padding: '1.5rem' }}>
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 1rem' }}>{col.name}</h3>
+                {col.items.map(item => (
+                  <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+                    <CheckCircle size={16} style={{ color: '#FFFFFF', marginTop: '3px', flexShrink: 0 }} />
+                    <span style={{ color: '#9CA3AF' }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginTop: '1rem' }}>
+            Vosk je dobrá volba, pokud chcete rychle oživit lesk před sezónou. Pokud chcete mít s péčí o lak klid na několik let, vyplatí se keramická ochrana laku – ideálně po rozleštění laku, aby povlak zapečetil bezvadný povrch.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Výhody keramické ochrany</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
@@ -144,6 +172,12 @@ export default function OchranaLakuPage() {
             ))}
           </div>
         </section>
+
+        <RelatedServices items={[
+          { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Před aplikací keramiky doporučujeme rozleštění a opravu laku – povlak zapečetí, co je pod ním.' },
+          { href: '/sluzby/cisteni-exterieru-brno', title: 'Čištění exteriéru', text: 'Šetrné ruční mytí a dekontaminace pro údržbu keramické ochrany.' },
+          { href: '/sluzby/cisteni-interieru-brno', title: 'Čištění interiéru auta', text: 'Hloubkové čištění interiéru auta včetně tepování sedaček.' },
+        ]} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Časté dotazy k ochraně laku</h2>

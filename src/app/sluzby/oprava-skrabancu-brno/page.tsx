@@ -1,6 +1,8 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
+import { RelatedServices } from '@/components/ui/RelatedServices';
+import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Search, Wrench } from 'lucide-react';
 
@@ -115,6 +117,14 @@ export default function OpravaSkrabancuPage() {
             ))}
           </div>
         </section>
+
+        <ServiceBeforeAfter galleryId="oprava-skrabancu" label="Oprava škrábanců laku" />
+
+        <RelatedServices items={[
+          { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Škrábanců a vírů je na autě víc? Strojní oprava a rozleštění laku celého vozu odstraní povrchové defekty najednou.' },
+          { href: '/sluzby/ochrana-laku-brno', title: 'Keramická ochrana laku', text: 'Po opravě lak zapečeťte keramickou ochranou – lépe odolá mytí, UV záření i lehkým škrábancům.' },
+          { href: '/sluzby/cisteni-exterieru-brno', title: 'Čištění exteriéru', text: 'Důkladné ruční mytí a dekontaminace laku jako základ každé další péče o vůz.' },
+        ]} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Časté dotazy</h2>

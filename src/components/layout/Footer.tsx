@@ -7,6 +7,16 @@ const contactStyle: React.CSSProperties = {
   display: 'flex', alignItems: 'center', gap: '0.45rem',
 };
 
+const serviceLinks = [
+  { href: '/sluzby/cisteni-interieru-brno', label: 'Čištění interiéru Brno' },
+  { href: '/sluzby/cisteni-exterieru-brno', label: 'Čištění exteriéru Brno' },
+  { href: '/sluzby/renovace-laku-brno', label: 'Renovace a oprava laku Brno' },
+  { href: '/sluzby/ochrana-laku-brno', label: 'Keramická ochrana laku Brno' },
+  { href: '/sluzby/renovace-svetel-brno', label: 'Renovace světlometů Brno' },
+  { href: '/sluzby/renovace-kuze-brno', label: 'Renovace kožených sedadel' },
+  { href: '/sluzby/oprava-skrabancu-brno', label: 'Oprava škrábanců' },
+];
+
 export function Footer() {
   return (
     <footer style={{ backgroundColor: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.2)', padding: '1.25rem 1.5rem' }}>
@@ -60,6 +70,15 @@ export function Footer() {
         </div>
 
       </div>
+
+      {/* Service links */}
+      <nav aria-label="Služby" style={{ maxWidth: '1280px', margin: '1rem auto 0', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem 1.5rem' }}>
+        {serviceLinks.map(s => (
+          <Link key={s.href} href={s.href} style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.78rem' }}>
+            {s.label}
+          </Link>
+        ))}
+      </nav>
     </footer>
   );
 }

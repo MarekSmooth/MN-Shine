@@ -7,13 +7,13 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const serviceCategories = [
-  { href: '/sluzby#cisteni-interieru', label: 'Čištění interiéru' },
-  { href: '/sluzby#cisteni-exterieru', label: 'Čištění exteriéru' },
-  { href: '/sluzby#renovace-laku', label: 'Renovace laku' },
-  { href: '/sluzby#ochrana-laku', label: 'Ochrana laku' },
-  { href: '/sluzby#renovace-svetel', label: 'Renovace světel' },
-  { href: '/sluzby#renovace-kuze', label: 'Renovace kůže' },
-  { href: '/sluzby#oprava-skrabancu', label: 'Oprava škrábanců' },
+  { href: '/sluzby/cisteni-interieru-brno', label: 'Čištění interiéru' },
+  { href: '/sluzby/cisteni-exterieru-brno', label: 'Čištění exteriéru' },
+  { href: '/sluzby/renovace-laku-brno', label: 'Renovace laku' },
+  { href: '/sluzby/ochrana-laku-brno', label: 'Ochrana laku' },
+  { href: '/sluzby/renovace-svetel-brno', label: 'Renovace světel' },
+  { href: '/sluzby/renovace-kuze-brno', label: 'Renovace kůže' },
+  { href: '/sluzby/oprava-skrabancu-brno', label: 'Oprava škrábanců' },
 ];
 
 const leftLinks = [

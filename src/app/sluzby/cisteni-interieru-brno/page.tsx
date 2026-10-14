@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
+import { RelatedServices } from '@/components/ui/RelatedServices';
+import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Droplets, Wind, Sparkles } from 'lucide-react';
 
@@ -55,10 +57,10 @@ export default function CisteniInterieru() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Čištění interiéru · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Profesionální čištění interiéru<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
+            Čištění interiéru auta<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Zajistíme hloubkové čištění každého koutu vašeho vozidla. Sedadla, koberce, plasty, strop – vše bude čisté, svěží a dezinfikované. Obsluhujeme zákazníky z Brna a celého Jihomoravského kraje.
+            Zajistíme hloubkové čištění interiéru auta do posledního kouta. Tepování sedaček, koberce, plasty, strop – vše bude čisté, svěží a dezinfikované. Obsluhujeme zákazníky z Brna a celého Jihomoravského kraje.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -90,7 +92,7 @@ export default function CisteniInterieru() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: <Sparkles size={24} />, title: 'Sedadla a čalounění', desc: 'Šetrný, ale učinný postup k čištění kožených i látkových povrchů. Odstranění skvrn a pachů.' },
+              { icon: <Sparkles size={24} />, title: 'Tepování sedaček a čalounění', desc: 'Tepování látkových sedaček a šetrné čištění kůže. Odstranění skvrn a pachů.' },
               { icon: <Droplets size={24} />, title: 'Koberce a rohožky', desc: 'Hloubkové čištění koberců mokrou extrakcí. Odstraňujeme nečistoty, písek i zatvrdlé skvrny.' },
               { icon: <Wind size={24} />, title: 'Plasty a palubní deska', desc: 'Čištění a ošetření všech plastových povrchů, vzduchových otvorů, kapes a úchytů.' },
               { icon: <Sparkles size={24} />, title: 'Strop a sloupky', desc: 'Šetrné čištění stropu a sloupků, které odstraní skvrny a šmouhy bez poškození materiálu.' },
@@ -134,7 +136,7 @@ export default function CisteniInterieru() {
             {[
               { step: '01', title: 'Vysávání', desc: 'Důkladné vysání celého interiéru včetně spár, pod sedadly a v kapsách.' },
               { step: '02', title: 'Předúprava', desc: 'Aplikace přípravků na předúpravu skvrn a silně znečištěných míst.' },
-              { step: '03', title: 'Extrakce a parní čištění', desc: 'Mokrá extrakce koberců a sedadel, parní čištění pro dezinfekci.' },
+              { step: '03', title: 'Tepování a parní čištění', desc: 'Tepování koberců a sedadel (mokrá extrakce), parní čištění pro dezinfekci.' },
               { step: '04', title: 'Čištění plastů', desc: 'Šetrné čištění a ošetření palubní desky, dveřních panelů a plastů.' },
               { step: '05', title: 'Čištění skel zevnitř', desc: 'Čištění všech skel pro dokonalý výhled beze šmouh.' },
               { step: '06', title: 'Ošetření a finalizace', desc: 'Výživa plastů impregnací, finální prohlídka a předání.' },
@@ -149,6 +151,14 @@ export default function CisteniInterieru() {
             ))}
           </div>
         </section>
+
+        <ServiceBeforeAfter galleryId="cisteni-interieru" label="Čištění interiéru auta" />
+
+        <RelatedServices items={[
+          { href: '/sluzby/renovace-kuze-brno', title: 'Renovace kožených sedadel', text: 'Popraskaná nebo odřená kůže? Vyčistíme, opravíme a přebarvíme kožená sedadla.' },
+          { href: '/sluzby/cisteni-exterieru-brno', title: 'Čištění exteriéru', text: 'Ruční mytí a dekontaminace laku – auto čisté i zvenku.' },
+          { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Strojní oprava a rozleštění laku pro lesk jako z výroby.' },
+        ]} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Časté dotazy ke čištění interiéru</h2>

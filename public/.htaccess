@@ -12,6 +12,18 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Kanonicka domena: http:// i www. -> https://mnshine.cz (301)
+  # X-Forwarded-Proto kvuli SSL terminaci na proxy Wedosu (jinak redirect smycka)
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://mnshine.cz/$1 [R=301,L]
+
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^(.*)$ https://mnshine.cz/$1 [R=301,L]
+
+  # Stara URL z WordPressu
+  RewriteRule ^kontact/?$ /kontakt [R=301,L]
+
   # /cesta -> /cesta.html JAKO PRVNI — predejde situaci, kdy mod_dir prida lomitko
   # drive nez mod_rewrite stihne reagovat (redirect smycka na Wedosu)
   RewriteCond %{REQUEST_FILENAME} !-f

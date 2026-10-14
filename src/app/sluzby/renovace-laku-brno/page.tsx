@@ -1,20 +1,22 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
+import { RelatedServices } from '@/components/ui/RelatedServices';
+import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Zap, Eye, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Renovace a leštění laku Brno',
-  description: 'Profesionální renovace a korekce laku vozidla v Brně. Odstraníme škrábance, víry i oxidaci strojním leštěním. Studio ve Vojkovicích u Brna.',
-  keywords: ['renovace laku Brno', 'leštění laku Brno', 'korekce laku Brno', 'odstranění škrábanců Brno', 'polish auto Brno'],
+  title: 'Renovace, oprava a leštění laku Brno',
+  description: 'Renovace a oprava laku v Brně. Strojním rozleštěním laku odstraníme škrábance, víry i oxidaci. Cena od 7 999 Kč. Studio ve Vojkovicích u Brna.',
+  keywords: ['renovace laku Brno', 'oprava laku Brno', 'rozleštění laku', 'leštění laku Brno', 'korekce laku Brno', 'odstranění škrábanců Brno', 'polish auto Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/renovace-laku-brno',
   },
   openGraph: {
     type: 'website',
     url: 'https://mnshine.cz/sluzby/renovace-laku-brno',
-    title: 'Renovace a leštění laku Brno | MN Shine Detailing',
+    title: 'Renovace, oprava a leštění laku Brno | MN Shine Detailing',
     description: 'Profesionální renovace a korekce laku vozidla v Brně. Strojní leštění, odstranění škrábanců.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Renovace laku Brno – MN Shine' }],
   },};
@@ -25,7 +27,7 @@ const faqItems = [
     answer: 'Strojní leštění odstraňuje povrchové škrábance, které neprorůstají přes lak. Hlubší škrábance, které sahají až na plech, leštěním neodstraníme – provádíme retuše laku, v ostatních případech je potřeba lakýrnická oprava. Vždy provedeme diagnostiku a řekneme vám, co je možné opravit.',
   },
   {
-    question: 'Kolik stojí renovace laku v Brně?',
+    question: 'Kolik stojí renovace a rozleštění laku?',
     answer: 'Cena závisí na velikosti vozidla, míře poškození a zvoleném postupu (jednokroková nebo vícekroková korekce). Ceny začínají od 7 999 Kč. Přesnou kalkulaci připravíme po prohlídce a diagnostice laku. Například jednokroková renovace běžného vozidla Škoda Octavia kombi cena vychází 10 000 Kč bez finální ochrany laku.',
   },
   {
@@ -56,7 +58,7 @@ export default function RenovaceLakuPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Renovace laku · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Renovace a korekce laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
+            Renovace a oprava laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             Vrátíme vašemu autu původní lesk. Profesionálním strojním leštěním odstraníme škrábance, víry, matnou oxidaci a jiné povrchové defekty. Výsledkem je lak zářící jako z výroby. Studio MN Shine ve Vojkovicích u Brna.
@@ -87,7 +89,7 @@ export default function RenovaceLakuPage() {
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je renovace laku?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Renovace laku, neboli korekce laku, je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
+            Renovace laku (často se jí říká také oprava laku, rozleštění nebo korekce laku) je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
           </p>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
             Víry v laku (swirl marks) jsou drobné kruhové škrábance způsobené nesprávným mytím a leštěním. Při světle (zejména přímém slunci) jsou velmi viditelné a kazí celkový dojem z vozidla. Naším leštěním je odstraníme.
@@ -179,6 +181,14 @@ export default function RenovaceLakuPage() {
             ))}
           </div>
         </section>
+
+        <ServiceBeforeAfter galleryId="renovace-laku" label="Renovace a rozleštění laku" />
+
+        <RelatedServices items={[
+          { href: '/sluzby/ochrana-laku-brno', title: 'Keramická ochrana laku', text: 'Po rozleštění lak ochraňte keramickým povlakem – lesk vydrží roky, ne týdny.' },
+          { href: '/sluzby/oprava-skrabancu-brno', title: 'Oprava škrábanců', text: 'Hlubší jednotlivé škrábance opravíme lokálně retuší bez lakovny.' },
+          { href: '/sluzby/cisteni-exterieru-brno', title: 'Čištění exteriéru', text: 'Pravidelné šetrné ruční mytí, které nový lesk laku nepoškrábe.' },
+        ]} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Časté dotazy k renovaci laku</h2>

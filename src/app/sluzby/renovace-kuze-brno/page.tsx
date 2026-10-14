@@ -1,6 +1,8 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
+import { RelatedServices } from '@/components/ui/RelatedServices';
+import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Shield, Droplets } from 'lucide-react';
 
@@ -115,6 +117,14 @@ export default function RenovaceKuzePage() {
             ))}
           </div>
         </section>
+
+        <ServiceBeforeAfter galleryId="renovace-kuze" label="Renovace kožených sedadel" />
+
+        <RelatedServices items={[
+          { href: '/sluzby/cisteni-interieru-brno', title: 'Čištění interiéru auta', text: 'Hloubkové čištění a tepování sedaček, koberců, plastů i stropu.' },
+          { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Strojní oprava a rozleštění laku – odstraníme víry, škrábance i oxidaci.' },
+          { href: '/sluzby/ochrana-laku-brno', title: 'Keramická ochrana laku', text: 'Dlouhodobá keramická ochrana laku s hydrofobním efektem.' },
+        ]} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Časté dotazy</h2>
