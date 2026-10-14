@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { pickSrc } from '@/lib/responsiveImage';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 import { galleryServices as services } from '@/data/gallery';
 import type { Pair } from '@/data/gallery';
@@ -63,7 +64,7 @@ export default function GalerieContent() {
       const img = new window.Image();
       img.onload = checkDone;
       img.onerror = checkDone;
-      img.src = src;
+      img.src = pickSrc(src);
     });
     return () => { cancelled = true; clearTimeout(maxTimer); };
   // eslint-disable-next-line react-hooks/exhaustive-deps

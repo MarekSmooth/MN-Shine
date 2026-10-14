@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import Image from 'next/image';
+import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 
 interface ImagePair {
   before: string;
@@ -125,11 +125,9 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
           background: pair.before ? undefined : 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0a0a0a 100%)',
         }}>
           {pair.before && (
-            <Image
+            <ResponsiveImage
               src={pair.before}
               alt={`${altSubject} – před`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
             />
           )}
@@ -149,11 +147,9 @@ export function BeforeAfterSlider({ label, beforeImage, afterImage, pairs: pairs
           background: pair.after ? undefined : 'linear-gradient(135deg, #0f1520 0%, #1e2a38 50%, #0a0f17 100%)',
         }}>
           {pair.after && (
-            <Image
+            <ResponsiveImage
               src={pair.after}
               alt={`${altSubject} – po`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
             />
           )}

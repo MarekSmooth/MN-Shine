@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import { ResponsiveImage } from '@/components/ui/ResponsiveImage';
 import { galleryServices } from '@/data/gallery';
 import GalleryLoadingOverlay from '@/components/ui/GalleryLoadingOverlay';
 
@@ -71,11 +71,9 @@ export default function KategorieGalerieContent({ kategorie }: Props) {
           >
             {/* paddingTop 75% = 3/4 → spolehlivě landscape kontejner pro fill Image */}
             <div style={{ position: 'relative', paddingTop: '75%' }}>
-              <Image
+              <ResponsiveImage
                 src={src}
                 alt={`${service?.name ?? ''} – fotografie ${idx + 1}`}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 style={{ objectFit: 'cover', transition: 'transform 0.35s ease' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.05)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'; }}
@@ -109,11 +107,9 @@ export default function KategorieGalerieContent({ kategorie }: Props) {
               transition: 'transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease',
             }}
           >
-            <Image
+            <ResponsiveImage
               src={images[activeIndex]}
               alt={`${service?.name ?? ''} – fotografie ${activeIndex + 1}`}
-              fill
-              sizes="92vw"
               style={{ objectFit: 'contain' }}
               priority
             />

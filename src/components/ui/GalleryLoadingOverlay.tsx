@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { pickSrc } from '@/lib/responsiveImage';
 
 interface Props {
   imageSrcs: string[];
@@ -44,7 +45,7 @@ export default function GalleryLoadingOverlay({ imageSrcs }: Props) {
       const img = new window.Image();
       img.onload = checkDone;
       img.onerror = checkDone;
-      img.src = src;
+      img.src = pickSrc(src);
     });
 
     return () => {
