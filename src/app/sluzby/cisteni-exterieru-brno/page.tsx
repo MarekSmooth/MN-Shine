@@ -9,7 +9,7 @@ import { CheckCircle, Droplets, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Čištění exteriéru auta Brno',
-  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, dekontaminace laku a čištění kol a disků. Vojkovice u Brna.',
+  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, dekontaminace laku, detailní čištění ráfků a aplikace tekutého vosku. Vojkovice u Brna.',
   keywords: ['čištění exteriéru Brno', 'ruční mytí auta Brno', 'dekontaminace laku Brno', 'mytí auta Brno', 'detailing exteriér Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/cisteni-exterieru-brno',
@@ -84,10 +84,10 @@ export default function CisteniExterieru() {
         <ServiceBeforeAfter galleryId="cisteni-exterieru" label="Čištění exteriéru auta" />
 
         <PriceVariants
-          note={<>Přesná cena závisí na velikosti vozu a míře znečištění. Ochrana laku voskem nebo keramikou není součástí mytí – viz <Link href="/sluzby/ochrana-laku-brno" style={{ color: '#FFFFFF' }}>ochrana laku</Link>.</>}
+          note={<>Přesná cena závisí na velikosti vozu a míře znečištění. Součástí obou variant je aplikace tekutého vosku. Dlouhodobou ochranu tuhým voskem nebo keramickým povlakem nabízíme jako samostatnou službu – viz <Link href="/sluzby/ochrana-laku-brno" style={{ color: '#FFFFFF' }}>ochrana laku</Link>.</>}
           variants={[
-          { label: 'Důkladné ruční mytí od', price: '1 500 Kč', desc: 'Předmytí aktivní pěnou, čištění disků, šetrné ruční mytí karoserie a sušení. Ideální pro pravidelnou péči o vůz.' },
-          { label: 'Detailní mytí od', price: '2 999 Kč', desc: 'Vše z důkladného mytí a navíc chemická dekontaminace a odmaštění laku. Odstraní polétavou rez, asfalt i pryskyřici.' },
+          { label: 'Důkladné ruční mytí od', price: '799 Kč', desc: 'Předmytí aktivní pěnou, šetrné ruční mytí karoserie, sušení a aplikace tekutého vosku. Bez detailního čištění ráfků. Ideální pro pravidelnou péči o vůz.' },
+          { label: 'Detailní mytí od', price: '2 999 Kč', desc: 'Vše z důkladného mytí a navíc detailní čištění ráfků, chemická dekontaminace a odmaštění laku. Odstraní polétavou rez, asfalt i pryskyřici.' },
           ]}
         />
 
@@ -101,7 +101,7 @@ export default function CisteniExterieru() {
               { icon: <Droplets size={24} />, title: 'Šetrné ruční mytí', desc: 'Předmytí aktivní pěnou a ruční mytí dvoukbelíkovou technikou bez rizika poškrábání laku.' },
               { icon: <Shield size={24} />, title: 'Dekontaminace laku', desc: 'Chemické odstranění polétavé rzi, asfaltu a zapečených nečistot, které běžné mytí neodstraní.' },
               { icon: <Sparkles size={24} />, title: 'Čištění kol a disků', desc: 'Specializovaná příprava na čištění ráfků a pneumatik včetně podběhů.' },
-              { icon: <Droplets size={24} />, title: 'Šetrné sušení', desc: 'Sušení bez rizika poškrábání a zbavení laku zbytků mastnoty – lak je připravený na případnou ochranu.' },
+              { icon: <Droplets size={24} />, title: 'Sušení a tekutý vosk', desc: 'Šetrné sušení bez rizika poškrábání a aplikace tekutého vosku pro lesk a hydrofobní efekt.' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
@@ -138,7 +138,7 @@ export default function CisteniExterieru() {
               { step: '03', title: 'Ruční mytí', desc: 'Šetrné mytí karoserie, skel, zrcátek a lemů.' },
               { step: '04', title: 'Chemická dekontaminace', desc: 'Aplikace přípravků na odstranění polétavé rzi, asfaltu a pryskyřice z povrchu laku.' },
               { step: '05', title: 'Sušení a příprava', desc: 'Šetrné sušení a zbavení laku zbytků mastnoty.' },
-              { step: '06', title: 'Kontrola a předání', desc: 'Finální kontrola karoserie a předání vozu. Na přání můžeme navázat aplikací vosku nebo keramické ochrany laku, která se účtuje zvlášť.' },
+              { step: '06', title: 'Aplikace tekutého vosku', desc: 'Nanesení tekutého vosku pro lesk a hydrofobní efekt. Na přání můžeme navázat dlouhodobou ochranou tuhým voskem nebo keramickým povlakem, která se účtuje zvlášť.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

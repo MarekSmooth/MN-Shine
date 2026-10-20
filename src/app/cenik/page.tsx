@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-type Variant = { name: string; price: string; items: string[]; recommended?: boolean; note?: string };
+type Variant = { name: string; price: string; items: string[]; excluded?: string[]; recommended?: boolean; note?: string };
 type ServiceGroup = { id: string; name: string; href: string; priceNote: string; miniVariant?: { name: string; price: string; items: string[]; note: string }; variants: Variant[] };
 
 const priceCategories: ServiceGroup[] = [
@@ -59,13 +59,14 @@ const priceCategories: ServiceGroup[] = [
     variants: [
       {
         name: 'Důkladné ruční mytí',
-        price: 'od 1 500 Kč',
-        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Šetrné sušení'],
+        price: 'od 799 Kč',
+        items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Šetrné sušení', 'Aplikace tekutého vosku'],
+        excluded: ['V ceně není zahrnuto detailní čištění ráfků'],
       },
       {
         name: 'Detailní mytí s dekontaminací',
         price: 'od 2 999 Kč',
-        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty'],
+        items: ['Předmytí aktivní pěnou', 'Detailní čištění ráfků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty', 'Aplikace tekutého vosku'],
         recommended: true,
       },
     ],
@@ -230,6 +231,12 @@ export default function CenikPage() {
                       {v.items.map(item => (
                         <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: v.recommended ? '#333333' : '#CCCCCC', fontSize: '0.85rem', lineHeight: 1.5 }}>
                           <span style={{ color: v.recommended ? '#0a0a0a' : '#FFFFFF', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.8', flexShrink: 0 }}>✓</span>
+                          {item}
+                        </li>
+                      ))}
+                      {v.excluded?.map(item => (
+                        <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: v.recommended ? '#777777' : 'rgba(255,255,255,0.45)', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                          <span style={{ fontWeight: 700, fontSize: '0.7rem', lineHeight: '1.8', flexShrink: 0 }}>✕</span>
                           {item}
                         </li>
                       ))}
