@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Eye, Shield, Sparkles } from 'lucide-react';
 
@@ -81,6 +82,12 @@ export default function RenovaceSvetelPage() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
         <ServiceBeforeAfter galleryId="renovace-svetel" label="Renovace světlometů" />
+
+        <PriceVariants
+          variants={[
+          { label: 'Renovace světlometů od', price: '799 Kč / kus', desc: 'Broušení a strojní leštění zakaleného krytu a ochranný povlak proti opětovné degradaci. Cena podle stavu světlometů.' },
+          ]}
+        />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje renovace světlometů?</h2>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Zap, Eye, Layers } from 'lucide-react';
 
@@ -79,71 +80,13 @@ export default function RenovaceLakuPage() {
 
         <ServiceBeforeAfter galleryId="renovace-laku" label="Renovace a rozleštění laku" />
 
-        {/* Price highlight */}
-        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <div>
-            <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>6 999 Kč</p>
-          </div>
-          <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a míře poškození laku – viz <a href="#cenik-podle-velikosti" style={{ color: '#FFFFFF' }}>ceník podle velikosti auta</a>. Po diagnostice připravíme přesnou kalkulaci.</p>
-        </div>
-
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je renovace laku?</h2>
-          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Renovace laku (často se jí říká také oprava laku, rozleštění nebo korekce laku) je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
-          </p>
-          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Víry v laku (swirl marks) jsou drobné kruhové škrábance způsobené nesprávným mytím a leštěním. Při světle (zejména přímém slunci) jsou velmi viditelné a kazí celkový dojem z vozidla. Naším leštěním je odstraníme.
-          </p>
-          <p style={{ color: '#9CA3AF', lineHeight: 1.8 }}>
-            Oxidace laku je důsledkem dlouhodobého působení UV záření. Projevuje se matným, vybledlým nebo křídovým povrchem. Správnou korekcí laku oxidaci odstraníme a obnovíme původní hloubku a lesk barvy.
-          </p>
-        </section>
-
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co odstraníme z vašeho laku?</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-            {[
-              { icon: <Eye size={24} />, title: 'Víry (swirl marks)', desc: 'Drobné kruhové škrábance vzniklé nejčastěji nesprávným mytím.' },
-              { icon: <Zap size={24} />, title: 'Povrchové škrábance', desc: 'Lehké škrábance neprorůstající přes čirý lak (clear coat).' },
-              { icon: <Layers size={24} />, title: 'Oxidace a matnost', desc: 'Degradace způsobená UV zářením – matný a křídový povrch.' },
-              { icon: <Eye size={24} />, title: 'Vodní kámen', desc: 'Minerální usazeniny zanechané po odpaření vody z povrchu laku.' },
-            ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
-                <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
-                <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1rem' }}>{item.title}</h3>
-                <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, fontSize: '0.9rem' }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Typy renovace (korekce) laku</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[
-              {
-                title: 'Jednokroková korekce',
-                desc: 'Jednokroková korekce pro vozidla s mírnými defekty. Leštění jemnou pastou odstraní víry a lehké škrábance a obnoví lesk. Ideální pro oživení sytosti a lesku laku.',
-                price: 'od 6 999 Kč',
-              },
-              {
-                title: 'Vícekroková korekce',
-                desc: 'Vícekroková korekce pro vozidla s výraznějšími defekty. U nejhoších případů se začíná broušením laku, následuje leštění od nejhrubších past a kotoučů až po ty nejjemnější pro maximální lesk. Doporučujeme pro starší nebo zanedbaná vozidla.',
-                price: 'od 9 999 Kč',
-              },
-            ].map(item => (
-              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem 2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
-                <div style={{ flex: 1 }}>
-                  <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1.1rem' }}>{item.title}</h3>
-                  <p style={{ color: '#9CA3AF', margin: 0, lineHeight: 1.6, fontSize: '0.95rem' }}>{item.desc}</p>
-                </div>
-                <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap' }}>{item.price}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <PriceVariants
+          note={<>Uvedené ceny platí pro malé auto. Ceny pro střední a velká auta najdete v tabulce níže.</>}
+          variants={[
+          { label: 'Jednokroková renovace od', price: '6 999 Kč', desc: 'Pro lak s mírnými defekty. Strojní leštění odstraní víry a lehké škrábance a obnoví lesk. Včetně mytí a dekontaminace, 2–3 dny.' },
+          { label: 'Vícekroková renovace od', price: '9 999 Kč', desc: 'Pro starší nebo zanedbaný lak. Postupné leštění od hrubších po nejjemnější pasty pro maximální korekci a lesk. Včetně mytí a dekontaminace, 3–5 dní.' },
+          ]}
+        />
 
         <section id="cenik-podle-velikosti" style={{ marginBottom: '3rem', scrollMarginTop: '110px' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Kolik stojí renovace a rozleštění laku</h2>
@@ -176,6 +119,37 @@ export default function RenovaceLakuPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je renovace laku?</h2>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
+            Renovace laku (často se jí říká také oprava laku, rozleštění nebo korekce laku) je proces strojního leštění, při kterém odstraňujeme tenkou vrstvu laku obsahující defekty – škrábance, víry, matné plochy a oxidaci. Výsledkem je hladký, lesklý lak bez viditelných vad.
+          </p>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1rem' }}>
+            Víry v laku (swirl marks) jsou drobné kruhové škrábance způsobené nesprávným mytím a leštěním. Při světle (zejména přímém slunci) jsou velmi viditelné a kazí celkový dojem z vozidla. Naším leštěním je odstraníme.
+          </p>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8 }}>
+            Oxidace laku je důsledkem dlouhodobého působení UV záření. Projevuje se matným, vybledlým nebo křídovým povrchem. Správnou korekcí laku oxidaci odstraníme a obnovíme původní hloubku a lesk barvy.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co odstraníme z vašeho laku?</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
+            {[
+              { icon: <Eye size={24} />, title: 'Víry (swirl marks)', desc: 'Drobné kruhové škrábance vzniklé nejčastěji nesprávným mytím.' },
+              { icon: <Zap size={24} />, title: 'Povrchové škrábance', desc: 'Lehké škrábance neprorůstající přes čirý lak (clear coat).' },
+              { icon: <Layers size={24} />, title: 'Oxidace a matnost', desc: 'Degradace způsobená UV zářením – matný a křídový povrch.' },
+              { icon: <Eye size={24} />, title: 'Vodní kámen', desc: 'Minerální usazeniny zanechané po odpaření vody z povrchu laku.' },
+            ].map(item => (
+              <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
+                <h3 style={{ fontFamily: "'Big Shoulders Display', sans-serif", color: '#FFFFFF', fontWeight: 600, marginBottom: '0.5rem', fontSize: '1rem' }}>{item.title}</h3>
+                <p style={{ color: '#9CA3AF', lineHeight: 1.6, margin: 0, fontSize: '0.9rem' }}>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Shield, Droplets, Sun, Sparkles } from 'lucide-react';
 
@@ -79,26 +80,13 @@ export default function OchranaLakuPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
-        {/* Price highlights */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
-          <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div style={{ width: '220px', flexShrink: 0 }}>
-              <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ochrana voskem od</p>
-              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>1 999 Kč</p>
-            </div>
-            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců. Cena závisí na velikosti vozidla.</p>
-          </div>
-          <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div style={{ width: '220px', flexShrink: 0 }}>
-              <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Keramická ochrana od</p>
-              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>3 499 Kč</p>
-            </div>
-            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Keramický povlak pro hluboký lesk, výrazný hydrofobní efekt a UV ochranu. Ochrana 1–5 let. Cena závisí na velikosti vozidla a zvoleném produktu.</p>
-          </div>
-          <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
-            Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Před nanesením je potřeba auto důkladně umýt, dekontaminovat a odmastit lak; tato příprava se účtuje zvlášť podle stavu vozu (viz <Link href="/sluzby/cisteni-exterieru-brno" style={{ color: '#FFFFFF' }}>čištění exteriéru</Link>).
-          </p>
-        </div>
+        <PriceVariants
+          note={<>Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Před nanesením je potřeba auto důkladně umýt, dekontaminovat a odmastit lak; tato příprava se účtuje zvlášť podle stavu vozu (viz <Link href="/sluzby/cisteni-exterieru-brno" style={{ color: '#FFFFFF' }}>čištění exteriéru</Link>).</>}
+          variants={[
+          { label: 'Ochrana voskem od', price: '1 999 Kč', desc: 'Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců. Cena závisí na velikosti vozidla.' },
+          { label: 'Keramická ochrana od', price: '3 499 Kč', desc: 'Keramický povlak pro hluboký lesk, výrazný hydrofobní efekt a UV ochranu. Ochrana 1–5 let. Cena závisí na velikosti vozidla a zvoleném produktu.' },
+          ]}
+        />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je keramická ochrana laku?</h2>

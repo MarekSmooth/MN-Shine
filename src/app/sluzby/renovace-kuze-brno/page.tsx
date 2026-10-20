@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Shield, Droplets } from 'lucide-react';
 
@@ -81,6 +82,12 @@ export default function RenovaceKuzePage() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
         <ServiceBeforeAfter galleryId="renovace-kuze" label="Renovace kožených sedadel" />
+
+        <PriceVariants
+          variants={[
+          { label: 'Renovace kůže od', price: '2 500 Kč', desc: 'Hloubkové čištění, oprava poškozených míst, barvení a impregnace. Cena závisí na rozsahu poškození a ploše kožených povrchů.' },
+          ]}
+        />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje renovace kůže?</h2>

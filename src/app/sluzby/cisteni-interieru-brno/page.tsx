@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Droplets, Wind, Sparkles } from 'lucide-react';
 
@@ -78,14 +79,15 @@ export default function CisteniInterieru() {
 
         <ServiceBeforeAfter galleryId="cisteni-interieru" label="Čištění interiéru auta" />
 
-        {/* Price highlight */}
-        <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <div>
-            <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>1 999 Kč</p>
-          </div>
-          <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Konečná cena závisí na velikosti vozidla a míře znečištění. Přesnou kalkulaci vám poskytneme po prohlídce.</p>
-        </div>
+        <PriceVariants
+          note={<>Přesná cena závisí na velikosti vozu a míře znečištění interiéru. Podrobný rozpis najdete v <Link href="/cenik" style={{ color: '#FFFFFF' }}>ceníku</Link>.</>}
+          variants={[
+          { label: 'Rychlý refresh od', price: '799 Kč', desc: 'Setření prachu, základní vysátí, čištění skel zevnitř a provonění. Do 1 hodiny, určené pouze pro pravidelně udržované vozy.' },
+          { label: 'Základní od', price: '1 999 Kč', desc: 'Detailní vysátí celého vozu i kufru, hloubkové čištění a impregnace plastů s UV ochranou, čištění skel a provonění.' },
+          { label: 'Kompletní od', price: '2 999 Kč', desc: 'Vše ze základní varianty a navíc hloubkové čištění koberečků, tepování sedaček a čištění kožených sedadel s výživou a impregnací.' },
+          { label: 'Detailní od', price: '4 999 Kč', desc: 'Vše z kompletní varianty a navíc čištění mezidveřních prostorů a kolejnic sedadel, tepování všech koberců, dezinfekce ozonem a impregnace těsnění. SUV, MPV a VAN příplatek 20 %.' },
+          ]}
+        />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje čištění interiéru?</h2>

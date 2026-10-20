@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Droplets, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Čištění exteriéru auta Brno',
-  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, dekontaminace laku, čištění kol a nanesení ochranného vosku. Vojkovice u Brna.',
+  description: 'Profesionální čištění exteriéru vozidla v Brně a okolí. Ruční mytí, dekontaminace laku a čištění kol a disků. Vojkovice u Brna.',
   keywords: ['čištění exteriéru Brno', 'ruční mytí auta Brno', 'dekontaminace laku Brno', 'mytí auta Brno', 'detailing exteriér Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/cisteni-exterieru-brno',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     question: 'Jak se liší vaše čištění od běžné myčky?',
-    answer: 'Automatické myčky používají tvrdé kartáče a agresivní chemii, která časem poškozuje lak a způsobuje jemné škrábance. Naše ruční mytí probíhá šetrnými přípravky a dvoukbelíkovou technikou, která lak nepoškodí. Navíc provádíme chemickou dekontaminaci a nanášíme ochranný povlak.',
+    answer: 'Automatické myčky používají tvrdé kartáče a agresivní chemii, která časem poškozuje lak a způsobuje jemné škrábance. Naše ruční mytí probíhá šetrnými přípravky a dvoukbelíkovou technikou, která lak nepoškodí. U detailního mytí navíc provádíme chemickou dekontaminaci laku, která odstraní polétavou rez, asfalt a pryskyřici.',
   },
   {
     question: 'Co je chemická dekontaminace laku?',
@@ -40,7 +41,7 @@ const faqItems = [
 export default function CisteniExterieru() {
   const schema = getServiceSchema(
     'Čištění exteriéru Brno',
-    'Profesionální ruční mytí a dekontaminace exteriéru vozidla. Čištění disků, nanesení ochranného vosku.',
+    'Profesionální ruční mytí a dekontaminace exteriéru vozidla. Čištění kol a disků.',
     'https://mnshine.cz/sluzby/cisteni-exterieru-brno'
   );
   const faqSchema = getFAQSchema(faqItems);
@@ -64,7 +65,7 @@ export default function CisteniExterieru() {
             Profesionální čištění exteriéru<br />Vojkovice, Brno a okolí
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Ruční mytí, hloubková dekontaminace laku a nanesení ochranného povlaku – základ péče o každé vozidlo. Výsledek, který běžná myčka nikdy neposkytne.
+            Ruční mytí a hloubková dekontaminace laku – základ péče o každé vozidlo. Výsledek, který běžná myčka nikdy neposkytne.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -82,17 +83,25 @@ export default function CisteniExterieru() {
 
         <ServiceBeforeAfter galleryId="cisteni-exterieru" label="Čištění exteriéru auta" />
 
+        <PriceVariants
+          note={<>Přesná cena závisí na velikosti vozu a míře znečištění. Ochrana laku voskem nebo keramikou není součástí mytí – viz <Link href="/sluzby/ochrana-laku-brno" style={{ color: '#FFFFFF' }}>ochrana laku</Link>.</>}
+          variants={[
+          { label: 'Důkladné ruční mytí od', price: '1 500 Kč', desc: 'Předmytí aktivní pěnou, čištění disků, šetrné ruční mytí karoserie a sušení. Ideální pro pravidelnou péči o vůz.' },
+          { label: 'Detailní mytí od', price: '2 999 Kč', desc: 'Vše z důkladného mytí a navíc chemická dekontaminace a odmaštění laku. Odstraní polétavou rez, asfalt i pryskyřici.' },
+          ]}
+        />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje čištění exteriéru?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            Naše čištění exteriéru není jen mytí – je to kompletní péče o povrch vozidla. Každý krok má svůj účel: od šetrného předmytí přes dekontaminaci až po nanesení ochranné vrstvy, která lak chrání dlouhodobě.
+            Naše čištění exteriéru není jen mytí – je to kompletní péče o povrch vozidla. Každý krok má svůj účel: od šetrného předmytí přes čištění kol až po dekontaminaci laku, která odstraní i nečistoty, na které běžné mytí nestačí.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {[
               { icon: <Droplets size={24} />, title: 'Šetrné ruční mytí', desc: 'Předmytí aktivní pěnou a ruční mytí dvoukbelíkovou technikou bez rizika poškrábání laku.' },
               { icon: <Shield size={24} />, title: 'Dekontaminace laku', desc: 'Chemické odstranění polétavé rzi, asfaltu a zapečených nečistot, které běžné mytí neodstraní.' },
               { icon: <Sparkles size={24} />, title: 'Čištění kol a disků', desc: 'Specializovaná příprava na čištění ráfků a pneumatik včetně podběhů.' },
-              { icon: <Shield size={24} />, title: 'Ochranný povlak', desc: 'Nanesení tuhého vosku nebo keramické ochrany pro hydrofobní efekt a zachování lesku.' },
+              { icon: <Droplets size={24} />, title: 'Šetrné sušení', desc: 'Sušení bez rizika poškrábání a zbavení laku zbytků mastnoty – lak je připravený na případnou ochranu.' },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ color: '#FFFFFF', marginBottom: '0.75rem' }}>{item.icon}</div>
@@ -109,9 +118,8 @@ export default function CisteniExterieru() {
             {[
               'Automatické myčky způsobují mikroškrábance – ruční mytí a kombinace dvoukbelíkové techniky lak nepoškodí',
               'Dekontaminace odstraní látky, které běžným mytím nelze odstranit',
-              'Ochranný povlak prodlouží interval nutného mytí a usnadní každodenní péči',
-              'Čistý a ošetřený lak zachovává tržní hodnotu vozidla',
-              'Základ pro každou další prémiovou péči – renovaci nebo keramickou ochranu',
+                            'Čistý a ošetřený lak zachovává tržní hodnotu vozidla',
+              'Nezbytná příprava před renovací laku nebo aplikací vosku či keramické ochrany',
             ].map(item => (
               <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <CheckCircle size={18} style={{ color: '#FFFFFF', marginTop: '2px', flexShrink: 0 }} />
@@ -129,8 +137,8 @@ export default function CisteniExterieru() {
               { step: '02', title: 'Čištění kol a podběhů', desc: 'Aplikace přípravku na ráfky a pneumatiky, ruční čištění podběhů od bláta a nečistot.' },
               { step: '03', title: 'Ruční mytí', desc: 'Šetrné mytí karoserie, skel, zrcátek a lemů.' },
               { step: '04', title: 'Chemická dekontaminace', desc: 'Aplikace přípravků na odstranění polétavé rzi, asfaltu a pryskyřice z povrchu laku.' },
-              { step: '05', title: 'Sušení a příprava', desc: 'Šetrné sušení, zbavení laku zbytků mastnoty a příprava na nanesení ochrany laku.' },
-              { step: '06', title: 'Nanesení ochranného povlaku', desc: 'Aplikace tuhého vosku nebo keramické ochrany pro hydrofobní efekt a dlouhodobou ochranu.' },
+              { step: '05', title: 'Sušení a příprava', desc: 'Šetrné sušení a zbavení laku zbytků mastnoty.' },
+              { step: '06', title: 'Kontrola a předání', desc: 'Finální kontrola karoserie a předání vozu. Na přání můžeme navázat aplikací vosku nebo keramické ochrany laku, která se účtuje zvlášť.' },
             ].map(item => (
               <div key={item.step} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1rem', backgroundColor: '#111111', borderRadius: '0' }}>
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.25rem', fontFamily: "'Big Shoulders Display', sans-serif", minWidth: '32px' }}>{item.step}</span>

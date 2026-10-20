@@ -58,10 +58,15 @@ const priceCategories: ServiceGroup[] = [
     priceNote: 'Přesná cena závisí na velikosti vozu a stupni znečištění a zanesení laku.',
     variants: [
       {
-        name: 'Důkladné mytí s ochranou laku',
-        price: 'od 3 999 Kč',
-        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku (vosk nebo keramika)'],
-        note: 'Časová náročnost 1–2 dny',
+        name: 'Důkladné ruční mytí',
+        price: 'od 1 500 Kč',
+        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Šetrné sušení'],
+      },
+      {
+        name: 'Detailní mytí s dekontaminací',
+        price: 'od 2 999 Kč',
+        items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty'],
+        recommended: true,
       },
     ],
   },

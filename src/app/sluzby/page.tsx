@@ -62,7 +62,8 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/exterier.webp',
     forWho: 'Základ péče o každý vůz. Provádí se před aplikací ochrany laku, nebo pro důkladné mytí s odstraněním polétavé rzi, asfaltu, pryskyřice a dalších těžce odstranitelných nečistot, které nelze odstranit běžným mytím.',
     variants: [
-      { name: 'Důkladné mytí s ochranou laku', price: 'od 3 999 Kč', items: ['Předmytí aktivní pěnou', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Čištění disků a kol', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty', 'Nanesení ochrany laku v podobě tuhého vosku, případně keramické ochrany'] },
+      { name: 'Důkladné ruční mytí', price: 'od 1 500 Kč', items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Šetrné sušení'] },
+      { name: 'Detailní mytí s dekontaminací', price: 'od 2 999 Kč', items: ['Předmytí aktivní pěnou', 'Čištění disků', 'Šetrné ruční mytí karoserie', 'Chemická dekontaminace laku', 'Šetrné sušení', 'Zbavení laku zbytků mastnoty'], recommended: true },
     ],
   },
   {

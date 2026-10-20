@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
+import { PriceVariants } from '@/components/ui/PriceVariants';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Sparkles, Search, Wrench } from 'lucide-react';
 
@@ -82,6 +83,12 @@ export default function OpravaSkrabancuPage() {
 
         <ServiceBeforeAfter galleryId="oprava-skrabancu" label="Oprava škrábanců laku" />
 
+        <PriceVariants
+          variants={[
+          { label: 'Oprava škrábanců', price: 'Individuálně', desc: 'Cena závisí na počtu, hloubce a rozsahu poškozených míst. Ozvěte se nám a připravíme nabídku.' },
+          ]}
+        />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Jak oprava škrábanců probíhá?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -135,8 +142,7 @@ export default function OpravaSkrabancuPage() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '1.75rem', color: '#FFFFFF', marginBottom: '1rem', marginTop: 0, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Poptejte opravu škrábanců</h2>
           <p style={{ color: '#9CA3AF', marginBottom: '1.5rem' }}>Pošlete nám fotku škrábance – rádi posoudíme, zda je opravitelný bez lakovny a připravíme nabídku.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Kontaktovat nás</Link>
-            <Link href="/cenik" style={{ border: '1px solid #FFFFFF', color: '#FFFFFF', fontWeight: 600, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Zobrazit ceník</Link>
+            <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>Kontaktujte nás</Link>
           </div>
         </div>
       </div>
