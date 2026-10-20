@@ -76,6 +76,8 @@ export default function CisteniInterieru() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="cisteni-interieru" label="Čištění interiéru auta" />
+
         {/* Price highlight */}
         <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
@@ -151,8 +153,6 @@ export default function CisteniInterieru() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="cisteni-interieru" label="Čištění interiéru auta" />
 
         <RelatedServices items={[
           { href: '/sluzby/renovace-kuze-brno', title: 'Renovace kožených sedadel', text: 'Popraskaná nebo odřená kůže? Vyčistíme, opravíme a přebarvíme kožená sedadla.' },

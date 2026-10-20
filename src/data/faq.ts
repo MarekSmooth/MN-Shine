@@ -43,6 +43,6 @@ export const faqs: FAQEntry[] = [
   {
     category: 'Ceny',
     question: 'Jaké jsou přibližné ceny detailingu?',
-    answer: 'Ceny se odvíjejí od velikosti vozidla, jeho stavu a zvolené služby. Čištění interiéru začíná od 1 999 Kč, renovace laku od 7 999 Kč, keramická ochrana od 4 999 Kč. Přesnou kalkulaci vám připravíme po prohlídce vozidla.',
+    answer: 'Ceny se odvíjejí od velikosti vozidla, jeho stavu a zvolené služby. Čištění interiéru začíná od 1 999 Kč, renovace laku od 6 999 Kč, aplikace keramické ochrany od 3 499 Kč (bez přípravy vozu). Přesnou kalkulaci vám připravíme po prohlídce vozidla.',
   },
 ];

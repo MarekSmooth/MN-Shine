@@ -80,6 +80,8 @@ export default function RenovaceKuzePage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="renovace-kuze" label="Renovace kožených sedadel" />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje renovace kůže?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -117,8 +119,6 @@ export default function RenovaceKuzePage() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="renovace-kuze" label="Renovace kožených sedadel" />
 
         <RelatedServices items={[
           { href: '/sluzby/cisteni-interieru-brno', title: 'Čištění interiéru auta', text: 'Hloubkové čištění a tepování sedaček, koberců, plastů i stropu.' },

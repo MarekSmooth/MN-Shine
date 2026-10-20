@@ -80,6 +80,8 @@ export default function OpravaSkrabancuPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="oprava-skrabancu" label="Oprava škrábanců laku" />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Jak oprava škrábanců probíhá?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -117,8 +119,6 @@ export default function OpravaSkrabancuPage() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="oprava-skrabancu" label="Oprava škrábanců laku" />
 
         <RelatedServices items={[
           { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Škrábanců a vírů je na autě víc? Strojní oprava a rozleštění laku celého vozu odstraní povrchové defekty najednou.' },

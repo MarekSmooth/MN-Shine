@@ -31,7 +31,7 @@ const faqItems = [
   },
   {
     question: 'Kolik stojí keramická ochrana laku?',
-    answer: 'Keramická ochrana laku začíná od 4 999 Kč, ochrana voskem od 2 500 Kč. Výsledná cena závisí na velikosti vozidla, stavu laku a zvoleném produktu. Pokud lak potřebuje před aplikací rozleštit, připravíme vám nabídku včetně korekce.',
+    answer: 'Aplikace keramické ochrany laku začíná od 3 499 Kč, aplikace vosku od 1 999 Kč. Ceny jsou bez přípravy vozu – mytí, dekontaminace a odmaštění laku před nanesením se účtují zvlášť podle stavu vozu, stejně jako případné rozleštění laku. Výsledná cena závisí na velikosti vozidla a zvoleném produktu.',
   },
   {
     question: 'Jak keramický povlak chrání lak?',
@@ -82,19 +82,22 @@ export default function OchranaLakuPage() {
         {/* Price highlights */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
           <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div>
+            <div style={{ width: '220px', flexShrink: 0 }}>
               <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ochrana voskem od</p>
-              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>2 500 Kč</p>
+              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>1 999 Kč</p>
             </div>
-            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců.</p>
+            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců. Cena závisí na velikosti vozidla.</p>
           </div>
           <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div>
+            <div style={{ width: '220px', flexShrink: 0 }}>
               <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Keramická ochrana od</p>
-              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>4 999 Kč</p>
+              <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>3 499 Kč</p>
             </div>
-            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Cena závisí na velikosti vozidla a zvoleném produktu. Zahrnuje přípravu laku a aplikaci povlaku.</p>
+            <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '160px' }}>Keramický povlak pro hluboký lesk, výrazný hydrofobní efekt a UV ochranu. Ochrana 1–5 let. Cena závisí na velikosti vozidla a zvoleném produktu.</p>
           </div>
+          <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
+            Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Před nanesením je potřeba auto důkladně umýt, dekontaminovat a odmastit lak; tato příprava se účtuje zvlášť podle stavu vozu (viz <Link href="/sluzby/cisteni-exterieru-brno" style={{ color: '#FFFFFF' }}>čištění exteriéru</Link>).
+          </p>
         </div>
 
         <section style={{ marginBottom: '3rem' }}>
@@ -114,8 +117,8 @@ export default function OchranaLakuPage() {
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Keramika vs. vosk</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
             {[
-              { name: 'Vosk', items: ['Výdrž až 12 měsíců', 'Hluboký lesk a hydrofobní efekt', 'Vhodný jako pravidelná sezónní péče', 'Cena od 2 500 Kč'] },
-              { name: 'Keramická ochrana', items: ['Výdrž v řádu let, ne měsíců', 'Chemicky se váže na lak – nevymývá se', 'Odolnost vůči UV, chemii a lehkým škrábancům', 'Cena od 4 999 Kč'] },
+              { name: 'Vosk', items: ['Výdrž až 12 měsíců', 'Hluboký lesk a hydrofobní efekt', 'Vhodný jako pravidelná sezónní péče', 'Aplikace od 1 999 Kč (bez přípravy vozu)'] },
+              { name: 'Keramická ochrana', items: ['Výdrž v řádu let, ne měsíců', 'Chemicky se váže na lak – nevymývá se', 'Odolnost vůči UV, chemii a lehkým škrábancům', 'Aplikace od 3 499 Kč (bez přípravy vozu)'] },
             ].map(col => (
               <div key={col.name} style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.2)', padding: '1.5rem' }}>
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.15rem', fontWeight: 700, margin: '0 0 1rem' }}>{col.name}</h3>

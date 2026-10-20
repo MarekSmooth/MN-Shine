@@ -8,7 +8,7 @@ import { CheckCircle, Zap, Eye, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Renovace, oprava a leštění laku Brno',
-  description: 'Renovace a oprava laku v Brně. Strojním rozleštěním laku odstraníme škrábance, víry i oxidaci. Cena od 7 999 Kč. Studio ve Vojkovicích u Brna.',
+  description: 'Renovace a oprava laku v Brně. Strojním rozleštěním laku odstraníme škrábance, víry i oxidaci. Cena od 6 999 Kč. Studio ve Vojkovicích u Brna.',
   keywords: ['renovace laku Brno', 'oprava laku Brno', 'rozleštění laku', 'leštění laku Brno', 'korekce laku Brno', 'odstranění škrábanců Brno', 'polish auto Brno'],
   alternates: {
     canonical: 'https://mnshine.cz/sluzby/renovace-laku-brno',
@@ -28,7 +28,7 @@ const faqItems = [
   },
   {
     question: 'Kolik stojí renovace a rozleštění laku?',
-    answer: 'Cena závisí na velikosti vozidla, míře poškození a zvoleném postupu (jednokroková nebo vícekroková korekce). Ceny začínají od 7 999 Kč. Přesnou kalkulaci připravíme po prohlídce a diagnostice laku. Například jednokroková renovace běžného vozidla Škoda Octavia kombi cena vychází 10 000 Kč bez finální ochrany laku.',
+    answer: 'Cena závisí na velikosti vozidla, míře poškození a zvoleném postupu (jednokroková nebo vícekroková korekce). Jednokroková renovace začíná od 6 999 Kč u malého auta, od 8 999 Kč u středního (např. Škoda Octavia) a od 9 999 Kč u velkého. Vícekroková renovace stojí od 9 999 Kč. Přesnou kalkulaci připravíme po prohlídce a diagnostice laku.',
   },
   {
     question: 'Pozná se na autě, že bylo leštěno?',
@@ -58,10 +58,10 @@ export default function RenovaceLakuPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ color: '#FFFFFF', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem' }}>Renovace laku · Brno</div>
           <h1 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FFFFFF', lineHeight: 1, marginBottom: '1.5rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em' }}>
-            Renovace a oprava laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
+            Renovace a leštění laku<br /><span style={{ color: '#FFFFFF' }}>Vojkovice, Brno a okolí</span>
           </h1>
           <p style={{ color: '#9CA3AF', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-            Vrátíme vašemu autu původní lesk. Profesionálním strojním leštěním odstraníme škrábance, víry, matnou oxidaci a jiné povrchové defekty. Výsledkem je lak zářící jako z výroby. Studio MN Shine ve Vojkovicích u Brna.
+            Rozleštění a oprava laku, které vašemu autu vrátí původní lesk. Strojním leštěním odstraníme škrábance, víry, matnou oxidaci a jiné povrchové defekty. Výsledkem je lak zářící jako z výroby. Studio MN Shine ve Vojkovicích u Brna.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/kontakt" style={{ backgroundColor: '#FFFFFF', color: '#0a0a0a', fontWeight: 700, padding: '0.875rem 2rem', borderRadius: '0', textDecoration: 'none' }}>
@@ -77,13 +77,15 @@ export default function RenovaceLakuPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="renovace-laku" label="Renovace a rozleštění laku" />
+
         {/* Price highlight */}
         <div style={{ backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0', padding: '1.5rem', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <div>
             <p style={{ color: '#9CA3AF', fontSize: '0.85rem', margin: '0 0 0.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cena od</p>
-            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>7 999 Kč</p>
+            <p style={{ color: '#FFFFFF', fontSize: '1.75rem', fontWeight: 700, fontFamily: "'Big Shoulders Display', sans-serif", margin: 0 }}>6 999 Kč</p>
           </div>
-          <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a míře poškození laku. Po diagnostice připravíme přesnou kalkulaci.</p>
+          <p style={{ color: '#9CA3AF', margin: 0, flex: 1, minWidth: '200px' }}>Cena závisí na velikosti vozidla a míře poškození laku – viz <a href="#cenik-podle-velikosti" style={{ color: '#FFFFFF' }}>ceník podle velikosti auta</a>. Po diagnostice připravíme přesnou kalkulaci.</p>
         </div>
 
         <section style={{ marginBottom: '3rem' }}>
@@ -124,12 +126,12 @@ export default function RenovaceLakuPage() {
               {
                 title: 'Jednokroková korekce',
                 desc: 'Jednokroková korekce pro vozidla s mírnými defekty. Leštění jemnou pastou odstraní víry a lehké škrábance a obnoví lesk. Ideální pro oživení sytosti a lesku laku.',
-                price: 'od 7 999 Kč',
+                price: 'od 6 999 Kč',
               },
               {
                 title: 'Vícekroková korekce',
                 desc: 'Vícekroková korekce pro vozidla s výraznějšími defekty. U nejhoších případů se začíná broušením laku, následuje leštění od nejhrubších past a kotoučů až po ty nejjemnější pro maximální lesk. Doporučujeme pro starší nebo zanedbaná vozidla.',
-                price: 'od 11 999 Kč',
+                price: 'od 9 999 Kč',
               },
             ].map(item => (
               <div key={item.title} style={{ backgroundColor: '#111111', borderRadius: '0', padding: '1.5rem 2rem', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
@@ -140,6 +142,40 @@ export default function RenovaceLakuPage() {
                 <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap' }}>{item.price}</span>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="cenik-podle-velikosti" style={{ marginBottom: '3rem', scrollMarginTop: '110px' }}>
+          <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Kolik stojí renovace a rozleštění laku</h2>
+          <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+            Orientační ceny podle velikosti auta. Přesnou cenu určíme po diagnostice laku podle rozsahu defektů.
+          </p>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '420px' }}>
+              <thead>
+                <tr>
+                  {['Velikost auta', 'Jednokroková', 'Vícekroková'].map(h => (
+                    <th key={h} style={{ textAlign: 'left', color: '#FFFFFF', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.75rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.3)' }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { size: 'Malé auto', examples: 'např. Škoda Fabia, Toyota Yaris, VW Polo', one: 'od 6 999 Kč', multi: 'od 9 999 Kč' },
+                  { size: 'Střední auto', examples: 'např. Škoda Octavia, VW Golf, Škoda Karoq', one: 'od 8 999 Kč', multi: 'od 11 999 Kč' },
+                  { size: 'Velké auto', examples: 'např. Škoda Superb, VW Tiguan, Volvo XC60', one: 'od 9 999 Kč', multi: 'od 13 999 Kč' },
+                ].map(row => (
+                  <tr key={row.size} style={{ backgroundColor: '#111111' }}>
+                    <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                      <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{row.size}</div>
+                      <div style={{ color: '#9CA3AF', fontSize: '0.85rem', marginTop: '0.2rem' }}>{row.examples}</div>
+                    </td>
+                    <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', fontWeight: 700, whiteSpace: 'nowrap' }}>{row.one}</td>
+                    <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', fontWeight: 700, whiteSpace: 'nowrap' }}>{row.multi}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -181,8 +217,6 @@ export default function RenovaceLakuPage() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="renovace-laku" label="Renovace a rozleštění laku" />
 
         <RelatedServices items={[
           { href: '/sluzby/ochrana-laku-brno', title: 'Keramická ochrana laku', text: 'Po rozleštění lak ochraňte keramickým povlakem – lesk vydrží roky, ne týdny.' },

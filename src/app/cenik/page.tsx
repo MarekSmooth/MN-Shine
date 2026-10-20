@@ -69,17 +69,17 @@ const priceCategories: ServiceGroup[] = [
     id: 'renovace-laku',
     name: 'Renovace laku',
     href: '/sluzby/renovace-laku-brno',
-    priceNote: 'Přesná cena závisí na velikosti vozu a rozsahu defektů a poškození laku.',
+    priceNote: 'Uvedená cena platí pro malé auto. Střední auto od 8 999 Kč (jednokroková) / 11 999 Kč (vícekroková), velké auto od 9 999 Kč / 13 999 Kč. Přesná cena závisí na rozsahu defektů a poškození laku.',
     variants: [
       {
         name: 'Jednokroková renovace',
-        price: 'od 7 999 Kč',
+        price: 'od 6 999 Kč',
         items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a mikroškrábanců', 'Sjednocení lesku po celé karoserii'],
         note: 'Časová náročnost 2–3 dny',
       },
       {
         name: 'Vícekroková renovace',
-        price: 'od 11 999 Kč',
+        price: 'od 9 999 Kč',
         items: ['Ruční mytí a dekontaminace laku', 'Chemická i mechanická dekontaminace', 'Vícekrokové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'],
         recommended: true,
         note: 'Časová náročnost 3–5 dní',
@@ -90,16 +90,16 @@ const priceCategories: ServiceGroup[] = [
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     href: '/sluzby/ochrana-laku-brno',
-    priceNote: 'Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku.',
+    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku.',
     variants: [
       {
         name: 'Voskování',
-        price: 'od 2 500 Kč',
+        price: 'od 1 999 Kč',
         items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu až 12 měsíců', 'Maximální lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'],
       },
       {
         name: 'Keramický povlak',
-        price: 'od 4 999 Kč',
+        price: 'od 3 499 Kč',
         items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'],
         recommended: true,
       },

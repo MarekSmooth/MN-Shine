@@ -69,26 +69,26 @@ const serviceCategories: ServiceCategory[] = [
     id: 'renovace-laku',
     name: 'Renovace laku',
     tagline: 'Strojní leštění a korekce defektů',
-    priceNote: 'Přesná cena závisí na velikosti vozu a rozsahu defektů a poškození laku',
+    priceNote: 'Uvedená cena platí pro malé auto. Střední auto od 8 999 Kč (jednokroková) / 11 999 Kč (vícekroková), velké auto od 9 999 Kč / 13 999 Kč. Přesná cena závisí na rozsahu defektů a poškození laku',
     href: '/sluzby/renovace-laku-brno',
     image: '/icons/renovacelak.webp',
     forWho: 'Trápí vás hologramy, matný, nebo poškrábaný lak? Strojní leštění vrátí laku původní hloubku a lesk.',
     variants: [
-      { name: 'Jednokroková renovace', price: 'od 7 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a mikroškrábanců', 'Sjednocení lesku po celé karoserii'] },
-      { name: 'Vícekroková renovace', price: 'od 11 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Vícekrokové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
+      { name: 'Jednokroková renovace', price: 'od 6 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Jednokrokové strojní leštění', 'Odstranění lehčích defektů a mikroškrábanců', 'Sjednocení lesku po celé karoserii'] },
+      { name: 'Vícekroková renovace', price: 'od 9 999 Kč', items: ['Ruční mytí a příprava na dekontaminaci laku', 'Chemická i mechanická dekontaminace', 'Vícekrokové strojní leštění', 'Maximální korekce škrábanců a defektů', 'Dosažení maximálního lesku a hloubky laku'], recommended: true },
     ],
   },
   {
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     tagline: 'Vosk, keramika nebo PPF fólie',
-    priceNote: 'Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku',
+    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku',
     href: '/sluzby/ochrana-laku-brno',
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
     variants: [
-      { name: 'Voskování', price: 'od 2 500 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu 6 až 12 měsíců', 'Maximální lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'] },
-      { name: 'Keramický povlak', price: 'od 4 999 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
+      { name: 'Voskování', price: 'od 1 999 Kč', items: ['Aplikace prémiového tuhého vosku', 'Ochrana po dobu 6 až 12 měsíců', 'Maximální lesk a hloubka laku', 'Hydrofobní efekt', 'Cenově dostupná sezónní péče'] },
+      { name: 'Keramický povlak', price: 'od 3 499 Kč', items: ['Trvalá chemická vazba s povrchem laku', 'Ochrana dle zvolené varianty 1 až 5 let', 'Výrazný hydrofobní efekt', 'UV ochrana a odolnost vůči chemii', 'Výrazně snazší každodenní údržba'], recommended: true },
     ],
   },
   {
@@ -124,7 +124,7 @@ const serviceCategories: ServiceCategory[] = [
     image: '/icons/skrabance.webp',
     forWho: 'Škrábanec od klíče nebo parkovacího manévru? Minimálně invazivní metody zvládnou většinu povrchových poškození.',
     variants: [
-      { name: 'Oprava škrábanců', price: 'od 999 Kč', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
+      { name: 'Oprava škrábanců', price: 'Cena individuálně', items: ['Diagnostika hloubky poškození', 'Leštění povrchových rýh a škrábanců', 'Lokální touch-up opravy', 'Příprava a sjednocení povrchu', 'Barevné sjednocení ošetřeného místa'] },
     ],
   },
 ];

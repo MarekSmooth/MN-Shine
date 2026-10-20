@@ -80,6 +80,8 @@ export default function RenovaceSvetelPage() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="renovace-svetel" label="Renovace světlometů" />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje renovace světlometů?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -117,8 +119,6 @@ export default function RenovaceSvetelPage() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="renovace-svetel" label="Renovace světlometů" />
 
         <RelatedServices items={[
           { href: '/sluzby/renovace-laku-brno', title: 'Renovace a rozleštění laku', text: 'Světla jako nová a lak matný? Rozleštění a oprava laku vrátí celému autu lesk.' },

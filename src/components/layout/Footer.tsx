@@ -10,7 +10,7 @@ const contactStyle: React.CSSProperties = {
 const serviceLinks = [
   { href: '/sluzby/cisteni-interieru-brno', label: 'Čištění interiéru Brno' },
   { href: '/sluzby/cisteni-exterieru-brno', label: 'Čištění exteriéru Brno' },
-  { href: '/sluzby/renovace-laku-brno', label: 'Renovace a oprava laku Brno' },
+  { href: '/sluzby/renovace-laku-brno', label: 'Renovace a leštění laku Brno' },
   { href: '/sluzby/ochrana-laku-brno', label: 'Keramická ochrana laku Brno' },
   { href: '/sluzby/renovace-svetel-brno', label: 'Renovace světlometů Brno' },
   { href: '/sluzby/renovace-kuze-brno', label: 'Renovace kožených sedadel' },

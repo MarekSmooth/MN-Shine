@@ -80,6 +80,8 @@ export default function CisteniExterieru() {
       {/* Main content */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
+        <ServiceBeforeAfter galleryId="cisteni-exterieru" label="Čištění exteriéru auta" />
+
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co zahrnuje čištění exteriéru?</h2>
           <p style={{ color: '#9CA3AF', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -140,8 +142,6 @@ export default function CisteniExterieru() {
             ))}
           </div>
         </section>
-
-        <ServiceBeforeAfter galleryId="cisteni-exterieru" label="Čištění exteriéru auta" />
 
         <RelatedServices items={[
           { href: '/sluzby/ochrana-laku-brno', title: 'Keramická ochrana laku', text: 'Lesk po mytí udržíte nejdéle s keramickou ochranou laku.' },
