@@ -81,7 +81,7 @@ export default function OchranaLakuPage() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem' }}>
 
         <PriceVariants
-          note={<>Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Před nanesením je potřeba auto důkladně umýt, dekontaminovat a odmastit lak; tato příprava se účtuje zvlášť podle stavu vozu (viz <Link href="/sluzby/cisteni-exterieru-brno" style={{ color: '#FFFFFF' }}>čištění exteriéru</Link>).</>}
+          note={<>Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramického povlaku. Před nanesením je potřeba auto důkladně umýt, dekontaminovat a odmastit lak; tato příprava se účtuje zvlášť podle stavu vozu (viz <Link href="/sluzby/cisteni-exterieru-brno" style={{ color: '#FFFFFF' }}>čištění exteriéru</Link>).</>}
           variants={[
           { label: 'Ochrana voskem od', price: '1 999 Kč', desc: 'Prémiový tuhý vosk pro maximální lesk a hydrofobní efekt. Ochrana až 12 měsíců. Cena závisí na velikosti vozidla.' },
           { label: 'Keramická ochrana od', price: '3 499 Kč', desc: 'Keramický povlak pro hluboký lesk, výrazný hydrofobní efekt a UV ochranu. Ochrana 1–5 let. Cena závisí na velikosti vozidla a zvoleném produktu.' },

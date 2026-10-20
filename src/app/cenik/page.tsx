@@ -95,7 +95,7 @@ const priceCategories: ServiceGroup[] = [
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     href: '/sluzby/ochrana-laku-brno',
-    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku.',
+    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramického povlaku. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku.',
     variants: [
       {
         name: 'Voskování',

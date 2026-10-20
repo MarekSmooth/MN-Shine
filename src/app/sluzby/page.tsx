@@ -83,7 +83,7 @@ const serviceCategories: ServiceCategory[] = [
     id: 'ochrana-laku',
     name: 'Ochrana laku',
     tagline: 'Vosk, keramika nebo PPF fólie',
-    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramiky. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku',
+    priceNote: 'Ceny jsou bez přípravy vozu – zahrnují pouze aplikaci vosku nebo keramického povlaku. Mytí, dekontaminace a odmaštění laku se účtují zvlášť. Přesná cena závisí na velikosti vozu a zvolené metodě ochrany laku',
     href: '/sluzby/ochrana-laku-brno',
     image: '/icons/ochrana.webp',
     forWho: 'Chcete zachovat lak v perfektním stavu a snížit nároky na každodenní údržbu?',
