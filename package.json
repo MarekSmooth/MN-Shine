@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "images:mobile": "node scripts/make-mobile-images.mjs"
+    "images:mobile": "node scripts/make-mobile-images.mjs",
+    "ftp:prepare": "next build && node scripts/prepare-ftp.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.577.0",
