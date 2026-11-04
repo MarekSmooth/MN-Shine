@@ -104,7 +104,7 @@ export default function RenovaceLakuPage() {
               </thead>
               <tbody>
                 {[
-                  { size: 'Malé auto', examples: 'např. Škoda Fabia, Toyota Yaris, VW Polo', one: 'od 6 999 Kč', multi: 'od 9 999 Kč' },
+                  { size: 'Malé auto', examples: 'např. Škoda Citigo, Toyota Yaris, VW Polo', one: 'od 6 999 Kč', multi: 'od 9 999 Kč' },
                   { size: 'Střední auto', examples: 'např. Škoda Octavia, VW Golf, Škoda Karoq', one: 'od 8 999 Kč', multi: 'od 11 999 Kč' },
                   { size: 'Velké auto', examples: 'např. Škoda Superb, VW Tiguan, Volvo XC60', one: 'od 9 999 Kč', multi: 'od 13 999 Kč' },
                 ].map(row => (
