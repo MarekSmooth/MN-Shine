@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
+import { packages, formatCzk } from '@/data/packages';
 
 export const metadata: Metadata = {
   title: 'Ceník služeb Brno',
@@ -163,6 +164,15 @@ export default function CenikPage() {
             Ceny jsou orientační a liší se podle velikosti, stavu a typu vozidla. Přesnou kalkulaci připravíme po osobní prohlídce.
           </p>
         </div>
+
+        {/* Výhodné balíčky */}
+        <Link href="/vyhodne-balicky" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap', backgroundColor: '#111111', border: '1px solid rgba(255,255,255,0.3)', padding: '1.25rem 1.5rem', marginBottom: '3rem', textDecoration: 'none' }}>
+          <div>
+            <div style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.25rem' }}>Výhodné balíčky péče o lak</div>
+            <div style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>{packages.map(p => `${p.shortName} od ${formatCzk(p.priceFrom)}`).join(' · ')}</div>
+          </div>
+          <span style={{ color: '#FFFFFF', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Zobrazit balíčky →</span>
+        </Link>
 
         {/* Service categories with variants */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', marginBottom: '4rem' }}>

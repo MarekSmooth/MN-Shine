@@ -15,6 +15,7 @@ const serviceLinks = [
   { href: '/sluzby/renovace-svetel-brno', label: 'Renovace světlometů Brno' },
   { href: '/sluzby/renovace-kuze-brno', label: 'Renovace kožených sedadel' },
   { href: '/sluzby/oprava-skrabancu-brno', label: 'Oprava škrábanců' },
+  { href: '/vyhodne-balicky', label: 'Výhodné balíčky' },
 ];
 
 export function Footer() {

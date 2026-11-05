@@ -4,6 +4,7 @@ import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { ServiceBeforeAfter } from '@/components/sections/ServiceBeforeAfter';
 import { PriceVariants } from '@/components/ui/PriceVariants';
+import { PackagesTeaser } from '@/components/packages/PackagesTeaser';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Zap, Eye, Layers } from 'lucide-react';
 
@@ -87,6 +88,8 @@ export default function RenovaceLakuPage() {
           { label: 'Vícekroková renovace od', price: '9 999 Kč', desc: 'Pro starší nebo zanedbaný lak. Postupné leštění od hrubších po nejjemnější pasty pro maximální korekci a lesk. Včetně mytí a dekontaminace, 3–5 dní.' },
           ]}
         />
+
+        <PackagesTeaser slugs={['oziveni']} />
 
         <section id="cenik-podle-velikosti" style={{ marginBottom: '3rem', scrollMarginTop: '110px' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Kolik stojí renovace a rozleštění laku</h2>

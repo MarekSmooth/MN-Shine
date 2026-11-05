@@ -42,3 +42,6 @@ next-env.d.ts
 
 # FTP balíček pro Wedos (npm run ftp:prepare)
 /ftp-upload/
+
+# Ukázka pro GitHub Pages (npm run demo:build)
+/demo-out/

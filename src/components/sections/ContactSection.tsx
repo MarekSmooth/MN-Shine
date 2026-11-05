@@ -1,8 +1,11 @@
 ﻿'use client';
 
-import { useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { packages, getPackage } from '@/data/packages';
+import { IS_DEMO } from '@/lib/demo';
 
 interface FormData {
   name: string;
@@ -16,6 +19,29 @@ interface FormData {
 // Klíč z https://web3forms.com – formulář s ním odešle poptávku e-mailem na info@mnshine.cz.
 const WEB3FORMS_ACCESS_KEY = '649214cd-a20c-4d16-a1ca-ccafe6cc5c09';
 
+const SERVICE_OPTIONS = [
+  { value: 'cisteni-interieru', label: 'Čištění interiéru' },
+  { value: 'cisteni-exterieru', label: 'Čištění exteriéru' },
+  { value: 'renovace-laku', label: 'Renovace laku' },
+  { value: 'ochrana-laku', label: 'Ochrana laku' },
+  { value: 'renovace-svetel', label: 'Renovace světel' },
+  { value: 'renovace-kuze', label: 'Renovace kůže' },
+  { value: 'oprava-skrabancu', label: 'Oprava škrábanců' },
+];
+const PACKAGE_OPTIONS = packages.map(p => ({ value: `balicek-${p.slug}`, label: `Výhodný balíček: ${p.name}` }));
+const ALL_OPTIONS = [...SERVICE_OPTIONS, ...PACKAGE_OPTIONS, { value: 'jine', label: 'Jiné' }];
+
+// Předvyplnění balíčku z odkazu ?balicek=<slug> (z cedulky nebo ze stránky Výhodné balíčky).
+// useSearchParams reaguje i na změnu adresy, když už návštěvník na stránce je.
+function PackagePrefill({ onPick }: { onPick: (value: string) => void }) {
+  const slug = useSearchParams().get('balicek');
+  useEffect(() => {
+    const pkg = getPackage(slug);
+    if (pkg) onPick(`balicek-${pkg.slug}`);
+  }, [slug, onPick]);
+  return null;
+}
+
 export function ContactSection() {
   const [form, setForm] = useState<FormData>({
     name: '', phone: '', email: '', vehicle: '', service: '', message: '',
@@ -24,6 +50,7 @@ export function ContactSection() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const pickService = useCallback((service: string) => setForm(f => ({ ...f, service })), []);
 
   const validate = () => {
     const newErrors: Partial<FormData> = {};
@@ -38,6 +65,11 @@ export function ContactSection() {
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      return;
+    }
+
+    if (IS_DEMO) {
+      alert('Toto je ukázka webu – formulář se neodesílá.');
       return;
     }
 
@@ -56,7 +88,7 @@ export function ContactSection() {
           phone: form.phone,
           email: form.email,
           vehicle: form.vehicle,
-          service: form.service,
+          service: ALL_OPTIONS.find(o => o.value === form.service)?.label ?? '',
           message: form.message,
         }),
       });
@@ -174,6 +206,7 @@ export function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                <Suspense fallback={null}><PackagePrefill onPick={pickService} /></Suspense>
                 <div className="form-grid-2col">
                   <div>
                     <label style={{ color: '#9CA3AF', fontSize: '0.85rem', display: 'block', marginBottom: '0.5rem' }}>Jméno a příjmení *</label>
@@ -227,13 +260,10 @@ export function ContactSection() {
                     style={{ ...inputStyle }}
                   >
                     <option value="">Vyberte službu</option>
-                    <option value="cisteni-interieru">Čištění interiéru</option>
-                    <option value="cisteni-exterieru">Čištění exteriéru</option>
-                    <option value="renovace-laku">Renovace laku</option>
-                    <option value="ochrana-laku">Ochrana laku</option>
-                    <option value="renovace-svetel">Renovace světel</option>
-                    <option value="renovace-kuze">Renovace kůže</option>
-                    <option value="oprava-skrabancu">Oprava škrábanců</option>
+                    {SERVICE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    <optgroup label="Výhodné balíčky">
+                      {PACKAGE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    </optgroup>
                     <option value="jine">Jiné</option>
                   </select>
                 </div>

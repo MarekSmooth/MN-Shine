@@ -65,6 +65,28 @@ export function getServiceSchema(name: string, description: string, url: string)
   };
 }
 
+export function getPackageServiceSchema(
+  pkg: { name: string; description: string; prices: { small: number; medium: number; large: number } },
+  url: string,
+) {
+  const offer = (name: string, price: number) => ({
+    '@type': 'Offer',
+    name,
+    price,
+    priceCurrency: 'CZK',
+    url,
+    availability: 'https://schema.org/InStock',
+  });
+  return {
+    ...getServiceSchema(pkg.name, pkg.description, url),
+    offers: [
+      offer('Malé vozidlo', pkg.prices.small),
+      offer('Střední vozidlo', pkg.prices.medium),
+      offer('Velké vozidlo / SUV', pkg.prices.large),
+    ],
+  };
+}
+
 export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',

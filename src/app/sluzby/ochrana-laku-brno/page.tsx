@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FAQItem } from '@/components/ui/FAQItem';
 import { RelatedServices } from '@/components/ui/RelatedServices';
 import { PriceVariants } from '@/components/ui/PriceVariants';
+import { PackagesTeaser } from '@/components/packages/PackagesTeaser';
 import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { CheckCircle, Shield, Droplets, Sun, Sparkles } from 'lucide-react';
 
@@ -87,6 +88,8 @@ export default function OchranaLakuPage() {
           { label: 'Keramická ochrana od', price: '3 499 Kč', desc: 'Keramický povlak pro hluboký lesk, výrazný hydrofobní efekt a UV ochranu. Ochrana 1–5 let. Cena závisí na velikosti vozidla a zvoleném produktu.' },
           ]}
         />
+
+        <PackagesTeaser slugs={['vosk', 'keramika']} />
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: "'Big Shoulders Display', sans-serif", fontSize: '2rem', color: '#FFFFFF', marginBottom: '1.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Co je keramická ochrana laku?</h2>

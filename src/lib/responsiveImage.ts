@@ -3,7 +3,7 @@
 export const MOBILE_QUERY = '(max-width: 768px)';
 
 export function mobileSrc(src: string): string {
-  return /^\/(galery|beforeafter)\/.+\.webp$/.test(src) ? src.replace(/\.webp$/, '-sm.webp') : src;
+  return /\/(galery|beforeafter)\/.+\.webp$/.test(src) ? src.replace(/\.webp$/, '-sm.webp') : src;
 }
 
 // Pro přednačítání přes new Image() – vybere stejnou verzi, jakou pak zobrazí <picture>.

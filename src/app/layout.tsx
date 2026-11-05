@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { PackagesBadge } from "@/components/packages/PackagesBadge";
+import { DemoBadge } from "@/components/packages/DemoBadge";
+import { IS_DEMO } from "@/lib/demo";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -60,6 +63,8 @@ export const metadata: Metadata = {
     description: "Profesionální auto detailing studio ve Vojkovicích u Brna. Obsluha Brna a jihu Moravy.",
     images: ["/og-image.jpg"],
   },
+  // ukázka na GitHub Pages se nesmí indexovat (duplicitní obsah k mnshine.cz)
+  ...(IS_DEMO ? { robots: { index: false, follow: false } } : {}),
 };
 
 export default function RootLayout({
@@ -70,9 +75,9 @@ export default function RootLayout({
   return (
       <html lang="cs" className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${rubik.variable}`}>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16647918075"></script>
-        <script
+        {/* Google tag (gtag.js) – v ukázce se nenačítá */}
+        {!IS_DEMO && <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16647918075"></script>}
+        {!IS_DEMO && <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -81,7 +86,7 @@ export default function RootLayout({
               gtag('config', 'AW-16647918075');
             `,
           }}
-        />
+        />}
         <link rel="preload" href="/icons/exterier.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/ochrana.webp" as="image" type="image/webp" />
         <link rel="preload" href="/icons/interier.webp" as="image" type="image/webp" />
@@ -92,7 +97,8 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </LoadingScreen>
-        <CookieConsent />
+        {IS_DEMO ? <DemoBadge /> : <PackagesBadge />}
+        {!IS_DEMO && <CookieConsent />}
       </body>
     </html>
   );

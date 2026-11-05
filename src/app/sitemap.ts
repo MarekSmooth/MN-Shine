@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/sluzby/renovace-svetel-brno`, lastModified: new Date('2026-10-20'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/sluzby/renovace-kuze-brno`, lastModified: new Date('2026-10-20'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/sluzby/oprava-skrabancu-brno`, lastModified: new Date('2026-10-20'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/vyhodne-balicky`, lastModified: new Date('2026-11-04'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/cenik`, lastModified: new Date('2026-10-20'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/galerie`, lastModified: new Date('2026-05-04'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/galerie/cisteni-interieru`, lastModified: new Date('2026-05-04'), changeFrequency: 'monthly', priority: 0.6 },
