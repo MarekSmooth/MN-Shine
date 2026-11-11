@@ -1,7 +1,5 @@
-/* ===== Plovoucí cedulka „Výhodné balíčky“ ===== */
+/* ===== Plovoucí cedulka „Výhodné balíčky“ – žlutý ribbon s % ===== */
 :root {
-  --pkb-gold: #C9A45C;
-  --pkb-gold-light: #F3D79A;
   --pkb-yellow: #F5C518;
 }
 
@@ -15,20 +13,10 @@
   transform-origin: right center;
 }
 
-.pkb-wrap--a::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  box-shadow: 0 0 24px 3px rgba(201, 164, 92, 0.55);
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* Mobil a tablet (do 1023 px, kdy má web mobilní hlavičku): levá prázdná část hlavičky,
    vertikálně zarovnáno s hamburgerem (hlavička 100 px, tlačítko 44 px) */
 @media (max-width: 1023px) {
   .pkb-wrap { right: auto; top: 28px; left: 1.5rem; transform: none; transform-origin: left center; }
-  .pkb-wrap--a::before { transform: skewX(-8deg); }
 }
 
 /* --- Samotná cedulka (tlačítko) --- */
@@ -39,10 +27,13 @@
   align-items: center;
   gap: 0.6rem;
   border: 0;
-  padding: 0.6rem 1rem 0.6rem 0.75rem;
+  padding: 0.6rem 1rem 0.6rem 1.4rem;
   cursor: pointer;
   font: inherit;
   text-align: left;
+  background: var(--pkb-yellow);
+  color: #0a0a0a;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%); /* zářez ribbonu na volné straně */
   transition: transform 0.2s ease, box-shadow 0.25s ease, rotate 0.25s ease, scale 0.25s ease;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
 }
@@ -56,77 +47,16 @@
   line-height: 1;
   display: block;
 }
-.pkb-tag__sub { display: block; font-size: 0.72rem; margin-top: 0.2rem; letter-spacing: 0.02em; }
 .pkb-tag__img { display: block; height: auto; max-width: 240px; }
-.pkb-tag__pct { display: inline-block; }
-.pkb-tag svg :is(.pkb-pct-sym, .pkb-drop, .pkb-spark) { transform-box: fill-box; transform-origin: center; }
-.pkb-tag svg .pkb-drop { transform-origin: center bottom; }
-.pkb-ring { stroke-dasharray: 1; stroke-dashoffset: 0; }
-
-/* lesk (varianta A) */
-.pkb-tag::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(201, 164, 92, 0.5) 50%, transparent 65%);
-  transform: translateX(-120%);
-  pointer-events: none;
-}
-
-/* obtažení zlatou linkou (varianta A) */
-.pkb-trace { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; opacity: 0; }
-.pkb-trace rect { fill: none; stroke: var(--pkb-gold-light); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; }
-
-/* vlnka (varianta C) */
-.pkb-tag--c::before {
-  content: '';
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  width: 26px;
-  height: 26px;
-  margin-top: -13px;
-  border-radius: 50%;
-  border: 2px solid rgba(10, 10, 10, 0.35);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Varianta A – elegantní */
-.pkb-tag--a { background: #0a0a0a; color: #FFFFFF; border: 1px solid var(--pkb-gold); border-right: 0; }
-.pkb-tag--a .pkb-tag__sub { color: var(--pkb-gold); }
-
-/* Varianta B – výrazná (ribbon) */
-.pkb-tag--b {
-  background: var(--pkb-yellow);
-  color: #0a0a0a;
-  padding-left: 1.4rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
-}
-.pkb-tag--b .pkb-tag__pct { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 2.1rem; line-height: 0.9; }
-.pkb-tag--b .pkb-tag__sub { color: #1a1a1a; }
-.pkb-tag--b::after { display: none; }
-
-/* Varianta C – minimal (pill) */
-.pkb-tag--c { background: #FFFFFF; color: #0a0a0a; border-radius: 999px 0 0 999px; padding: 0.55rem 1rem 0.55rem 0.8rem; }
-.pkb-tag--c .pkb-tag__title { font-size: 0.95rem; }
-.pkb-tag--c .pkb-tag__sub { color: #4B5563; }
-.pkb-tag--c::after { display: none; }
+.pkb-tag__pct { display: inline-block; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 2.1rem; line-height: 0.9; }
 
 /* Kompaktní tvar v hlavičce – stejná výška a zkosení jako hamburger */
 @media (max-width: 1023px) {
-  .pkb-tag { height: 44px; padding: 0 0.7rem; gap: 0.45rem; box-shadow: none; transform: skewX(-8deg); }
-  .pkb-tag > :not(.pkb-trace) { transform: skewX(8deg); }
-  .pkb-tag svg:not(.pkb-trace) { width: 24px; height: 24px; }
-  .pkb-tag .pkb-tag__title { display: block; font-size: 0.78rem; line-height: 1.05; width: min-content; }
-  .pkb-tag .pkb-tag__sub { display: none; }
+  .pkb-tag { height: 44px; padding: 0 0.7rem; gap: 0.45rem; box-shadow: none; clip-path: none; transform: skewX(-8deg); }
+  .pkb-tag > * { transform: skewX(8deg); }
+  .pkb-tag .pkb-tag__title { font-size: 0.78rem; line-height: 1.05; width: min-content; }
   .pkb-tag .pkb-tag__img { max-height: 44px; width: auto; }
-  .pkb-tag.pkb-tag--a { border-right: 1px solid var(--pkb-gold); }
-  .pkb-tag.pkb-tag--b { clip-path: none; padding: 0 0.7rem; }
-  .pkb-tag.pkb-tag--b .pkb-tag__pct { font-size: 1.45rem; }
-  .pkb-tag.pkb-tag--c { border-radius: 999px; transform: none; padding: 0 0.8rem; }
-  .pkb-tag.pkb-tag--c > * { transform: none; }
-  .pkb-tag.pkb-tag--c::before { left: 0.7rem; width: 24px; height: 24px; margin-top: -12px; }
+  .pkb-tag .pkb-tag__pct { font-size: 1.45rem; }
 }
 
 /* „skrýt“ */
@@ -149,63 +79,28 @@
 /* v hlavičce nic nezakrývá – „skrýt“ jen na desktopu */
 @media (max-width: 1023px) { .pkb-hide { display: none; } }
 
-/* ================= POHYB ================= */
+/* ================= POHYB CEDULKY ================= */
 
-/* --- Najetí myší (desktop) --- */
+/* najetí myší (desktop) */
 @media (hover: hover) and (min-width: 1024px) {
-  .pkb-tag:hover { transform: translateX(-4px); }
-  .pkb-tag--a:hover { box-shadow: 0 0 22px 2px rgba(201, 164, 92, 0.45), 0 8px 28px rgba(0, 0, 0, 0.55); }
-  .pkb-tag--b:hover { rotate: -2deg; scale: 1.03; }
-  .pkb-tag--c:hover .pkb-drop { animation: pkb-c-hop 0.5s ease; }
+  .pkb-tag:hover { transform: translateX(-4px) rotate(-2deg) scale(1.03); }
 }
 
-/* --- A: Zlatý podpis --- */
-.pkb-wrap--a.is-entering { animation: pkb-enter-r 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.pkb-wrap--a.is-entering .pkb-trace { animation: pkb-a-trace-fade 1.9s ease 0.45s both; }
-.pkb-wrap--a.is-entering .pkb-trace rect { animation: pkb-a-trace 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.45s both; }
-.pkb-wrap--a.is-entering .pkb-ring { animation: pkb-a-ring 0.9s ease-out 0.55s both; }
-.pkb-wrap--a.is-entering .pkb-pct-sym { animation: pkb-a-pct 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s both; }
-.pkb-wrap--a.is-entering .pkb-tag::after { animation: pkb-shine 1.3s ease-in-out 1.7s both; }
-.pkb-wrap--a.is-reminding .pkb-tag { animation: pkb-a-glow 2.2s ease both; }
-.pkb-wrap--a.is-reminding .pkb-tag::after { animation: pkb-shine 1.3s ease-in-out 0.3s both; }
-.pkb-wrap--a.is-reminding .pkb-ring { animation: pkb-a-ring 0.9s ease-out both; }
+/* nástup: vhoupne se dovnitř, % dopadne jako razítko, cedulka se zavlní */
+.pkb-wrap.is-entering { animation: pkb-swing-r 0.95s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.pkb-wrap.is-entering .pkb-tag__pct { animation: pkb-stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both; }
+.pkb-wrap.is-entering .pkb-tag { animation: pkb-wiggle 0.7s ease-in-out 1.35s both; }
+@media (max-width: 1023px) { .pkb-wrap.is-entering { animation-name: pkb-swing-l; } }
 
-/* --- B: Razítko --- */
-.pkb-wrap--b.is-entering { animation: pkb-b-swing-r 0.95s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.pkb-wrap--b.is-entering .pkb-tag__pct { animation: pkb-b-stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both; }
-.pkb-wrap--b.is-entering .pkb-tag { animation: pkb-b-wiggle 0.7s ease-in-out 1.35s both; }
-.pkb-wrap--b.is-reminding .pkb-tag { animation: pkb-b-wiggle 0.7s ease-in-out both; }
-.pkb-wrap--b.is-reminding .pkb-tag__pct { animation: pkb-b-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
+/* připomenutí (max. 3×) */
+.pkb-wrap.is-reminding .pkb-tag { animation: pkb-wiggle 0.7s ease-in-out both; }
+.pkb-wrap.is-reminding .pkb-tag__pct { animation: pkb-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
 
-/* --- C: Kapka --- */
-.pkb-wrap--c.is-entering { animation: pkb-fade 0.4s ease both; }
-.pkb-wrap--c.is-entering .pkb-tag { animation: pkb-c-unroll-r 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
-.pkb-wrap--c.is-entering :is(.pkb-tag__title, .pkb-tag__sub) { animation: pkb-c-text 0.5s ease 0.6s both; }
-.pkb-wrap--c.is-entering .pkb-drop { animation: pkb-c-drip 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.85s both; }
-.pkb-wrap--c.is-entering .pkb-spark { animation: pkb-c-spark 0.7s ease 1.45s both; }
-.pkb-wrap--c.is-entering .pkb-tag::before { animation: pkb-c-ripple 1.1s ease-out 1.25s both; }
-.pkb-wrap--c.is-reminding .pkb-drop { animation: pkb-c-drip 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-.pkb-wrap--c.is-reminding .pkb-tag::before { animation: pkb-c-ripple 1.1s ease-out 0.4s both; }
-.pkb-wrap--c.is-reminding .pkb-spark { animation: pkb-c-spark 0.7s ease 0.6s both; }
+/* trvalý jemný pohyb do prvního otevření panelu: % tepe, cedulka se občas zavrtí */
+.pkb-wrap.is-idle .pkb-tag { animation: pkb-nudge 5s ease-in-out 1.5s infinite; }
+.pkb-wrap.is-idle .pkb-tag__pct { animation: pkb-beat 2.5s ease-in-out infinite; }
 
-/* --- Trvalý jemný pohyb po nástupu (do prvního otevření panelu) --- */
-.pkb-wrap--a.is-idle::before { animation: pkb-a-breathe 4s ease-in-out infinite; }
-.pkb-wrap--a.is-idle .pkb-tag::after { animation: pkb-shine-loop 6s ease-in-out 1s infinite; }
-.pkb-wrap--a.is-idle .pkb-pct-sym { animation: pkb-a-sway 5s ease-in-out infinite; }
-.pkb-wrap--b.is-idle .pkb-tag { animation: pkb-b-nudge 5s ease-in-out 1.5s infinite; }
-.pkb-wrap--b.is-idle .pkb-tag__pct { animation: pkb-b-beat 2.5s ease-in-out infinite; }
-.pkb-wrap--c.is-idle .pkb-drop { animation: pkb-c-drip-loop 4s linear infinite; }
-.pkb-wrap--c.is-idle .pkb-tag::before { animation: pkb-c-ripple-loop 4s ease-out infinite; }
-.pkb-wrap--c.is-idle .pkb-spark { animation: pkb-c-spark-loop 4s ease infinite; }
-
-/* mobil / hlavička: vstup zleva, C se rozvine doprava */
-@media (max-width: 1023px) {
-  .pkb-wrap--a.is-entering { animation-name: pkb-enter-l; }
-  .pkb-wrap--b.is-entering { animation-name: pkb-b-swing-l; }
-  .pkb-wrap--c.is-entering .pkb-tag { animation-name: pkb-c-unroll-l; }
-}
-
-/* --- Panel --- */
+/* ================= PANEL ================= */
 .pkb-overlay { position: fixed; inset: 0; z-index: 1002; background: rgba(0, 0, 0, 0.6); animation: pkb-fade 0.25s ease both; }
 .pkb-overlay.is-closing { animation: pkb-fade-out 0.38s ease both; }
 /* otevřená cedulka zůstává nad ztmavením – je vidět, odkud panel vyšel */
@@ -217,10 +112,9 @@
   .pkb-wrap { transition: rotate 0.5s cubic-bezier(0.22, 1, 0.36, 1), translate 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
   .pkb-wrap.is-open { rotate: -90deg; translate: 0 calc((var(--tag-w, 190px) + var(--tag-h, 58px)) / -2); }
   .pkb-wrap.is-open .pkb-tag:hover { transform: none; }
-  /* zvlášť – minifikátor by rotate/scale sloučil do transform a přestaly by platit */
-  .pkb-wrap.is-open .pkb-tag.pkb-tag--b:hover { rotate: none; scale: none; }
   .pkb-wrap.is-open .pkb-hide { opacity: 0; pointer-events: none; }
-  .pkb-panel.is-live { right: 76px; width: min(980px, calc(100vw - 100px)); }
+  /* .pkb-wrap ~ zvyšuje prioritu nad základním pravidlem .pkb-panel níže */
+  .pkb-wrap ~ .pkb-panel { right: 76px; width: min(980px, calc(100vw - 100px)); }
 }
 .pkb-panel {
   position: fixed;
@@ -252,79 +146,25 @@
   }
 }
 
-/* ===== Otevření z cedulky =====
-   JS nastaví --ox/--oy (střed cedulky vůči panelu), --hx/--hy (nejbližší bod na okraji panelu),
-   --r (poloměr k nejvzdálenějšímu rohu), data-dir = side (desktop) | top (cedulka nad panelem). */
-.pkb-panel.is-live:not([data-fx]) { visibility: hidden; }
-.pkb-fx-line { position: absolute; left: 0; right: 0; top: calc(var(--hy, 0px) - 1px); height: 2px; background: var(--pkb-gold-light); box-shadow: 0 0 12px rgba(243, 215, 154, 0.8); opacity: 0; pointer-events: none; z-index: 2; }
+/* Otevření z cedulky – klidně: panel se jemně vysune od záložky (desktop zprava, mobil a tablet shora)
+   a zprůhlední se do plné viditelnosti; bez otáčení a bez přehoupnutí.
+   JS nastaví data-dir = side (cedulka vedle panelu) | top (cedulka nad panelem). */
+.pkb-panel:not([data-fx]) { visibility: hidden; }
+.pkb-panel[data-fx] { animation: pkb-open-side 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.pkb-panel[data-fx][data-dir="top"] { animation-name: pkb-open-top; }
+.pkb-panel.is-closing { animation: pkb-close-side 0.3s ease-in both; }
+.pkb-panel.is-closing[data-dir="top"] { animation-name: pkb-close-top; }
 
-/* A – zlatá linka vystřelí z cedulky, panel se z ní rozvine jako opona */
-.pkb-panel--a.is-live[data-fx] { animation: pkb-a-open 0.8s cubic-bezier(0.65, 0, 0.35, 1) both; }
-.pkb-panel--a.is-live[data-fx] .pkb-fx-line { animation: pkb-a-line 0.95s ease both; }
-.pkb-panel--a.is-live.is-closing { animation: pkb-a-close 0.38s cubic-bezier(0.65, 0, 0.35, 1) both; }
-.pkb-panel--a.is-live.is-closing .pkb-fx-line { animation: pkb-a-line-close 0.38s ease both; }
+/* karty se postupně objeví z rozostření (bez přeskakování) */
+.pkb-panel .pkb-card { animation: pkb-card-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.pkb-panel .pkb-card:nth-child(1) { animation-delay: 0.2s; }
+.pkb-panel .pkb-card:nth-child(2) { animation-delay: 0.32s; }
+.pkb-panel .pkb-card:nth-child(3) { animation-delay: 0.44s; }
+.pkb-panel.is-closing .pkb-card { animation: none; }
 
-/* B – panel se z cedulky vyklopí jako dvířka (desktop do strany, mobil a tablet dolů jako klapka) */
-.pkb-panel--b.is-live[data-fx] { transform-origin: var(--hx) var(--hy); animation: pkb-b-open-side 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.pkb-panel--b.is-live[data-fx][data-dir="top"] { animation-name: pkb-b-open-top; }
-.pkb-panel--b.is-live.is-closing { animation: pkb-b-close-side 0.38s cubic-bezier(0.55, 0, 1, 0.45) both; }
-.pkb-panel--b.is-live.is-closing[data-dir="top"] { animation-name: pkb-b-close-top; }
-
-/* C – cedulka cákne a panel se rozlije z kapky jako kruh */
-.pkb-panel--c.is-live[data-fx] { animation: pkb-c-open 0.6s cubic-bezier(0.65, 0, 0.35, 1) both; }
-.pkb-panel--c.is-live.is-closing { animation: pkb-c-close 0.38s cubic-bezier(0.65, 0, 0.35, 1) both; }
-.pkb-wrap--c::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  margin: -20px 0 0 -20px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  opacity: 0;
-  pointer-events: none;
-}
-.pkb-wrap--c.is-open::after { animation: pkb-c-splash 0.7s ease-out both; }
-
-/* obsah naběhne až po rozvinutí – zpoždění podle varianty */
-.pkb-panel.is-live .pkb-card { animation: pkb-card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.pkb-panel--a.is-live .pkb-card:nth-child(1) { animation-delay: 0.5s; }
-.pkb-panel--a.is-live .pkb-card:nth-child(2) { animation-delay: 0.6s; }
-.pkb-panel--a.is-live .pkb-card:nth-child(3) { animation-delay: 0.7s; }
-.pkb-panel--b.is-live .pkb-card { animation-name: pkb-b-card-in; }
-.pkb-panel--b.is-live .pkb-card:nth-child(1) { animation-delay: 0.35s; }
-.pkb-panel--b.is-live .pkb-card:nth-child(2) { animation-delay: 0.45s; }
-.pkb-panel--b.is-live .pkb-card:nth-child(3) { animation-delay: 0.55s; }
-.pkb-panel--c.is-live .pkb-card { animation-name: pkb-c-card-in; }
-.pkb-panel--c.is-live .pkb-card:nth-child(1) { animation-delay: 0.3s; }
-.pkb-panel--c.is-live .pkb-card:nth-child(2) { animation-delay: 0.38s; }
-.pkb-panel--c.is-live .pkb-card:nth-child(3) { animation-delay: 0.46s; }
-.pkb-panel.is-live.is-closing .pkb-card { animation: none; }
-
-/* panel ve statickém náhledu (/balicky-nahled) */
-.pkb-panel.is-static { position: relative; right: auto; left: auto; top: auto; bottom: auto; transform: none; width: 100%; max-height: none; animation: none; z-index: auto; }
-
-.pkb-head { position: relative; display: flex; align-items: center; gap: 0.9rem; padding: 1.25rem 3.5rem 1.25rem 1.5rem; }
-.pkb-head svg :is(.pkb-pct-sym, .pkb-drop, .pkb-spark) { transform-box: fill-box; transform-origin: center; }
-.pkb-head svg .pkb-drop { transform-origin: center bottom; }
+.pkb-head { position: relative; display: flex; align-items: center; gap: 0.9rem; padding: 1.25rem 3.5rem 1.25rem 1.5rem; background: var(--pkb-yellow); color: #0a0a0a; }
 .pkb-head__title { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 1.6rem; line-height: 1; margin: 0; }
-.pkb-head__sub { font-size: 0.82rem; margin: 0.3rem 0 0; }
-.pkb-head--a { background: #0a0a0a; color: #FFFFFF; border-bottom: 1px solid rgba(201, 164, 92, 0.35); }
-.pkb-head--a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--pkb-gold); transform-origin: left center; }
-.pkb-head--a .pkb-head__sub { color: #D1D5DB; }
-.pkb-head--b { background: var(--pkb-yellow); color: #0a0a0a; }
-.pkb-head--b .pkb-head__sub { color: #1a1a1a; }
-.pkb-head--b .pkb-tag__pct { font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 2.8rem; line-height: 0.9; }
-.pkb-head--c { background: #FFFFFF; color: #0a0a0a; }
-.pkb-head--c .pkb-head__sub { color: #4B5563; }
-
-/* otevření panelu – efekt podle varianty + postupný nástup karet */
-.pkb-panel.is-live .pkb-head--a::after { animation: pkb-line 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.55s both; }
-.pkb-panel.is-live .pkb-head--a .pkb-ring { animation: pkb-a-ring 0.8s ease-out 0.5s both; }
-.pkb-panel.is-live .pkb-head--b .pkb-tag__pct { animation: pkb-b-stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both; }
-.pkb-panel.is-live .pkb-head--c .pkb-drop { animation: pkb-c-drip 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both; }
+.pkb-head .pkb-tag__pct { font-size: 2.8rem; animation: pkb-pct-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
 
 .pkb-close {
   position: absolute;
@@ -344,8 +184,7 @@
 .pkb-close:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
 .pkb-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 1.25rem 1.5rem 1.5rem; }
-@media (max-width: 768px) { .pkb-panel:not(.is-static) .pkb-cards { grid-template-columns: 1fr; padding: 1rem; } }
-.pkb-panel.is-column .pkb-cards { grid-template-columns: 1fr; padding: 1rem; }
+@media (max-width: 768px) { .pkb-cards { grid-template-columns: 1fr; padding: 1rem; } }
 
 .pkb-card { display: flex; flex-direction: column; background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.15); padding: 1.1rem; }
 .pkb-card__name { color: #FFFFFF; font-weight: 700; font-size: 1rem; margin: 0 0 0.35rem; }
@@ -361,165 +200,39 @@
 .pkb-foot a { color: #D1D5DB; font-size: 0.8rem; }
 
 /* ================= KEYFRAMES ================= */
-/* vstupy používají vlastnosti translate/rotate/scale, aby se nebily s transformací pozice a zkosením */
-@keyframes pkb-enter-r { from { opacity: 0; translate: 48px 0; } to { opacity: 1; translate: 0 0; } }
-@keyframes pkb-enter-l { from { opacity: 0; translate: -48px 0; } to { opacity: 1; translate: 0 0; } }
-@keyframes pkb-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes pkb-shine { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
-
-/* A */
-@keyframes pkb-a-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes pkb-a-trace-fade { 0%, 70% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes pkb-a-ring { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes pkb-a-pct { from { opacity: 0; scale: 0.4; rotate: -120deg; } to { opacity: 1; scale: 1; rotate: 0deg; } }
-@keyframes pkb-a-glow {
-  0%, 100% { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45); }
-  40% { box-shadow: 0 0 26px 3px rgba(201, 164, 92, 0.55), 0 6px 24px rgba(0, 0, 0, 0.45); }
-}
-
-/* B */
-@keyframes pkb-b-swing-r {
+/* pohyb cedulky používá vlastnosti translate/rotate/scale, aby se nebil s transformací pozice a zkosením */
+@keyframes pkb-swing-r {
   0% { opacity: 0; translate: 70px 0; rotate: 10deg; }
   55% { opacity: 1; translate: -6px 0; rotate: -5deg; }
   78% { translate: 2px 0; rotate: 2deg; }
   100% { translate: 0 0; rotate: 0deg; }
 }
-@keyframes pkb-b-swing-l {
+@keyframes pkb-swing-l {
   0% { opacity: 0; translate: -70px 0; rotate: -10deg; }
   55% { opacity: 1; translate: 6px 0; rotate: 5deg; }
   78% { translate: -2px 0; rotate: -2deg; }
   100% { translate: 0 0; rotate: 0deg; }
 }
-@keyframes pkb-b-stamp { 0% { opacity: 0; scale: 2.6; rotate: -25deg; } 60% { opacity: 1; scale: 0.85; rotate: 4deg; } 100% { opacity: 1; scale: 1; rotate: 0deg; } }
-@keyframes pkb-b-pop { 0%, 100% { scale: 1; } 45% { scale: 1.35; rotate: -8deg; } }
-@keyframes pkb-b-wiggle { 0%, 100% { rotate: 0deg; } 20% { rotate: -4deg; } 40% { rotate: 3.5deg; } 60% { rotate: -2.5deg; } 80% { rotate: 1.5deg; } }
+@keyframes pkb-stamp { 0% { opacity: 0; scale: 2.6; rotate: -25deg; } 60% { opacity: 1; scale: 0.85; rotate: 4deg; } 100% { opacity: 1; scale: 1; rotate: 0deg; } }
+@keyframes pkb-pop { 0%, 100% { scale: 1; } 45% { scale: 1.35; rotate: -8deg; } }
+@keyframes pkb-wiggle { 0%, 100% { rotate: 0deg; } 20% { rotate: -4deg; } 40% { rotate: 3.5deg; } 60% { rotate: -2.5deg; } 80% { rotate: 1.5deg; } }
+@keyframes pkb-nudge { 0%, 70%, 100% { rotate: 0deg; } 76% { rotate: -4deg; } 82% { rotate: 3deg; } 88% { rotate: -2deg; } 94% { rotate: 1deg; } }
+@keyframes pkb-beat { 0%, 40%, 100% { scale: 1; } 12% { scale: 1.18; } 24% { scale: 0.96; } 32% { scale: 1.08; } }
 
-/* C */
-@keyframes pkb-c-unroll-r { from { clip-path: inset(0 0 0 calc(100% - 46px) round 999px 0 0 999px); } to { clip-path: inset(0 0 0 0 round 999px 0 0 999px); } }
-@keyframes pkb-c-unroll-l { from { clip-path: inset(0 calc(100% - 44px) 0 0 round 999px); } to { clip-path: inset(0 0 0 0 round 999px); } }
-@keyframes pkb-c-text { from { opacity: 0; translate: -8px 0; } to { opacity: 1; translate: 0 0; } }
-@keyframes pkb-c-drip {
-  0% { opacity: 0; translate: 0 -14px; scale: 0.8 1.1; }
-  45% { opacity: 1; translate: 0 0; scale: 1.18 0.82; }
-  70% { scale: 0.94 1.06; }
-  100% { opacity: 1; translate: 0 0; scale: 1 1; }
-}
-@keyframes pkb-c-hop { 0%, 100% { translate: 0 0; } 40% { translate: 0 -4px; } }
-@keyframes pkb-c-spark { 0% { scale: 1; rotate: 0deg; } 40% { scale: 1.6; rotate: 45deg; } 100% { scale: 1; rotate: 90deg; } }
-@keyframes pkb-c-ripple { 0% { opacity: 0.7; scale: 0.6; } 100% { opacity: 0; scale: 3.2; } }
-
-/* trvalý pohyb */
-@keyframes pkb-a-breathe { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.85; } }
-@keyframes pkb-shine-loop { 0% { transform: translateX(-120%); } 22%, 100% { transform: translateX(120%); } }
-@keyframes pkb-a-sway { 0%, 100% { rotate: 0deg; } 25% { rotate: 10deg; } 75% { rotate: -10deg; } }
-@keyframes pkb-b-nudge { 0%, 70%, 100% { rotate: 0deg; } 76% { rotate: -4deg; } 82% { rotate: 3deg; } 88% { rotate: -2deg; } 94% { rotate: 1deg; } }
-@keyframes pkb-b-beat { 0%, 40%, 100% { scale: 1; } 12% { scale: 1.18; } 24% { scale: 0.96; } 32% { scale: 1.08; } }
-@keyframes pkb-c-drip-loop {
-  0% { opacity: 0; translate: 0 -14px; scale: 0.8 1.1; animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
-  10% { opacity: 1; translate: 0 0; scale: 1.18 0.82; animation-timing-function: ease-out; }
-  16% { scale: 0.94 1.06; }
-  22%, 85% { opacity: 1; translate: 0 0; scale: 1 1; }
-  95%, 100% { opacity: 0; translate: 0 0; scale: 1 1; }
-}
-@keyframes pkb-c-ripple-loop { 0%, 9% { opacity: 0; scale: 0.6; } 10% { opacity: 0.7; scale: 0.6; } 45%, 100% { opacity: 0; scale: 3.2; } }
-@keyframes pkb-c-spark-loop { 0%, 18%, 100% { scale: 1; rotate: 0deg; } 26% { scale: 1.6; rotate: 45deg; } 34% { scale: 1; rotate: 90deg; } }
-
-/* panel – společné */
+@keyframes pkb-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes pkb-fade-out { from { opacity: 1; } to { opacity: 0; } }
-
-/* A: bod u cedulky -> zlatá linka přes šířku -> opona */
-@keyframes pkb-a-open {
-  0% { clip-path: inset(calc(var(--hy) - 1px) calc(100% - var(--hx)) calc(100% - var(--hy) - 1px) var(--hx)); }
-  38% { clip-path: inset(calc(var(--hy) - 1px) 0 calc(100% - var(--hy) - 1px) 0); }
-  100% { clip-path: inset(0 0 0 0); }
-}
-@keyframes pkb-a-close {
-  0% { clip-path: inset(0 0 0 0); }
-  60% { clip-path: inset(calc(var(--hy) - 1px) 0 calc(100% - var(--hy) - 1px) 0); }
-  100% { clip-path: inset(calc(var(--hy) - 1px) calc(100% - var(--hx)) calc(100% - var(--hy) - 1px) var(--hx)); }
-}
-@keyframes pkb-a-line { 0%, 45% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes pkb-a-line-close { 0% { opacity: 0; } 50%, 100% { opacity: 1; } }
-
-/* B: vyklopení – do strany (desktop) / dolů (cedulka nad panelem) */
-@keyframes pkb-b-open-side {
-  0% { opacity: 0; transform: var(--pkb-base) perspective(1400px) rotateY(-92deg) scale(0.9); }
-  55% { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateY(9deg) scale(1.01); }
-  78% { transform: var(--pkb-base) perspective(1400px) rotateY(-3deg) scale(1); }
-  100% { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateY(0deg) scale(1); }
-}
-@keyframes pkb-b-close-side {
-  from { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateY(0deg) scale(1); }
-  to { opacity: 0; transform: var(--pkb-base) perspective(1400px) rotateY(-92deg) scale(0.9); }
-}
-@keyframes pkb-b-open-top {
-  0% { opacity: 0; transform: var(--pkb-base) perspective(1400px) rotateX(-92deg); }
-  55% { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateX(10deg); }
-  78% { transform: var(--pkb-base) perspective(1400px) rotateX(-4deg); }
-  100% { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateX(0deg); }
-}
-@keyframes pkb-b-close-top {
-  from { opacity: 1; transform: var(--pkb-base) perspective(1400px) rotateX(0deg); }
-  to { opacity: 0; transform: var(--pkb-base) perspective(1400px) rotateX(-92deg); }
-}
-@keyframes pkb-b-card-in { 0% { opacity: 0; scale: 0.85; rotate: -3deg; } 60% { opacity: 1; scale: 1.03; rotate: 1deg; } 100% { opacity: 1; scale: 1; rotate: 0deg; } }
-
-/* C: kruh z kapky */
-@keyframes pkb-c-open { from { clip-path: circle(0px at var(--ox) var(--oy)); } to { clip-path: circle(var(--r) at var(--ox) var(--oy)); } }
-@keyframes pkb-c-close { from { clip-path: circle(var(--r) at var(--ox) var(--oy)); } to { clip-path: circle(0px at var(--ox) var(--oy)); } }
-@keyframes pkb-c-splash { 0% { opacity: 0.9; scale: 0.6; } 100% { opacity: 0; scale: 9; } }
-@keyframes pkb-c-card-in { 0% { opacity: 0; translate: 0 18px; scale: 0.96; } 100% { opacity: 1; translate: 0 0; scale: 1; } }
-@keyframes pkb-line { from { scale: 0 1; } to { scale: 1 1; } }
-@keyframes pkb-card-in { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+/* panel: posun přes vlastnost translate, aby se nebil s vycentrováním (transform) */
+@keyframes pkb-open-side { from { opacity: 0; translate: 40px 0; scale: 0.985; } to { opacity: 1; translate: 0 0; scale: 1; } }
+@keyframes pkb-close-side { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 32px 0; } }
+@keyframes pkb-open-top { from { opacity: 0; translate: 0 -20px; } to { opacity: 1; translate: 0 0; } }
+@keyframes pkb-close-top { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 0 -16px; } }
+@keyframes pkb-card-in { from { opacity: 0; translate: 0 10px; filter: blur(6px); } to { opacity: 1; translate: 0 0; filter: blur(0); } }
+@keyframes pkb-pct-in { from { opacity: 0; scale: 0.7; } to { opacity: 1; scale: 1; } }
 
 /* Bez animací pro uživatele, kteří je mají vypnuté v systému */
 @media (prefers-reduced-motion: reduce) {
-  .pkb-wrap, .pkb-wrap::before, .pkb-wrap::after, .pkb-wrap *, .pkb-wrap *::before, .pkb-wrap *::after,
-  .pkb-overlay, .pkb-panel, .pkb-panel *, .pkb-panel *::after {
+  .pkb-wrap, .pkb-wrap *, .pkb-overlay, .pkb-panel, .pkb-panel * {
     animation: none !important;
     transition: none !important;
   }
-  .pkb-tag::after, .pkb-tag--c::before, .pkb-trace, .pkb-wrap--a::before, .pkb-wrap--c::after, .pkb-fx-line { display: none; }
 }
-
-/* --- Náhled: tvar v hlavičce mimo media query --- */
-.pkb-tag.is-header { height: 44px; padding: 0 0.7rem; gap: 0.45rem; box-shadow: none; transform: skewX(-8deg); }
-.pkb-tag.is-header > :not(.pkb-trace) { transform: skewX(8deg); }
-.pkb-tag.is-header svg:not(.pkb-trace) { width: 24px; height: 24px; }
-.pkb-tag.is-header .pkb-tag__title { display: block; font-size: 0.78rem; line-height: 1.05; width: min-content; }
-.pkb-tag.is-header .pkb-tag__sub { display: none; }
-.pkb-tag.is-header .pkb-tag__img { max-height: 44px; width: auto; }
-.pkb-tag.is-header.pkb-tag--a { border-right: 1px solid var(--pkb-gold); }
-.pkb-tag.is-header.pkb-tag--b { clip-path: none; padding: 0 0.7rem; }
-.pkb-tag.is-header.pkb-tag--b .pkb-tag__pct { font-size: 1.45rem; }
-.pkb-tag.is-header.pkb-tag--c { border-radius: 999px; transform: none; padding: 0 0.8rem; }
-.pkb-tag.is-header.pkb-tag--c > * { transform: none; }
-.pkb-tag.is-header.pkb-tag--c::before { left: 0.7rem; width: 24px; height: 24px; margin-top: -12px; }
-
-/* --- Ukázka pro majitele (GitHub Pages) --- */
-.pkb-demo-bar {
-  position: fixed;
-  z-index: 1005;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.4rem 0.35rem 0.75rem;
-  background: rgba(10, 10, 10, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  max-width: calc(100vw - 24px);
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.pkb-demo-bar__label { color: #9CA3AF; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 0.25rem; }
-.pkb-demo-bar button { padding: 0.45rem 0.7rem; font-size: 0.78rem; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.4); background: transparent; color: #FFFFFF; cursor: pointer; }
-.pkb-demo-bar button[aria-pressed='true'] { background: #FFFFFF; color: #0a0a0a; }
-.pkb-btn.is-demo, .pkb-foot .is-demo { cursor: default; }
-.pkb-foot .is-demo { color: #D1D5DB; font-size: 0.8rem; }
-/* mobil a tablet: pod hlavičkou, ať nepřekrývá lištu v hero; při otevřeném panelu schovat */
-@media (max-width: 1023px) { .pkb-demo-bar { top: 108px; bottom: auto; } }
-.pkb-wrap.is-open ~ .pkb-demo-bar { display: none; }
-@media (max-width: 480px) { .pkb-demo-bar__label { display: none; } .pkb-demo-bar button { padding: 0.45rem 0.55rem; font-size: 0.72rem; } }

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { usePathname } from 'next/navigation';
-import { badgeConfig, BADGE_HIDDEN_PATHS, type BadgeVariant, type BadgeImage } from '@/data/packages';
+import { badgeConfig, BADGE_HIDDEN_PATHS, type BadgeImage } from '@/data/packages';
 import { trackEvent } from '@/lib/track';
 import { BadgeTagContent } from './BadgeArt';
 import { PackagesPanel } from './PackagesPanel';
@@ -11,7 +11,7 @@ import './packages-badge.css';
 const HIDDEN_KEY = 'mn-balicky-hidden';
 const CALM_KEY = 'mn-balicky-calm';     // po prvním otevření panelu už se cedulka nehýbe
 const SHOW_DELAY_MS = 1800;
-const ENTER_MS = 3200;        // délka úvodní animace (nejdelší varianta A)
+const ENTER_MS = 2200;        // délka úvodní animace (zhoupnutí, razítko %, zavlnění)
 const REMIND_MS = 2400;       // délka jednoho připomenutí
 const REMIND_EVERY_MS = 15000;
 const REMIND_MAX = 3;         // pak už se cedulka nehýbe
@@ -27,22 +27,13 @@ function subscribeMobile(cb: () => void) {
 const getMobile = () => window.matchMedia(MOBILE_QUERY).matches;
 
 interface Props {
-  variant?: BadgeVariant;
   image?: BadgeImage | null;
-  /** Zobrazit i na skrytých stránkách (náhledová stránka). */
-  forceShow?: boolean;
-  /** Pro náhled: zpoždění nástupu a interval připomenutí. */
-  showDelay?: number;
-  remindEvery?: number;
-  /** Ukázka pro majitele: nic se neukládá, v panelu nejde nic rozkliknout. */
-  demo?: boolean;
 }
 
 type Phase = 'entering' | 'idle' | 'reminding';
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConfig.image, forceShow, showDelay = SHOW_DELAY_MS, remindEvery = REMIND_EVERY_MS, demo }: Props) {
-  const persist = !forceShow && !demo;
+export function PackagesBadge({ image = badgeConfig.image }: Props) {
   const pathname = usePathname();
   const isMobile = useSyncExternalStore(subscribeMobile, getMobile, () => false);
   const [shown, setShown] = useState(false);
@@ -65,16 +56,16 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
     const start = () => {
       timer = setTimeout(() => {
         try {
-          if (persist && sessionStorage.getItem(HIDDEN_KEY)) setHidden(true);
-          if (persist && sessionStorage.getItem(CALM_KEY)) setCalm(true);
+          if (sessionStorage.getItem(HIDDEN_KEY)) setHidden(true);
+          if (sessionStorage.getItem(CALM_KEY)) setCalm(true);
         } catch { /* bez storage */ }
         setShown(true);
-      }, showDelay);
+      }, SHOW_DELAY_MS);
     };
     if (document.readyState === 'complete') start();
     else window.addEventListener('load', start, { once: true });
     return () => { clearTimeout(timer); window.removeEventListener('load', start); };
-  }, [persist, showDelay]);
+  }, []);
 
   useEffect(() => { openRef.current = open; }, [open]);
   useEffect(() => { calmRef.current = calm; }, [calm]);
@@ -90,11 +81,11 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
           if (document.hidden || openRef.current || calmRef.current) return;
           setPhase('reminding');
           timers.push(setTimeout(() => setPhase('idle'), REMIND_MS));
-        }, ENTER_MS + i * remindEvery));
+        }, ENTER_MS + i * REMIND_EVERY_MS));
       }
     }
     return () => timers.forEach(clearTimeout);
-  }, [shown, remindEvery]);
+  }, [shown]);
 
   // Zavření: panel se animací vrátí do cedulky (při navigaci nebo bez animací hned)
   const close = useCallback((returnFocus = true, animate = true) => {
@@ -110,8 +101,8 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
   }, []);
   useEffect(() => () => clearTimeout(closeTimer.current), []);
 
-  // Otevření: změřit, kde je cedulka vůči panelu, a podle toho nastavit výchozí bod efektu.
-  // Proměnné a data-atributy se zapisují přímo do DOM ještě před vykreslením (bez dalšího renderu).
+  // Otevření: zjistit, jestli je cedulka vedle panelu (desktop) nebo nad ním (mobil, tablet) – panel se
+  // vysune z její strany. Proměnné a data-atributy se zapisují přímo do DOM ještě před vykreslením.
   useLayoutEffect(() => {
     const panel = panelRef.current, tag = tagRef.current;
     if (!open || !panel || !tag) return;
@@ -119,11 +110,6 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
     wrapRef.current?.style.setProperty('--tag-w', `${tag.offsetWidth}px`);
     wrapRef.current?.style.setProperty('--tag-h', `${tag.offsetHeight}px`);
     const t = tag.getBoundingClientRect(), p = panel.getBoundingClientRect();
-    const ox = t.left + t.width / 2 - p.left, oy = t.top + t.height / 2 - p.top;
-    const hx = Math.min(Math.max(ox, 0), p.width), hy = Math.min(Math.max(oy, 0), p.height);
-    const r = Math.max(...[[0, 0], [p.width, 0], [0, p.height], [p.width, p.height]].map(([x, y]) => Math.hypot(x - ox, y - oy)));
-    const set = (k: string, v: number) => panel.style.setProperty(k, `${Math.round(v)}px`);
-    set('--ox', ox); set('--oy', oy); set('--hx', hx); set('--hy', hy); set('--r', r + 2);
     panel.dataset.dir = t.bottom <= p.top + 4 ? 'top' : 'side';
     panel.dataset.fx = 'in';
   }, [open]);
@@ -162,7 +148,7 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
     return () => { document.body.style.overflow = prev; };
   }, [open, isMobile]);
 
-  if (!forceShow && BADGE_HIDDEN_PATHS.includes(pathname)) return null;
+  if (BADGE_HIDDEN_PATHS.includes(pathname)) return null;
   if (!shown || hidden) return null;
 
   const toggle = () => {
@@ -172,12 +158,12 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
     setOpen(true);
     if (!calm) {
       setCalm(true);
-      try { if (persist) sessionStorage.setItem(CALM_KEY, '1'); } catch { /* bez storage */ }
+      try { sessionStorage.setItem(CALM_KEY, '1'); } catch { /* bez storage */ }
     }
-    if (!demo) trackEvent('balicky_open');
+    trackEvent('balicky_open');
   };
   const hide = () => {
-    try { if (persist) sessionStorage.setItem(HIDDEN_KEY, '1'); } catch { /* bez storage */ }
+    try { sessionStorage.setItem(HIDDEN_KEY, '1'); } catch { /* bez storage */ }
     clearTimeout(closeTimer.current);
     setOpen(false);
     setClosing(false);
@@ -186,17 +172,17 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
 
   return (
     <>
-      <div ref={wrapRef} className={`pkb-wrap pkb-wrap--${variant} ${phase === 'idle' ? (calm ? '' : 'is-idle') : `is-${phase}`}${open && !closing ? ' is-open' : ''}`}>
+      <div ref={wrapRef} className={`pkb-wrap ${phase === 'idle' ? (calm ? '' : 'is-idle') : `is-${phase}`}${open && !closing ? ' is-open' : ''}`}>
         <button
           ref={tagRef}
           type="button"
-          className={`pkb-tag pkb-tag--${variant}`}
+          className="pkb-tag"
           aria-expanded={open && !closing}
           aria-controls={PANEL_ID}
           aria-label={image ? 'Výhodné balíčky' : undefined}
           onClick={toggle}
         >
-          <BadgeTagContent variant={variant} image={image} />
+          <BadgeTagContent image={image} />
         </button>
         <button type="button" className="pkb-hide" onClick={hide} aria-label="Skrýt výhodné balíčky do konce návštěvy">
           skrýt
@@ -208,11 +194,7 @@ export function PackagesBadge({ variant = badgeConfig.variant, image = badgeConf
           {isMobile && <div className={`pkb-overlay${closing ? ' is-closing' : ''}`} aria-hidden="true" />}
           <PackagesPanel
             id={PANEL_ID}
-            variant={variant}
-            layout={isMobile ? 'column' : 'row'}
             isModal={isMobile}
-            isLive
-            demo={demo}
             isClosing={closing}
             onClose={() => close()}
             onNavigate={() => close(false, false)}

@@ -1,6 +1,6 @@
 // Ukázka webu pro GitHub Pages (https://mareksmooth.github.io/MN-Shine/) – npm run demo:build
-// Postaví web v ukázkovém režimu (noindex, bez gtagu a cookie lišty, neodesílající formulář,
-// neklikatelný panel balíčků, přepínač variant cedulky) do složky demo-out/.
+// Postaví web v ukázkovém režimu (noindex, bez gtagu a cookie lišty; odkazy i formulář fungují
+// jako na ostrém webu) do složky demo-out/.
 // Ostrý web se staví dál přes npm run ftp:prepare – tento skript ho neovlivňuje.
 import { spawnSync } from 'node:child_process';
 import { cpSync, rmSync, readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';

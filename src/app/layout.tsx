@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { PackagesBadge } from "@/components/packages/PackagesBadge";
-import { DemoBadge } from "@/components/packages/DemoBadge";
 import { IS_DEMO } from "@/lib/demo";
 
 const inter = Inter({
@@ -97,7 +96,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </LoadingScreen>
-        {IS_DEMO ? <DemoBadge /> : <PackagesBadge />}
+        <PackagesBadge />
         {!IS_DEMO && <CookieConsent />}
       </body>
     </html>

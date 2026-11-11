@@ -11,7 +11,7 @@ const URL = `https://mnshine.cz${PACKAGES_PATH}`;
 
 export const metadata: Metadata = {
   title: { absolute: 'Výhodné balíčky – vosk, keramika, oživení laku | MN Shine Detailing Brno' },
-  description: 'Balíčky péče o lak v Brně: mytí a tuhý vosk od 4 499 Kč, keramická ochrana Gyeon CanCoat EVO od 5 499 Kč, oživení laku od 4 999 Kč.',
+  description: 'Balíčky péče o lak v Brně: mytí a tuhý vosk od 4 499 Kč, keramická ochrana laku od 5 499 Kč, oživení laku od 4 999 Kč.',
   alternates: { canonical: URL },
   openGraph: {
     type: 'website',

@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { packages, getPackage } from '@/data/packages';
-import { IS_DEMO } from '@/lib/demo';
 
 interface FormData {
   name: string;
@@ -65,11 +64,6 @@ export function ContactSection() {
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      return;
-    }
-
-    if (IS_DEMO) {
-      alert('Toto je ukázka webu – formulář se neodesílá.');
       return;
     }
 

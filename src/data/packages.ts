@@ -1,5 +1,6 @@
 // Výhodné balíčky – jediný zdroj dat pro plovoucí cedulku i stránku /vyhodne-balicky.
 // Texty a ceny doslova podle podkladu majitele (akcni-balicky.pdf). Nic nedoplňovat.
+// Odchylka odsouhlasená s majitelem: místo konkrétní značky keramiky obecně „keramický povlak“.
 
 export type PackageSlug = 'vosk' | 'keramika' | 'oziveni';
 
@@ -48,10 +49,9 @@ export const packages: ServicePackage[] = [
     summary: 'Důkladné vyčištění karoserie a odstranění odolných nečistot s následnou aplikací kvalitního tuhého vosku.',
     description: 'Důkladné vyčištění karoserie a odstranění odolných nečistot s následnou aplikací kvalitního tuhého vosku. Pro zákazníky, kteří chtějí čistý, lesklejší a chráněný lak bez strojního leštění.',
     includes: [
-      'Důkladné předmytí vozidla a čištění kol z vnější strany a pneumatik.',
-      'Šetrné ruční mytí karoserie.',
-      'Chemická dekontaminace – odstranění polétavé rzi, asfaltu a dalších usazenin.',
-      'Oplach, šetrné vysušení, příprava a odmaštění povrchu.',
+      'Důkladné předmytí, čištění kol z vnější strany a pneumatik, šetrné ruční mytí.',
+      'Chemická dekontaminace laku, důkladný oplach a vysušení.',
+      'Příprava laku s důkladným odmaštěním.',
       'Aplikace kvalitního tuhého vosku a závěrečná kontrola.',
     ],
     result: 'Čistý, hladší a lesklejší lak s hydrofobní ochranou usnadňující údržbu.',
@@ -60,18 +60,18 @@ export const packages: ServicePackage[] = [
   {
     slug: 'keramika',
     name: 'Důkladné mytí, dekontaminace a keramická ochrana laku',
-    shortName: 'Mytí + keramika',
+    shortName: 'Mytí + keramická ochrana',
     priceFrom: 5499,
     prices: { small: 5499, medium: 5999, large: 6499 },
     protection: 'až 12 měsíců',
     duration: 'zpravidla přes noc',
-    summary: 'Kompletní příprava karoserie a aplikace keramické ochrany Gyeon CanCoat EVO.',
-    description: 'Kompletní příprava karoserie a aplikace keramické ochrany Gyeon CanCoat EVO. Pomáhá odpuzovat vodu, zvýrazňuje lesk a usnadňuje pravidelné mytí. Bez předchozího strojního leštění.',
+    summary: 'Důkladné vyčištění karoserie a odstranění odolných nečistot s následnou aplikací keramické ochrany.',
+    description: 'Kompletní příprava karoserie a aplikace keramického povlaku. Pomáhá odpuzovat vodu, zvýrazňuje lesk a usnadňuje pravidelné mytí. Bez předchozího strojního leštění.',
     includes: [
       'Důkladné předmytí, čištění kol z vnější strany a pneumatik, šetrné ruční mytí.',
       'Chemická dekontaminace laku, důkladný oplach a vysušení.',
-      'Kontrola stavu laku, příprava a důkladné odmaštění.',
-      'Aplikace Gyeon CanCoat EVO, vytvrzení v kontrolovaných podmínkách a závěrečná kontrola.',
+      'Příprava laku s důkladným odmaštěním.',
+      'Aplikace keramického povlaku, vytvrzení v kontrolovaných podmínkách a závěrečná kontrola.',
     ],
     result: null,
     notes: [
@@ -99,14 +99,14 @@ export const packages: ServicePackage[] = [
     notes: [],
     addons: [
       { name: 'Tuhý vosk', protection: 'přibližně 6–12 měsíců', price: 1499 },
-      { name: 'Keramická ochrana Gyeon CanCoat EVO', protection: 'až 12 měsíců', price: 2499 },
+      { name: 'Keramický povlak', protection: 'až 12 měsíců', price: 2499 },
     ],
     addonsNote: 'Příplatky platí při společné realizaci s rozjasněním; nejde o ceny samostatných služeb. U keramiky je nutné počítat s dobou vytvrzení a zpravidla přenocováním vozidla.',
   },
 ];
 
 export const packagesIntro =
-  'Profesionální péče o lak za zvýhodněné ceny. Dopřejte svému vozu důkladné vyčištění, dlouhodobou ochranu nebo oživení vzhledu laku. Nabídka platí dlouhodobě, bez časového omezení.';
+  'Profesionální péče o lak za zvýhodněné ceny. Dopřejte svému vozu důkladné vyčištění, dlouhodobou ochranu nebo oživení vzhledu laku.';
 
 export const oziveniVsRenovace = {
   title: 'Rozdíl oproti jednokrokové renovaci laku',
@@ -152,9 +152,7 @@ export function orderHref(slug: PackageSlug): string {
   return `/kontakt?balicek=${slug}#kontakt`;
 }
 
-// ---- Plovoucí cedulka „Výhodné balíčky“ ----
-export type BadgeVariant = 'a' | 'b' | 'c';
-
+// ---- Plovoucí cedulka „Výhodné balíčky“ (žlutý ribbon s %, odsouhlaseno s majitelem) ----
 export interface BadgeImage {
   /** WebP v /public/balicky/, max ~60 kB */
   src: string;
@@ -162,12 +160,10 @@ export interface BadgeImage {
   height: number;
 }
 
-export const badgeConfig: { variant: BadgeVariant; image: BadgeImage | null } = {
-  // a = elegantní (tmavá + zlatá), b = výrazná (žlutý ribbon), c = minimal (bílý pill)
-  variant: 'a',
+export const badgeConfig: { image: BadgeImage | null } = {
   // Vlastní grafika místo SVG/CSS, např. { src: '/balicky/cedulka.webp', width: 220, height: 64 }
   image: null,
 };
 
 /** Stránky, kde se cedulka nezobrazuje. */
-export const BADGE_HIDDEN_PATHS = [PACKAGES_PATH, '/balicky-nahled'];
+export const BADGE_HIDDEN_PATHS = [PACKAGES_PATH];

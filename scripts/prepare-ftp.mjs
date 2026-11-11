@@ -3,6 +3,7 @@
 // Spouštět přes: npm run ftp:prepare (nejdřív udělá build)
 import { cpSync, rmSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, basename, sep } from 'node:path';
+import { fixRscPaths } from './fix-rsc-paths.mjs';
 
 const SRC = 'out';
 const DEST = 'ftp-upload';
@@ -30,8 +31,10 @@ cpSync(SRC, DEST, {
   },
 });
 
+const rscFixed = fixRscPaths(DEST); // přednačítání stránek bez 404
+
 const walk = d => readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(join(d, e.name)) : [join(d, e.name)]);
 const files = walk(DEST);
 const size = files.reduce((s, f) => s + statSync(f).size, 0);
-console.log(`ftp-upload/ připraveno: ${files.length} souborů, ${(size / 1e6).toFixed(1)} MB (vynecháno ${skipped}).`);
+console.log(`ftp-upload/ připraveno: ${files.length} souborů, ${(size / 1e6).toFixed(1)} MB (vynecháno ${skipped}, opraveno ${rscFixed} cest přednačítání).`);
 console.log('Nahrát CELÝ OBSAH složky (včetně skrytého .htaccess) do kořene webu na FTP.');
